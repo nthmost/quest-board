@@ -1,0 +1,3840 @@
+# Mined Discord candidates. Each entry is a draft quest_template seed.
+# Review each by hand before promoting to the live pool.
+# Generated: 2026-05-09T02:56:39
+- id: tpl-9fba99331390
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2022-08-30'
+  title_seed: All are welcome tomorrow (Tuesday) night 7-9 pm
+- id: tpl-f75610ab67e9
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2022-11-19'
+  title_seed: Ha ha
+- id: tpl-e52795b65c5d
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2023-12-22'
+  title_seed: Hi, Sheezy
+- id: tpl-c9b9e6188e3d
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2024-04-13'
+  title_seed: Hi everyone
+- id: tpl-d471b42b75e4
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2024-04-13'
+  title_seed: HI, [#channel]
+- id: tpl-c53d7d6923f2
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2024-08-24'
+  title_seed: If you need subltety, I can do subtle
+- id: tpl-9ee05e05c210
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2025-05-31'
+  title_seed: 'Next Friday, June 6, 7-9pm: SF Writers Workshop Benefit for Noisebridge'
+- id: tpl-ae9f19552f20
+  source: discord:writing
+  guild_slug: writing
+  channel: writing
+  posted_at: '2026-02-10'
+  title_seed: Hi
+- id: tpl-20a23384cf39
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2021-10-04'
+  title_seed: if you really can’t find it, I have one you can borrow temporarily
+- id: tpl-70c979a40c8c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-08-12'
+  title_seed: Does anyone know if NB has a suction cup/phone repair kit
+- id: tpl-3c0b16e5986f
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-01-06'
+  title_seed: I’ve got this LCD display I was using in a little portable raspi emulator, but I broke the
+- id: tpl-1b2272b7a22b
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-07-23'
+  title_seed: I am working on an audio project, and need a 3.5 mm 4-pole audio cable -> alligator clips
+- id: tpl-215243b6234f
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-11-02'
+  title_seed: not too sure where all to ask this
+- id: tpl-a2bdf92af287
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-11'
+  title_seed: Hey would anyone be able to help me troubleshoot what I'm doing wrong with my DAC0800 IC
+- id: tpl-6d36095472c8
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-02-10'
+  title_seed: Had a question and was wondering if someone here, more knowledgeable about the subject cou
+- id: tpl-f03d84f92914
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-10-05'
+  title_seed: ~~Does anyone have an [st]([link] account handy
+- id: tpl-8a86f23e7da6
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-01-26'
+  title_seed: Anyone here have experience repairing membrane switches
+- id: tpl-ee31bfaa41f3
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-04-30'
+  title_seed: For higher brightness, get strips with more LEDs/meter, you can find 30, 60, 90, or 144
+    bu
+- id: tpl-0b0b5b54a3df
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-09-15'
+  title_seed: Has anyone here fixed a microwave's door switch
+- id: tpl-9f9ffbf33e41
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-15'
+  title_seed: Hi y'all
+- id: tpl-d1010b7819d9
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-07'
+  title_seed: I need to mount the radio antenna _for real_ as it is overheating the transmitter due to
+    i
+- id: tpl-b6e8df5fbf7c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-02-10'
+  title_seed: im thinking of making a micro controller cluster (I knew they where real) just to test it
+- id: tpl-02937485e1d2
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-08-11'
+  title_seed: 'Noob question: I''m looking for a shift register'
+- id: tpl-154f0b37bbdb
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-12-21'
+  title_seed: Supposing I wanted to subsume cqcqcq on slack into a ham radio space, is there a way to
+    se
+- id: tpl-beeca98aaf24
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-07-22'
+  title_seed: I'm looking to build a control box for an adjustable RPM motor but have no electronics exp
+- id: tpl-39516a02f4db
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-10-22'
+  title_seed: okay so i have some confidence i can do it now learning i can skip the soldering steps
+- id: tpl-2d943f033d7a
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-08'
+  title_seed: There are still a lot of items in the unsorted bins to sort
+- id: tpl-52d08d611269
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-02-06'
+  title_seed: There is now a solder fume extractor at the soldering station
+- id: tpl-ff8b352dd835
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-01-14'
+  title_seed: was really easy to build access control thingies
+- id: tpl-749985dbac6b
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-04-20'
+  title_seed: some friends and i are seeing who can build the best covert meshtastic node - in a smartbu
+- id: tpl-a7ced692c47a
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-08-09'
+  title_seed: Folks, Does anyone have a Microchip PICkit 5 in-circuit debugger that I could borrow for
+    a
+- id: tpl-a7ed84933923
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-08'
+  title_seed: If anyone is interested in a good automatic routing tool for PCB let me know
+- id: tpl-156ed5d85f12
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-02'
+  title_seed: Anyone have one of these I could borrow for a few minutes
+- id: tpl-0f44b260d2bc
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-27'
+  title_seed: '**Attention folks repairing phone screens!** 📱🪛 Rather than messing with with heat packs/h'
+- id: tpl-a83d57a0d5a8
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-08-10'
+  title_seed: Hi everyone
+- id: tpl-5f65bca71c7a
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-12-21'
+  title_seed: Typically some kind of nickel alloy, solderable but would be careful for reasons you menti
+- id: tpl-5993d231a8e8
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-07-12'
+  title_seed: Gentlemen, Does anyone want to sneak into the SemiCon West exhibit at Moscone
+- id: tpl-5dd2d5234783
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-06'
+  title_seed: 'Big Plans: I wanted to layout some ideas that I have been forming as I learn more about
+    el'
+- id: tpl-bafb0921d8f8
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-02-01'
+  title_seed: If you're not going, I can look things up for you
+- id: tpl-9775c6984365
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-08-13'
+  title_seed: (I don't use NB enough to know where to store these chips so other people can find them
+    -
+- id: tpl-880ce9075c20
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-12-17'
+  title_seed: anyone has an elegoo rc or any rc that is equipped with cv that i can borrow and program
+- id: tpl-79c5900f67ee
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-04-15'
+  title_seed: Then I need to be there too
+- id: tpl-21233aff6616
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-08-04'
+  title_seed: Hi there
+- id: tpl-26abe867f9f3
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-06'
+  title_seed: Someone reverse-thefted some stuff into the electronics room
+- id: tpl-84485cf8d97c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-30'
+  title_seed: I’ll have more time in the new year to be a bit more involved - if there are other folks
+    i
+- id: tpl-6bcacc6ca4c5
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-26'
+  title_seed: 'I''m trying to fix an old trackball mouse but am functionally clueless re: how to safely
+    us'
+- id: tpl-4933a442c3ed
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-12-16'
+  title_seed: '[#channel] I have a eg4-lifepower 24v battery with built in bms [link] I will connect to
+    a'
+- id: tpl-41e418981f21
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-06-28'
+  title_seed: I have the following to donate ( all in working condition of course ) XY ballscrew stage
+    o
+- id: tpl-2f68099ebf4c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-10-21'
+  title_seed: okay so i talked to someone online whos done it before and they said if i can find a clamp
+- id: tpl-6d3a7f26e764
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-06'
+  title_seed: Just did a quick clean up of the room
+- id: tpl-eb202587eb4b
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-29'
+  title_seed: I needed to hold the contactors open on my 2002 RAV4 EV so I could force current into the
+- id: tpl-dedd3edbb724
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-07-30'
+  title_seed: the arduino should be able to run all this tho as far as control but u would need to check
+- id: tpl-af36157beb28
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-12-16'
+  title_seed: Yesterday there was a donation received in the electronics room
+- id: tpl-04639be9b5a5
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-03-31'
+  title_seed: I’d love to host it if yall are still looking for someone
+- id: tpl-bc52d58bb199
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-08-03'
+  title_seed: Anyone here know where I could find some fpga boards on the cheap
+- id: tpl-42799e1b4355
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-30'
+  title_seed: Hey dunno if anyone can in this guild is interested or has the know-how to help
+- id: tpl-d84faed6712f
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-22'
+  title_seed: '[#channel] HJust wanted to update you; we''ve attempted everything _other_ than solder
+    with'
+- id: tpl-4d2861812f8c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-08-06'
+  title_seed: Hm
+- id: tpl-e7b6a49b3276
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-12-10'
+  title_seed: Can anyone recommend a store in the Bay area (preferably SF, but I can travel if necessary
+- id: tpl-d760e9e8bd51
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-06-16'
+  title_seed: 'Hey [#channel] '
+- id: tpl-998472827ef6
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-10-21'
+  title_seed: would be nice if someone has this programmer already that i can borrow too
+- id: tpl-12506a90f02b
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-12-30'
+  title_seed: '@here, Hi Everyone'
+- id: tpl-2a1bb0a328fb
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-28'
+  title_seed: Soldering tools are looking a bit rough at the moment
+- id: tpl-e7cd1c4dc0d0
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-07-07'
+  title_seed: Hi all, sort of a weird ask--I have a mechanical keyboard I an trying to build but I've
+    un
+- id: tpl-bd40ee8f5b7e
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-03-26'
+  title_seed: Hey all
+- id: tpl-85b2615d609f
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-07-24'
+  title_seed: is this the right place to ask for some electronics help
+- id: tpl-04740b5e1129
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-03'
+  title_seed: if I had a computer with an SSD id hope id have a normal sized SD card slot (to be less
+    fr
+- id: tpl-7d693a09472f
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-28'
+  title_seed: its possible to make a tablet (which I might do again if I could find a container to use
+    a
+- id: tpl-9c1847643001
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-21'
+  title_seed: also sometimes when you use electric, the bit will waver if you're not using a drill press
+- id: tpl-7a3c46b17d40
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-07-07'
+  title_seed: '[link] do we have cheap learning kits like this and folks who would be willing to teach
+    so'
+- id: tpl-a7578aa03fef
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2022-11-15'
+  title_seed: OK make sure you understand the difference between servo PWM and LED PWM
+- id: tpl-eab598241092
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-06-14'
+  title_seed: Hey guys
+- id: tpl-6625bafa8a6b
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2023-10-07'
+  title_seed: that seems interesting
+- id: tpl-e7b15ed63e31
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-01-28'
+  title_seed: Oh [#channel] , we actually need to find the folks handling the soldering space in Noisebr
+- id: tpl-c287b2714514
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-06-24'
+  title_seed: There's been murmurs about restarting a circuit hacking class
+- id: tpl-13eae8025faa
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2024-12-11'
+  title_seed: Hope this isn't against the rules, I'm just posting in here to ask anyone electronics-orie
+- id: tpl-d5d2a8f1a4ff
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-03-21'
+  title_seed: I've tried using various USB adapters and other modern readers and they don't really work
+- id: tpl-73a80373c103
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-06-23'
+  title_seed: Yeah, some of the pins if not all of them look like solder is still on it
+- id: tpl-42e2b5290af6
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-11-28'
+  title_seed: Can anyone recommend a store where I could pick up a soldering iron today
+- id: tpl-937b09fe794c
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2025-12-26'
+  title_seed: Heyo does anyone know how to fix a desk lamp
+- id: tpl-7418aa1b2cd6
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-01-21'
+  title_seed: i don't know if electric would help
+- id: tpl-f3b0a93b6608
+  source: discord:electronics
+  guild_slug: electronics
+  channel: electronics
+  posted_at: '2026-03-07'
+  title_seed: does anyone have a mt7612u wifi adapter i could borrow today that lives in the bay area
+- id: tpl-993f64f37333
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2023-08-15'
+  title_seed: Are you guys okay if I bring printer paper
+- id: tpl-1c99201d207a
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2024-02-22'
+  title_seed: I have a collapsible table to donate for the sewing room but it’s too much for me to carry
+- id: tpl-22e3ec622608
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2024-05-14'
+  title_seed: Im wondering if I can bring in some sound proofing panels for the sound studio
+- id: tpl-29e8d43a36df
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2024-08-16'
+  title_seed: cleaning out my house for moving and got two gmmk keyboards one fully built up and the oth
+- id: tpl-7b0bbd7ec3d9
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-06-10'
+  title_seed: Would Noisebridge be interested in several large wood board/planks
+- id: tpl-ec1154932bb1
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-07-21'
+  title_seed: Could i donate a power rack to Noisebridge
+- id: tpl-94a9bbf1b6a3
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-09-18'
+  title_seed: Who knows what our status is on space heaters for the winter
+- id: tpl-6002cda7081a
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-10-07'
+  title_seed: General PSA leaving a pile of stuff is considered unexcellent
+- id: tpl-6cdb62872b9e
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-11-21'
+  title_seed: hello NB
+- id: tpl-da932d14999f
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-11-29'
+  title_seed: hello
+- id: tpl-549858742349
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-12-07'
+  title_seed: I'm looking to get a Nintendo switch for gamebridge
+- id: tpl-bb188b802629
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-01-12'
+  title_seed: Is anyone here interested in a Facebook Portal+
+- id: tpl-a6af6010247b
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-01-16'
+  title_seed: Hi this is Aisha
+- id: tpl-a93e1bb87843
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-01-13'
+  title_seed: 'Got an email from someone: "I have some excess sheet metal (various gauges), aluminum bloc'
+- id: tpl-f6f54d17e337
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-06-11'
+  title_seed: Hi - I have been offering free computers and computer repairs for anyone in need of help
+    f
+- id: tpl-c13d850353f4
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-09-10'
+  title_seed: '``` We have a bunch of backboards that could be of some use to you'
+- id: tpl-df3a48993257
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-10-06'
+  title_seed: How was it setup are there wires there still just needs to be connected or was it wireless
+- id: tpl-23b12e2564aa
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-10-08'
+  title_seed: also posted in slack (a few weeks ago) but I have this 12000btu ac unit if anyone wants
+    it
+- id: tpl-2306eaa3d1f9
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-11-21'
+  title_seed: Great example of how a local non profit asks for donations and clearly explains what the
+    $
+- id: tpl-a7fd6004ec49
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2025-12-07'
+  title_seed: '[#channel] Yes, please'
+- id: tpl-a562a03f2a7f
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-01-09'
+  title_seed: Would anyone be able to receive these speakers if I sent an Uber courier
+- id: tpl-2d46175f9b8c
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-01-13'
+  title_seed: '[#channel] send speaker wire'
+- id: tpl-c33aff3182bc
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-01-16'
+  title_seed: Elan is helping me set up a time
+- id: tpl-6dc495b1417d
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2023-11-22'
+  title_seed: If I wanted to donate money or time, which would be more valuable
+- id: tpl-414da9ab3e13
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2024-03-27'
+  title_seed: Does anyone have a DSLR camera that they’re willing to let me borrow for a few weeks/month
+- id: tpl-20b697d66371
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2024-05-25'
+  title_seed: Additionally, our treasurer is a volunteer, and if you would like a receipt for tax purpos
+- id: tpl-571d820f1237
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-03-05'
+  title_seed: Hey everyone, I'm an unemployed IT Semi-Professional, trying to get into IT, but in having
+- id: tpl-960a54573cd0
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-03-12'
+  title_seed: And if I want to donate items, I know I mentioned some items to some of you, but how is
+    th
+- id: tpl-d88b9cae60a1
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-03-23'
+  title_seed: I'd love to donate an old working monitor and old IMac (no storage, no clue if it works)
+- id: tpl-1f5f83413af0
+  source: discord:donations
+  guild_slug: treasurer
+  channel: donations
+  posted_at: '2026-04-26'
+  title_seed: 'I''m still looking for: * used stereo amplifiers of all kinds (seriously, anything that
+    tak'
+- id: tpl-5ce4724adf19
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-02-03'
+  title_seed: Does anyone know who set up the book scanner
+- id: tpl-fb74f0f394e6
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-03-06'
+  title_seed: Does there need to be a small "C" consensus before placing parking tickets on stuff
+- id: tpl-db4385a636df
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-03-14'
+  title_seed: It still isn't set up for the receiver to actually do anything
+- id: tpl-e832dd913081
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-03-15'
+  title_seed: There’s one in the 3d printer room I you need to borrow
+- id: tpl-e02a4b7b8084
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-03-29'
+  title_seed: I'm just saying that you might see more stuff happening if the barrier to entry is lower
+- id: tpl-381c1fb5ada4
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-08'
+  title_seed: Hear-yee
+- id: tpl-9a54c0e66a23
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-20'
+  title_seed: All the useful info here
+- id: tpl-d06d21c350e7
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-22'
+  title_seed: Non-bearing, non-system carrying, stud walls are considered partitions and do not require
+- id: tpl-171e9830398a
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-22'
+  title_seed: When we have a plan then please get me, Emeline, or Loren to help with buying materials
+    or
+- id: tpl-90551e262a08
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-24'
+  title_seed: I do intend to weld up a small dolly specifically for the kiln upon my return
+- id: tpl-b6498c074fd7
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-24'
+  title_seed: '[#channel] **Important heads up:** If anyone has time today/tomorrow apparently there is
+    a'
+- id: tpl-0ca15240f03b
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-04-24'
+  title_seed: Particularly, focus on electrical and safety issues
+- id: tpl-bb0825286b05
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-05-07'
+  title_seed: Plan for the next step was to replace that board with one that has fewer large globs of
+    so
+- id: tpl-73f2c243cc34
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-05-24'
+  title_seed: Hello all
+- id: tpl-ba829388b630
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-06-28'
+  title_seed: I have the following to donate ( all in working condition of course ) - XY ballscrew stage
+- id: tpl-087531db6ded
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-07-05'
+  title_seed: There would be if I could remember my noisebridge wiki password
+- id: tpl-b986d53d4e91
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-08-08'
+  title_seed: '[#channel] : so these are the things we need to fix for the city (we won''t do the doors
+    sl'
+- id: tpl-e9579f3bf986
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-08-21'
+  title_seed: Bench for the phone booth decided to take a vacation
+- id: tpl-9bcb999da6b5
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-04'
+  title_seed: easy to fix/move/alter, and i commit to do that laundry every month but please let's get
+    r
+- id: tpl-ced7e3d03b47
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-04'
+  title_seed: The discussion at the meeting a couple of weeks ago was about accessibility and the sewing
+- id: tpl-41a5c398c892
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-18'
+  title_seed: '[#channel] [#channel] what’s the plan for dump run Wednesday'
+- id: tpl-a5e664d22718
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-19'
+  title_seed: I tried to separate e-waste into a couple different bins
+- id: tpl-7e2d40d61399
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-19'
+  title_seed: '[#channel] if you want to get your hands dirty and sort trash I think we’d benefit from:
+    1'
+- id: tpl-4d153454f4d5
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-09-22'
+  title_seed: FYI -- I tidied up the laser area a bit
+- id: tpl-f7074b3c4fc1
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-12'
+  title_seed: Hail fellow noisebridgers
+- id: tpl-0c83cc747701
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-12'
+  title_seed: Honestly if it’s open upon request I don’t think people will use it and we’re just going
+    t
+- id: tpl-fb6e13ac76db
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-13'
+  title_seed: I still need to pick up one of the ewaste boxes
+- id: tpl-49afe0c8cd41
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-15'
+  title_seed: Hey, the garage door chain got jammed, had to cut the chain to release the jam
+- id: tpl-38d093fa4461
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-16'
+  title_seed: It doesn’t need to be the same people, if one can find a closer roll up door service, but
+- id: tpl-a538fea1e771
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-10-22'
+  title_seed: Whoever left the space last night in this state, it is decidedly un-excellent
+- id: tpl-79c97a309073
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-11-05'
+  title_seed: Does anyone know where to find the padlock for the front gate
+- id: tpl-3c2e862d144b
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-11-06'
+  title_seed: Does anyone know where to find the padlock for the front gate
+- id: tpl-81917c4866a4
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-11-09'
+  title_seed: Then can we please add clear pathway striping to it
+- id: tpl-933a0d79843d
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-11-19'
+  title_seed: 'Saturday Cleanup Announcements: 1'
+- id: tpl-215b3bc67bb0
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-11-30'
+  title_seed: '@everyone, I''m planning to be at the Saturday morning clean up on 02 Dec'
+- id: tpl-6839020db384
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-23'
+  title_seed: Not sure if you guys are planning on doing anything to the lockers in tomorrow's big clean
+- id: tpl-645a2f2704c1
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-24'
+  title_seed: Thank you to the organizers and others at the space clean up effort today
+- id: tpl-551b6bbbf679
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-25'
+  title_seed: Happy Holidays and/or Merry Christmas
+- id: tpl-e0813d694912
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-29'
+  title_seed: Please mark it RETURN TO SENDER and put back in the box
+- id: tpl-573f13574dc1
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-30'
+  title_seed: '@here, Hi All, we cleaned (touched up mostly) in the Electronics room'
+- id: tpl-1cf0fe3d5f49
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2023-12-31'
+  title_seed: I also believe any events in the room should be limited in size so the space is not rearra
+- id: tpl-c8ff07cafda9
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-01-16'
+  title_seed: 'FYI--I did two things while tidying up: 1) I moved all the laser scrap wood/acrylic to
+    the'
+- id: tpl-ad40bc4f7192
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-19'
+  title_seed: its pretty heavy so no need to move it, i also imagine its fine just wanted to mention it
+- id: tpl-c6cb18aee307
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-20'
+  title_seed: I believe Limbo Land should be kept small and cleared frequently
+- id: tpl-c9b8cdb4a223
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-24'
+  title_seed: Nah, but I will be by the space in a bit and happy to clean with you/work on stuff if you
+- id: tpl-646762a9bb09
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-26'
+  title_seed: Dear fellow members, associate members & guests, prompted by the recent events within our
+- id: tpl-a41df9cedbd6
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-27'
+  title_seed: The weight of that stuff bent the steel bar that secures the gate
+- id: tpl-5b3cb885572f
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-27'
+  title_seed: Would be nice if someone wanted to move it over to Limbolandia tonight, otherwise I will
+    w
+- id: tpl-e48a2ab30f83
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-02-28'
+  title_seed: (Despite the lovely hue chosen for this wall- it's hardly a priority to apply it now, IMHO
+- id: tpl-1433007de4d1
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-04'
+  title_seed: Still looking for an explanation on why my access privileges were also withdrown tacitly
+    w
+- id: tpl-fa2a40b81533
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-08'
+  title_seed: Do we need to replace the flapper door in the tank
+- id: tpl-faa1ebf8cf2d
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-11'
+  title_seed: The shed access is OUT OF ORDER AGAIN
+- id: tpl-3b82d1007682
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-13'
+  title_seed: Ken says the plumbing estimate for the sprinkler was for under the table, not permitted
+    wo
+- id: tpl-e28c31ef1bdd
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-13'
+  title_seed: The ‘partition’ will only need a permit if we build plumbing or electrical into it
+- id: tpl-55426d58bad2
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-03-22'
+  title_seed: 'Here is what we’re talking about: Hey John, I have the pricing for this project for you'
+- id: tpl-1fd637e63e32
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-06-05'
+  title_seed: and if i want to donate let say a monitor
+- id: tpl-eb8692a39f88
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-06-26'
+  title_seed: I'll link it in a bit when I have a free sec and am not on my phone
+- id: tpl-ac6cf6798daa
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-06-28'
+  title_seed: Okay, so after a light in-person discussion, we are going with Rhino for layout design/pla
+- id: tpl-8b0b44ba5f61
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-07-27'
+  title_seed: Tomorrow 2-4pm a couple of us at least will be getting together for a cleaning/space organ
+- id: tpl-7d3ff79879ff
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-09-19'
+  title_seed: '[link] some more ideas about labeling and organization'
+- id: tpl-94adfd0c5cf0
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2024-10-26'
+  title_seed: 'I am up for a Costco run if anyone wants to be the purchaser: I can bring the car and the'
+- id: tpl-01410c3e4651
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-02-19'
+  title_seed: We have a new need to paint the front fence
+- id: tpl-3ff1e220cc1c
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-03-26'
+  title_seed: Hey all
+- id: tpl-99adedf7f610
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-06-08'
+  title_seed: Just a heads up, I was cleaning up the kitchenette and saw two silverfish
+- id: tpl-bc053ab1bbf5
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-08-21'
+  title_seed: The deal is good for tomorrow, as anyone else will fetch them otherwise
+- id: tpl-4461d054ae9b
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-08-30'
+  title_seed: '> Businesses with small quantities of hazardous waste can take it to Recology'
+- id: tpl-3c3a57e23350
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-09-07'
+  title_seed: Does anyone know where the stash of trash bags is
+- id: tpl-2d71fe8997cd
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-11-21'
+  title_seed: I think we need to redo the map and make it nice and useable at the entrance and interacti
+- id: tpl-137723f548f0
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2025-11-26'
+  title_seed: ok I got a semi working draft ugly map made and updated, I'll share the Affinity file here
+- id: tpl-c8b9f01f8b8e
+  source: discord:facilities
+  guild_slug: facilities
+  channel: facilities
+  posted_at: '2026-01-03'
+  title_seed: Waterlogged ceiling from roof leak finally fell out
+- id: tpl-43ac424fc792
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2020-08-06'
+  title_seed: The paradigm that makes more sense -- that parallels in-person meetings -- is right here
+- id: tpl-c9d164635f2d
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2020-08-06'
+  title_seed: would you guys say this is an accurate resource/depiction of spiral dynamics
+- id: tpl-29f025ac8056
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2021-01-19'
+  title_seed: I forgot to post this one during the holidays
+- id: tpl-0c0dd643cffc
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2023-12-04'
+  title_seed: 'Regarding the print room: the 3D guild raised the money for a Bamboo printer ($2k?) but
+    it'
+- id: tpl-0889de492ecc
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2023-12-05'
+  title_seed: I really feel like the lock on the 3d printing room is not a problem as anyone who has had
+- id: tpl-bab69b82bcec
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2024-01-01'
+  title_seed: Apparently the most accurate modern English translation is the Relihan one, but the Cooper
+- id: tpl-376731468b7f
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2024-01-26'
+  title_seed: I believe that the current discussion about security at the space probably needs to be rai
+- id: tpl-a9543ad96aa2
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2026-01-02'
+  title_seed: On the commune there were actual hard temporal bounds, and that’s what ended up necessitat
+- id: tpl-57115b5ed873
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2026-01-02'
+  title_seed: I think i said something to the effect of “there is zero chance I would text a group chat
+- id: tpl-57eb5b4d2d8f
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2026-01-20'
+  title_seed: 'Interesting 2014 time capsule of Noisebridge statements on this page: [link] Found while
+    g'
+- id: tpl-e0cdca05e949
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2026-02-06'
+  title_seed: I'm thinking a lot about people who can't see outside of Spiral Dynamics, for example- and
+- id: tpl-f7f0961da7dc
+  source: discord:philosophy
+  guild_slug: philosophy
+  channel: philosophy
+  posted_at: '2026-03-13'
+  title_seed: Before i went to NZ I did an LLM project where i gathered up all the conversations i could
+- id: tpl-5f1fdb32bca6
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2020-11-19'
+  title_seed: Hey everyone, am streaming my game dev today if anyone wants to hang and watch
+- id: tpl-8f9ffd04dd63
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2022-01-27'
+  title_seed: If anyone happens to hop in to the server for games class tonight and sees this - I'll be
+- id: tpl-61fd5c4e64ad
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2022-05-21'
+  title_seed: Not quite sure where to ask this do feel free to redirect me
+- id: tpl-d3b25785ebc3
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-03-03'
+  title_seed: No worries
+- id: tpl-5be2e66d760d
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-04-02'
+  title_seed: what my grade school math teachers meant when they said i'd need to keep using math in my
+- id: tpl-874f4acfca3c
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-10-05'
+  title_seed: I’m looking to build a dreampi to get my Dreamcast online and I need a usb to 56k dial up
+- id: tpl-3d908fcab628
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2024-06-05'
+  title_seed: Has anyone ever played a digital board game that doesn't block them for a wrong move
+- id: tpl-6957b7a8818c
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2024-07-05'
+  title_seed: Anyone able to bring an extra laptop to first Friday
+- id: tpl-9bc4ec6c6c8d
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-03-11'
+  title_seed: Anybody still claiming this
+- id: tpl-7431b7b1553e
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-06-05'
+  title_seed: Hello
+- id: tpl-92766ef2ca8a
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-06-21'
+  title_seed: Hey everyone, new here and looking for a space to regularly meet up with other indie devs
+- id: tpl-f410551ca020
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-11-28'
+  title_seed: tested projection mapping using our small projectors to get working together as a matrix
+    o
+- id: tpl-9293ec1c7a27
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-01-08'
+  title_seed: '[#channel] Noisebridge is now registered as site for Global Game Jam 2026, Jan26 kickoff
+    t'
+- id: tpl-503279225e2d
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2021-09-03'
+  title_seed: Well, if you aren't already in my group here, we'd love to have you
+- id: tpl-02b9823a2df7
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2022-03-16'
+  title_seed: I’d recommend finding a good gaming laptop model first then looking for a used one
+- id: tpl-0c6bdd9322dd
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2022-07-27'
+  title_seed: Is there interest in starting a guild or having some regular meetups to learn machine lear
+- id: tpl-6d9be8bb4386
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-03-22'
+  title_seed: Does anyone have guidance on the best way to join the Gamebridge sessions remotely
+- id: tpl-31888798c607
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-08-12'
+  title_seed: I'm not sure if this is the right place to post this, but I'm looking for a few people who
+- id: tpl-75d3b5fb8d30
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2023-12-21'
+  title_seed: Nice
+- id: tpl-0afe3623b55e
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2024-06-21'
+  title_seed: Seeking 2 more kind and patient dungeon masters for the Dungeons and Dragons for Beginners
+- id: tpl-87c7618c63a1
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2024-07-11'
+  title_seed: 'The ruleset we used last night, AKA version 0.0.4, is as follows: Queen - starts left corn'
+- id: tpl-3510d53e3bc7
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-04-02'
+  title_seed: I wonder if I can bring over a game to do some play testing with yall tonight
+- id: tpl-41c164baffb8
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-06-11'
+  title_seed: Hi Everyone, we are doing a beginner friendly Unreal Engine Hackathon (please RSVP here
+    [l
+- id: tpl-51cd33aaad76
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-07-10'
+  title_seed: '[#channel] is a blender guru & can assist/teach lessons if anyone needs help with that
+    - n'
+- id: tpl-3fce5f386466
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-12-11'
+  title_seed: I'm on my way to NB for some Tablebridge and GameJamCamp time tonight
+- id: tpl-45ab0e61e660
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-01-28'
+  title_seed: I need a sanity check on a thing I'm doing for enemy spawning
+- id: tpl-175768ec9e51
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2022-10-16'
+  title_seed: Oh no
+- id: tpl-20f1d0c1f3c5
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-03-09'
+  title_seed: Hi
+- id: tpl-a951a550110a
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2025-10-03'
+  title_seed: Y'all-- Amir Satvat is having a drawing for 500 ALL ACCESS passes to GDC
+- id: tpl-569544cf0e63
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2024-05-20'
+  title_seed: 'I guess specific shader features I''d be looking for would be: - hatched (or ideally closer'
+- id: tpl-70bbd77514fa
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-02-21'
+  title_seed: '[#channel] From Arity, Bay Area Developers is hosting Pints & Playtesting at Detour tonigh'
+- id: tpl-4b5b818c03a1
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-02-23'
+  title_seed: 'FYI: Another hackerspace is shutting down and is willing to donate a ton of their stuff
+    to'
+- id: tpl-9db5ffe08dd8
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-03-12'
+  title_seed: I need to take more screeshots and pics of all the cool stuff so post any pics of the game
+- id: tpl-ba5e7dd92ec4
+  source: discord:games
+  guild_slug: gaming
+  channel: games
+  posted_at: '2026-03-24'
+  title_seed: Do you guys need a projector
+- id: tpl-1e733360a99c
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2022-01-04'
+  title_seed: I answered on slack but it seems to not post here
+- id: tpl-3d54fd48ddd8
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2022-10-25'
+  title_seed: Is this someone's fur coat
+- id: tpl-55949b897d11
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-02-24'
+  title_seed: Oh good
+- id: tpl-e746077ed964
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-05-15'
+  title_seed: I've got the iron, we just need to build the board
+- id: tpl-4cb7eaf93754
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-09-26'
+  title_seed: '[#channel] right now we don''t have enough volunteers to meet all the training demand,
+    and'
+- id: tpl-1a79dfd29900
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-01-20'
+  title_seed: hello sewers
+- id: tpl-cab0834ccf15
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-04-12'
+  title_seed: '2) Sewing 101: Domestic Sewing Machine'
+- id: tpl-941b6425b6d8
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-07-11'
+  title_seed: 'TLDR: **Lots going on Sunday afternoon in sewing and knitting machines and volunteers need'
+- id: tpl-c724412617c1
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-11-06'
+  title_seed: Some of us will be feeling pretty shaken today
+- id: tpl-bf9a0e65bea0
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-03-04'
+  title_seed: Thank you to who organized the fabrics and bagged all my stuff for me
+- id: tpl-e975a67deaec
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-07-02'
+  title_seed: 2) we are planning that long delayed yard sale
+- id: tpl-f77b830b39f9
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-07-25'
+  title_seed: If I come in to do some hand sewing today, does noisebridge have white or yellow thread
+    or
+- id: tpl-0af858a5cf8e
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-12-01'
+  title_seed: Anyone know where the bobbin cover plate for this guy is
+- id: tpl-f1c6810498db
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-03-12'
+  title_seed: Hey -- question about the Sewing 101 meetup -- there is mention on the Meetup description
+- id: tpl-e6d81307bed5
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-10-02'
+  title_seed: Hey y'all Fabrics ppl
+- id: tpl-86777932f287
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-04-12'
+  title_seed: 'Last: If you see Ken, let him know how great the room looks'
+- id: tpl-c2c888bbbc4b
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-11-10'
+  title_seed: Machine maintemance will start at 1
+- id: tpl-05eccb33678a
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-07-02'
+  title_seed: '3) Classes: We are shooting for as many classes as our teachers can find time for'
+- id: tpl-ede1d4344ffd
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-12-02'
+  title_seed: hello
+- id: tpl-4c9f3bf51a4c
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-01-02'
+  title_seed: I found the drawers - the tall set has nothing labeled needles, and the short drawers have
+- id: tpl-0fb9e0b23a80
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2023-06-06'
+  title_seed: Ah, yes, you definitely need to get trained on the cover stitch, it's a finicky machine
+- id: tpl-6d2dcff315f6
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-02-05'
+  title_seed: That makes sense
+- id: tpl-249382ca975c
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2024-07-13'
+  title_seed: The fix it clinic in Berkeley on Tuesday nights has a lot of mechanical and electrical eng
+- id: tpl-5c0ecc484788
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-03-04'
+  title_seed: If it is what I think it is, it is an easy fix
+- id: tpl-623b9567b7e4
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2025-08-09'
+  title_seed: Hey sewing folks, I will be at the space a good slice of TUESDAY afternoo into the evening
+- id: tpl-699c9025cc2d
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2026-02-28'
+  title_seed: Hey all the sewing folks, there’s a reason to rejoice on this sunny day
+- id: tpl-c9a2cf27e771
+  source: discord:sewing
+  guild_slug: sewing
+  channel: sewing
+  posted_at: '2026-04-15'
+  title_seed: hey, we found a bin labeled "cut fabric strips" - that sounds great in theory, but does
+    an
+- id: tpl-e549def06c41
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-09-24'
+  title_seed: Dear Anarchist Collective Artists
+- id: tpl-a9e6663e27f6
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-09-26'
+  title_seed: Hi all, I am fairly new to the community but you all may have met or seen me around buildi
+- id: tpl-f71685d7035f
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-10-12'
+  title_seed: I would like to point out that we are installing partitions, not walls
+- id: tpl-f7beda67e354
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-10-13'
+  title_seed: I apologize for being short in the post above
+- id: tpl-11ec82835b9f
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-10-15'
+  title_seed: I have written up a document to try to concisely summarize the main motivations, considera
+- id: tpl-471bd1265918
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-10-18'
+  title_seed: ok folks, now with most of the discussions on the placement of the wall i decided to move
+- id: tpl-3417681f0247
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-12-22'
+  title_seed: Does anyone have any idea where the stuff under the CNC went
+- id: tpl-409b52587fbc
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-12-22'
+  title_seed: I'm going to be removing the router sometime this week until the table can be put in a pla
+- id: tpl-c4be1dd33121
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-12-23'
+  title_seed: The Shapeoko CNC and the materials under and for it need to start being treated like the
+    l
+- id: tpl-47a606e6ca11
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-02-25'
+  title_seed: Thank you for your offers
+- id: tpl-0d5cfc296e05
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-02-27'
+  title_seed: Door jams are coming along (one at a time for the lack of space:/)
+- id: tpl-2f4230c41636
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-03-04'
+  title_seed: 'As Ive been saying: if you need to use a tool from the woodshop to do a quick cut, drive
+    a'
+- id: tpl-4eaaf1d5ea0c
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-04-23'
+  title_seed: There are currently no limitations on using the tools @ our wood shop, as long as the ppl
+- id: tpl-9fb17a43a124
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-11-27'
+  title_seed: One of the last steps of this project, we need to paint the walls
+- id: tpl-8285cfe665c1
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-10-13'
+  title_seed: We have gone over this for the last 2 years and are confident with the direction we are
+    go
+- id: tpl-9b83ad6c2055
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-11-20'
+  title_seed: Good morning ya'll
+- id: tpl-83741770344c
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2024-12-26'
+  title_seed: Can we get the contractor in to take a quick look at the wall
+- id: tpl-ac3540b70c4b
+  source: discord:woodshop-wall
+  guild_slug: woodshop
+  channel: woodshop-wall
+  posted_at: '2025-03-10'
+  title_seed: are any of the bench vises from the woodshop accessible right now
+- id: tpl-ef79e36bef1f
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2022-11-12'
+  title_seed: Oh wow that's a lot on the side of a full time job
+- id: tpl-6e64f3b62384
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-04-12'
+  title_seed: From a pal who wants to build out a voice interface thing (DM me and I will put you in tou
+- id: tpl-ce171649347b
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-08-15'
+  title_seed: '@here Also, thank you to everyone who came to the Python class tonight'
+- id: tpl-7a8a56d9b513
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-11-14'
+  title_seed: If anyone wants help installing Python on Linux or Mac, we can meet at Noisebridge sometim
+- id: tpl-ffdaf4f1fa20
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-03-12'
+  title_seed: Thanks to everyone who came to the Python class last (Monday) night
+- id: tpl-6fab3ae0610e
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-07-26'
+  title_seed: Here's the doc, anyone can comment
+- id: tpl-a5648367cd5b
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-09-28'
+  title_seed: '[#channel] just to be clear, in order to test the matching you will need to checkout the
+    `'
+- id: tpl-2cf4fff31ccb
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-12-17'
+  title_seed: Python class starting in 2 hours and 26 minutes, Mon Dec 16 at 7 PM
+- id: tpl-66d11538b967
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-21'
+  title_seed: Could someone try pushing a dummy/test branch and see if it works
+- id: tpl-7b7d357b62de
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-26'
+  title_seed: James' implementation uses tfidf or term frequency-inverse document frequency
+- id: tpl-6526f8347c7d
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-02-12'
+  title_seed: Thank you to everyone who came to the Python class last night
+- id: tpl-d999170868b9
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-03-07'
+  title_seed: I’ll be late sorry, on the train but I’ll need to get something to eat
+- id: tpl-c1a1c6b4e06a
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-05-05'
+  title_seed: What is going on with this pair of modules, please
+- id: tpl-61963188203e
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-07-09'
+  title_seed: Do you just not want to host for the time being, bc it feels like little return on your
+    in
+- id: tpl-bb7e2578fff7
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-02-18'
+  title_seed: Not sure if this is the right place for this (I don't know how the class is structured or
+- id: tpl-577ffcf5bf43
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-06-19'
+  title_seed: 'Reminder: Free Python class tonight (Mon) at 7 PM in the electronics classroom'
+- id: tpl-a80800dd8ee8
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-10-24'
+  title_seed: Hey guys
+- id: tpl-f380deb36aaa
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-02-28'
+  title_seed: '@here Python class starting Monday March 11th, 7 PM in the Hackatorium'
+- id: tpl-d65ec7f94d34
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-06-25'
+  title_seed: Python class in 88 minutes
+- id: tpl-7804f770fcfe
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-09-23'
+  title_seed: Hi [#channel] , we'd love to have you
+- id: tpl-6f9cbb2e5b9c
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-12-03'
+  title_seed: No need to go to some random css file write a bunch of boilerplate with variable units and
+- id: tpl-b8036fd42547
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-20'
+  title_seed: Hullo
+- id: tpl-9e4d3c399be6
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-25'
+  title_seed: Anyway here's a jupyter nb to match movie descriptions from rotten tomatoes to run in goog
+- id: tpl-4d87f05a2d86
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-29'
+  title_seed: It sounds like the devil is in the details, and it's hard to critique details of code (or
+- id: tpl-6b8dd12777bc
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-03-04'
+  title_seed: Thanks to everyone who came out to the Python class last night
+- id: tpl-87e5121b769a
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-04-16'
+  title_seed: 'Please move this conversation to #notpython kthxbai'
+- id: tpl-51cf05be8240
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-07-04'
+  title_seed: But I am on discord Voicecall (playing video games) if you want buddy to hang out with
+- id: tpl-462aa9f30b43
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-01-02'
+  title_seed: I can teach people Python (for free!)
+- id: tpl-d8cf4110e205
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-05-16'
+  title_seed: If I had a guest lecturer, I would do it in a heartbeat
+- id: tpl-d89e94080592
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-09-08'
+  title_seed: '(pasting in the email I just sent to Meetup attendees): Very excited to start Series 2
+    of'
+- id: tpl-09620b62ccbe
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2023-11-19'
+  title_seed: 'hi [#channel] '
+- id: tpl-6452a26a9237
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-04-05'
+  title_seed: Hello @here, Python class is cancelled this coming Monday, Apr 8
+- id: tpl-ef975dd12ca2
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-08-08'
+  title_seed: Yoo so like I am not 100% today so prob wont be able to attend this one
+- id: tpl-fe6a6f8afdd9
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2024-12-03'
+  title_seed: because once you start using TS, you need a "build environment"
+- id: tpl-e0a5c191eace
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-18'
+  title_seed: '@.meringue put up a draft pr earlier for some cli/dataclasses work if you want to check
+    it'
+- id: tpl-07c87204c3ab
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-22'
+  title_seed: Hey all, so I was doing some research into recommendation models to see how lightfm works
+- id: tpl-fe271999f3eb
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-01-29'
+  title_seed: Just as an update on the recommender, just trying to figure what sources to scrape reviews
+- id: tpl-832215f080aa
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-02-14'
+  title_seed: '[#channel] [#channel] [#channel] gotta run'
+- id: tpl-45a6845550e2
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-03-24'
+  title_seed: 'Reminder: Python class tonight starting in 8 hours and 48 minutes (Mon Mar 24 at 7 PM)'
+- id: tpl-b83d4f2c796f
+  source: discord:python
+  guild_slug: ai-ml
+  channel: python
+  posted_at: '2025-05-29'
+  title_seed: We welcome everyone
+- id: tpl-f8408beb210d
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2021-11-26'
+  title_seed: Cool setup you have
+- id: tpl-2ac8dc7e5dc8
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-10-19'
+  title_seed: Yeah, please don’t just start messing around with them
+- id: tpl-e6442cef30ae
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-03-26'
+  title_seed: headed over to NB to check on the 3d printers
+- id: tpl-b6843fb4acbb
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-08-07'
+  title_seed: '[#channel] that things is long gone'
+- id: tpl-3668db6aa6e6
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-11-13'
+  title_seed: it would have worked if you moved the spool mount, but yes might as well go bamboo at this
+- id: tpl-530f49a555e0
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-01-27'
+  title_seed: Guild members, correct me if I’m mistaken, but I don’t think there is an established donat
+- id: tpl-4e8e6f92acc2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-06-04'
+  title_seed: Ok well we both have our own opinion and experiences, we don't need to argue about it
+- id: tpl-675c58197192
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-08-30'
+  title_seed: I do have several mouthpieces lying around, but a scanner would not pick up the model well
+- id: tpl-8142015a3f95
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-12-10'
+  title_seed: Hi, yall- two questions
+- id: tpl-34be87b857d7
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-03-26'
+  title_seed: Hey all
+- id: tpl-411c1324d0e3
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-08-01'
+  title_seed: We have lost our nozzle unclogging needle
+- id: tpl-5186b9bb0c58
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-09-15'
+  title_seed: '[#channel] You need to tell me your meetup.com handle if you want me to set up your 3d
+    pri'
+- id: tpl-536db7296902
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-02'
+  title_seed: If anyone here can fix the issue I'd be very appreciative
+- id: tpl-7c8435a91c6a
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-12'
+  title_seed: I can teach you this evening if you’d like
+- id: tpl-3c370365c920
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-10-14'
+  title_seed: Does anyone have a place that recycles pla spools
+- id: tpl-bfa3d1a17357
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-02-17'
+  title_seed: Can someone take a pic of the test prints and post them, please
+- id: tpl-de45c413cbb3
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-08-07'
+  title_seed: Hey all
+- id: tpl-be1e2b09c3c2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-10-31'
+  title_seed: I also have a license of simplify3d I'm going to install on the computer in the printer
+    ro
+- id: tpl-6b833ae75d17
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-12-25'
+  title_seed: ill be at the space around 8-10p tonight with some new 3D printy tools and stuff
+- id: tpl-1ea0f61a419f
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-05-22'
+  title_seed: Hi folks, the Bambu extruder is not pushing out filament
+- id: tpl-d7aeef24eeb5
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-08-10'
+  title_seed: Hello
+- id: tpl-2fcb84bf56ef
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-11-02'
+  title_seed: The new ribbon cable for the Qidi shows up today
+- id: tpl-9a9bfbd32518
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-03-24'
+  title_seed: hey
+- id: tpl-41f5fed9d754
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-07-19'
+  title_seed: Might need to replace the head or something
+- id: tpl-f5953fe30223
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-09-12'
+  title_seed: Hey all, new to the discord
+- id: tpl-52e5e82c3974
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-11-17'
+  title_seed: In parallel with this though, would definitely appreciate help relaying information about
+- id: tpl-7d0c78267e04
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-09'
+  title_seed: I need to work out my schedule but I’ll get setup in time to do a class in evening next
+    we
+- id: tpl-30df9e7984a2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-08-31'
+  title_seed: I'm probably gonna be starting up rep wendesay or just 3d printing in general, just need
+    t
+- id: tpl-348b9ae91b26
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-02-16'
+  title_seed: For long prints, leave a post it with your slack/discord/text so we know who to contact
+    if
+- id: tpl-37837301a517
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-05-04'
+  title_seed: Is anyone around this evening that could help a 3D-printing noob set up a thingiverse prin
+- id: tpl-0b0a7fc3622d
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-10-31'
+  title_seed: If anyone is having issues with adhesion on this printer without tape, especially with the
+- id: tpl-6fe9e3688ad6
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-12-22'
+  title_seed: '[#channel] , I agree with [#channel] that there are too many 3D printers for the space'
+- id: tpl-dcbc9808c3ac
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-04-27'
+  title_seed: Does anyone have thoughts on running a discord bot to check the status of the bambu
+- id: tpl-2f9cf0ef6851
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-07-18'
+  title_seed: does anyone know how to change filament on the qidi
+- id: tpl-facf1c7602c2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-10-30'
+  title_seed: Oh and if anyone wants to meet Little Sparky in meatspace I can bring it into NB upon requ
+- id: tpl-78ced7059e1d
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-03-21'
+  title_seed: oh you don't actually want the squares cut out
+- id: tpl-1092941d044c
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-07-16'
+  title_seed: can anyone pls check our print before you leave
+- id: tpl-7772422b1464
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-09-08'
+  title_seed: TLDR - New Bambu X1C, if we can earn it
+- id: tpl-297cc8a367b0
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-11-17'
+  title_seed: I need to double check dimensions in person but not actually that bad
+- id: tpl-6a6e3da8cb02
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-08'
+  title_seed: Unsure if I have time to come back to Noisebridge and setup but I’m close to panhandle I
+    c
+- id: tpl-e8215b5b453b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-08-29'
+  title_seed: Everyone seems to have confused the Replicator 2 with the 5 Gen machines
+- id: tpl-6cab0cdf2e6b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-02-12'
+  title_seed: also need to update the firmware to allow 300c on some machines (default is 260c) once thi
+- id: tpl-93b144b175b4
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-04-23'
+  title_seed: I added some documentation to the WIKI on PID tuning the printers
+- id: tpl-69cf907deddf
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-10-02'
+  title_seed: We now have four working printers
+- id: tpl-4c4ef18bb25b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-12-22'
+  title_seed: We're not really in a place to spend money getting any new machines, so I don't see the
+    va
+- id: tpl-ffdeb1a75b6e
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-03-19'
+  title_seed: I placed them on top of the Bambu
+- id: tpl-47ec975d63af
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-07-17'
+  title_seed: last night we moved the ender3 that was upstairs down into the print shop, and tried to
+    us
+- id: tpl-1c230343d953
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-10-16'
+  title_seed: There's a PEI plate that doesn't seem to get used
+- id: tpl-1fdb37bdbb1f
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-03-13'
+  title_seed: Ok the 3D Max is working fine
+- id: tpl-e0b2949db21e
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-07-13'
+  title_seed: It helps to do a small test print first
+- id: tpl-fe559e2f0022
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-08-31'
+  title_seed: '[#channel] I agree'
+- id: tpl-f7f571abd82b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-11-14'
+  title_seed: Casting
+- id: tpl-818771350254
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-08'
+  title_seed: Great
+- id: tpl-ab9dd79c0813
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-06-17'
+  title_seed: Oh I've left a part to print overnight before, and I'd be surprised if I was the first per
+- id: tpl-a63d2be56e35
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-01-21'
+  title_seed: OK 10 vacuum bags here on Wednesday
+- id: tpl-4166bb63e4a4
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-04-16'
+  title_seed: 'machine update: Neo and Trinity are working'
+- id: tpl-f12c53fe2042
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-10-01'
+  title_seed: The fourth needs a new mount printed as it had warped
+- id: tpl-16a4df672c75
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-12-22'
+  title_seed: 'Before you start servicing things, the current state of the enders should be : -the bottom'
+- id: tpl-8b63c8dc5dd3
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-03-11'
+  title_seed: This setup works better for low parts
+- id: tpl-13d19c5202ed
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-07-11'
+  title_seed: '[#channel] just to confirm the nozzle is still a .6mm'
+- id: tpl-2f6a8abaa3ed
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-10-10'
+  title_seed: SLS is a little different- since it’s sintering, it’s powder not a filament, and sintering
+- id: tpl-2d4ca5ae3df4
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-03-09'
+  title_seed: Hello, would anyone know how I would check the nozzle diameter of the Qidi outside the 3d
+- id: tpl-bc0a69e7d64c
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-05-18'
+  title_seed: does the 3dp lab computer have cura slicer installed, as in can i bring a flashdrive w cur
+- id: tpl-58e3822ace68
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-08-22'
+  title_seed: '[#channel] you can just show up and ask if anyone will help train you'
+- id: tpl-008b36b742b5
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-11-03'
+  title_seed: Hm I mean just need to set up organized cleaning stations, do we have a curing station
+- id: tpl-76644a60c54c
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-07'
+  title_seed: I need to brush up myself too
+- id: tpl-872599df861c
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-01-26'
+  title_seed: The SF office of Stratasys is actually a 3D printer startup called Origin which was recent
+- id: tpl-088d3c3d4e62
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2022-12-29'
+  title_seed: I might buy some of those threaded inserts
+- id: tpl-3743d594051e
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-04-11'
+  title_seed: Hi
+- id: tpl-3a561db440e2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-09-25'
+  title_seed: I've been absent the last few months as I've been travelling, had my son home from college
+- id: tpl-bb5b4f5a466b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2023-12-07'
+  title_seed: Anyone have a 3D scanner I could borrow on Sunday
+- id: tpl-c9505f3aad6b
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-03-06'
+  title_seed: I'm interested in using the resin printer but I've never been to the noisebrdge before
+- id: tpl-b2c731c7c556
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-06-06'
+  title_seed: Hello everyone i just find you guys online and i'm physically in the space right now and
+    m
+- id: tpl-14e1ba06f6d2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2024-10-02'
+  title_seed: Thanks to @todo's help, we now have one Ender 3 running klipper with a fancy new touch scr
+- id: tpl-d4fb659d4479
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-02-19'
+  title_seed: I teach the monthly 3d printing intro class (whose donations buy the new printers)
+- id: tpl-56f718aad8dd
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-05-06'
+  title_seed: Hi, I’m new to 3D printing here and would appreciate some guidance on how to get started
+- id: tpl-4c3ca9cea2e2
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-08-18'
+  title_seed: Hey yall
+- id: tpl-1b9b3f593046
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-10-21'
+  title_seed: hi I'm new to 3d printing here but I usually use an ender 2 pro at home I have a build and
+- id: tpl-ea169f57d343
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2025-12-07'
+  title_seed: But anyways yes give me a bit to clean up here and I’ll take Enders
+- id: tpl-b45af4591993
+  source: discord:3d-printing
+  guild_slug: 3d-printing
+  channel: 3d-printing
+  posted_at: '2026-02-23'
+  title_seed: 'FYI: Another hackerspace is shutting down and is willing to donate a ton of their stuff
+    to'
+- id: tpl-a8d9a7076249
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-01-28'
+  title_seed: '[#channel] , thank you for starting the new channel and for the messaging'
+- id: tpl-130f12f4e952
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-01-28'
+  title_seed: If we can protect our perimeter, we probably won’t need to get into interior card access
+- id: tpl-6c0b95e45417
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-02-02'
+  title_seed: I don’t think a tour grants anyone easy access
+- id: tpl-5ba71b1f6b31
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-03-01'
+  title_seed: We really need to fix that, I can never find it when I search for it
+- id: tpl-9bc4ffef6dc0
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-04-26'
+  title_seed: '*Posted also in -> [#channel] for those curious about wiki stuff.* Of interest, I created'
+- id: tpl-402d5e250470
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-02'
+  title_seed: This was also one of the things I wanted to do during reboot but did not get to
+- id: tpl-af8ffd0d05e3
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-03'
+  title_seed: The yellow I used was close out stock of Kelly Moore curb paint at Center hardware that
+    wa
+- id: tpl-aa7302d66216
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-19'
+  title_seed: We bought it brand new only a few years ago
+- id: tpl-8f5d707b8b53
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-06-01'
+  title_seed: 'also: when i show people these posters during a tour, is there some way i can simultaneous'
+- id: tpl-f1f5156f2d0f
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-06-07'
+  title_seed: Only other tank there is inert gas
+- id: tpl-41fb83d04191
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-09-16'
+  title_seed: Kudos to j.d and group for the new laminated NB Tour "script"
+- id: tpl-780eee53608c
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-10-04'
+  title_seed: I’m pretty sure the filters need to be changed on the laser cutter… so i put a do not use
+- id: tpl-475740107f0a
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2025-03-19'
+  title_seed: Anyone want to throw out a date for a meeting
+- id: tpl-3952139d7761
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2025-04-02'
+  title_seed: Still NOT working
+- id: tpl-ce9a2904b071
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-01-28'
+  title_seed: This is meant to be a temp fix until a more 'commercial grade' fix is found
+- id: tpl-75d94097e22f
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-02-09'
+  title_seed: 'Finally a summary of one person’s experience from last month: Lessons from 1/24 The Confli'
+- id: tpl-17cbbb9ecceb
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-03-02'
+  title_seed: The page still needs to find a home on a real page (e.g., not the Category)
+- id: tpl-4b03bf5f249d
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-01'
+  title_seed: Amazing
+- id: tpl-70f4e7f17a85
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-02'
+  title_seed: Just ordered the above switches and some new outlets
+- id: tpl-1bf4c000c8be
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-23'
+  title_seed: 'Hey all, just catching up on this thread and [#channel] '
+- id: tpl-ae81d0d25953
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-06-01'
+  title_seed: i should be able to attend the tuesday meeting this week
+- id: tpl-292fe14c182a
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-08-14'
+  title_seed: 'The only reason I''m the creator of the document is: I wanted people to write language
+    to s'
+- id: tpl-30af909789c1
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-09-26'
+  title_seed: This document is intended to be posted in the lavatories on 1st and 2nd floor
+- id: tpl-4e3d59ce7ef9
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2025-03-27'
+  title_seed: maybe if someone is there today they should try that code for a Test to see whats going
+    on
+- id: tpl-fdf8322eb73f
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-02-02'
+  title_seed: More seriously, it may be helpful to have a little training on how to greet people at the
+- id: tpl-5b787df8eab3
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-02-02'
+  title_seed: the initial changes will be to encourage members to close NB to non-members at 11pm (this
+- id: tpl-194309ce6a98
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-01'
+  title_seed: Hey all, We have heard back from the city about the door
+- id: tpl-3c9bed488cc1
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-04'
+  title_seed: will be there in a bit
+- id: tpl-27acb32947ce
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-05-23'
+  title_seed: I’m willing to post a photo of me on this thread if you would like [#channel] messytechy
+- id: tpl-fb29073dc230
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2024-06-19'
+  title_seed: So we’re all on the same page, a participant lost part of his finger this week, in the woo
+- id: tpl-cb1dd8813617
+  source: discord:safety-council
+  guild_slug: safety
+  channel: safety-council
+  posted_at: '2025-03-05'
+  title_seed: We should update our [Safespace Reporting Tool]([link] to post directly to a new discord
+    c
+- id: tpl-1b9140695320
+  source: discord:zine
+  guild_slug: writing
+  channel: zine
+  posted_at: '2023-04-02'
+  title_seed: 'Next week BBQ and Beats (Fundraiser) Saturday 7pm @ nosieBridge hot dogs and brew '
+- id: tpl-33fc7da5b5eb
+  source: discord:zine
+  guild_slug: writing
+  channel: zine
+  posted_at: '2025-10-02'
+  title_seed: Slightly off zine topic but I'm not sure where to ask
+- id: tpl-77367ff37d00
+  source: discord:spacebridge
+  guild_slug: spacebridge
+  channel: spacebridge
+  posted_at: '2024-09-30'
+  title_seed: 'Recap of some of the software related things discussed yesterday: - create a contanerized'
+- id: tpl-8e4808beb29d
+  source: discord:spacebridge
+  guild_slug: spacebridge
+  channel: spacebridge
+  posted_at: '2024-10-13'
+  title_seed: Can also give an overview of the docker + bazel setup to anyone who wants it / wants to
+    bu
+- id: tpl-530b6d633324
+  source: discord:spacebridge
+  guild_slug: spacebridge
+  channel: spacebridge
+  posted_at: '2026-02-27'
+  title_seed: Now also works for me, just need to find a cafe along the road here for stable wifi and
+    AC
+- id: tpl-cf42bd083ad8
+  source: discord:spacebridge
+  guild_slug: spacebridge
+  channel: spacebridge
+  posted_at: '2026-02-27'
+  title_seed: We can set up the project, develop the architecture for the satellite, make the system des
+- id: tpl-bdb14a9bf8bc
+  source: discord:spacebridge
+  guild_slug: spacebridge
+  channel: spacebridge
+  posted_at: '2026-04-15'
+  title_seed: hi spacebridge
+- id: tpl-4de8de720193
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-03-11'
+  title_seed: 'And now, fwd from the Yannich Discord: For those interested in NLP, here''s a cool explorat'
+- id: tpl-179d2e461fb2
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-10-05'
+  title_seed: no pre-training really (and if I did any would need similar set up)
+- id: tpl-de44bd916968
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-10-09'
+  title_seed: please check out the clip i just shared, they're all well documented
+- id: tpl-a6507145cd3b
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-10-26'
+  title_seed: For this week, we have [#channel] with part 2 on his presentation on mouse segmentation
+- id: tpl-feeb6758ab0f
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-11-25'
+  title_seed: That's awesome
+- id: tpl-bc68ab51d5cd
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-12-01'
+  title_seed: If you can find where that's coming from and just change numpy==1.18.2 to numpy
+- id: tpl-a616e1b2a160
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-12-30'
+  title_seed: Please post any questions here
+- id: tpl-cab19e1268bc
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-01-12'
+  title_seed: idk who mentioned this, but if anyone is interested there exists a repo on GitHub that pur
+- id: tpl-546d7e494ae3
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-02-10'
+  title_seed: I am trying to parameterize exactly what I need to learn (then find resources for it) and
+- id: tpl-466518b2ddc5
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-10-05'
+  title_seed: Anyone have pointers for an open source library or paid tool to label quantitative data
+    in
+- id: tpl-280a3d46494d
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2024-06-05'
+  title_seed: 'Amended this: ```I''m looking for some ML tutoring (please read carefully though!): What
+    I'''
+- id: tpl-3e0e764513bc
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2025-01-31'
+  title_seed: Hi
+- id: tpl-5fccc0184f30
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2025-05-25'
+  title_seed: Does anyone know about this yet
+- id: tpl-8801f4e5428d
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-01-13'
+  title_seed: like gpt could absolutely trick someone into thinking they are human but that doesn't prov
+- id: tpl-c1c92e6994c8
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-03-05'
+  title_seed: My concern is that if we end up treating machine learning differently from human learning
+- id: tpl-2f3bc5d87b67
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-10-21'
+  title_seed: Hey everyone, Does anyone know - or is - a rapper or someone that can do beatboxing
+- id: tpl-8853f0cd5b55
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-12-14'
+  title_seed: This Friday is Build Night @ Circuit Launch in Oakland
+- id: tpl-fa6bb07e4d65
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-01-05'
+  title_seed: I did look at the block diagram that TJ pointed out from that research paper
+- id: tpl-da89912f8707
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-10-07'
+  title_seed: because if I have to train a model thats out of scope for what I am capable of
+- id: tpl-44b461538b2e
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-10-09'
+  title_seed: cool
+- id: tpl-d842220172fd
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-11-10'
+  title_seed: '[#channel] would you want to lead a discussion on the papers you shared'
+- id: tpl-80341f2f3991
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-11-26'
+  title_seed: I think we need to properly set up things like Docker and Conda on the computer, so this
+    d
+- id: tpl-01e3690f329d
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2025-06-19'
+  title_seed: Come hang out tonight at Noisebridge 630p
+- id: tpl-1bdaf6f39167
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-08-08'
+  title_seed: I'm just in SF for a few days (more like a tourist) – I'm from Switzerland
+- id: tpl-150e653eef37
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2024-03-11'
+  title_seed: Does anyone have a Windows PC with an Nvidia GTX (*) graphics card they would be willing
+    t
+- id: tpl-491570572561
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2024-06-13'
+  title_seed: This is great
+- id: tpl-7fe285dd0ba7
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2025-03-20'
+  title_seed: if you want another shock like that try going to RSA conference and find anyone actually
+    t
+- id: tpl-6422ae141893
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2022-12-16'
+  title_seed: What sort of level of introduction are you looking for
+- id: tpl-f957b0c1389f
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-01-05'
+  title_seed: well
+- id: tpl-c87a227b2b03
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-01-13'
+  title_seed: '[#channel] if you''re interested in the mechanics of how language models work under the
+    hoo'
+- id: tpl-c3aca74ca74b
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2023-04-20'
+  title_seed: '[#channel] I think you remember [#channel] asked if they could bring an ai safety speaker'
+- id: tpl-61c8860c9660
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2026-03-10'
+  title_seed: Hey folks, anyone who is interested in getting into AI/LLMs, I have created an organizatio
+- id: tpl-9c8fccd156c4
+  source: discord:ai-ml
+  guild_slug: ai-ml
+  channel: ai-ml
+  posted_at: '2026-04-22'
+  title_seed: I also suspect that we'll move towards context being a stream of graph fragments; rather
+    t
+- id: tpl-27424af3b174
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2023-08-02'
+  title_seed: '[#channel] are you doing test prints'
+- id: tpl-81ff1b3aeb25
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2023-08-23'
+  title_seed: Maybe I’m confused
+- id: tpl-7dfa93f54fe8
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2023-08-23'
+  title_seed: Link is fine, I think all previous versions of the document should be visible
+- id: tpl-672420cc98d0
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2023-08-30'
+  title_seed: Anyone have a recommendation for editing our wiki on mobile
+- id: tpl-06e31646455d
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2024-04-26'
+  title_seed: 'Of interest to [#channel] , I created: * [link] and added * [link] page, and * [link] to
+    t'
+- id: tpl-f8e64009b98c
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2024-06-12'
+  title_seed: I just realized when requesting an account on the wiki, if you don't fill out the bio with
+- id: tpl-56f746020f67
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2024-07-15'
+  title_seed: Whenever there is an update to the NB mediawiki could we add [Extension:Scribunto]([link]
+- id: tpl-a7fa7bb72419
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2024-09-02'
+  title_seed: Hello [#channel] [#channel] , I just applied for a wiki account
+- id: tpl-a10b3d062cee
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2025-08-17'
+  title_seed: FYI the site's been slow today, crawlers from alibaba cloud (who knows who), probably scra
+- id: tpl-00d3b78558fe
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2025-08-19'
+  title_seed: Does anyone here have a copy of the membership application form
+- id: tpl-03e89e81219d
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-01-09'
+  title_seed: '[#channel] could you request a wiki account again'
+- id: tpl-3e3a51f60bc0
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-01-18'
+  title_seed: I think this page is pretty good, please review
+- id: tpl-7e5b4060bac5
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-02-03'
+  title_seed: Still a great find and might as well give it a shot
+- id: tpl-d29a460f4d2f
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2023-08-23'
+  title_seed: The policy was changed with a big C consensus and a lot of work
+- id: tpl-6fefb92b1105
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2024-06-01'
+  title_seed: Can someone set up [#channel] as a contributor on the wiki
+- id: tpl-65b52d44f7d6
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2025-08-09'
+  title_seed: I’m thinking about defining shorter Name space alias, for optional use
+- id: tpl-134a8cf838b8
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2025-12-18'
+  title_seed: I'd like to post the Meeting Notes from last night, but the wiki says that I don't have
+    pe
+- id: tpl-5d6c0077af7a
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-01-23'
+  title_seed: Hello, not sure if this is the channel go approve accounts as well
+- id: tpl-08f811b3d90c
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-03-26'
+  title_seed: I would love to get more features as I am quickly becoming wiki-pilled
+- id: tpl-2def78be0d77
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-03-27'
+  title_seed: need a easier way to get other maintiners able to edit the wiki asap
+- id: tpl-ee7cff5b9369
+  source: discord:wiki-docs-wg
+  guild_slug: writing
+  channel: wiki-docs-wg
+  posted_at: '2026-04-24'
+  title_seed: who would be the person who understands the wiki well enough to help me out
+- id: tpl-c285e6db30a4
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2025-09-17'
+  title_seed: Power meters a great idea to verify functionality, assess issues, and collect kWh data
+- id: tpl-7fda4887439a
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2025-12-15'
+  title_seed: Goodmorning, I'd like to assist to learn how to install the new filters
+- id: tpl-e89932daf116
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2026-01-27'
+  title_seed: If you think people will want to cut 12-20mm materials, you can get a 4" lens
+- id: tpl-44794c7f1f04
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2026-02-15'
+  title_seed: Something is mechanically loose in the head assembly of the laser
+- id: tpl-31c5a9452fe4
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2026-03-25'
+  title_seed: '[#channel] , what do you think of only offering training twice a month'
+- id: tpl-d8434eb16586
+  source: discord:laser-trainers
+  guild_slug: laser-cutter
+  channel: laser-trainers
+  posted_at: '2026-04-25'
+  title_seed: If anyone is in Mountain View this weekend, I'm tearing apart the Nova 51 Thunderlaser at
+- id: tpl-2ec757142a1e
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-04'
+  title_seed: ✂️ If someone could bring into [#channel] 's stationary setup a pair of nice scissors and
+- id: tpl-a51f8812ed2c
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-05'
+  title_seed: ☎️ There's a red retro telephone on the RNA Lounge table that would be better off mounted
+- id: tpl-1ab95853baaf
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-05'
+  title_seed: 📺 If anyone has an 800W or better power supply (or finds one) please let me know
+- id: tpl-02eec934ea63
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-05'
+  title_seed: 🎹 Anyone interested in making sure I don't destroy anything the next time I try to open
+    up
+- id: tpl-9bf1b237d08f
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-05'
+  title_seed: 📝 Anyone interested in converting my notes on the current status of the organ's functional
+- id: tpl-56e894f246cf
+  source: discord:help-wanted
+  guild_slug: metaguild
+  channel: help-wanted
+  posted_at: '2026-05-06'
+  title_seed: we have projects in forums to attract help w/ bigger things
+- id: tpl-c3a1fdb83df9
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2021-10-13'
+  title_seed: We have melted aluminum cans in our crucible before, but something broke on the crucible
+    i
+- id: tpl-20b9a2695050
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-01-14'
+  title_seed: hello fabricators
+- id: tpl-41ba92a1e232
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-05-28'
+  title_seed: Hi, I was wondering if anyone could fix/weld my skateboard
+- id: tpl-c1ece87c8199
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-10-15'
+  title_seed: FreeCad has the [link] which I have not used
+- id: tpl-8f79cbae3010
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-03-29'
+  title_seed: '[#channel] STL''s are free as in beer, not speech 😉 For anyone who has worked with parametr'
+- id: tpl-f65d915e9a05
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-06-20'
+  title_seed: If you draw your design in Inkscape (or Illustrator, or another vector graphics program)
+    w
+- id: tpl-a1b71e6debff
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-08-24'
+  title_seed: Also, Crucial
+- id: tpl-2c2f6c69bb0c
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-12-23'
+  title_seed: hello
+- id: tpl-0153c350d500
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2021-10-19'
+  title_seed: Just posted an update for the gate project on Discuss if anyone wants to check it out [lin
+- id: tpl-cfdea1f87a94
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-05-25'
+  title_seed: Just a reminder that the accuracy of the Maslow is not the same as a gantry CNC setup
+- id: tpl-58ac59ac0314
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-10-15'
+  title_seed: and the shape was taken from another surface (subd box), and I need to move the points out
+- id: tpl-4c697c9bd04e
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-01-15'
+  title_seed: 'I would be a taker [#channel] '
+- id: tpl-1e341dd29547
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-05-02'
+  title_seed: Well… Amazon has anything, often at good prices
+- id: tpl-f5ebf5bd160d
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-08-21'
+  title_seed: '[#channel] would you (or anyone with vinyl cutting experience) be able to show me how to
+    o'
+- id: tpl-12b3aff1700c
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-11-20'
+  title_seed: is there something I could put under a large piece of acrylic if I were to cut tons of tin
+- id: tpl-5d044355eb0b
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-01-19'
+  title_seed: I'm planning on showing up to the Sunday 2-4pm laser training to potentially train and be
+- id: tpl-e8608a578ecf
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-04-23'
+  title_seed: It may seem obvious, but one will need to tighten the screws on the bandsaw stop
+- id: tpl-b7f7b14a2f1c
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-07-30'
+  title_seed: If anyone wants to see my cut files or fork this idea lmk
+- id: tpl-157c3f812f67
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-10-01'
+  title_seed: Because I have been asked, I will share my speed&power approach just for the sake of docum
+- id: tpl-14d4684d6d13
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-12-11'
+  title_seed: ⚠️ LASER IS MISALIGNED, IT'LL CUT YOUR STUFF WEIRD ⚠️ the laser cuts what's supposed to
+    be
+- id: tpl-117fb4906977
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-02-03'
+  title_seed: If we pursue the “move the laser to the front and vent directly to outside” solution I wil
+- id: tpl-1e2be8545b30
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-03-11'
+  title_seed: Ok folks, we’re starting to get a clearer picture of what’s been happening with the laser
+- id: tpl-8e95b9b8519c
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-05-12'
+  title_seed: Hold up, please don’t mess with the lead screws unless you have actual experience with the
+- id: tpl-30b44daf0b6a
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-07-20'
+  title_seed: ATTENTION for some reason the laser is cutting under power
+- id: tpl-5baa6bdf3fb6
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-09-16'
+  title_seed: Please be careful going forward, respect the laser cutter as the shared privilege that it
+- id: tpl-e8275363edf3
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-02-11'
+  title_seed: Hi all, not sure if this is the right channel for it, but I’m trying to understand the rul
+- id: tpl-ba21f26fcbea
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-07-18'
+  title_seed: hi
+- id: tpl-ad22c2d6dd9b
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-08-03'
+  title_seed: O gurus of the laser
+- id: tpl-4f229960c4b6
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2024-10-19'
+  title_seed: it was *so nice* to step foot _back_ in noisebridge
+- id: tpl-37452c657f19
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-01-09'
+  title_seed: The ducts stop at the second floor windows because that was all the piping that we had aft
+- id: tpl-90d37b058a97
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-02-17'
+  title_seed: Hello all
+- id: tpl-12087b59b10d
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-04-03'
+  title_seed: Just a reminder to please don’t forget to donate for your laser time
+- id: tpl-cf31dc956263
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-06-14'
+  title_seed: Hi
+- id: tpl-ade6a120b06a
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-07-24'
+  title_seed: 'hello '
+- id: tpl-c72e611f7213
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-10-17'
+  title_seed: Only usable material should go in the scrap bin
+- id: tpl-442d8854a951
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-11-24'
+  title_seed: I cut a little acrylic but always had the filter on
+- id: tpl-ed712c0de08b
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-12-29'
+  title_seed: 'If anyone else wants to install Windows 11 I recommend using this ISO: [link] and then
+    usi'
+- id: tpl-38dfba0b5190
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-10-26'
+  title_seed: Friendly reminder to please vacuum up this kind of debris on the laser bed after cutting
+- id: tpl-346355395793
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-12-07'
+  title_seed: First person to install the filters / notices they are installed please make a `@laser`
+    an
+- id: tpl-e3d6aff917d2
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2026-01-18'
+  title_seed: i was hoping to get a dxf file laser cut in the city and a friend mentioned that noisebrid
+- id: tpl-6de15e1234f6
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-11-11'
+  title_seed: So I popped in here to ask if someone will be available to help train me today
+- id: tpl-15a18448102e
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-12-15'
+  title_seed: Goodmorning, I'd like to assist to learn how to install the new filters
+- id: tpl-37b8a4493131
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-06-02'
+  title_seed: 'Alright so: My idea is to have an iterative cut-fill process'
+- id: tpl-a84683f8d0d7
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2022-10-31'
+  title_seed: Anyone know what glue works best for adhering to acrylic sheets
+- id: tpl-1e7cac8a34ed
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-06-27'
+  title_seed: If you look on meetup ahead a week or two you should be able to find one that has open spo
+- id: tpl-deb9a643aa83
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2023-09-11'
+  title_seed: 12x30 is a little too long for a Criket, which have sticky cutting mats that hold the viny
+- id: tpl-3d120cda781d
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2025-12-01'
+  title_seed: The laser is officially offline and unplugged
+- id: tpl-776baeb2a83d
+  source: discord:fabrication-n-lasers
+  guild_slug: laser-cutter
+  channel: fabrication-n-lasers
+  posted_at: '2026-04-02'
+  title_seed: '[#channel] would you happen to have Tom’s contact info'
+- id: tpl-d915551d7a41
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2021-12-12'
+  title_seed: Yeah...we would need volunteers and also to check with everyone as the woodshop is crowded
+- id: tpl-0a8229d8dd75
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-03-04'
+  title_seed: hey folks
+- id: tpl-07f399c98359
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-08-18'
+  title_seed: mostly just curious if there are gouges there or if i would have to bring them
+- id: tpl-a24e0b9e602d
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-12-05'
+  title_seed: If I want to come in to the shop and use the miter box, do I need to attend a training
+- id: tpl-d03002343166
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-01-11'
+  title_seed: I want to come in this weekend and do some shop cleanup and organizing
+- id: tpl-ad3c51c4eb6a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-13'
+  title_seed: '[#channel] , both [#channel] and I have committed alternating sundays to both laser traini'
+- id: tpl-03560772ed02
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-19'
+  title_seed: '...and I intend to act on consensus immediately, and invite others to as well'
+- id: tpl-836eb9506bc9
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-04-02'
+  title_seed: Ok I made a big scrap box like I said I was going to
+- id: tpl-0abdf791761a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-04-19'
+  title_seed: But anyways, now that this is free of dust, the dust collector doesn't work as well bc it'
+- id: tpl-95a640ba53cd
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-05-25'
+  title_seed: I’m working on a modular wall to hold screws, nails, and drivers
+- id: tpl-bd39f86ccad8
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-06-24'
+  title_seed: Question
+- id: tpl-84f3825fa077
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-07-24'
+  title_seed: Think they’re pine 2x8’s if I’m remembering correctly
+- id: tpl-0b0419beb15a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-10-04'
+  title_seed: don't have a project in mind per se, but would like to familiarize myself more w/ the wood
+- id: tpl-8057d25e9a7f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-10-09'
+  title_seed: I also have a 10" blade that leaves a 220 grit cut, which I will happily donate to the sho
+- id: tpl-0dbce7bc1446
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-12-06'
+  title_seed: Anyone know if there is a meetup happening tomorrow night as is mentioned on the wiki
+- id: tpl-0e9b3bccef43
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-02-03'
+  title_seed: hoping to cut some specifically sized holes in MDF for a project, wondering about lasering
+- id: tpl-7db2623c66a4
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-02-20'
+  title_seed: '[#channel] There is a lot going here behind the scenes and I wouldn''t recommend just jumpi'
+- id: tpl-66a3e376aa4f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-03-27'
+  title_seed: I can't find any upcoming woodshop safety classes
+- id: tpl-282229dc3672
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-06-13'
+  title_seed: Here's another thought for making Woodworking Wednesdays an efficient method for acquisiti
+- id: tpl-09712692e672
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-07-01'
+  title_seed: If I donate a feather board for the table saw/router table, would people use it
+- id: tpl-999f887cb5f1
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-09-01'
+  title_seed: I would also like to announce that we're finally going to build the wall between woodshop
+- id: tpl-22649ccf217e
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-12-18'
+  title_seed: 'hi, any update here from the woodshop '
+- id: tpl-18c88d713d42
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-04-25'
+  title_seed: I need to cut a bunch of finger slots in drawer faces kind of like this
+- id: tpl-2718ba7c8456
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-06-12'
+  title_seed: but yea if you use the cross cut sled you could do that with the table saw
+- id: tpl-5ce29fd2acae
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-09-02'
+  title_seed: Hello folks, I am new to Noisebridge and looking to learn about some of the equipment (in
+- id: tpl-5245a1991d81
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-11-30'
+  title_seed: Honestly I’m not sure what I need yet more getting mildly last minute gift ideas
+- id: tpl-26287e8d274f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2026-02-04'
+  title_seed: Hey
+- id: tpl-4838f17e6d86
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-02-16'
+  title_seed: yo does anyone know where I can find a vacuum press for wood lamination in the city
+- id: tpl-ee6c13829a16
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-08-17'
+  title_seed: The wiki says the lathe is broken, does anyone know if its still broken
+- id: tpl-adf8677bf4c8
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-10-20'
+  title_seed: '[#channel] do you think it’d be safe if I laser cut the same shape out of half in ply'
+- id: tpl-fe741739ec99
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-12-28'
+  title_seed: Hey I’m new around and want to work on a climbing hangboard
+- id: tpl-d23349bc631a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-12'
+  title_seed: That's why I think we need to check out the key
+- id: tpl-4c4a5e4d7c7b
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-15'
+  title_seed: I’d like to do it in the morning too, but my access card is on the Fritz
+- id: tpl-fb554315c88e
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-23'
+  title_seed: 'Items consensed about @ Mar 19 woodshop org meeting: *Heavier, more powerful shop tools
+    sh'
+- id: tpl-454975081f49
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-04-16'
+  title_seed: The laser is, like everything else just another tool
+- id: tpl-ef8d1c4cac60
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-05-17'
+  title_seed: '[#channel] I''ve updated the wiki page for the woodshop with a section on how to be excelle'
+- id: tpl-097e2fcbc7ce
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-06-19'
+  title_seed: '* **Painting:** Use a semi-gloss interior latex paint'
+- id: tpl-9e97bf3b069b
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-07-19'
+  title_seed: There was a discussion yesterday about sanding in the woodshop, and there was general agre
+- id: tpl-afe5964e243c
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-09-17'
+  title_seed: On a separate note, I’ve moved the ryobi miter saw onto a shelf in the back where I’d like
+- id: tpl-98c0d2d01fe2
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-10-09'
+  title_seed: Actually I'm going to order the parts so its best to schedule accordingly
+- id: tpl-ec39aa426b6f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-11-30'
+  title_seed: Hey everyone, does anyone have recommendations on where to get wood
+- id: tpl-a50c23daf733
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-01-06'
+  title_seed: Want me to share a photo if I can find a model plate
+- id: tpl-7ace90c3bd6f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-02-20'
+  title_seed: Thank you for the link 🙂 I have seen the blueprints
+- id: tpl-de6b4270667a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-03-23'
+  title_seed: Here’s a list of things that the woodshop would benefit from that we can work on during
+    th
+- id: tpl-de1a2ab7f921
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-06-07'
+  title_seed: It is refreshing to see the new people taking the conscientious route when they come to
+    pa
+- id: tpl-4a8e534e7398
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-06-26'
+  title_seed: Moved all the ceramic stuff to the back corner
+- id: tpl-eb2c54d05778
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-08-20'
+  title_seed: 'Alright, a few table saw updates: - I have fixed the angle issue'
+- id: tpl-02cfe8340f9f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-11-25'
+  title_seed: If there is no label, it is fair game
+- id: tpl-682e8ba2859c
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-04-17'
+  title_seed: Hi all
+- id: tpl-aef063fae66a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-06-10'
+  title_seed: also question- would anyone be available to help me bring several wood planks to noisebrid
+- id: tpl-3d68bc74135f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-08-25'
+  title_seed: Could we cut and bind rug sizes of it so we will not carpet the whole ara but can lay addi
+- id: tpl-bdbaab3aa2f8
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-11-16'
+  title_seed: If not useful at Noisebridge, I'm also happy to give it away to a good home if anyone woul
+- id: tpl-c6d413041b93
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2026-02-02'
+  title_seed: I spent a large chunk of today cleaning, organizing, sorting, and relocating stuff in the
+- id: tpl-36a2f7c971b8
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-02-14'
+  title_seed: It took forever but it’s satisfying to look at
+- id: tpl-bb3379bbada9
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-05-31'
+  title_seed: Also if anyone has any scrap bench vises (the type that literally screw into the side of
+    t
+- id: tpl-47be22891408
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-09-27'
+  title_seed: If i understood correctly from [#channel] yesterday, right now it's only the table's feet
+- id: tpl-5dc6e66146d1
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2022-12-19'
+  title_seed: Cool
+- id: tpl-97758dd00da3
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-02-24'
+  title_seed: I'd like to start going through the process of cleaning up the scrap shelf
+- id: tpl-bbc0e560adaa
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-14'
+  title_seed: I don't think we should stock 2 sawstop cartridges
+- id: tpl-f372c9bc1457
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-03-19'
+  title_seed: You could ask around today, tell someone you are looking for a dowel to cut with a handsaw
+- id: tpl-a9c1178ab9e2
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-04-12'
+  title_seed: Thank you @ mjo for implementing a great idea
+- id: tpl-a3e3a0985b55
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-05-13'
+  title_seed: Hi
+- id: tpl-514d2a1dbc5f
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-06-19'
+  title_seed: '[#channel] asked me to pick my dad’s brain about building some bookcases for the library
+    ('
+- id: tpl-19050f667348
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-07-04'
+  title_seed: Does someone have a plan for that scroll saw
+- id: tpl-fcd13514b18d
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-09-12'
+  title_seed: Woodshop safety training is tomorrow and class is full
+- id: tpl-7a3b28d65dcd
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-10-09'
+  title_seed: Hi all, I'd like to buy a 1/2" collet and bit for the table router in the shop
+- id: tpl-b628b53cd091
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2023-11-21'
+  title_seed: Most Grinder wheels are for steel only… aluminum clogs them
+- id: tpl-a570f9a537aa
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-01-05'
+  title_seed: I need to cut some sheet acrylic down to size so I can use it in the laser cutter
+- id: tpl-73395af57bca
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-02-19'
+  title_seed: This is a big project
+- id: tpl-7ed9dca51628
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-03-18'
+  title_seed: I’m going to bring this up tomorrow at the meeting but does anyone have objections to gett
+- id: tpl-d1000835854a
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-05-30'
+  title_seed: If you know how to use the tools safely, you are welcome to use them
+- id: tpl-3451be753f53
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-06-19'
+  title_seed: I'm not sure what kind of paint to use, whether I need to apply some layers of adhesive
+    be
+- id: tpl-b4ad337d39f2
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-08-19'
+  title_seed: This is likely a known problem, but I wanted to post it here for awareness
+- id: tpl-9a69bd2a34b6
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2024-09-11'
+  title_seed: not sure who it was, but whoever removed the lock from my locker and took my drill and wen
+- id: tpl-7158a2dc0cb9
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-03-26'
+  title_seed: Hey all
+- id: tpl-b600dd6d5118
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-06-03'
+  title_seed: Hi
+- id: tpl-33d9041cca13
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-08-13'
+  title_seed: 'Another friendly reminder: Woodshop is currently still is still in the process of buildout'
+- id: tpl-34aae4ec7e51
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2025-09-22'
+  title_seed: I just need to find a hand drill to use
+- id: tpl-13d3efdc5a3e
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2026-02-01'
+  title_seed: Please clean up and put tools away when you are done
+- id: tpl-8a685b92a281
+  source: discord:woodshop
+  guild_slug: woodshop
+  channel: woodshop
+  posted_at: '2026-03-19'
+  title_seed: Still need to get a pc that lives with the machine, and write up the directions, but it
+    wo

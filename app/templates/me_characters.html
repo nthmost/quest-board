@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}My Characters · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar">
+    <h1>♣ MY CHARACTERS ♣</h1>
+    <div class="sub">{{ current_user }} · {{ characters|length }} of {{ max_chars }}</div>
+    <div class="title-auth">
+        <a class="auth-link" href="/">‹ FRONT</a>
+        <a class="auth-link" href="/quests">ALL QUESTS</a>
+        {% if actually_admin %}
+        <form method="post" action="/me/view-as" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">{% if pretending %}AS ADMIN{% else %}AS USER{% endif %}</button>
+        </form>
+        {% endif %}
+        <form method="post" action="/logout" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">LOG OUT</button>
+        </form>
+    </div>
+</div>
+
+<div class="char-grid">
+    {% for c in characters %}
+    <div class="panel charsheet {% if c.is_active %}char-active{% else %}panel-yellow{% endif %}">
+        <div class="panel-header">
+            {% if c.is_active %}♦ ACTIVE · {% else %}★ {% endif -%}
+            LV {{ c.level }} · {{ c.class_slug.upper() }}
+        </div>
+
+        <form method="post" action="/me/characters/{{ c.id }}/delete"
+              style="margin:0"
+              onsubmit="return confirm('Retire {{ c.name }}? This is permanent.');">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="char-trash" title="Retire {{ c.name }}">☠</button>
+        </form>
+
+        <div class="panel-body">
+            <div class="name">{{ c.name }}</div>
+            <div class="class">{{ c.class_slug }}{% if c.guild_name %} · {{ c.guild_name }}{% endif %}</div>
+
+            <div class="stats">
+                <div class="k">XP</div>           <div class="v gold">{{ c.xp_balance }}</div>
+                <div class="k">LEVEL</div>        <div class="v">{{ c.level }}</div>
+                <div class="k">CREATED</div>      <div class="v" style="font-size:9px">{{ c.created_at.strftime('%Y-%m-%d') }}</div>
+            </div>
+
+            {% if not c.is_active %}
+            <div class="char-actions">
+                <form method="post" action="/me/characters/{{ c.id }}/activate" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                    <button type="submit" class="char-activate-btn">MAKE ACTIVE</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if characters|length < max_chars %}
+    <a href="/me/characters/new" class="char-slot-empty">
+        <span class="plus">＋</span>
+        <span class="lbl">NEW CHARACTER</span>
+    </a>
+    {% endif %}
+</div>
+
+{% if not characters %}
+<div class="panel panel-orange" style="margin-top: 1rem;">
+    <div class="panel-header">♦ NO CHARACTERS YET</div>
+    <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
+        <p style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
+            You can run up to {{ max_chars }} characters.<br>
+            Each is its own little adventure.
+        </p>
+        <a href="/me/characters/new" class="login-button" style="margin-top: 1rem; display: inline-block;">► CREATE FIRST CHARACTER</a>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

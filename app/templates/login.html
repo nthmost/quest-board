@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Log in · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar">
+    <h1>♣ LOG IN ♣</h1>
+    <div class="sub">USE YOUR NOISEBRIDGE WIKI ACCOUNT</div>
+</div>
+
+<div class="login-shell">
+    <div class="panel panel-yellow">
+        <div class="panel-header">★ ENTER CREDENTIALS</div>
+        <div class="panel-body">
+
+            {% if error %}
+            <div class="login-error">▼ {{ error }}</div>
+            {% endif %}
+
+            <form method="post" action="/login" class="login-form">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <label class="login-field">
+                    <span class="login-label">WIKI USERNAME</span>
+                    <input type="text" name="username" autocomplete="username" autofocus required>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">PASSWORD</span>
+                    <input type="password" name="password" autocomplete="current-password" required>
+                </label>
+
+                <button type="submit" class="login-button">► START</button>
+            </form>
+
+            <div class="login-note">
+                Your password is forwarded once to the Noisebridge wiki for
+                verification, then immediately discarded. We never store it.
+                <br><br>
+                No wiki account?
+                <a href="https://www.noisebridge.net/wiki/Special:RequestAccount">request one here</a>.
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

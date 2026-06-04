@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Post a Quest · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar title-bar-quest">
+    <div class="page-kind">♦ NEW QUEST</div>
+    <h1>POST A QUEST</h1>
+    <div class="sub">{{ character_name|upper }} · {{ current_user }}</div>
+    <div class="title-auth">
+        <a class="auth-link" href="/">‹ FRONT</a>
+        <a class="auth-link" href="/quests">ALL QUESTS</a>
+        <span class="auth-user">{{ current_user }}</span>
+        <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+        {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
+        <form method="post" action="/logout" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">LOG OUT</button>
+        </form>
+    </div>
+</div>
+
+{% if flash %}
+<div class="flash-banner">▼ {{ flash }}</div>
+{% endif %}
+
+<div class="panel panel-orange" style="max-width: 720px; margin: 0 auto;">
+    <div class="panel-header">♦ QUEST DETAILS</div>
+    <div class="panel-body">
+        <form method="post" action="/quests/new" class="login-form aqe-form">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+
+            <label class="login-field">
+                <span class="login-label">TITLE <span style="color:var(--nes-orange)">*</span></span>
+                <input type="text" name="title" value="{{ form.title or '' }}"
+                       placeholder="short, action-oriented title" maxlength="512" required autofocus>
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">DESCRIPTION <span style="color:var(--nes-orange)">*</span></span>
+                <textarea name="description" rows="5" required
+                          placeholder="what needs doing, how to know when it's done">{{ form.description or '' }}</textarea>
+            </label>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <label class="login-field">
+                    <span class="login-label">GUILD</span>
+                    <select name="guild_id">
+                        <option value="">— none —</option>
+                        {% for g in guilds %}
+                        <option value="{{ g.id }}" {% if form.guild_id == g.id|string %}selected{% endif %}>{{ g.name }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">LOCATION</span>
+                    <select name="location_id">
+                        <option value="">— none —</option>
+                        {% for l in locations %}
+                        <option value="{{ l.id }}" {% if form.location_id == l.id|string %}selected{% endif %}>{{ l.name }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+                <label class="login-field">
+                    <span class="login-label">URGENCY</span>
+                    <select name="urgency">
+                        <option value="normal" {% if form.urgency != 'high' %}selected{% endif %}>normal</option>
+                        <option value="high"   {% if form.urgency == 'high' %}selected{% endif %}>high</option>
+                    </select>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">MIN PARTY</span>
+                    <input type="number" name="party_min" value="{{ form.party_min or 1 }}" min="1" max="20">
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">MAX PARTY</span>
+                    <input type="number" name="party_max" value="{{ form.party_max or '' }}"
+                           min="1" max="20" placeholder="unlimited">
+                </label>
+            </div>
+
+            <label class="login-field">
+                <span class="login-label">SKILLS (comma-separated)</span>
+                <input type="text" name="skills" value="{{ form.skills or '' }}"
+                       placeholder="e.g. woodworking, electronics, cleaning">
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">CONTACT</span>
+                <input type="text" name="contact_text" value="{{ form.contact_text or '' }}"
+                       placeholder="who to coordinate with — e.g. @you on Discord">
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">DUE DATE (optional)</span>
+                <input type="date" name="due_date" value="{{ form.due_date or '' }}">
+            </label>
+
+            {% if posting_fee > 0 %}
+            <div class="qd-verification-notice" style="margin-bottom:0.75rem">
+                ⚠ Posting costs <strong>{{ posting_fee }} XP</strong> (from {{ character_name }}'s balance · you have {{ character_xp }} XP).
+                Your level is based on total XP earned and won't decrease.
+            </div>
+            {% endif %}
+
+            <div class="aqe-actions">
+                <button type="submit" class="login-button">► POST QUEST</button>
+                <a class="auth-link" href="/quests">CANCEL</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

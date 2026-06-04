@@ -1,0 +1,58 @@
+{% extends "admin_layout.html" %}
+{% block admin_content %}
+
+<div class="panel panel-yellow">
+    <div class="panel-header">♣ QUEST POOL · {{ rows|length }} of {{ total }}</div>
+    <div class="panel-body">
+
+        <form method="get" class="adm-filters">
+            <label>CHANNEL
+                <select name="channel">
+                    <option value="">all</option>
+                    {% for c in channels %}
+                        <option value="{{ c }}" {% if filters.channel==c %}selected{% endif %}>{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>SKILL
+                <select name="skill">
+                    <option value="">all</option>
+                    {% for s in skills %}
+                        <option value="{{ s }}" {% if filters.skill==s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <button type="submit" class="adm-button">APPLY</button>
+            <a class="adm-button" href="/admin/templates">CLEAR</a>
+        </form>
+
+        {% if rows %}
+        <table class="adm-table">
+            <thead><tr>
+                <th>TITLE</th><th>CHANNEL</th><th>SKILLS</th>
+                <th>XP</th><th>URG</th><th>POSTED</th>
+            </tr></thead>
+            <tbody>
+            {% for r in rows %}
+                <tr>
+                    <td class="hi">{{ r.title }}</td>
+                    <td class="dim">{{ r.channel }}</td>
+                    <td>
+                        {% for s in r.skills or [] %}
+                            <span class="chip-mini">{{ s }}</span>
+                        {% endfor %}
+                    </td>
+                    <td class="num">{{ r.xp }}</td>
+                    <td>{{ r.urgency }}</td>
+                    <td class="dim">{{ r.posted_at }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty-board">※ NO MATCHES ※</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

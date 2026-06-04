@@ -1,0 +1,4798 @@
+# Discord-mined NB quest seeds, LLM-curated and skill-tagged.
+# Combined: original mining pass + extended-channel pass.
+- id: tpl-ba829388b630
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-06-28'
+  title: Receive and place donated laser equipment
+  description: Meet at 272 Capp to receive and properly place donated XY ballscrew stage and CO2 laser
+    equipment.
+  xp: 6
+  urgency: normal
+  score: 9
+  skills:
+  - laser-cutting
+  - hardware-repair
+  - cleaning
+- id: tpl-a2bdf92af287
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-01-11'
+  title: Troubleshoot DAC0800 IC circuit
+  description: Need help troubleshooting a DAC0800 IC circuit that's outputting -10 volts instead of expected
+    values. Can provide breadboard photo or explanation.
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - electronics-debug
+  - soldering
+  - breadboarding
+- id: tpl-a7ced692c47a
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-08-09'
+  title: Borrow Microchip PICkit 5 debugger
+  description: Looking to borrow a Microchip PICkit 5 in-circuit debugger for a week, or purchase one
+    if available.
+  xp: 5
+  urgency: high
+  score: 8
+  skills:
+  - microcontrollers
+  - hardware-repair
+- id: tpl-6bcacc6ca4c5
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-01-26'
+  title: Learn soldering basics
+  description: Someone willing to teach a beginner how to safely use a soldering iron for fixing a trackball
+    mouse.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - soldering
+  - teaching
+- id: tpl-e7cd1c4dc0d0
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-07-07'
+  title: Help remove stripped screw from mechanical keyboard
+  description: Need help removing a stripped screw from a mechanical keyboard using Dremel tool. Requires
+    supervision for a noob.
+  xp: 12
+  urgency: high
+  score: 8
+  skills:
+  - metalworking
+  - woodworking
+  - sanding
+- id: tpl-b6498c074fd7
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-24'
+  title: Prepare space for building inspection
+  description: Clean the space to meet building inspection standards, focusing on electrical and safety
+    issues.
+  xp: 10
+  urgency: high
+  score: 8
+  skills:
+  - cleaning
+  - organizing
+  - power-supply
+- id: tpl-ced7e3d03b47
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-04'
+  title: Set up sewing machine for accessibility
+  description: Install and position the sewing machine near the front to ensure accessibility.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - sewing
+  - organizing
+- id: tpl-9fb17a43a124
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2025-11-27'
+  title: Paint and prime woodshop walls
+  description: Need help painting walls and priming them first. Primer is available under the main table
+    saw.
+  xp: 10
+  urgency: normal
+  score: 8
+  skills:
+  - painting
+  - cleaning
+  - woodworking
+- id: tpl-8f5d707b8b53
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-06-01'
+  title: Test safety system during tours
+  description: Develop a way to test safety features end-to-end during tours. Ensure that safety systems
+    work when presented to visitors.
+  xp: 12
+  urgency: high
+  score: 8
+  skills:
+  - electronics-debug
+  - writing
+- id: tpl-fb29073dc230
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-06-19'
+  title: Add safety videos to woodshop wiki pages
+  description: Help create and link safety and technique videos for each tool in the woodshop. The goal
+    is to improve safety by adding educational resources.
+  xp: 10
+  urgency: high
+  score: 8
+  skills:
+  - mediawiki
+  - photography
+  - writing
+- id: tpl-2c2f6c69bb0c
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2023-12-23'
+  title: Get trained on laser cutter usage
+  description: Requesting training on how to use the laser cutter for a group of friends early next week.
+    Need someone available to provide instruction.
+  xp: 5
+  urgency: high
+  score: 8
+  skills:
+  - laser-cutting
+  - teaching
+- id: tpl-e8608a578ecf
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2024-04-23'
+  title: Tighten screws on bandsaw stop
+  description: The Allen key needed to tighten the screws on the bandsaw stop is in the box. This is a
+    maintenance task.
+  xp: 4
+  urgency: normal
+  score: 8
+  skills:
+  - hardware-repair
+  - basic-tools
+- id: tpl-d03002343166
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-01-11'
+  title: Shop cleanup and organizing
+  description: Someone wants to come in this weekend to do shop cleanup and organizing, including labeling
+    items, cleaning the table saw, and building holders for French cleat wall.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - cleaning
+  - organizing
+  - woodworking
+- id: tpl-999f887cb5f1
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-09-01'
+  title: Build wall between woodshop and hackatorium
+  description: Planning to build a wall between woodshop and hackatorium. Need to close access to the
+    woodshop during construction due to space constraints.
+  xp: 25
+  urgency: high
+  score: 8
+  skills:
+  - woodworking
+  - metalworking
+  - organizing
+- id: tpl-afe5964e243c
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-09-17'
+  title: Relocate ryobi miter saw
+  description: Move the ryobi miter saw to a designated shelf in the back to improve usability. Inform
+    others not to move it back without discussion.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - lifting
+  - woodworking
+- id: tpl-97758dd00da3
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-02-24'
+  title: Clean up the scrap shelf
+  description: Go through the scrap shelf and remove or update 'do not hack' labels on old projects. Contact
+    owners if possible to get updates on project status.
+  xp: 10
+  urgency: normal
+  score: 8
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-a7ed84933923
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-08'
+  title: Improve automatic PCB routing tool
+  description: Looking for people to share gerber files to help improve an automatic PCB routing tool.
+    Will not be used to train AI models.
+  xp: 25
+  urgency: normal
+  score: 8
+  skills:
+  - electronics-debug
+  - hardware-repair
+- id: tpl-0f44b260d2bc
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-01-27'
+  title: Share phone screen repair heating pad
+  description: Make a specialized heating pad for phone screen repair available in the electronics room
+    for others to use.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - hardware-repair
+  - soldering
+- id: tpl-42799e1b4355
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-30'
+  title: Diagnose and repair vintage 88-key MIDI controller
+  description: The music room has a malfunctioning vintage 88-key weighted hammer action MIDI controller.
+    Need help with hardware diagnostics, continuity testing, and repair attempts.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - electronics-debug
+  - hardware-repair
+  - soldering
+- id: tpl-381c1fb5ada4
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-08'
+  title: Organize E-Waste Gathering Event
+  description: Plan and execute the 'Gathering of the E-Waste' pot luck event. Identify useful items,
+    categorize waste, and determine what devices Noisebridge can use for donor parts.
+  xp: 10
+  urgency: high
+  score: 8
+  skills:
+  - organizing
+  - cleaning
+  - event-hosting
+- id: tpl-a5e664d22718
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-19'
+  title: Sort e-waste and unlabeled bins
+  description: Help sort e-waste into different bins and organize unlabeled bins from hack shelves into
+    ewaste, trash, and possibly useful categories. The user needs more hands on deck.
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-faa1ebf8cf2d
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-03-11'
+  title: Open the shed door
+  description: The shed access is out of order. Someone with key privileges needs to open the door soon.
+  xp: 5
+  urgency: high
+  score: 8
+  skills:
+  - hardware-repair
+- id: tpl-8b0b44ba5f61
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-07-27'
+  title: Join cleaning and space organization session for party prep
+  description: Join a cleaning and space organization session happening tomorrow 2-4pm to prep for the
+    party. Bring your own tools if you have them.
+  xp: 5
+  urgency: high
+  score: 8
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-01410c3e4651
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-02-19'
+  title: Paint front fence
+  description: Repaint the front fence which has extensive tagging. This is a significant maintenance
+    task requiring preparation and painting.
+  xp: 20
+  urgency: high
+  score: 8
+  skills:
+  - painting
+  - cleaning
+- id: tpl-c8b9f01f8b8e
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2026-01-03'
+  title: Replace waterlogged bathroom ceiling
+  description: Fix downstairs bathroom after ceiling leak. Requires prep, insulation, sheetrock, spackle,
+    and painting skills.
+  xp: 12
+  urgency: high
+  score: 8
+  skills:
+  - plumbing
+  - painting
+  - hardware-repair
+- id: tpl-c4be1dd33121
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-12-23'
+  title: Secure Shapeoko CNC and materials
+  description: The Shapeoko CNC and its materials need to be treated like the laser - an expensive machine
+    loaned to the space. If not respected, it will be removed from the space.
+  xp: 25
+  urgency: high
+  score: 8
+  skills:
+  - cnc
+  - hardware-repair
+  - organizing
+- id: tpl-83741770344c
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-12-26'
+  title: Get contractor to inspect the wall
+  description: Request to have a contractor come take a quick look at the wall to assess if that's all
+    that's needed to get the project back on track.
+  xp: 10
+  urgency: high
+  score: 8
+  skills:
+  - hardware-repair
+- id: tpl-5b787df8eab3
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-02-02'
+  title: Implement new gate access policy
+  description: Update the gate access policy to require members to close NB to non-members at 11pm and
+    rotate the gate code.
+  xp: 20
+  urgency: high
+  score: 8
+  skills:
+  - writing
+  - sysadmin
+- id: tpl-c3a1fdb83df9
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2021-10-13'
+  title: Set up sand casting setup for aluminum
+  description: Create a sand casting setup using a crucible, hydraulic press, and laser-cut or 3D printed
+    objects. Previous attempts with melted aluminum cans have been successful.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - metalworking
+  - 3d-printing
+  - laser-cutting
+- id: tpl-14d4684d6d13
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2024-12-11'
+  title: Fix misaligned laser cutter
+  description: The laser cutter is cutting rectangles instead of squares due to misalignment. Someone
+    needs to fix or calibrate the laser alignment.
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - laser-cutting
+  - electronics-debug
+- id: tpl-6de15e1234f6
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-11-11'
+  title: Get trained on laser equipment
+  description: Requesting help to get properly trained on laser equipment. Want to ensure training is
+    done correctly.
+  xp: 10
+  urgency: normal
+  score: 8
+  skills:
+  - laser-cutting
+  - teaching
+- id: tpl-95a640ba53cd
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-05-25'
+  title: Build modular wall for hardware storage
+  description: A modular wall with French cleat design is being built to replace the current stainless
+    steel shelf. It will hold screws, nails, and drivers with bins for parts.
+  xp: 20
+  urgency: normal
+  score: 8
+  skills:
+  - woodworking
+  - metalworking
+  - organizing
+- id: tpl-adf8677bf4c8
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-10-20'
+  title: Test laser cutting a simple shape in plywood
+  description: Want to laser cut a simple shape in half plywood. Need to confirm if it's safe with adjustment
+    screws available.
+  xp: 8
+  urgency: normal
+  score: 8
+  skills:
+  - laser-cutting
+- id: tpl-7ace90c3bd6f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-02-20'
+  title: Start building the wall project this week
+  description: The workshop is ready with tools and supplies. Begin construction of the wall project that
+    was already planned.
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - woodworking
+  - organizing
+- id: tpl-c6d413041b93
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2026-02-02'
+  title: Organize and secure the woodshop cabinet
+  description: 'The cabinet in the corner right in front of the door will have tools and a lock installed
+    this week. Please don''t pack it full of crap. The person is cleaning, organizing, and relocating
+    stuff in the '
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - organizing
+  - cleaning
+  - woodworking
+- id: tpl-7a3b28d65dcd
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-10-09'
+  title: Purchase and learn to use 1/2" collet for table router
+  description: Buy a 1/2" collet and bit for the table router. Request instruction on how to change out
+    the collet if one is not already available.
+  xp: 12
+  urgency: normal
+  score: 8
+  skills:
+  - woodworking
+  - soldering
+  - basic-tools
+- id: tpl-73395af57bca
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-02-19'
+  title: Complete wall construction for noise and dust containment
+  description: Need to finish construction of a wall to contain noise and wood dust. Requires planning,
+    plumbing work, and removing existing table wall.
+  xp: 25
+  urgency: high
+  score: 8
+  skills:
+  - woodworking
+  - plumbing
+  - hardware-repair
+- id: tpl-a51f8812ed2c
+  source: discord:help-wanted
+  channel: help-wanted
+  guild_slug: metaguild
+  posted_at: '2026-05-05'
+  title: Mount retro telephone and rewire Cisco ATA box
+  description: Move a retro telephone from the RNA Lounge table to the wall near the Beyla setup. Route
+    ethernet cable directly from rack to Cisco ATA box instead of using a mini switch.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - networking
+  - electronics-debug
+  - basic-tools
+- id: tpl-02eec934ea63
+  source: discord:help-wanted
+  channel: help-wanted
+  guild_slug: metaguild
+  posted_at: '2026-05-05'
+  title: Assist with organ electronics repair
+  description: Help ensure no damage occurs while opening up the organ. The person is inexperienced with
+    electronics repair and fears irreversible damage.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - soldering
+- id: tpl-3c0b16e5986f
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-01-06'
+  title: Find or create a driver for an LCD display
+  description: Looking for a new driver for an LCD display used in a portable raspi emulator, or advice
+    on whether it's worth fixing.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - soldering
+  - microcontrollers
+- id: tpl-8a86f23e7da6
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-01-26'
+  title: Repair membrane switch on scooter power button
+  description: Seeking help to fix a faulty power button on a scooter using membrane switch repair techniques.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - soldering
+  - low-voltage
+- id: tpl-52d08d611269
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-02-06'
+  title: Turn on solder fume extractor
+  description: Please turn on the solder fume extractor at the soldering station to clear fumes from the
+    LED soldering.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - power-supply
+  - electronics-debug
+- id: tpl-26abe867f9f3
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-06'
+  title: Sort stolen electronics
+  description: Go through items left in the electronics room and sort useful parts into proper locations.
+    Set reminder for items to be thrown away.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - cleaning
+  - organizing
+  - electronics-debug
+- id: tpl-2a1bb0a328fb
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-01-28'
+  title: Replace worn soldering tips
+  description: Soldering tools are looking rough. Bring new tips if you have extras.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - soldering
+- id: tpl-d5d2a8f1a4ff
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-03-21'
+  title: Find an old USB card reader for legacy storage device
+  description: Need to locate an old USB adapter or card reader that supports linear non-ATA storage devices.
+    Modern adapters don't work due to device age.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - hardware-repair
+- id: tpl-0ca15240f03b
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-24'
+  title: Address electrical and safety issues
+  description: Identify and report any electrical or safety problems found in the space.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - power-supply
+  - low-voltage
+- id: tpl-e9579f3bf986
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-08-21'
+  title: Return the phone booth bench
+  description: The bench for the phone booth is missing and needs to be returned, possibly with a postcard.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+  - lifting
+- id: tpl-49afe0c8cd41
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-10-15'
+  title: Weld garage door chain back together
+  description: The garage door chain is jammed and needs to be welded back together. The user made the
+    mistake and is asking for help or ideas.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - welding
+  - metalworking
+- id: tpl-a41df9cedbd6
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-02-27'
+  title: Repair bent steel bar on gate
+  description: The weight of some items bent the steel bar securing the gate. Need to repair it when accessible
+    again.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - metalworking
+  - lifting
+- id: tpl-99adedf7f610
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-06-08'
+  title: Clean up the kitchenette after food preparation
+  description: Clean up the kitchenette after food preparation to prevent silverfish infestation. Please
+    do not leave or prepare food there without cleaning up afterwards.
+  xp: 3
+  urgency: high
+  score: 7
+  skills:
+  - cleaning
+- id: tpl-0d5cfc296e05
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2025-02-27'
+  title: Install door jams
+  description: Install door jams that are being delivered one at a time due to lack of space. The work
+    is ongoing and needs continued effort.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - lifting
+- id: tpl-ac3540b70c4b
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2025-03-10'
+  title: Access woodshop bench vise
+  description: Need to access one of the bench vises from the woodshop to hold something securely while
+    tightening it.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+- id: tpl-9bc4ffef6dc0
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-04-26'
+  title: Update wiki pages and category
+  description: Member updated wiki pages including adding a new page and transcluding a list of SafeSpace
+    Advocates. This is a maintenance task for the documentation.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - mediawiki
+  - writing
+- id: tpl-402d5e250470
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-02'
+  title: Inspect and update power outlets in hallway corridor
+  description: Check and update power outlets in the upper hallway corridor. Some outlets are daisy-chained
+    and need attention, particularly in the music room and electronics area.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - power-supply
+  - hardware-repair
+- id: tpl-70f4e7f17a85
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-02'
+  title: Purchase and test electrical switches and outlets for Noisebridge
+  description: Order and test electrical switches and outlets for Noisebridge. Estimate 10-12 switches
+    at $25 each and 20-30 outlets at $20 for a pack of 4.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - power-supply
+  - electronics-debug
+- id: tpl-30af909789c1
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-09-26'
+  title: Post safety document in lavatories
+  description: Post the safety document in the lavatories on 1st and 2nd floor. The document provides
+    next steps for people in need.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - writing
+  - social-media
+- id: tpl-cb1dd8813617
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2025-03-05'
+  title: Update Safespace Reporting Tool to post directly to Discord channel
+  description: Update the Safespace Reporting Tool to automatically post reports to a new Discord channel
+    and alert volunteers to intervene.
+  xp: 15
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - sysadmin
+  - networking
+- id: tpl-f5ebf5bd160d
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2023-08-21'
+  title: Show how to operate the vinyl cutter
+  description: Someone needs help learning to use the vinyl cutting machine. They want to cut a 12 x 30
+    design and transfer it to a bike surface.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - vinyl-cutting
+  - woodworking
+- id: tpl-90d37b058a97
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-02-17'
+  title: Find space for metal casting setup with magnetron furnace
+  description: Looking for a place to assemble and use a metal casting setup with a 10kW magnetron furnace,
+    chiller, and waveguide. Requires space and possibly help with setup.
+  xp: 25
+  urgency: normal
+  score: 7
+  skills:
+  - metalworking
+  - hardware-repair
+- id: tpl-a84683f8d0d7
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2022-10-31'
+  title: Find best glue for attaching EL wire to acrylic
+  description: Need to find a glue that works well for adhering EL wire to the edge of acrylic sheets.
+    Hot glue and Gorilla glue have both failed.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - hardware-repair
+- id: tpl-a24e0b9e602d
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-12-05'
+  title: Use the miter box in the woodshop
+  description: Someone wants to use the miter box in the woodshop and is asking if training is required
+    or if they can check in with others for etiquette.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+- id: tpl-66a3e376aa4f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-03-27'
+  title: Learn to use table router safely
+  description: Need to find a safety class or mentor to show how to use the table router for rounding
+    edges on 4x4s. Ask about availability and scheduling.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+- id: tpl-18c88d713d42
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-04-25'
+  title: Cut finger slots in drawer faces
+  description: Need to cut finger slots in drawer faces with limited tools. Looking for safe methods to
+    cut 2cm deep and 12cm wide slots without a dado-capable saw.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - sanding
+- id: tpl-9e97bf3b069b
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-07-19'
+  title: Move sanding activities outside
+  description: The woodshop has decided that sanding should be done outside due to ventilation concerns.
+    Update the wiki or communicate this expectation to members.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-bb3379bbada9
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-05-31'
+  title: Find and install scrap bench vises
+  description: Someone needs bench vises that screw into the side of the bench. Even broken ones are welcome.
+    The requester will install them in the woodshop.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - hardware-repair
+  - lifting
+- id: tpl-b4ad337d39f2
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-08-19'
+  title: Fix table saw angle adjustment issue
+  description: The table saw angle adjustment stops working past 35-40 degrees. The sector gear appears
+    to be riding off.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - metalworking
+  - hardware-repair
+- id: tpl-ee31bfaa41f3
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-04-30'
+  title: Research LED strip lighting options for higher brightness
+  description: User wants to find LED strips with higher brightness by choosing strips with more LEDs
+    per meter. They also need advice on power supplies for LED installations.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - power-supply
+- id: tpl-0b0b5b54a3df
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-09-15'
+  title: Replace microwave door switch
+  description: Fix a microwave that stopped working due to a worn out door switch. User wants to know
+    if it's complex and whether a new switch is needed or if the current one can be repaired.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - soldering
+  - hardware-repair
+- id: tpl-39516a02f4db
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-10-22'
+  title: Borrow RT809F programmer
+  description: Looking for someone to lend an RT809F programmer for a project.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - microcontrollers
+- id: tpl-4933a442c3ed
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2022-12-16'
+  title: Connect 24V battery to 600A busbar with proper voltage range
+  description: Connect a 24V eg4-lifepower battery with built-in BMS to a 600A busbar with 2AWG wire.
+    The system has a voltage range of 23.3V to 28.3V. Need to determine if a laptop charger can be used
+    safely.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - power-supply
+  - low-voltage
+  - hardware-repair
+- id: tpl-af36157beb28
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-12-16'
+  title: Claim ADC Ultra Patch Punch Down Panel donation
+  description: A donation of an ADC Ultra Patch Punch Down Panel is available in the electronics room.
+    Interested parties can claim it.
+  xp: 3
+  urgency: low
+  score: 7
+  skills:
+  - hardware-repair
+  - organizing
+- id: tpl-d84faed6712f
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-01-22'
+  title: Attempt solder repair on MIDI controller
+  description: Previous attempts at repairing a vintage MIDI controller with non-bad epoxy have failed.
+    Next step is attempting solder repair or trying non-bad epoxy again.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - soldering
+  - electronics-debug
+- id: tpl-85b2615d609f
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-07-24'
+  title: Troubleshoot LoRa device range issue
+  description: Investigate why a LoRa device only has 3 feet range instead of expected 2 km. Check for
+    cold solder joints and reflash firmware if needed.
+  xp: 12
+  urgency: high
+  score: 7
+  skills:
+  - electronics-debug
+  - soldering
+  - microcontrollers
+- id: tpl-7a3c46b17d40
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2022-07-07'
+  title: Organize soldering class with learning kits
+  description: Find cheap learning kits and volunteers to teach soldering this Sunday at the space or
+    Valencia.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - soldering
+  - teaching
+- id: tpl-e7b15ed63e31
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-01-28'
+  title: Find soldering space coordinator
+  description: Locate the person responsible for managing the soldering irons and electronics room at
+    Noisebridge.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+- id: tpl-9a54c0e66a23
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-20'
+  title: Evaluate Wall Construction Feasibility
+  description: Assess the possibility of building a wall between woodshop and front hall using available
+    foam insulation. Determine if the wall is needed and how to proceed with construction.
+  xp: 15
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - metalworking
+- id: tpl-90551e262a08
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-24'
+  title: Build kiln dolly with steel angle iron
+  description: Build a small dolly for the kiln using steel angle iron or old bed frame. The user plans
+    to return in a few days and needs to purchase materials.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - metalworking
+  - welding
+- id: tpl-7e2d40d61399
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-19'
+  title: Sort e-waste and organize trash bags
+  description: Sort e-waste and fill small items into trash bags for easier transport and disposal. This
+    will help prepare the hack shelves for installing cubbies.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-933a0d79843d
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-11-19'
+  title: Help with Saturday Cleanup
+  description: Need more volunteers for Saturday cleanup. Items were moved to limbo-land, and things were
+    left out and ruined by rain.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-1cf0fe3d5f49
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-12-31'
+  title: Reinforce loose table legs and replace missing leveling bolts
+  description: The tables in the Electronics room have loose legs and missing leveling bolts causing them
+    to wobble. Need to reinforce the legs and replace missing hardware.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - metalworking
+- id: tpl-ac6cf6798daa
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-06-28'
+  title: Update layout design with missing sizes and new elements
+  description: Update the current layout document with missing sizes and new elements as they become available.
+    Riff off the existing Rhino file and SVG with your own ideas.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+- id: tpl-7d3ff79879ff
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-09-19'
+  title: Create labeling system for facilities
+  description: Design and implement a comprehensive labeling system including color codes for rooms and
+    furniture. Provide labeling stickers at key stations like trash/recycle/compost and cleaning areas.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+- id: tpl-a9e6663e27f6
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-09-26'
+  title: Review building plans for safety compliance
+  description: An architect with experience in the community wants to review building plans for egress
+    calculations, fire ratings, and code compliance.
+  xp: 15
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-471bd1265918
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-10-18'
+  title: Help with cutting ceiling for wall blocks
+  description: The wall placement has been adjusted and the person is about to start cutting the ceiling
+    for blocks. Volunteers needed to help with materials from the lumberyard and unloading.
+  xp: 12
+  urgency: high
+  score: 7
+  skills:
+  - laser-cutting
+  - woodworking
+  - lifting
+- id: tpl-3952139d7761
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2025-04-02'
+  title: Fix the safety QR code redirect
+  description: The safety QR code currently redirects to a blank page on the NB wiki. Need someone to
+    investigate and fix the redirect to point to the correct content.
+  xp: 5
+  urgency: high
+  score: 7
+  skills:
+  - mediawiki
+  - web-frontend
+- id: tpl-fdf8322eb73f
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-02-02'
+  title: Create training for gate greeting procedures
+  description: Develop a short training session on how to greet people at the gate and handle potentially
+    evasive visitors.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - teaching
+  - event-hosting
+- id: tpl-20b9a2695050
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2022-01-14'
+  title: Design and build a headboard to fill wall gap
+  description: Create a short headboard to fit in the gap where a flat wall is not flat. The user has
+    a specific engineering problem involving their bed's pillow and wall alignment.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - sanding
+- id: tpl-41ba92a1e232
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2022-05-28'
+  title: Fix/weld a skateboard
+  description: Someone needs help fixing or welding a skateboard. Will donate for materials, electricity,
+    and help.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - welding
+  - metalworking
+- id: tpl-30b44daf0b6a
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-07-20'
+  title: Investigate laser cutting under power issue
+  description: The laser is cutting under power, requiring more passes than usual. Possible aging tube
+    issue. Need to test cuts and monitor the machine.
+  xp: 10
+  urgency: high
+  score: 7
+  skills:
+  - laser-cutting
+  - electronics-debug
+- id: tpl-ade6a120b06a
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-07-24'
+  title: Get laser cutter training
+  description: User is requesting help to get trained on the laser cutter soon, preferably today, tomorrow,
+    or Saturday.
+  xp: 3
+  urgency: high
+  score: 7
+  skills:
+  - laser-cutting
+  - teaching
+- id: tpl-346355395793
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-12-07'
+  title: Install laser filters and announce
+  description: Install the laser filters and make a @laser announcement to inform others that they are
+    now installed.
+  xp: 5
+  urgency: high
+  score: 7
+  skills:
+  - laser-cutting
+- id: tpl-e3d6aff917d2
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2026-01-18'
+  title: Get a DXF file laser cut
+  description: Need help getting a DXF file laser cut in the city. Looking for someone available today
+    or early tomorrow to assist.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - laser-cutting
+- id: tpl-836eb9506bc9
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-04-02'
+  title: Add wheels to scrap box
+  description: A scrap box has been made but needs wheels. The requester is looking for casters or someone
+    willing to buy them.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - metalworking
+  - welding
+  - lifting
+- id: tpl-8057d25e9a7f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-10-09'
+  title: Donate 10" blade to the shop
+  description: User wants to donate a 10" blade with 220 grit cut to the woodshop for use on the table
+    saw.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - sawing
+- id: tpl-4838f17e6d86
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-02-16'
+  title: Find or locate a vacuum press for wood lamination
+  description: Looking for a vacuum press for wood lamination in the city or at Noisebridge.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - organizing
+- id: tpl-de6b4270667a
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-03-23'
+  title: Improve woodshop organization and infrastructure
+  description: Address several infrastructure and organization needs in the woodshop including charging
+    station, electrical wiring, tool switches, and general cleanup.
+  xp: 25
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - organizing
+  - cleaning
+- id: tpl-682e8ba2859c
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-04-17'
+  title: Use CNC router for wood cutting project
+  description: Someone wants to use Noisebridge's CNC router to cut wood. They need information about
+    compatible CAD software, required safety training, and availability of the machine.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - cnc
+  - woodworking
+- id: tpl-3d68bc74135f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-08-25'
+  title: Cut and bind rug sizes for drum set area
+  description: Cut and bind rug sizes to carpet only part of the area under the drum set. The person is
+    not volunteering to sew the binding but mentions having the assets to do it.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - sewing
+- id: tpl-514d2a1dbc5f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-06-19'
+  title: Measure and plan bookcase shelves for library
+  description: Take spot measurements of books and determine shelf dimensions based on 98th percentile.
+    Consider professional design input from a builder.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+- id: tpl-a570f9a537aa
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-01-05'
+  title: Cut sheet acrylic to size for laser cutter
+  description: Need to cut sheet acrylic down to size for use in the laser cutter. Asking about appropriate
+    blade for table saw.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - laser-cutting
+  - sawing
+- id: tpl-8a685b92a281
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2026-03-19'
+  title: Set up PC for machine and write directions
+  description: Need to install a PC to control the machine and document the setup process with instructions.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - sysadmin
+  - writing
+- id: tpl-2ec757142a1e
+  source: discord:help-wanted
+  channel: help-wanted
+  guild_slug: metaguild
+  posted_at: '2026-05-04'
+  title: Mark scissors as 'print shop' with masking tape
+  description: Bring a pair of nice scissors to the stationary setup and explicitly mark them 'print shop'
+    with masking tape.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+- id: tpl-9bf1b237d08f
+  source: discord:help-wanted
+  channel: help-wanted
+  guild_slug: metaguild
+  posted_at: '2026-05-05'
+  title: Convert organ status notes to wiki page
+  description: Transform current notes on organ functionalities into a proper wiki page. The requester
+    lacks technical writing skills but is willing to do it themselves if no one else is interested.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - mediawiki
+  - writing
+- id: tpl-70c979a40c8c
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2022-08-12'
+  title: Find or borrow a suction cup/phone repair kit
+  description: Someone in the space is trying to repair their phone and needs a suction cup/phone repair
+    kit to succeed.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+- id: tpl-9f9ffbf33e41
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-15'
+  title: Find soldering components in SF before Sunday
+  description: Need protoboards, resistors, and LEDs for a soldering session in SF before Sunday.
+  xp: 5
+  urgency: high
+  score: 6
+  skills:
+  - soldering
+  - electronics-debug
+- id: tpl-749985dbac6b
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-04-20'
+  title: Build covert meshtastic node in smartbulb
+  description: Help build a covert meshtastic node using a smartbulb with internal battery and USB-C output.
+    Reposition USB-C socket to connect to a Heltec or T-Beam under the diffuser.
+  xp: 15
+  urgency: normal
+  score: 6
+  skills:
+  - soldering
+  - microcontrollers
+  - electronics-debug
+- id: tpl-84485cf8d97c
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-30'
+  title: Organize SDR learning session
+  description: Organize a group session to learn SDR together using available equipment. Need interested
+    participants to join.
+  xp: 10
+  urgency: low
+  score: 6
+  skills:
+  - teaching
+  - electronics-debug
+- id: tpl-73a80373c103
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-06-23'
+  title: Get help with stubborn soldering issue
+  description: Need expert assistance with a soldering problem where solder isn't being removed properly
+    despite using a wick. Requires low temperature soldering knowledge.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - soldering
+  - electronics-debug
+- id: tpl-937b09fe794c
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-12-26'
+  title: Fix a desk lamp that won't turn on
+  description: One of favorite desk lamps isn't turning on despite replacing the bulb. Need help diagnosing
+    and fixing the issue.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+  - power-supply
+- id: tpl-bb0825286b05
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-05-07'
+  title: Replace circuit board with easier-to-diagnose version
+  description: Replace existing board with one that has fewer large globs of solder for easier diagnosis.
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+  - soldering
+- id: tpl-9bcb999da6b5
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-04'
+  title: Remove the current couch
+  description: Commit to removing the current couch and taking on monthly laundry duties.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - lifting
+- id: tpl-81917c4866a4
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-11-09'
+  title: Add pathway striping for wheelchair accessibility
+  description: The space needs clear pathway striping to help wheelchair users move around more easily.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-5b3cb885572f
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-02-27'
+  title: Move item to Limbolandia
+  description: Someone needs to move an item to Limbolandia tonight. If no one does, the poster will handle
+    it when next in.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - lifting
+  - organizing
+- id: tpl-2d71fe8997cd
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-11-21'
+  title: Redesign the entrance map for better usability
+  description: Redesign the map to make it nice and usable at the entrance and interactive for kiosks
+    in the future. The current map needs improvement.
+  xp: 15
+  urgency: normal
+  score: 6
+  skills:
+  - writing
+  - web-frontend
+  - mediawiki
+- id: tpl-3417681f0247
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-12-22'
+  title: Find CNC-related supplies that were moved
+  description: Locate items labeled for the CNC machine including shop vac, wheels, wrench set, and paint.
+    The items were moved but not kept together as labeled.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cnc
+  - organizing
+- id: tpl-2f4230c41636
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2025-03-04'
+  title: Use woodshop tools responsibly
+  description: Use woodshop tools for quick tasks like cutting, screw driving, or sanding, as long as
+    not in the way of ongoing construction and cleaning up after use.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - sanding
+  - sawing
+- id: tpl-5ba71b1f6b31
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-03-01'
+  title: Fix or locate missing resource
+  description: Someone cannot find a resource they are looking for. This is a vague ask but implies a
+    need to locate or fix access to something.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-af8ffd0d05e3
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-03'
+  title: Purchase additional yellow curb paint
+  description: Buy more Kelly Moore curb paint from Center Hardware. The user ran out and is out of town,
+    so someone else needs to get it.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - painting
+  - lifting
+- id: tpl-aa7302d66216
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-19'
+  title: Inspect halotron fire extinguisher for expiration date
+  description: Check a newly purchased halotron fire extinguisher for expiration or inspection dates.
+    Determine if it's safe to use based on its age.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - power-supply
+- id: tpl-12b3aff1700c
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2023-11-20'
+  title: Find material to protect acrylic while cutting
+  description: Looking for something to place under large acrylic pieces when cutting tiny parts to prevent
+    scratches and make parts easy to pick up.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+- id: tpl-ba21f26fcbea
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2024-07-18'
+  title: Help with quick laser cutter cut
+  description: Someone needs help with a quick laser cut before their Sunday class. They won't use the
+    machine until then but want assistance with setup or a simple cut.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+- id: tpl-deb9a643aa83
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2023-09-11'
+  title: Find way to run g-code locally on Cricket laser cutter
+  description: Looking for a hack to run g-code locally on a Cricket laser cutter without uploading designs
+    to the cloud. Currently requires uploading to run g-code.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+  - electronics-debug
+- id: tpl-0a8229d8dd75
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-03-04'
+  title: Build a coat rack in the woodshop on Sunday
+  description: Someone wants to build a coat rack in the woodshop on Sunday afternoon and is looking for
+    tips or advice.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - sanding
+  - finishing
+- id: tpl-09712692e672
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-07-01'
+  title: Donate feather board for table saw/router
+  description: Offer to donate a feather board for the table saw/router. Want to know if people would
+    use it and if it would be accepted.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - woodworking
+  - hardware-repair
+- id: tpl-22649ccf217e
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-12-18'
+  title: Clear pathway for disabled hackers
+  description: Request to remove a corner to keep pathway clear for disabled hackers. Need to post in
+    channel and engage community before blocking access.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-98c0d2d01fe2
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-10-09'
+  title: Order parts for a project
+  description: Order parts for a project and schedule accordingly. Notify the group when delivery arrives
+    or if the parts are found locally.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-9a69bd2a34b6
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-09-11'
+  title: Report missing drill and locker lock
+  description: Someone removed the lock from a locker, took a drill, and went through the tools. The locker
+    owner is requesting the drill be labeled going forward.
+  xp: 5
+  urgency: high
+  score: 6
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-b600dd6d5118
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-06-03'
+  title: Check if Noisebridge has supplies for foldable platform cart
+  description: Asking whether Noisebridge has the supplies to make a long foldable platform cart. If not,
+    the person will need to bring their own wood/hinges/wheels.
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - sawing
+  - metalworking
+- id: tpl-6d36095472c8
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-02-10'
+  title: Identify unknown white square component on EVGA FTW3 RTX 3090
+  description: User needs help identifying a white square component on an EVGA FTW3 RTX 3090 motherboard.
+    The component appears to be a lithium battery or CMOS battery but is not documented online.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+  - hardware-repair
+- id: tpl-d1010b7819d9
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-01-07'
+  title: Mount radio antenna properly
+  description: Mount the radio antenna correctly to prevent overheating of the transmitter caused by its
+    current poor location.
+  xp: 10
+  urgency: high
+  score: 6
+  skills:
+  - hardware-repair
+- id: tpl-2d943f033d7a
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-01-08'
+  title: Sort unsorted bins
+  description: Join Cocktails and Components event on Tuesdays at 6pm to help sort items in unsorted bins.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - organizing
+- id: tpl-880ce9075c20
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-12-17'
+  title: Borrow an RC vehicle with computer vision for RL project
+  description: Looking to borrow an RC vehicle equipped with computer vision for a reinforcement learning
+    project. Will appreciate any help.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - microcontrollers
+  - electronics-debug
+- id: tpl-41e418981f21
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-06-28'
+  title: Move donated XY ballscrew stage and CO2 laser to correct location
+  description: Donating working XY ballscrew stage and Synrad 30W CO2 laser with electronics. Need someone
+    to meet at 272 Capp and ensure items are placed in the correct location for others to find.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - lifting
+  - hardware-repair
+- id: tpl-bc52d58bb199
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-08-03'
+  title: Find cheap FPGA boards
+  description: Looking for affordable FPGA boards for personal or educational use.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+- id: tpl-d760e9e8bd51
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-06-16'
+  title: Organize and condense electronics equipment
+  description: Noah and someone else want to organize and condense electronics equipment to free up floor
+    space in the hackerspace.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-bd40ee8f5b7e
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-03-26'
+  title: Clean out your spaces
+  description: Clean out your personal electronics workspace. Next Wednesday is the scheduled cleanup
+    day.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+- id: tpl-eab598241092
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-06-14'
+  title: Verify circuit design and power setup
+  description: Check if the breadboard power setup from Arduino Uno to Arduino Mini Pro is correct. Confirm
+    layout and missing components.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - breadboarding
+  - electronics-debug
+- id: tpl-c287b2714514
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-06-24'
+  title: Organize circuit hacking class
+  description: Restart a circuit hacking class requiring at least two hosts and small donations.
+  xp: 15
+  urgency: normal
+  score: 6
+  skills:
+  - teaching
+  - electronics-debug
+- id: tpl-d06d21c350e7
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-22'
+  title: Ensure Fire Safety Compliance for Wall Installation
+  description: Confirm that the wall installation meets fire safety requirements by having a plumber install
+    the required sprinkler system to cover the fire exit before construction begins.
+  xp: 12
+  urgency: high
+  score: 6
+  skills:
+  - plumbing
+  - hardware-repair
+- id: tpl-41a5c398c892
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-18'
+  title: Prepare for Wednesday dump run
+  description: Plan for the Wednesday dump run. The user wants to know if they can help prep stuff beforehand,
+    specifically sorting e-waste from regular waste.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-0c83cc747701
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-10-12'
+  title: Install combination lock on shop door
+  description: Put a latch with a combination lock on the shop door to control access for people who want
+    to use it for shop purposes. Need community attendance at next Tuesday meeting to discuss.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - metalworking
+- id: tpl-215b3bc67bb0
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-11-30'
+  title: Offer to Help with Saturday Cleanup
+  description: Planning to attend Saturday morning cleanup on Dec 2. Can provide vehicle for hauling/towing
+    if needed.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+  - lifting
+- id: tpl-3b82d1007682
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-03-13'
+  title: Find a new plumber
+  description: The plumbing estimate for the sprinkler was for under the table, not permitted work. Need
+    to locate a new plumber to move forward.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - plumbing
+- id: tpl-94adfd0c5cf0
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-10-26'
+  title: Organize Costco run
+  description: 'Coordinate a Costco shopping trip with car and member card available. Time slot: Saturday
+    before noon or Sunday.'
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+- id: tpl-f71685d7035f
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-10-12'
+  title: Clarify permit requirements for interior partitions
+  description: Need to confirm if permits are required for interior non-load bearing partitions in the
+    woodshop, especially with sprinklers installed.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - networking
+- id: tpl-409b52587fbc
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-12-22'
+  title: Move router to secure location
+  description: Router will be removed this week until the table can be placed in a permanent location.
+    Future moves of expensive equipment should ping the responsible guild beforehand.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - lifting
+- id: tpl-780eee53608c
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-10-04'
+  title: Replace filters on laser cutter
+  description: The laser cutter needs new filters. A 'do not use until further notice' sign has been placed
+    on it.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+  - soldering
+- id: tpl-17cbbb9ecceb
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-03-02'
+  title: Move the safety page to a proper location
+  description: The safety page currently exists in a category and needs to be moved to a proper page location
+    on the wiki for better organization and accessibility.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - mediawiki
+  - writing
+- id: tpl-ae81d0d25953
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-06-01'
+  title: Design end-to-end test for poster system
+  description: Work on designing an end-to-end test for the poster system before or after the Tuesday
+    meeting.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - javascript
+  - web-frontend
+- id: tpl-3c9bed488cc1
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-04'
+  title: Help with cleaning tasks or roof labor
+  description: User is looking for specific cleaning or onsite labor tasks to help with, particularly
+    on the roof.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - lifting
+- id: tpl-a1b71e6debff
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2023-08-24'
+  title: Set up welder for aluminum welding
+  description: Someone needs to ensure the welder is properly configured for aluminum welding. Currently
+    set for steel only.
+  xp: 5
+  urgency: high
+  score: 6
+  skills:
+  - welding
+  - hardware-repair
+- id: tpl-117fb4906977
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-02-03'
+  title: Move laser cutter and vent system
+  description: Volunteer to help move laser cutter and vent system to front of space. Need to move items
+    that need to be moved to implement the new setup.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - lifting
+  - organizing
+- id: tpl-5baa6bdf3fb6
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-09-16'
+  title: Enforce laser cutter usage guidelines
+  description: Ensure proper use of the laser cutter by cleaning up after use, keeping passages clear,
+    and posting about broken equipment.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-cf31dc956263
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-06-14'
+  title: Attend laser cutter safety training
+  description: User wants to attend a laser cutter safety training on Sunday, June 15. They have read
+    the wiki but are unsure about the next steps.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+- id: tpl-38dfba0b5190
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-10-26'
+  title: Sweep laser bed debris
+  description: Sweep up debris on the laser bed after cutting. This helps maintain the workspace and prevents
+    contamination.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - laser-cutting
+- id: tpl-15a18448102e
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2025-12-15'
+  title: Learn to install new filters
+  description: Want to assist in learning how to install new filters. Please let me know when this training
+    session will happen.
+  xp: 5
+  urgency: low
+  score: 6
+  skills: []
+- id: tpl-0abdf791761a
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-04-19'
+  title: Build a blast gate for dust collector
+  description: A blast gate needs to be built to fix the dust collector issue where suction is split between
+    two tubes. Requester is asking for someone with laser training to help.
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+  - metalworking
+- id: tpl-0b0419beb15a
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-10-04'
+  title: Help out in woodshop tonight
+  description: Someone wants to familiarize themselves with the woodshop and asks if there's anything
+    they can help with. They're available to drop by tonight.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - organizing
+- id: tpl-0e9b3bccef43
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-02-03'
+  title: Cut specific sized holes in MDF
+  description: User wants to cut specific sized holes in MDF for a project. They're considering lasering
+    a template and using a flush trim bit to route the MDF. They're asking if NB has the necessary equipment.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+  - cnc
+  - woodworking
+- id: tpl-ee6c13829a16
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-08-17'
+  title: Check if the lathe is broken
+  description: The wiki says the lathe is broken. Need to confirm if it's still broken.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+- id: tpl-fe741739ec99
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-12-28'
+  title: Get orientation and find woodworking event details
+  description: New member wants to work on a climbing hangboard and needs guidance. Also wants to know
+    about a recurring woodworking event on Sundays.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - teaching
+- id: tpl-aef063fae66a
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-06-10'
+  title: Transport wood planks to Noisebridge
+  description: Request for help bringing several wood planks to Noisebridge from Soma/Mission area. The
+    requester usually travels by bus and finds walking difficult.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - lifting
+  - woodworking
+- id: tpl-bdbaab3aa2f8
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-11-16'
+  title: Donate or find a home for a small precise cutting saw
+  description: Looking to give away a small precise cutting saw that is not useful at Noisebridge. The
+    person doesn't have projects that justify owning it but doesn't want it thrown away.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - woodworking
+- id: tpl-f372c9bc1457
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-03-19'
+  title: Find someone to help cut a dowel with handsaw
+  description: Someone is looking for help cutting a dowel using a handsaw. They are willing to ask around
+    in the woodshop.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - sanding
+- id: tpl-19050f667348
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-07-04'
+  title: Refinish scroll saw surface
+  description: The scroll saw surface appears rusted and needs refinishing with paste wax. Find someone
+    with experience to help with the process.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - finishing
+- id: tpl-b628b53cd091
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-11-21'
+  title: Find someone familiar with Bauer band saw
+  description: Someone needs to find a person familiar with the Bauer band saw to help with a piece going
+    to the lathe. The guard must be extended.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - hardware-repair
+- id: tpl-7ed9dca51628
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-03-18'
+  title: Evaluate and remove redundant tools
+  description: Planning to get rid of redundant tools including multiple miter saws and circular saws.
+    Seeking input on this decision.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-34aae4ec7e51
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-09-22'
+  title: Find a hand drill
+  description: User needs to locate a hand drill for use in the woodshop. They were turned away previously
+    but plan to try again at the next meeting.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - woodworking
+  - basic-tools
+- id: tpl-1ab95853baaf
+  source: discord:help-wanted
+  channel: help-wanted
+  guild_slug: metaguild
+  posted_at: '2026-05-05'
+  title: Find 800W or better power supply
+  description: Someone needs an 800W or higher power supply for a project in the [#channel] channel.
+  xp: 5
+  urgency: low
+  score: 5
+  skills:
+  - power-supply
+  - electronics-debug
+- id: tpl-1b2272b7a22b
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-07-23'
+  title: Source a 3.5 mm 4-pole audio cable with alligator clips
+  description: Need a 3.5 mm 4-pole audio cable that connects to alligator clips. Online searches have
+    been unsuccessful.
+  xp: 5
+  urgency: low
+  score: 5
+  skills:
+  - electronics-debug
+- id: tpl-42e2b5290af6
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-11-28'
+  title: Purchase a soldering iron
+  description: Looking for a store near downtown to buy a soldering iron. Need to find a local option
+    for immediate purchase.
+  xp: 5
+  urgency: low
+  score: 5
+  skills:
+  - soldering
+- id: tpl-73f2c243cc34
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-05-24'
+  title: Review exhibitor agreement for OpenSauce.Live booth
+  description: Review and approve the exhibitor agreement for the 8x16 booth at OpenSauce.Live event.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - writing
+- id: tpl-fa2a40b81533
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-03-08'
+  title: Check if flapper door needs replacement
+  description: Need to determine if the flapper door in the tank needs to be replaced. This is the only
+    leaky thing identified.
+  xp: 3
+  urgency: low
+  score: 5
+  skills:
+  - plumbing
+- id: tpl-137723f548f0
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-11-26'
+  title: Improve the draft map with community help
+  description: Share the semi-working draft ugly map and get community help to make it less bad and update
+    it from now on. The user has made an initial version.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - organizing
+  - mediawiki
+- id: tpl-4eaaf1d5ea0c
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2025-04-23'
+  title: Use woodshop tools safely
+  description: Use woodshop tools as long as you are familiar with the equipment, observe safety measures,
+    and clean up the working area after use.
+  xp: 4
+  urgency: normal
+  score: 5
+  skills:
+  - woodworking
+  - sanding
+  - finishing
+- id: tpl-475740107f0a
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2025-03-19'
+  title: Schedule safety council meeting
+  description: Set a date for the next safety council meeting. The group used to meet on first Mondays,
+    such as April 2nd.
+  xp: 3
+  urgency: low
+  score: 5
+  skills:
+  - organizing
+- id: tpl-5d044355eb0b
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2024-01-19'
+  title: Confirm laser training attendance
+  description: Planning to attend Sunday 2-4pm laser training and wants to confirm if this is the right
+    approach for getting trained.
+  xp: 3
+  urgency: normal
+  score: 5
+  skills:
+  - laser-cutting
+- id: tpl-ec39aa426b6f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-11-30'
+  title: Find sources for pallet wood
+  description: Look for places to obtain cheap or free pallet wood for projects. Recommendations for sourcing
+    scrap or affordable lumber are welcome.
+  xp: 4
+  urgency: low
+  score: 5
+  skills:
+  - woodworking
+  - organizing
+- id: tpl-7158a2dc0cb9
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-03-26'
+  title: Clean out personal spaces
+  description: Reminder to clean out personal spaces in the woodshop. A cleanup run is happening next
+    Wednesday.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - cleaning
+- id: tpl-2f68099ebf4c
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-10-21'
+  title: Find a clamp to avoid soldering for a project
+  description: Looking for a clamp that can be used to complete a project without soldering. Someone who
+    has done this before confirmed it's possible with the right clamp.
+  xp: 5
+  urgency: low
+  score: 5
+  skills:
+  - hardware-repair
+- id: tpl-171e9830398a
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-04-22'
+  title: Coordinate Materials and Contractor Payment
+  description: Help with purchasing materials or paying contractors needed for wall installation, including
+    any required permits or inspections.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-fb6e13ac76db
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-10-13'
+  title: Transport e-waste boxes
+  description: Pick up an e-waste box. If anyone has a vehicle to transport some of it, that would be
+    helpful. Limited by volume per person.
+  xp: 5
+  urgency: low
+  score: 5
+  skills:
+  - lifting
+  - cleaning
+- id: tpl-6839020db384
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-12-23'
+  title: Notify About Named Chest on Lockers
+  description: Have a named chest on top of lockers in back hallway that should not be removed during
+    cleanup.
+  xp: 3
+  urgency: low
+  score: 5
+  skills:
+  - organizing
+- id: tpl-e28c31ef1bdd
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-03-13'
+  title: Determine if partition needs permit
+  description: The 'partition' will only need a permit if we build plumbing or electrical into it. Need
+    to determine if this applies.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - plumbing
+  - electronics-debug
+- id: tpl-3ff1e220cc1c
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-03-26'
+  title: Clean out personal spaces
+  description: Participate in the scheduled cleaning run next Wednesday to organize and tidy personal
+    workspaces.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-ad22c2d6dd9b
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: fabrication
+  posted_at: '2024-08-03'
+  title: Adjust laser cutter kerf settings
+  description: Need help properly setting the kerf on the laser cutter. Current settings of 5 or -5mm
+    are not affecting cuts.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - laser-cutting
+  - electronics-debug
+- id: tpl-bd39f86ccad8
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-06-24'
+  title: Find solution for charred plywood edges
+  description: The stable diffusion + LED quilt group needs advice on how to prevent charring and charcoal
+    buildup when cutting frames out of plywood on the laser cutter.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - laser-cutting
+  - woodworking
+- id: tpl-0dbce7bc1446
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-12-06'
+  title: Find out about tomorrow night meetup
+  description: User wants to know if there's a meetup happening tomorrow night as mentioned on the wiki.
+    They have small projects they want to work on and want to learn about shop safety and etiquette.
+  xp: 4
+  urgency: normal
+  score: 5
+  skills:
+  - event-hosting
+  - teaching
+- id: tpl-36a2f7c971b8
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2022-02-14'
+  title: Keep the woodshop organized
+  description: The woodshop is getting organized. Please keep it organized from now on. There are more
+    piles to sort through. Please contribute 10 minutes when you can.
+  xp: 10
+  urgency: normal
+  score: 5
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-fcd13514b18d
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-09-12'
+  title: Clean up woodshop after class
+  description: Clean the woodshop thoroughly after class to maintain safety and leave a good impression
+    on attendees.
+  xp: 5
+  urgency: high
+  score: 5
+  skills:
+  - cleaning
+  - woodworking
+- id: tpl-3451be753f53
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-06-19'
+  title: Determine paint and adhesive requirements for project
+  description: Need guidance on what kind of paint to use and whether adhesive layers are required for
+    a painting project.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - painting
+  - woodworking
+- id: tpl-79c97a309073
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-11-05'
+  title: Find padlock for front gate
+  description: Someone is looking for the padlock for the front gate. The padlock keeps the gate from
+    being blown open in strong winds.
+  xp: 5
+  urgency: low
+  score: 4
+  skills:
+  - metalworking
+- id: tpl-3c2e862d144b
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-11-06'
+  title: Find padlock for front gate
+  description: Someone is looking for the padlock for the front gate. The padlock keeps the gate from
+    being blown open in strong winds.
+  xp: 5
+  urgency: low
+  score: 4
+  skills:
+  - metalworking
+- id: tpl-3c3a57e23350
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2025-09-07'
+  title: Find the trash bags stash
+  description: Locate the stash of trash bags on the shelves outside the 3D printers. The user cannot
+    find them and is asking for help.
+  xp: 2
+  urgency: normal
+  score: 4
+  skills:
+  - organizing
+- id: tpl-4e3d59ce7ef9
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2025-03-27'
+  title: Test the code for functionality
+  description: Test the code to see what's going on. The code should always be working.
+  xp: 5
+  urgency: normal
+  score: 4
+  skills:
+  - python
+- id: tpl-a3e3a0985b55
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-05-13'
+  title: Get information about woodshop training requirements
+  description: A new member is asking about certification or training needed to use the woodshop facilities.
+  xp: 2
+  urgency: low
+  score: 4
+  skills:
+  - woodworking
+  - organizing
+- id: tpl-13d3efdc5a3e
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2026-02-01'
+  title: Clean up and put tools away
+  description: Request to clean up and properly store tools after use in the woodshop.
+  xp: 4
+  urgency: normal
+  score: 4
+  skills:
+  - cleaning
+  - woodworking
+- id: tpl-9775c6984365
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-08-13'
+  title: Suggest storage location for electronic chips
+  description: Someone needs help finding a good place to store electronic chips in Noisebridge so others
+    can find them.
+  xp: 3
+  urgency: low
+  score: 3
+  skills:
+  - organizing
+  - electronics-debug
+- id: tpl-f6f54d17e337
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-06-11'
+  title: Coordinate donation of 100+ laptops and electronics
+  description: Someone wants to donate a large collection of laptops (2010 onwards), tablets, and electronic
+    components to Noisebridge. Some are non-functional but suitable for tinkering.
+  xp: 25
+  urgency: high
+  score: 9
+  skills:
+  - organizing
+  - hardware-repair
+- id: tpl-b2c731c7c556
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-06-06'
+  title: Get 3D printer working for prototype
+  description: Someone needs help finding a working 3D printer to print a prototype today. Muhamet is
+    already helping.
+  xp: 10
+  urgency: high
+  score: 9
+  skills:
+  - 3d-printing
+  - electronics-debug
+- id: tpl-29e8d43a36df
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2024-08-16'
+  title: Donate GMMK keyboards
+  description: Offer to donate 2 GMMK keyboards (one fully built, one mostly a board) to Noisebridge.
+  xp: 4
+  urgency: low
+  score: 8
+  skills:
+  - organizing
+  - pedal-building
+- id: tpl-6cdb62872b9e
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-11-21'
+  title: Donate Framework laptop
+  description: User wants to donate a Framework 13 laptop that needs hacking or mainboard replacement
+    to get it back on. Pick up only in Mission Bay.
+  xp: 15
+  urgency: high
+  score: 8
+  skills:
+  - hardware-repair
+  - microcontrollers
+- id: tpl-a93e1bb87843
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-01-13'
+  title: Accept donation of sheet metal, aluminum, plywood, and dowels
+  description: Someone has excess sheet metal, aluminum blocks, plywood, and dowels to donate. They would
+    like to connect with Noisebridge to find a use for these materials.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - metalworking
+  - woodworking
+  - organizing
+- id: tpl-c13d850353f4
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-09-10'
+  title: Pick up backboards from donations
+  description: Noisebridge has 98 backboards from the old Bay Bridge art lighting installation. They are
+    ready to be picked up. Contact for details.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - lifting
+  - organizing
+- id: tpl-c33aff3182bc
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-01-16'
+  title: Receive wheelchair donation
+  description: User's mom has a new wheelchair to donate. They are looking for someone who can use it.
+    User is available Saturday and can be reached at 415-316-7351.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - organizing
+  - lifting
+- id: tpl-571d820f1237
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-03-05'
+  title: Find an old PC to donate to an unemployed IT professional
+  description: An unemployed IT professional needs a PC to study/learn new skills. They have no money
+    to pay for it but are willing to do other work in exchange.
+  xp: 5
+  urgency: normal
+  score: 8
+  skills:
+  - hardware-repair
+  - organizing
+- id: tpl-92766ef2ca8a
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2025-06-21'
+  title: Find space for regular indie dev meetups
+  description: A new member is looking for a place to regularly meet with other indie devs to playtest
+    projects. They are inquiring about the weekly Wednesday game dev meetups.
+  xp: 10
+  urgency: normal
+  score: 8
+  skills:
+  - organizing
+  - event-hosting
+- id: tpl-e975a67deaec
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2025-07-02'
+  title: Organize yard sale for sewing items
+  description: Plan a yard sale on July 12 from 9 AM to 1 PM featuring unused machines and member donations.
+  xp: 12
+  urgency: normal
+  score: 8
+  skills:
+  - organizing
+  - sewing
+- id: tpl-623b9567b7e4
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2025-08-09'
+  title: Help update wiki and prepare for yard sale
+  description: Update the Noisebridge.net wiki, post ads on Facebook Marketplace, label items, organize,
+    and do minor machine repair.
+  xp: 12
+  urgency: normal
+  score: 8
+  skills:
+  - writing
+  - organizing
+  - hardware-repair
+- id: tpl-2f9cf0ef6851
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-07-18'
+  title: Fix Qidi printer filament change issue
+  description: Someone needs help changing filament on a Qidi printer that has been malfunctioning, producing
+    clumps instead of proper prints.
+  xp: 8
+  urgency: high
+  score: 8
+  skills:
+  - 3d-printing
+  - electronics-debug
+- id: tpl-3a561db440e2
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-09-25'
+  title: Repair Ender 3 printers
+  description: Help repair Ender 3 printers that are in bad condition. The user plans to do one per week
+    at their apartment.
+  xp: 12
+  urgency: normal
+  score: 8
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-d4fb659d4479
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-02-19'
+  title: Help with Voron Printer Repairs
+  description: Looking for someone experienced with Voron printers to help repair Noisebridge's 3D printers.
+    Will meet in person to discuss needs.
+  xp: 10
+  urgency: normal
+  score: 8
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-33fc7da5b5eb
+  source: discord:zine
+  channel: zine
+  guild_slug: writing
+  posted_at: '2025-10-02'
+  title: Source Large Format Printer for Moogle Projects
+  description: Find or acquire a large format printer for Moogle's projects. Consider open source builds,
+    restoration, or hiring services if prices are reasonable.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - 3d-printing
+  - laser-cutting
+  - cnc
+- id: tpl-cf42bd083ad8
+  source: discord:spacebridge
+  channel: spacebridge
+  guild_slug: spacebridge
+  posted_at: '2026-02-27'
+  title: Plan and develop satellite project architecture
+  description: 'Set up the project, develop the architecture for the satellite, and make system designs
+    together with interested participants from Noisebridge. Coordinate with specialized people to provide
+    necessary '
+  xp: 25
+  urgency: high
+  score: 8
+  skills:
+  - microcontrollers
+  - electronics-debug
+  - power-supply
+- id: tpl-280a3d46494d
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2024-06-05'
+  title: Get ML tutoring for fine-tuning and chaining models
+  description: Looking for tutoring in fine-tuning with transformers library and chaining models with
+    transformers library. Also interested in PyTorch tutoring for multimodal LLM work in Unreal.
+  xp: 15
+  urgency: normal
+  score: 8
+  skills:
+  - python
+  - javascript
+- id: tpl-d8434eb16586
+  source: discord:laser-trainers
+  channel: laser-trainers
+  guild_slug: laser-cutter
+  posted_at: '2026-04-25'
+  title: Rebuild Nova 51 Thunderlaser setup
+  description: User is tearing apart and rebuilding a Nova 51 Thunderlaser setup at Hacker Dojo. Needs
+    assistance or volunteers.
+  xp: 25
+  urgency: high
+  score: 8
+  skills:
+  - laser-cutting
+  - electronics-debug
+  - power-supply
+- id: tpl-215243b6234f
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-11-02'
+  title: Get electronics book recommendations
+  description: Request for book recommendations to improve knowledge of electronics and circuits.
+  xp: 5
+  urgency: low
+  score: 7
+  skills:
+  - electronics-debug
+  - writing
+- id: tpl-beeca98aaf24
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-07-22'
+  title: Build control box for adjustable RPM motor
+  description: Need help building a control box for an adjustable RPM motor. No electronics experience,
+    looking for someone to discuss ideas and approaches.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - soldering
+  - low-voltage
+- id: tpl-7418aa1b2cd6
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-01-21'
+  title: Loosen a stubborn bolt
+  description: User needs help loosening a stubborn bolt that requires turning a quarter turn by hand.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - basic-tools
+- id: tpl-1c99201d207a
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2024-02-22'
+  title: Help carry collapsible table to sewing room
+  description: Someone needs help delivering a collapsible table to the sewing room. They can't carry
+    it alone.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - lifting
+- id: tpl-7b0bbd7ec3d9
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-06-10'
+  title: Help transport large wood boards/planks
+  description: Offer to donate several large wood boards/planks. Needs help bringing them to Noisebridge
+    as they can't carry them alone.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - lifting
+- id: tpl-ec1154932bb1
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-07-21'
+  title: Donate power rack
+  description: User wants to donate a power rack to Noisebridge. Needs to confirm if this is needed or
+    useful.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+- id: tpl-a6af6010247b
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-01-16'
+  title: Help sort through Eric's storage for donations
+  description: Aisha needs help sorting through Eric's storage to identify and donate tools, bike parts,
+    clothes, shoes, laptops, and other belongings. Some items are personal and need to be preserved.
+  xp: 15
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+  - lifting
+- id: tpl-23b12e2564aa
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-10-08'
+  title: Fix and pick up 12000btu AC unit
+  description: A 12000btu AC unit is available for pickup. Only needs power cord fixed. More details in
+    thread.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - power-supply
+- id: tpl-a562a03f2a7f
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-01-09'
+  title: Donate speakers via Uber courier
+  description: User wants to donate speakers for movie night. They need someone to receive the speakers
+    at curb side. The current speakers are blown.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - lifting
+- id: tpl-d88b9cae60a1
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-03-23'
+  title: Pick up donated monitor and IMac
+  description: Someone wants to donate an old working monitor and old IMac (no storage) and lives at 9th
+    and Market. Looking for someone to pick it up.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - lifting
+- id: tpl-38d093fa4461
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-10-16'
+  title: Find new roll up door service
+  description: Look for a closer roll up door service to replace current one. Need to get it done right
+    the first time.
+  xp: 10
+  urgency: high
+  score: 7
+  skills:
+  - metalworking
+  - welding
+- id: tpl-61fd5c4e64ad
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2022-05-21'
+  title: Find a computer for 3-hour game stream
+  description: Looking for a computer at Noisebridge capable of streaming modern games for 3 hours next
+    Tuesday for a science education stream.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - javascript
+  - web-frontend
+- id: tpl-6957b7a8818c
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2024-07-05'
+  title: Bring extra laptop for game demo
+  description: Someone wants to demo their game on first Friday. They need an extra laptop and 2-3 players
+    to participate.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - python
+  - web-frontend
+- id: tpl-f410551ca020
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2025-11-28'
+  title: Test projection mapping with larger projector setup
+  description: Test projection mapping using small projectors to work together as a matrix of connected
+    screens. Need larger scale test with more projectors.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - electronics-debug
+  - power-supply
+  - low-voltage
+- id: tpl-0afe3623b55e
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2024-06-21'
+  title: Find 2 more dungeon masters for D&D beginners
+  description: Looking for 2 more kind and patient dungeon masters to join a D&D for Beginners meet up.
+    The group is close to posting the event and needs just 2 more people.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - teaching
+  - event-hosting
+  - social-media
+- id: tpl-ba5e7dd92ec4
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2026-03-24'
+  title: Loan out extra projector
+  description: Someone has an extra projector they're willing to loan to a trusted individual.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - lifting
+- id: tpl-e746077ed964
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2023-05-15'
+  title: Build the sewing board
+  description: The iron is ready, but we need to build the board for sewing activities.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - sanding
+  - finishing
+- id: tpl-941b6425b6d8
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2024-07-11'
+  title: Help move large sewing machines Sunday afternoon
+  description: Volunteers needed Sunday around 2 PM to help move large sewing machines in the sewing room.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - lifting
+  - organizing
+- id: tpl-ede1d4344ffd
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2025-12-02'
+  title: Organize weekly sewing/craft circle
+  description: Set up a weekly sewing/craft circle in the sewing room on Tuesdays from 6:30-10 PM for
+    people to work on personal projects together.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+  - event-hosting
+  - sewing
+- id: tpl-699c9025cc2d
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2026-02-28'
+  title: Move donated fabric bales to sewing room
+  description: Help move bales of donated fabric across the street to the sewing room at Noisebridge.
+  xp: 8
+  urgency: high
+  score: 7
+  skills:
+  - lifting
+  - cleaning
+- id: tpl-11ec82835b9f
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-10-15'
+  title: Review and comment on project summary document
+  description: A document summarizing motivations, requirements, and proposals needs to be reviewed by
+    all. Comments and highlights should be added to specific sections or the _others_ section.
+  xp: 3
+  urgency: normal
+  score: 7
+  skills:
+  - writing
+  - mediawiki
+- id: tpl-6e64f3b62384
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2023-04-12'
+  title: Build Django API backend for Twilio voice interface
+  description: Commission a Python developer to build an API backend for a Twilio voice interface with
+    admin interface. Requires Django, models, views, and API development.
+  xp: 25
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - web-frontend
+  - sysadmin
+- id: tpl-c1a1c6b4e06a
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2025-05-05'
+  title: Clean up obsolete Python modules and improve linting
+  description: Remove the obsolete main.py file and ensure consistent linting across the codebase before
+    PRs. This includes updating linting and mypy checks.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - sysadmin
+  - cleaning
+- id: tpl-a80800dd8ee8
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2023-10-24'
+  title: Find lost MacBook charger in electronics room
+  description: Someone left a MacBook charger in the electronics room on 10/23/23. It's worth $85 to replace.
+  xp: 3
+  urgency: high
+  score: 7
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-462aa9f30b43
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2023-01-02'
+  title: Offer to teach Python classes
+  description: Volunteer to teach Python programming for free to interested participants.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - teaching
+- id: tpl-e0a5c191eace
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2025-01-18'
+  title: Review and integrate CLI/dataclass changes with MongoDB
+  description: Review a draft PR with CLI/dataclasses work and integrate it with existing MongoDB code.
+    Pull from the provided branch and merge dataclass changes.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - web-frontend
+  - sysadmin
+- id: tpl-e6442cef30ae
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-03-26'
+  title: Check on 3D printers
+  description: Someone will be at the space for an hour or two to help with 3D printer related issues.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-411c1324d0e3
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-08-01'
+  title: Find or buy a nozzle unclogging needle for A1 mini
+  description: We have lost our nozzle unclogging needle. Need one to unclog the A1 mini printer. Can
+    someone bring one in or buy one?
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-de45c413cbb3
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-08-07'
+  title: Accept donated 3D printer from SoMa company
+  description: A company wants to give away a large 3D printer that needs a new printer head. They will
+    provide make/model details soon.
+  xp: 15
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+  - organizing
+- id: tpl-1ea0f61a419f
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-05-22'
+  title: Fix Bambu extruder filament loading issue
+  description: The Bambu extruder is not pushing out filament despite multiple load/unload attempts. Need
+    help diagnosing and fixing the inner workings of the machine.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-f5953fe30223
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-09-12'
+  title: Find a 512mm wide belt printer
+  description: Looking for a belt printer at Noisebridge that isn't listed on the wiki, or someone who
+    knows someone with one. Need to print something 512mm wide in one piece.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - laser-cutting
+  - cleaning
+- id: tpl-0b0a7fc3622d
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-10-31'
+  title: Help troubleshoot 3D printer adhesion issues
+  description: Someone needs help with PLA adhesion on a 3D printer without tape. The mag bed surface
+    is reportedly sticky.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-1092941d044c
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-07-16'
+  title: Check 3D print before leaving
+  description: Please check the ongoing 3D print before leaving. There's a chance it might fail.
+  xp: 3
+  urgency: high
+  score: 7
+  skills:
+  - 3d-printing
+- id: tpl-6cab0cdf2e6b
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-02-12'
+  title: Update firmware to allow 300°C printing
+  description: Update firmware on some 3D printers to enable printing with carbon fibre nylon and polycarbonate
+    materials.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - power-supply
+- id: tpl-47ec975d63af
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-07-17'
+  title: Troubleshoot Ender3 heating issue
+  description: Ender3 pauses during build plate heating with nozzle temp fluctuating. Need help diagnosing
+    the issue.
+  xp: 10
+  urgency: high
+  score: 7
+  skills:
+  - 3d-printing
+  - electronics-debug
+- id: tpl-4166bb63e4a4
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-04-16'
+  title: Fix 3D printer extruder jam
+  description: Morpheus has a jammed extruder that needs to be cleared or replaced.
+  xp: 8
+  urgency: high
+  score: 7
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-c9505f3aad6b
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-03-06'
+  title: Learn to use resin printer
+  description: First-time visitor interested in using the resin printer. Needs guidance on supplies and
+    process.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+  - teaching
+- id: tpl-194309ce6a98
+  source: discord:safety-council
+  channel: safety-council
+  guild_slug: safety
+  posted_at: '2024-05-01'
+  title: Update on City Door Grant Approval
+  description: The city is approving our grant application. We need to incorporate specific requirements
+    about clear space around power door push plates and train board members and volunteers.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - organizing
+  - networking
+- id: tpl-77367ff37d00
+  source: discord:spacebridge
+  channel: spacebridge
+  guild_slug: spacebridge
+  posted_at: '2024-09-30'
+  title: Set up containerized development environment with Docker and Bazel
+  description: Create a containerized development environment with Docker and set up a C++ build system
+    using Bazel. This includes adding Bazel to the Dockerfile so it works out of the box.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - sysadmin
+  - python
+  - web-frontend
+- id: tpl-466518b2ddc5
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2023-10-05'
+  title: Find or build a tool for labeling quantitative data in unstructured text
+  description: Looking for an open source library or paid tool to label quantitative data in unstructured
+    text documents. Need NER to find quantities and dependency parsing to associate with proper nouns/GPE.
+    Python
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - python
+  - javascript
+  - writing
+- id: tpl-5fccc0184f30
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2025-05-25'
+  title: Set up and test new AI framework
+  description: Planning to spin up a new AI framework on a server. Looking to test and experiment with
+    it as a stateful agent that can act in the real world.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - sysadmin
+  - python
+  - music-tech
+- id: tpl-2f3bc5d87b67
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2023-10-21'
+  title: Find beatboxer for AI music project
+  description: Need 5 hours of beatboxing material for AI training. Person's voice will be featured on
+    website. Requires someone willing to participate in project.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - music-tech
+  - social-media
+  - event-hosting
+- id: tpl-80341f2f3991
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2022-11-26'
+  title: Set up Docker and Conda on computers
+  description: Properly configure Docker and Conda on computers to prevent future issues. Help may be
+    needed from others in the channel.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - sysadmin
+  - python
+  - javascript
+- id: tpl-56f746020f67
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2024-07-15'
+  title: Install Scribunto extension on MediaWiki
+  description: Install the Scribunto extension to enable advanced template functionality on the Noisebridge
+    MediaWiki. Required for implementing certain templates.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - mediawiki
+  - web-frontend
+- id: tpl-a7fa7bb72419
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2024-09-02'
+  title: Update welding wiki with learned techniques
+  description: User wants to update the welding wiki with knowledge gained from a recent welding check
+    ride to help with teaching others.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - welding
+  - teaching
+- id: tpl-65b52d44f7d6
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2025-08-09'
+  title: Define shorter namespace aliases for wiki
+  description: Define shorter namespace aliases for optional use in the wiki. This involves creating a
+    proposal for namespace conventions and gathering feedback from the community.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - mediawiki
+  - writing
+- id: tpl-c285e6db30a4
+  source: discord:laser-trainers
+  channel: laser-trainers
+  guild_slug: laser-cutter
+  posted_at: '2025-09-17'
+  title: Research power meter compatibility for laser cutter
+  description: Confer with electrician and laser cutter technician to ensure power meter is compatible
+    with NB's laser setup energy requirements.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - power-supply
+  - electronics-debug
+  - low-voltage
+- id: tpl-44794c7f1f04
+  source: discord:laser-trainers
+  channel: laser-trainers
+  guild_slug: laser-cutter
+  posted_at: '2026-02-15'
+  title: Tighten loose laser head assembly
+  description: The laser head assembly is mechanically loose causing wobbly engravings. The user needs
+    a metric Allen key to fix it.
+  xp: 8
+  urgency: normal
+  score: 7
+  skills:
+  - hardware-repair
+  - basic-tools
+- id: tpl-37b8a4493131
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: laser-cutter
+  posted_at: '2022-06-02'
+  title: Design iterative cut-fill process for epoxy usage
+  description: Create a process that uses less epoxy by filling gaps with material to create depth illusion.
+    Requires designing filler material and testing efficiency.
+  xp: 12
+  urgency: normal
+  score: 7
+  skills:
+  - 3d-printing
+- id: tpl-ad3c51c4eb6a
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-03-13'
+  title: Schedule laser training and shop safety review
+  description: Two people have committed to alternating Sundays for laser training (2-4) and shop safety.
+    They are available this weekend and want to coordinate with others.
+  xp: 5
+  urgency: normal
+  score: 7
+  skills:
+  - event-hosting
+  - teaching
+- id: tpl-eb2c54d05778
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2024-08-20'
+  title: Fix table saw angle issue and grease mechanisms
+  description: Fix the worm gear engagement depth adjustment on the table saw. Grease the tilt and elevation
+    mechanisms with thick grease.
+  xp: 10
+  urgency: normal
+  score: 7
+  skills:
+  - woodworking
+  - hardware-repair
+  - basic-tools
+- id: tpl-20a23384cf39
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2021-10-04'
+  title: Borrow electronics component
+  description: Someone needs to find a specific electronics component or borrow one temporarily.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+  - soldering
+- id: tpl-02937485e1d2
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2022-08-11'
+  title: Find shift register in 1214 box
+  description: Looking for a shift register part in box 1214 but cannot locate it. Needs assistance finding
+    the part.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+- id: tpl-21233aff6616
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2025-08-04'
+  title: Research Pico Pi 2W vs ESP32 for production
+  description: Determine if Pico Pi 2W can meet production requirements for a project with at least 16MB
+    memory.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - microcontrollers
+  - electronics-debug
+- id: tpl-6625bafa8a6b
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2023-10-07'
+  title: Learn how to solder
+  description: User wants to learn how to solder. This is a concrete skill-building request.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - soldering
+  - teaching
+- id: tpl-22e3ec622608
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2024-05-14'
+  title: Donate sound proofing panels for sound studio
+  description: Offer to bring 2 sound proofing panels for the sound studio to improve voice recording
+    resonance.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - cleaning
+- id: tpl-94a9bbf1b6a3
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-09-18'
+  title: Donate space heater
+  description: User wants to donate a new-in-box Lasko space heater for winter. Needs to know if this
+    is needed or if there are too many already.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+- id: tpl-2d46175f9b8c
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-01-13'
+  title: Send speaker wire
+  description: User needs speaker wire to be sent. They are asking for someone to send it.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+- id: tpl-414da9ab3e13
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2024-03-27'
+  title: Borrow DSLR camera
+  description: User is looking to borrow a DSLR camera for a few weeks/months. They are asking if anyone
+    has one that they're not actively using.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - photography
+- id: tpl-1f5f83413af0
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2026-04-26'
+  title: Donate used stereo amplifiers and speakers
+  description: Looking for people to donate used stereo amplifiers (any kind that takes RCA and speaker
+    wire) and speakers (large or small that take speaker wire).
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - hardware-repair
+  - electronics-debug
+- id: tpl-fb74f0f394e6
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-03-06'
+  title: Determine consensus requirements for parking tickets
+  description: Clarify whether a small 'C' consensus is required before placing parking tickets on unclaimed
+    projects in the woodshop.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - writing
+- id: tpl-4d153454f4d5
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-09-22'
+  title: Tidy up laser area display projects
+  description: Move display projects from on top of laser cutter to bin under desk. Community can put
+    them back later.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-5be2e66d760d
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2023-04-02'
+  title: Scale down apartment floor plan for Sims 4
+  description: Need help scaling down a 40 ft by 58 ft real world apartment building floor plan to fit
+    on a 50 by 40 lot in Sims 4 with space for a community garden.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - writing
+- id: tpl-9bc4ec6c6c8d
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2025-03-11'
+  title: Clear out unused print shop items
+  description: The print shop is being cleaned up. Items not related to printing are being cleared out.
+    Someone is asking if anyone wants to claim an item previously noted in Feb 2022.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-0c6bdd9322dd
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2022-07-27'
+  title: Start regular machine learning meetups
+  description: Begin a guild or regular meetups to learn machine learning. Specifically interested in
+    inverse reinforcement learning for game AI. Looking for collaborators and perspectives.
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - teaching
+  - python
+  - javascript
+- id: tpl-45ab0e61e660
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2026-01-28'
+  title: Get sanity check on enemy spawning implementation
+  description: Request for feedback on an enemy spawning system that the user is working on.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - electronics-debug
+- id: tpl-3d54fd48ddd8
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2022-10-25'
+  title: Label fur coat or move to hack shelves
+  description: A fur coat found at the space needs to be labeled or will be moved to the hack shelves
+    by Nov 10.
+  xp: 2
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-1a79dfd29900
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2024-01-20'
+  title: Learn to hem pants
+  description: Someone wants to learn how to hem pants they thrifted and is looking for a teacher.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - sewing
+  - teaching
+- id: tpl-c724412617c1
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2024-11-06'
+  title: Organize healing mending circle in the park
+  description: Plan a healing mending circle in the park this weekend with hand stitching activities and
+    quiet sewing time.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - sewing
+  - event-hosting
+- id: tpl-c2c888bbbc4b
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2024-11-10'
+  title: Pick up machine oil for maintenance
+  description: User needs to pick up machine oil for sewing machine maintenance. They are on their way
+    but don't have a car.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - lifting
+- id: tpl-4c9f3bf51a4c
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2023-01-02'
+  title: Find or buy needle drawers
+  description: Locate labeled needle drawers in the sewing room or purchase new ones to place in the drawers.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-f7beda67e354
+  source: discord:woodshop-wall
+  channel: woodshop-wall
+  guild_slug: woodshop
+  posted_at: '2024-10-13'
+  title: Determine if an architect is needed for internal partition
+  description: The project needs to decide whether an architect is necessary for an internal non-load
+    bearing partition/sound barrier. If convinced, the membership can consider spending funds on this
+    in the foreseea
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - plumbing
+  - metalworking
+- id: tpl-7a8a56d9b513
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2023-11-14'
+  title: Help install Python on Linux or Mac
+  description: Offer to help members install Python on Linux or Mac before Nov 27. Windows installation
+    help also requested.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - python
+- id: tpl-66d11538b967
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2025-01-21'
+  title: Test pushing a dummy branch
+  description: Someone needs to try pushing a dummy/test branch to see if it works.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - sysadmin
+- id: tpl-6452a26a9237
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2024-04-05'
+  title: Cancel Python class for April 8
+  description: Cancel the Python class scheduled for Monday, April 8 due to instructor unavailability.
+    Update Meetup and wiki accordingly.
+  xp: 3
+  urgency: high
+  score: 6
+  skills:
+  - teaching
+  - python
+- id: tpl-fe271999f3eb
+  source: discord:python
+  channel: python
+  guild_slug: ai-ml
+  posted_at: '2025-01-29'
+  title: Find sources and filter words for movie review scraping
+  description: Research sources to scrape movie reviews from and determine how to filter out unhelpful
+    words that don't describe individual movies.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - python
+  - writing
+- id: tpl-8142015a3f95
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-12-10'
+  title: Prototype internally threaded end cap for chromatography column
+  description: Need access to calipers and ABS/PC filament for prototyping. Project involves testing thread
+    fit for a chromatography column with dimensions 40x40x50mm.
+  xp: 10
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+- id: tpl-7c8435a91c6a
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-12-12'
+  title: Teach someone 3D printing this evening
+  description: Offer to teach 3D printing skills to someone who wants to learn this evening.
+  xp: 8
+  urgency: low
+  score: 6
+  skills:
+  - teaching
+  - 3d-printing
+- id: tpl-be1e2b09c3c2
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-10-31'
+  title: Install Simplify3D license on printer room computer
+  description: Install a Simplify3D license on the computer in the printer room for others to use, as
+    the current slicer is Cura.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - 3d-printing
+  - hardware-repair
+- id: tpl-2fcb84bf56ef
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-11-02'
+  title: Install new ribbon cable for Qidi
+  description: The new ribbon cable for the Qidi is arriving today. Help needed to install it, likely
+    tomorrow.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - soldering
+- id: tpl-52e5e82c3974
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-11-17'
+  title: Relay information about older FDM printers
+  description: Help relay information about older FDM printers to those who want it, including details
+    about the ones on the top shelf. Need space for a clean post-processing area.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - hardware-repair
+  - organizing
+- id: tpl-348b9ae91b26
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-02-16'
+  title: Post long print updates
+  description: For long prints, leave a post-it with contact info (slack/discord/text) so others know
+    who to contact if issues arise or when it's done. Completed prints go in the filament shelf.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - 3d-printing
+  - cleaning
+- id: tpl-dcbc9808c3ac
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-04-27'
+  title: Create a Discord bot to monitor Bambu printer status
+  description: Proposal to build a Discord bot that checks the status of the Bambu printer to avoid people
+    going to the space only to find it busy with a long print.
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - python
+  - electronics-debug
+  - web-frontend
+- id: tpl-93b144b175b4
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-04-23'
+  title: Document PID tuning for 3D printers
+  description: Add documentation to the WIKI on how to PID tune 3D printers to stabilize nozzle temperature
+    fluctuations.
+  xp: 3
+  urgency: low
+  score: 6
+  skills:
+  - 3d-printing
+  - electronics-debug
+- id: tpl-ffdeb1a75b6e
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-03-19'
+  title: Label PETG spools
+  description: Label old PETG spools on top of Bambu printer to avoid confusion.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+- id: tpl-1fdb37bdbb1f
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-03-13'
+  title: Install metal build plate for 3D Max
+  description: Install metal build plate on 3D Max to enable proper head sensing during leveling.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - hardware-repair
+  - metalworking
+- id: tpl-fe559e2f0022
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-08-31'
+  title: Sort and document 3D printer parts for disposal
+  description: Collect 3D printer parts that need to be thrown away, take pictures, and post them for
+    others to see. Help with disposal if possible.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - organizing
+  - cleaning
+- id: tpl-a63d2be56e35
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-01-21'
+  title: Label and date 3D printer spools
+  description: Mark new or good spools with blue-tape and date them. Create a rule for dating spools upon
+    arrival.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - organizing
+- id: tpl-16a4df672c75
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-12-22'
+  title: Service 3D printer ender components
+  description: 'Service the enders: bottom two work fine, top right needs new throat, bed may be loose
+    due to leveling issues.'
+  xp: 12
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - hardware-repair
+  - soldering
+- id: tpl-bc0a69e7d64c
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-05-18'
+  title: Check if Cura slicer is installed on 3DP lab computer
+  description: User wants to know if Cura slicer is installed on the 3DP lab computer so they can bring
+    a flashdrive with cura files to print instead of using their laptop.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - sysadmin
+- id: tpl-088d3c3d4e62
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2022-12-29'
+  title: Buy threaded inserts for Noisebridge
+  description: Purchase threaded inserts for use at Noisebridge. Check if others would find them useful.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - hardware-repair
+  - metalworking
+- id: tpl-bb5b4f5a466b
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-12-07'
+  title: Borrow a 3D scanner
+  description: Looking to borrow a 3D scanner for use on Sunday.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+- id: tpl-ea169f57d343
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-12-07'
+  title: Clean Up and Organize 3D Printing Area
+  description: Clean up the 3D printing area and organize tables and equipment. Will take care of Enders
+    printers and put table away.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+  - 3d-printing
+- id: tpl-1b9140695320
+  source: discord:zine
+  channel: zine
+  guild_slug: writing
+  posted_at: '2023-04-02'
+  title: Organize Fundraiser BBQ and Beats Event
+  description: Plan a fundraiser event with BBQ, hot dogs, and brew. Include live music from Feast and
+    the NosieBridge Rap Anthem. Promote event and encourage attendance.
+  xp: 10
+  urgency: high
+  score: 6
+  skills:
+  - event-hosting
+  - social-media
+  - teaching
+- id: tpl-8e4808beb29d
+  source: discord:spacebridge
+  channel: spacebridge
+  guild_slug: spacebridge
+  posted_at: '2024-10-13'
+  title: Document and share Docker + Bazel setup
+  description: Provide an overview of the Docker and Bazel setup to anyone interested in building on top
+    of the existing environment.
+  xp: 5
+  urgency: low
+  score: 6
+  skills:
+  - sysadmin
+  - python
+  - web-frontend
+- id: tpl-3e0e764513bc
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2025-01-31'
+  title: Coordinate GPU usage with others
+  description: Need to temporarily stop a process using full VRAM to run a training job. Asking about
+    convenient times (like early mornings or overnights) when the process is not needed.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - sysadmin
+  - networking
+- id: tpl-150e653eef37
+  source: discord:ai-ml
+  channel: ai-ml
+  guild_slug: ai-ml
+  posted_at: '2024-03-11'
+  title: Find Windows PC with Nvidia GTX card for show
+  description: Looking for someone with a Windows PC and Nvidia GTX graphics card to lend/loan for a show
+    on March 23rd in Mountain View. Also seeking interns for AI-related work.
+  xp: 15
+  urgency: high
+  score: 6
+  skills:
+  - hardware-repair
+  - microcontrollers
+  - electronics-debug
+- id: tpl-27424af3b174
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2023-08-02'
+  title: Convert fonts to vector for test prints
+  description: Need to convert fonts to vector format for test prints. This is to ensure proper rendering
+    and scalability of the printed materials.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - 3d-printing
+  - laser-cutting
+  - vinyl-cutting
+- id: tpl-f8e64009b98c
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2024-06-12'
+  title: Fix wiki account bio validation error
+  description: The wiki account form throws an unclear error when the bio is too short. Users are not
+    notified of the specific issue causing the form to fail.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - mediawiki
+  - writing
+  - web-frontend
+- id: tpl-a10b3d062cee
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2025-08-17'
+  title: Deploy xcaddy with rate-limiting for IP ranges
+  description: User wants to deploy xcaddy with rate-limiting and token bucket filtering for specific
+    IP ranges due to server slowdowns.
+  xp: 10
+  urgency: high
+  score: 6
+  skills:
+  - sysadmin
+  - networking
+  - python
+- id: tpl-7e5b4060bac5
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2026-02-03'
+  title: Draft a sensible robots.txt for infra meetup discussion
+  description: Draft a more sensible robots.txt file for discussion at the next infra meetup. This is
+    a concrete task that requires technical knowledge and participation in the community process.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - sysadmin
+  - networking
+  - web-frontend
+- id: tpl-2def78be0d77
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2026-03-27'
+  title: Simplify wiki maintainer access process
+  description: Find a way to make it easier for other maintainers to edit the wiki. This needs to be done
+    as soon as possible.
+  xp: 5
+  urgency: high
+  score: 6
+  skills:
+  - mediawiki
+  - sysadmin
+  - writing
+- id: tpl-f65d915e9a05
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: laser-cutter
+  posted_at: '2023-06-20'
+  title: Set up Inkscape SVG for Lightburn with cut/etch layers
+  description: Configure an SVG design in Inkscape with different colored outlines for cut types (red
+    for cut, blue for etch) so it can be processed in Lightburn.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - laser-cutting
+- id: tpl-c72e611f7213
+  source: discord:fabrication-n-lasers
+  channel: fabrication-n-lasers
+  guild_slug: laser-cutter
+  posted_at: '2025-10-17'
+  title: Clean up the scrap bin properly
+  description: Separate usable material from waste and dispose of the rest in trash cans. Do not treat
+    the scrap bin as general trash.
+  xp: 3
+  urgency: normal
+  score: 6
+  skills:
+  - cleaning
+  - organizing
+- id: tpl-03560772ed02
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2023-03-19'
+  title: Organize and move items in the shop
+  description: A cleanup and organize effort is needed. The person intends to act on consensus and invite
+    others to participate.
+  xp: 8
+  urgency: normal
+  score: 6
+  skills:
+  - organizing
+- id: tpl-5ce29fd2acae
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2025-09-02'
+  title: Learn about CNC mills and equipment at Noisebridge
+  description: New member wants to learn about CNC mills and other equipment to start a project. Looking
+    for orientation resources and training information.
+  xp: 5
+  urgency: normal
+  score: 6
+  skills:
+  - cnc
+- id: tpl-f3b0a93b6608
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2026-03-07'
+  title: Borrow MT7612U WiFi adapter
+  description: User needs to borrow an MT7612U WiFi adapter located in the bay area.
+  xp: 3
+  urgency: normal
+  score: 5
+  skills:
+  - hardware-repair
+  - networking
+- id: tpl-da932d14999f
+  source: discord:donations
+  channel: donations
+  guild_slug: treasurer
+  posted_at: '2025-11-29'
+  title: Donate items for charity auction
+  description: User wants to donate items for Noisebridge's charity auction. Needs to know if they are
+    useful or wanted.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - organizing
+  - event-hosting
+- id: tpl-874f4acfca3c
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2023-10-05'
+  title: Find USB to 56k dial up modem
+  description: Looking for a USB to 56k dial up modem to build a dreampi for Dreamcast online play.
+  xp: 4
+  urgency: normal
+  score: 5
+  skills:
+  - electronics-debug
+  - hardware-repair
+- id: tpl-bf9a0e65bea0
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2025-03-04'
+  title: Find lost leather pants repair items
+  description: Someone is looking for leather pants they wanted to repair that may have been misplaced
+    during a recent activity.
+  xp: 3
+  urgency: low
+  score: 5
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-6d2dcff315f6
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2024-02-05'
+  title: Purchase a cover stitch machine
+  description: Buy a cover stitch machine for the sewing room after checking if one is available for use.
+  xp: 8
+  urgency: normal
+  score: 5
+  skills:
+  - sewing
+- id: tpl-6b833ae75d17
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-12-25'
+  title: Join 3D printer meetup tonight
+  description: User will be at the space 8-10pm with new 3D printing tools. Others can join for repairs,
+    cleaning, or chatting about 3D printers.
+  xp: 8
+  urgency: high
+  score: 5
+  skills:
+  - 3d-printing
+  - cleaning
+  - hardware-repair
+- id: tpl-9a9bfbd32518
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-03-24'
+  title: Get help with 3D printing a hexagon texture for clay
+  description: New to 3D printing and need a hexagon texture for clay. Looking for someone to either teach
+    how to do it or print one for them using a compatible free file.
+  xp: 8
+  urgency: low
+  score: 5
+  skills:
+  - 3d-printing
+- id: tpl-7d0c78267e04
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-12-09'
+  title: Setup and teach 3D printing class
+  description: Need to work out schedule to get setup for a class in the evening next week. Also open
+    to showing during hackathon weekend, though schedule is unclear.
+  xp: 15
+  urgency: normal
+  score: 5
+  skills:
+  - 3d-printing
+  - teaching
+- id: tpl-69cf907deddf
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-10-02'
+  title: Fix filament adhesion issues
+  description: Apply hairspray to PEI sheets when filament doesn't stick, as an alternative to painter's
+    tape.
+  xp: 2
+  urgency: low
+  score: 5
+  skills:
+  - 3d-printing
+- id: tpl-1c230343d953
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-10-16'
+  title: Restock cleaning supplies and use PEI plate
+  description: Pick up rubbing alcohol and paper towels. Use the unused PEI plate for cleaning. Get Bambu
+    TPU filament for future prints.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - 3d-printing
+  - cleaning
+- id: tpl-f12c53fe2042
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2023-10-01'
+  title: Print replacement mount for 3D printer
+  description: The fourth 3D printer needs a new mount printed as the current one has warped.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - 3d-printing
+- id: tpl-3e3a51f60bc0
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2026-01-18'
+  title: Review and tag a wiki page as an essay
+  description: User wants others to review a wiki page and determine if it deserves an 'essay' tag for
+    linking from related conflict resolution pages.
+  xp: 3
+  urgency: low
+  score: 5
+  skills:
+  - mediawiki
+  - writing
+- id: tpl-6fefb92b1105
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2024-06-01'
+  title: Set up contributor access on the wiki
+  description: Set up a user as a contributor on the wiki. This requires administrative access and is
+    a straightforward technical task.
+  xp: 5
+  urgency: normal
+  score: 5
+  skills:
+  - mediawiki
+  - sysadmin
+- id: tpl-6d3a7f26e764
+  source: discord:electronics
+  channel: electronics
+  guild_slug: electronics
+  posted_at: '2024-01-06'
+  title: Clean up electronics room
+  description: Clean up the electronics room after a recent project. Put supplies and cups in designated
+    areas.
+  xp: 3
+  urgency: normal
+  score: 4
+  skills:
+  - cleaning
+- id: tpl-e832dd913081
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2023-03-15'
+  title: Borrow item from 3D printer room
+  description: Someone needs to borrow an item from the 3D printer room.
+  xp: 3
+  urgency: low
+  score: 4
+  skills:
+  - 3d-printing
+- id: tpl-d3b25785ebc3
+  source: discord:games
+  channel: games
+  guild_slug: gaming
+  posted_at: '2023-03-03'
+  title: Update meetup and wiki
+  description: Need to update the meetup and the wiki.
+  xp: 3
+  urgency: normal
+  score: 4
+  skills:
+  - mediawiki
+  - event-hosting
+- id: tpl-f77b830b39f9
+  source: discord:sewing
+  channel: sewing
+  guild_slug: sewing
+  posted_at: '2025-07-25'
+  title: Check for available thread colors
+  description: Check if Noisebridge has white or yellow thread available for hand sewing today.
+  xp: 2
+  urgency: low
+  score: 4
+  skills:
+  - sewing
+- id: tpl-30df9e7984a2
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2022-08-31'
+  title: Setup 3D printing environment
+  description: Starting up RepRap or general 3D printing setup. Need to get it configured and operational.
+  xp: 8
+  urgency: low
+  score: 4
+  skills:
+  - 3d-printing
+- id: tpl-818771350254
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2025-12-08'
+  title: Arrange delivery logistics for 3D printing materials
+  description: Coordinate pickup or delivery of 3D printing materials. The person lives near the pan handle
+    and can help with transportation.
+  xp: 8
+  urgency: normal
+  score: 4
+  skills:
+  - 3d-printing
+  - organizing
+- id: tpl-8b63c8dc5dd3
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2024-03-11'
+  title: Improve 3D printing for tall parts
+  description: Test using taller vessel (120mm) and agitation to improve printing of tall parts. Try different
+    orientations.
+  xp: 10
+  urgency: low
+  score: 4
+  skills:
+  - 3d-printing
+- id: tpl-134a8cf838b8
+  source: discord:wiki-docs-wg
+  channel: wiki-docs-wg
+  guild_slug: writing
+  posted_at: '2025-12-18'
+  title: Confirm wiki account permissions
+  description: Confirm Ben_Kovitz's wiki account permissions to allow posting meeting notes. This requires
+    checking and updating user permissions on the wiki system.
+  xp: 5
+  urgency: low
+  score: 4
+  skills:
+  - mediawiki
+  - sysadmin
+- id: tpl-26287e8d274f
+  source: discord:woodshop
+  channel: woodshop
+  guild_slug: woodshop
+  posted_at: '2026-02-04'
+  title: First-time visitor needs guidance on what to bring
+  description: First-time visitor asks what they should bring when visiting Noisebridge for the first
+    time.
+  xp: 2
+  urgency: low
+  score: 4
+  skills:
+  - teaching
+  - event-hosting
+- id: tpl-1fd637e63e32
+  source: discord:facilities
+  channel: facilities
+  guild_slug: facilities
+  posted_at: '2024-06-05'
+  title: Donate a monitor to Noisebridge
+  description: User wants to donate a monitor to the hackerspace but doesn't know the process.
+  xp: 3
+  urgency: low
+  score: 3
+  skills:
+  - organizing
+  - cleaning
+- id: tpl-ab9dd79c0813
+  source: discord:3d-printing
+  channel: 3d-printing
+  guild_slug: 3d-printing
+  posted_at: '2022-06-17'
+  title: Find optimal time for 3D printing with multiple users
+  description: Identify a time when other printers are available for quick 3D printing tasks, as overnight
+    printing is possible.
+  xp: 3
+  urgency: low
+  score: 3
+  skills:
+  - 3d-printing
+  - organizing

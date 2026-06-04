@@ -1,0 +1,31 @@
+{% extends "admin_layout.html" %}
+{% block admin_content %}
+
+<div class="panel panel-blue">
+    <div class="panel-header">⌬ USERS · {{ rows|length }}</div>
+    <div class="panel-body">
+        {% if rows %}
+        <table class="adm-table">
+            <thead><tr>
+                <th>ID</th><th>WIKI USERNAME</th><th>DISCORD</th>
+                <th>JOINED</th><th>LAST SEEN</th>
+            </tr></thead>
+            <tbody>
+            {% for u in rows %}
+                <tr>
+                    <td class="num dim">{{ u.id }}</td>
+                    <td class="hi">{{ u.wiki_username }}</td>
+                    <td class="dim">{{ u.discord_username or '—' }}</td>
+                    <td class="dim">{{ u.created_at.strftime('%Y-%m-%d') }}</td>
+                    <td class="dim">{{ u.last_seen_at.strftime('%Y-%m-%d %H:%M') if u.last_seen_at else '—' }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty-board">※ NO USERS ※</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

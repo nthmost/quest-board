@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block title %}All Quests · Noisebridge Quest Board{% endblock %}
+
+{% set f = result.filters %}
+
+{% block content %}
+
+<div class="title-bar title-bar-quest">
+    <div class="page-kind">♣ THE BOARD</div>
+    <h1>ALL QUESTS</h1>
+    <div class="sub">
+        {{ result.total }} TOTAL ·
+        PAGE {{ result.page }} OF {{ result.page_count }}
+    </div>
+    <div class="title-auth">
+        <a class="auth-link" href="/">‹ FRONT</a>
+        {% if current_user %}
+            <span class="auth-user">{{ current_user }}{% if pretending %} (as user){% endif %}</span>
+            <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+            {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
+            {% if actually_admin %}
+            <form method="post" action="/me/view-as" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <button type="submit" class="auth-link">{% if pretending %}AS ADMIN{% else %}AS USER{% endif %}</button>
+            </form>
+            {% endif %}
+            <form method="post" action="/logout" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <button type="submit" class="auth-link">LOG OUT</button>
+            </form>
+        {% else %}
+            <a class="auth-link" href="/login">LOG IN ▸</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="panel panel-yellow browse-filters">
+    <div class="panel-header">▲ SEARCH &amp; FILTER</div>
+    <div class="panel-body">
+        <form method="get" action="/quests" class="browse-filter-form">
+            <label class="bf-search">
+                <span class="login-label">SEARCH</span>
+                <input type="text" name="q" value="{{ f.q }}" placeholder="title or description..." autofocus>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">STATUS</span>
+                <select name="status">
+                    <option value="">all</option>
+                    {% for s in ['open', 'claimed', 'done', 'verified'] %}
+                    <option value="{{ s }}" {% if f.status == s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">GUILD</span>
+                <select name="guild">
+                    <option value="">all</option>
+                    {% for g in guilds %}
+                    <option value="{{ g.slug }}" {% if f.guild_slug == g.slug %}selected{% endif %}>{{ g.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">LOCATION</span>
+                <select name="location">
+                    <option value="">all</option>
+                    {% for l in locations %}
+                    <option value="{{ l.slug }}" {% if f.location_slug == l.slug %}selected{% endif %}>{{ l.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">SKILL</span>
+                <input type="text" name="skill" value="{{ f.skill or '' }}" placeholder="e.g. electronics" list="skill-list">
+                <datalist id="skill-list">
+                    {% for s in skills %}<option value="{{ s }}">{% endfor %}
+                </datalist>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">XP</span>
+                <div style="display:flex; gap:0.4rem; align-items:center;">
+                    <input type="number" name="xp_min" value="{{ f.xp_min or '' }}" placeholder="min" style="width:5rem;" min="0">
+                    <span>–</span>
+                    <input type="number" name="xp_max" value="{{ f.xp_max or '' }}" placeholder="max" style="width:5rem;" min="0">
+                </div>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">URGENCY</span>
+                <select name="urgency">
+                    <option value="">all</option>
+                    <option value="high"   {% if f.urgency == 'high'   %}selected{% endif %}>high</option>
+                    <option value="normal" {% if f.urgency == 'normal' %}selected{% endif %}>normal</option>
+                    <option value="low"    {% if f.urgency == 'low'    %}selected{% endif %}>low</option>
+                </select>
+            </label>
+
+            <label class="bf-field">
+                <span class="login-label">SORT</span>
+                <select name="sort">
+                    <option value="newest"  {% if f.sort == 'newest' %}selected{% endif %}>newest first</option>
+                    <option value="oldest"  {% if f.sort == 'oldest' %}selected{% endif %}>oldest first</option>
+                    <option value="xp_high" {% if f.sort == 'xp_high' %}selected{% endif %}>xp: high → low</option>
+                    <option value="xp_low"  {% if f.sort == 'xp_low' %}selected{% endif %}>xp: low → high</option>
+                    <option value="urgent"  {% if f.sort == 'urgent' %}selected{% endif %}>urgent first</option>
+                </select>
+            </label>
+
+            <div class="bf-actions">
+                <button type="submit" class="login-button">► APPLY</button>
+                <a class="auth-link" href="/quests">CLEAR</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="browse-create-bar">
+    {% if can_create %}
+    <a class="action-claim" href="/quests/new">► POST A QUEST</a>
+    {% elif current_user %}
+    <span class="action-claim action-locked" title="{{ create_blocked_reason }}">► POST A QUEST 🔒</span>
+    {% else %}
+    <a class="action-claim" href="/login">► LOG IN TO POST</a>
+    {% endif %}
+</div>
+
+{% if result.quests %}
+<ul class="quest-grid quest-grid-wide">
+    {% for q in result.quests %}
+    <li>
+        <a href="/quests/{{ q.id }}" class="qcard-link">
+            <div class="qtitle">{{ q.title }}</div>
+            <div class="qmeta">
+                <span class="status-pill status-{{ q.status }}">{{ q.status|upper }}</span>
+                <span class="xp">{{ q.xp }} XP</span>
+                {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
+                {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
+                {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}
+                <span>P {{ q.party_min }}{% if q.party_max and q.party_max != q.party_min %}–{{ q.party_max }}{% endif %}</span>
+                {% if q.claim_count > 0 %}<span class="dim">· {{ q.claim_count }} claimed</span>{% endif %}
+            </div>
+            {% if q.skills %}
+            <div class="qmeta">
+                {% for s in q.skills %}<span class="chip-mini">{{ s }}</span>{% endfor %}
+            </div>
+            {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<div class="empty-board" style="margin-top: 2rem;">※ NO QUESTS MATCH ※</div>
+{% endif %}
+
+{% if result.page_count > 1 %}
+<div class="browse-pagination">
+    {% if result.page > 1 %}
+    <a class="auth-link" href="?{{ {'q': f.q, 'status': f.status, 'guild': f.guild_slug,
+                                     'location': f.location_slug, 'skill': f.skill or '',
+                                     'xp_min': f.xp_min or '', 'xp_max': f.xp_max or '',
+                                     'urgency': f.urgency or '',
+                                     'sort': f.sort,
+                                     'page': result.page - 1}|urlencode }}">‹ PREV</a>
+    {% else %}
+    <span class="auth-link disabled">‹ PREV</span>
+    {% endif %}
+
+    <span class="bp-page">PAGE {{ result.page }} / {{ result.page_count }}</span>
+
+    {% if result.page < result.page_count %}
+    <a class="auth-link" href="?{{ {'q': f.q, 'status': f.status, 'guild': f.guild_slug,
+                                     'location': f.location_slug, 'skill': f.skill or '',
+                                     'xp_min': f.xp_min or '', 'xp_max': f.xp_max or '',
+                                     'urgency': f.urgency or '',
+                                     'sort': f.sort,
+                                     'page': result.page + 1}|urlencode }}">NEXT ›</a>
+    {% else %}
+    <span class="auth-link disabled">NEXT ›</span>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,1150 @@
+/* NES-style aesthetic for the Noisebridge Quest Board. */
+
+:root {
+    --nes-black:   #0c0c0c;
+    --nes-dim:     #1a1a1a;
+    --nes-brown:   #88401c;
+    --nes-orange:  #e87400;
+    --nes-red:     #c82020;
+    --nes-yellow:  #fcd058;
+    --nes-tan:     #fcc49c;
+    --nes-white:   #fcfcfc;
+    --nes-green:   #30a830;
+    --nes-blue:    #6888fc;
+    --nes-grey:    #585858;
+    --nes-grey-2:  #303030;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    background: var(--nes-black);
+    color: var(--nes-white);
+    font-family: 'VT323', 'Courier New', monospace;
+    font-size: 20px;
+    line-height: 1.4;
+    min-height: 100vh;
+    image-rendering: pixelated;
+}
+
+/* Press Start 2P used only for headers / accent text / numbers. */
+.psp { font-family: 'Press Start 2P', monospace; }
+
+body {
+    padding: 1rem;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 3px,
+            transparent 4px
+        );
+}
+
+a { color: var(--nes-yellow); text-decoration: none; }
+a:hover { color: var(--nes-white); }
+
+/* ── Layout shell ── */
+.shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title-bar {
+    border: 4px solid var(--nes-brown);
+    background: var(--nes-dim);
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.title-bar h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 22px;
+    color: var(--nes-yellow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.title-bar .sub {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    margin-top: 0.5rem;
+    letter-spacing: 0.15em;
+}
+
+.title-bar .blink {
+    color: var(--nes-red);
+    animation: blink 1.2s steps(2) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.title-auth {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem 1.4rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--nes-tan);
+}
+.title-auth form { margin: 0; }
+
+.title-auth .auth-user {
+    color: var(--nes-yellow);
+}
+.title-auth .auth-link {
+    background: none;
+    border: 2px solid transparent;
+    color: var(--nes-tan);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 0.4rem 0.7rem;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+}
+.title-auth .auth-link:hover {
+    color: var(--nes-yellow);
+    border-color: var(--nes-grey);
+}
+
+/* ── Panel: the standard NES dialogue-box style ── */
+.panel {
+    border: 4px solid var(--nes-white);
+    background: var(--nes-black);
+    padding: 0;
+}
+
+.panel-orange { border-color: var(--nes-orange); }
+.panel-yellow { border-color: var(--nes-yellow); }
+.panel-blue   { border-color: var(--nes-blue); }
+.panel-green  { border-color: var(--nes-green); }
+.panel-brown  { border-color: var(--nes-brown); }
+
+.panel-header {
+    background: var(--nes-grey-2);
+    color: var(--nes-yellow);
+    padding: 0.5rem 0.8rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--nes-grey);
+}
+
+.panel-body {
+    padding: 1rem;
+}
+
+/* ── Two-column layout ── */
+.cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.cols-3 {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 0.9fr;
+    gap: 1rem;
+}
+
+/* Character 1/3 | Open quests 2/3 (with internal 2-column grid) */
+.cols-char-quests {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .cols, .cols-3, .cols-char-quests { grid-template-columns: 1fr; }
+}
+
+/* ── Character sheet ── */
+.charsheet .name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--nes-yellow);
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+.charsheet .class {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+    margin-top: 0.6rem;
+    text-transform: uppercase;
+}
+.charsheet .stats {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem 1rem;
+    font-size: 18px;
+    line-height: 1.3;
+}
+.charsheet .stats .k {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    align-self: center;
+    letter-spacing: 0.1em;
+}
+.charsheet .stats .v {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: var(--nes-white);
+    text-align: right;
+}
+.charsheet .stats .v.gold { color: var(--nes-yellow); }
+.charsheet .stats .v.green { color: var(--nes-green); }
+
+.charsheet .now {
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: 2px dashed var(--nes-grey);
+    color: var(--nes-tan);
+    font-size: 18px;
+    line-height: 1.3;
+}
+.charsheet .now .verb { color: var(--nes-white); }
+.charsheet .now .target { color: var(--nes-orange); }
+
+/* ── Progress bars ── */
+.bar {
+    margin-top: 0.4rem;
+    height: 14px;
+    background: var(--nes-grey-2);
+    border: 2px solid var(--nes-grey);
+    position: relative;
+    overflow: hidden;
+}
+.bar-fill {
+    height: 100%;
+    background: var(--nes-yellow);
+    transition: width 0.3s linear;
+}
+.bar-fill.xp { background: linear-gradient(90deg, var(--nes-orange), var(--nes-yellow)); }
+.bar-fill.task { background: var(--nes-blue); }
+.bar-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.1em;
+}
+
+/* ── Quest grid (two-column, scannable) ── */
+.quest-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    max-height: 480px;
+    overflow-y: auto;
+}
+.quest-grid li {
+    border: 2px solid var(--nes-grey);
+    background: var(--nes-dim);
+    transition: border-color 0.15s;
+    min-height: 110px;
+}
+.quest-grid li:hover { border-color: var(--nes-yellow); }
+.qcard-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.7rem 0.9rem;
+    color: inherit;
+    text-decoration: none;
+}
+.qcard-link:hover .qtitle { color: var(--nes-yellow); }
+.quest-grid .qtitle {
+    font-size: 21px;
+    color: var(--nes-white);
+    line-height: 1.2;
+}
+.quest-grid .qmeta {
+    margin-top: auto;
+    padding-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.quest-grid .qmeta .xp { color: var(--nes-yellow); }
+.quest-grid .qmeta .guild { color: var(--nes-green); }
+.quest-grid .qmeta .loc { color: var(--nes-blue); }
+.quest-grid .qmeta .urgent { color: var(--nes-red); }
+
+@media (max-width: 700px) {
+    .quest-grid { grid-template-columns: 1fr; }
+}
+
+.empty-board {
+    font-family: 'Press Start 2P', monospace;
+    color: var(--nes-tan);
+    font-size: 11px;
+    text-align: center;
+    padding: 2.5rem 0;
+    letter-spacing: 0.15em;
+}
+
+/* ── Activity feed ── */
+/* ── Activity feed: full-width, generous spacing, 23px VT323 for legibility ── */
+.feed {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 460px;
+    overflow-y: auto;
+    font-size: 23px;
+    line-height: 1.3;
+}
+.feed li {
+    border-left: 4px solid var(--nes-grey);
+    padding: 0.6rem 0.4rem 0.6rem 0.9rem;
+    color: var(--nes-white);
+    background: rgba(255, 255, 255, 0.015);
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+.feed li.event-claim   { border-color: var(--nes-blue); }
+.feed li.event-done    { border-color: var(--nes-green); }
+.feed li.event-level   { border-color: var(--nes-yellow); }
+.feed li.event-post    { border-color: var(--nes-orange); }
+.feed .who    { color: var(--nes-yellow); text-transform: uppercase; letter-spacing: 0.02em; }
+.feed .verb   { color: var(--nes-white); }
+.feed .target { color: var(--nes-orange); }
+.feed .xp     {
+    color: var(--nes-green);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    margin-left: 0.4rem;
+}
+.feed .ts {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--nes-grey);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    min-width: 4ch;
+}
+
+/* ── Quest browse page (filters + grid + pagination) ── */
+.browse-filters { margin-top: 1rem; }
+.browse-filter-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: end;
+}
+.browse-filter-form .login-label { margin-bottom: 0.4rem; display: block; }
+.browse-filter-form input[type="text"],
+.browse-filter-form select {
+    background: var(--nes-dim);
+    color: var(--nes-white);
+    border: 2px solid var(--nes-grey);
+    padding: 0.55rem 0.7rem;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    width: 100%;
+    line-height: 1;
+}
+.browse-filter-form input[type="text"]:focus,
+.browse-filter-form select:focus {
+    outline: none;
+    border-color: var(--nes-yellow);
+}
+.browse-filter-form .bf-search,
+.browse-filter-form .bf-field { display: block; }
+.browse-filter-form .bf-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.6rem;
+}
+.browse-filter-form .login-button { padding: 0.7rem 1.2rem; font-size: 11px; }
+@media (max-width: 800px) {
+    .browse-filter-form { grid-template-columns: 1fr 1fr; }
+    .browse-filter-form .bf-search { grid-column: 1 / -1; }
+}
+
+.quest-grid-wide {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.quest-grid-wide li {
+    border: 2px solid var(--nes-grey);
+    background: var(--nes-dim);
+    transition: border-color 0.15s;
+    min-height: 110px;
+}
+.quest-grid-wide li:hover { border-color: var(--nes-yellow); }
+.quest-grid-wide .qcard-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0.9rem 1.1rem;
+    color: inherit;
+    text-decoration: none;
+}
+.quest-grid-wide .qcard-link:hover .qtitle { color: var(--nes-yellow); }
+.quest-grid-wide .qtitle { font-size: 22px; color: var(--nes-white); line-height: 1.25; }
+.quest-grid-wide .qmeta {
+    margin-top: auto;
+    padding-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    align-items: center;
+}
+.quest-grid-wide .qmeta .xp { color: var(--nes-yellow); }
+.quest-grid-wide .qmeta .guild { color: var(--nes-green); }
+.quest-grid-wide .qmeta .loc { color: var(--nes-blue); }
+.quest-grid-wide .qmeta .urgent { color: var(--nes-red); }
+.quest-grid-wide .qmeta .dim { color: var(--nes-grey); text-transform: none; }
+
+.browse-pagination {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 2px dashed var(--nes-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+}
+.browse-pagination .auth-link.disabled {
+    color: var(--nes-grey-2);
+    pointer-events: none;
+}
+.browse-pagination .bp-page { color: var(--nes-tan); }
+
+/* ── Quest detail title bar (variable-length quest title is the hero) ── */
+.title-bar-quest { padding: 1.2rem 1.5rem; }
+.title-bar-quest .page-kind {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--nes-tan);
+    letter-spacing: 0.25em;
+    margin-bottom: 0.7rem;
+}
+.title-bar-quest h1 {
+    font-family: 'VT323', monospace;
+    font-size: 38px;
+    line-height: 1.1;
+    color: var(--nes-yellow);
+    letter-spacing: 0;
+    text-transform: none;
+    word-break: break-word;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ── Quest detail page ── */
+.cols-quest-detail {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+@media (max-width: 900px) {
+    .cols-quest-detail { grid-template-columns: 1fr; }
+}
+.qd-main, .qd-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.qd-description {
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--nes-white);
+}
+.qd-skills {
+    margin-top: 1rem;
+    padding-top: 0.7rem;
+    border-top: 2px dashed var(--nes-grey);
+}
+.qd-notes {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--nes-yellow);
+    background: rgba(252, 208, 88, 0.04);
+    font-size: 18px;
+    color: var(--nes-tan);
+}
+.qd-section-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.4rem;
+}
+
+/* sub-quest list */
+.qd-children { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.qd-children a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    border: 2px solid var(--nes-grey);
+    background: var(--nes-dim);
+    text-decoration: none;
+    color: var(--nes-white);
+    transition: border-color 0.15s;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.qd-children a:hover { border-color: var(--nes-yellow); }
+.qd-child-title { font-size: 19px; }
+.qd-child-meta {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* status pills */
+.status-pill {
+    display: inline-block;
+    border: 2px solid currentColor;
+    padding: 0.15rem 0.55rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.status-open      { color: var(--nes-yellow); }
+.status-claimed   { color: var(--nes-blue); }
+.status-done      { color: var(--nes-green); }
+.status-verified  { color: var(--nes-green); }
+.urgent-tag {
+    color: var(--nes-red);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+}
+
+.xp-chip {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-yellow);
+    letter-spacing: 0.1em;
+}
+
+/* claims / boost lists */
+.qd-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.qd-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    padding: 0.4rem 0.6rem;
+    border-left: 3px solid var(--nes-grey);
+    font-size: 19px;
+}
+.qd-list li.refunded { opacity: 0.5; }
+.qd-list .qd-li-name { color: var(--nes-yellow); flex-shrink: 0; }
+.qd-list .num {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--nes-green);
+}
+.qd-list .dim {
+    font-size: 16px;
+    color: var(--nes-tan);
+}
+.qd-redacted {
+    font-size: 18px;
+    color: var(--nes-tan);
+    padding: 0.8rem 0;
+    text-align: center;
+}
+.qd-boost-summary { font-size: 19px; color: var(--nes-tan); }
+.qd-boost-summary .num {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--nes-yellow);
+}
+
+/* expandable released-claims block */
+.qd-details {
+    margin-top: 0.9rem;
+    border-top: 2px dashed var(--nes-grey);
+    padding-top: 0.7rem;
+}
+.qd-details summary {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    margin-bottom: 0.6rem;
+}
+.qd-details summary:hover { color: var(--nes-yellow); }
+
+/* coordination block on quest detail sidebar (contact + sign-off) */
+.qd-coord-block {
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--nes-grey);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.qd-coord-row { display: flex; flex-direction: column; gap: 0.25rem; }
+.qd-coord-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+}
+.qd-coord-value {
+    font-size: 18px;
+    color: var(--nes-white);
+    line-height: 1.3;
+}
+.qd-admin-actions {
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--nes-grey);
+    text-align: right;
+}
+
+/* admin quest-edit form */
+.aqe-quest-title {
+    font-size: 22px;
+    color: var(--nes-yellow);
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+}
+.aqe-form textarea {
+    background: var(--nes-dim);
+    color: var(--nes-white);
+    border: 2px solid var(--nes-grey);
+    padding: 0.7rem 0.8rem;
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    line-height: 1.4;
+    resize: vertical;
+    width: 100%;
+    min-height: 90px;
+}
+.aqe-form textarea:focus { outline: none; border-color: var(--nes-yellow); }
+.aqe-actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+/* sidebar creator card */
+.qd-creator-name { font-size: 22px; color: var(--nes-yellow); line-height: 1.2; }
+.qd-creator-kind {
+    margin-top: 0.4rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.qd-timestamps {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--nes-white);
+}
+.qd-timestamps .dim {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.1em;
+    margin-right: 0.4rem;
+    text-transform: uppercase;
+}
+
+/* claim / release inside the CLAIMS panel */
+.qd-claim-actions {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--nes-grey);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.qd-claim-actions form { margin: 0; }
+.qd-claim-note {
+    font-size: 18px;
+    color: var(--nes-tan);
+    align-self: center;
+}
+.action-claim, .action-release, .action-done {
+    background: var(--nes-yellow);
+    color: var(--nes-black);
+    border: 3px solid var(--nes-yellow);
+    padding: 0.7rem 1.2rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.action-claim:hover { background: var(--nes-white); border-color: var(--nes-white); }
+.action-release {
+    background: none;
+    color: var(--nes-blue);
+    border-color: var(--nes-blue);
+}
+.action-release:hover { background: var(--nes-blue); color: var(--nes-black); }
+.action-done {
+    background: none;
+    color: #f0a000;
+    border-color: #f0a000;
+}
+.action-done:hover { background: #f0a000; color: var(--nes-black); border-color: #f0a000; }
+
+.action-locked {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.browse-create-bar {
+    margin: 1rem 0 1.2rem;
+    text-align: right;
+}
+
+.qd-verification-notice {
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid #c08000;
+    color: #f0a000;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+/* flash message after claim/release */
+.flash-banner {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 3px solid var(--nes-red);
+    background: rgba(200, 32, 32, 0.08);
+    color: var(--nes-red);
+    font-size: 18px;
+    font-family: 'VT323', monospace;
+}
+
+/* parent banner */
+.parent-banner {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    border: 2px dashed var(--nes-yellow);
+    background: rgba(252, 208, 88, 0.04);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+.parent-banner a {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    letter-spacing: 0;
+    color: var(--nes-yellow);
+    text-transform: none;
+}
+.parent-banner .dim { color: var(--nes-grey); margin-left: 0.5rem; }
+
+/* ── World stats panel ── */
+.world-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.world-stats .ws-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+}
+.world-stats .ws-num {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    margin-top: 0.6rem;
+    color: var(--nes-white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.world-stats .ws-num.gold   { color: var(--nes-yellow); }
+.world-stats .ws-num.green  { color: var(--nes-green); }
+.world-stats .ws-num.orange { color: var(--nes-orange); }
+
+/* ── Character grid (my-characters page) ── */
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1.2rem;
+}
+.char-grid .panel { position: relative; }
+.char-grid .panel-body { padding: 1.4rem 1.6rem 1.6rem; }
+.char-grid .charsheet .name { font-size: 18px; }
+.char-grid .charsheet .stats { font-size: 22px; gap: 0.4rem 1.4rem; }
+.char-grid .charsheet .stats .v { font-size: 14px; }
+/* Active character: green border, the panel-header's color leans on it */
+.char-active {
+    border: 4px solid var(--nes-green);
+    box-shadow: 0 0 0 2px rgba(48, 168, 48, 0.25);
+}
+.char-active .panel-header {
+    background: var(--nes-green);
+    color: var(--nes-black);
+}
+
+.char-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+.char-activate-btn {
+    background: var(--nes-yellow);
+    color: var(--nes-black);
+    border: 2px solid var(--nes-yellow);
+    padding: 0.5rem 1rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
+.char-activate-btn:hover { background: var(--nes-white); border-color: var(--nes-white); }
+
+/* Skull-and-crossbones retire button. Big enough to be inviting, not scary. */
+.char-trash {
+    position: absolute;
+    bottom: 0.55rem;
+    right: 0.55rem;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--nes-black);
+    border: 2px solid var(--nes-tan);
+    color: var(--nes-tan);
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    padding: 0;
+    z-index: 5;
+    transition: color 0.15s, border-color 0.15s, transform 0.1s, background 0.15s;
+}
+.char-trash:hover {
+    color: var(--nes-red);
+    border-color: var(--nes-red);
+    background: var(--nes-black);
+    transform: scale(1.08);
+}
+.char-trash:active { transform: scale(0.95); }
+.char-slot-empty {
+    border: 4px dashed var(--nes-grey);
+    background: var(--nes-dim);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    color: var(--nes-tan);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+}
+.char-slot-empty:hover { border-color: var(--nes-yellow); color: var(--nes-yellow); }
+.char-slot-empty .plus { font-size: 48px; line-height: 1; }
+.char-slot-empty .lbl {
+    margin-top: 0.7rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+}
+
+/* Make the form selects on the new-character page match the input styling. */
+.login-form select {
+    background: var(--nes-dim);
+    color: var(--nes-white);
+    border: 2px solid var(--nes-grey);
+    padding: 0.7rem 0.8rem;
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    line-height: 1.2;
+    cursor: pointer;
+}
+.login-form select:focus { outline: none; border-color: var(--nes-yellow); }
+
+/* ── Login screen ── */
+.login-shell {
+    max-width: 540px;
+    margin: 1rem auto;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+.login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.login-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    letter-spacing: 0.15em;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    background: var(--nes-dim);
+    color: var(--nes-white);
+    border: 2px solid var(--nes-grey);
+    padding: 0.7rem 0.8rem;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    line-height: 1;
+}
+.login-form input:focus {
+    outline: none;
+    border-color: var(--nes-yellow);
+}
+.login-button {
+    margin-top: 0.6rem;
+    background: var(--nes-yellow);
+    color: var(--nes-black);
+    border: none;
+    padding: 0.8rem 1rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
+.login-button:hover {
+    background: var(--nes-white);
+}
+.login-button:active {
+    transform: scale(0.98);
+}
+.login-note {
+    margin-top: 1.2rem;
+    padding-top: 0.9rem;
+    border-top: 2px dashed var(--nes-grey);
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--nes-tan);
+}
+.login-error {
+    border: 3px solid var(--nes-red);
+    color: var(--nes-red);
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 1rem;
+    font-size: 18px;
+    background: rgba(200, 32, 32, 0.08);
+}
+
+/* ── Admin (denser, spreadsheet-ish) ── */
+.admin-title { padding: 0.6rem 1rem 0.8rem; }
+.admin-title h1 { font-size: 16px; }
+.admin-title .sub { margin-top: 0.3rem; font-size: 8px; }
+.admin-title .title-auth { margin-top: 0.6rem; display: flex; gap: 1rem; justify-content: center; }
+.admin-title .admin-nav { display: flex; gap: 1rem; }
+.admin-title .admin-nav a {
+    color: var(--nes-tan);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+}
+.admin-title .admin-nav a:hover { color: var(--nes-yellow); }
+
+.kv-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.3rem 1.2rem;
+    font-size: 18px;
+}
+.kv-grid .k {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    align-self: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.kv-grid .v {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    color: var(--nes-white);
+    text-align: right;
+}
+.kv-grid .v.gold  { color: var(--nes-yellow); }
+.kv-grid .v.green { color: var(--nes-green); }
+
+.admin-subtle {
+    margin-top: 0.9rem;
+    padding-top: 0.7rem;
+    border-top: 2px dashed var(--nes-grey);
+    font-size: 16px;
+    color: var(--nes-tan);
+}
+.chip {
+    display: inline-block;
+    border: 2px solid var(--nes-grey);
+    padding: 0.15rem 0.5rem;
+    margin: 0.15rem 0.2rem 0.15rem 0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-yellow);
+}
+.chip-mini {
+    display: inline-block;
+    border: 1px solid var(--nes-grey);
+    padding: 0.15rem 0.55rem;
+    margin: 0.15rem 0.25rem 0.15rem 0;
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    line-height: 1;
+    color: var(--nes-tan);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.adm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+.adm-table th {
+    text-align: left;
+    padding: 0.5rem 0.6rem 0.5rem 0;
+    border-bottom: 2px solid var(--nes-grey);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: var(--nes-tan);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.adm-table td {
+    padding: 0.55rem 0.6rem 0.55rem 0;
+    border-bottom: 1px solid var(--nes-grey-2);
+    color: var(--nes-white);
+    line-height: 1.3;
+    vertical-align: middle;
+}
+.adm-table .hi {
+    color: var(--nes-yellow);
+    font-size: 21px;
+    line-height: 1.2;
+}
+.adm-table .dim {
+    color: var(--nes-tan);
+    font-size: 16px;
+    white-space: nowrap;
+}
+.adm-table .num {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--nes-white);
+    white-space: nowrap;
+}
+.adm-table tr.del td { opacity: 0.55; text-decoration: line-through; }
+.adm-table tr:hover td { background: rgba(252, 208, 88, 0.04); }
+
+.adm-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: var(--nes-tan);
+}
+.adm-filters select {
+    background: var(--nes-dim);
+    color: var(--nes-white);
+    border: 2px solid var(--nes-grey);
+    padding: 0.4rem 0.5rem;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    margin-left: 0.4rem;
+}
+.adm-filters input[type="checkbox"] {
+    margin-right: 0.3rem;
+    transform: scale(1.2);
+}
+.adm-button {
+    background: var(--nes-yellow);
+    color: var(--nes-black);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+}
+.adm-button:hover { background: var(--nes-white); color: var(--nes-black); }
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--nes-grey);
+    letter-spacing: 0.15em;
+    border-top: 2px dashed var(--nes-grey-2);
+}
+.footer a { color: var(--nes-grey); }
+.footer a:hover { color: var(--nes-yellow); }
+
+/* ── Scrollbar polish (webkit) ── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--nes-dim); }
+::-webkit-scrollbar-thumb { background: var(--nes-grey); border: 2px solid var(--nes-dim); }
+::-webkit-scrollbar-thumb:hover { background: var(--nes-yellow); }

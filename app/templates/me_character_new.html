@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}New Character · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar">
+    <h1>★ NEW CHARACTER ★</h1>
+    <div class="sub">CREATE A HERO</div>
+</div>
+
+<div class="login-shell">
+    <div class="panel panel-yellow">
+        <div class="panel-header">★ DETAILS</div>
+        <div class="panel-body">
+
+            {% if error %}
+            <div class="login-error">▼ {{ error }}</div>
+            {% endif %}
+
+            <form method="post" action="/me/characters" class="login-form">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+
+                <label class="login-field">
+                    <span class="login-label">NAME</span>
+                    <input type="text" name="name" maxlength="64" required
+                           value="{{ form.name }}" autofocus autocomplete="off">
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">CLASS</span>
+                    <select name="class_slug" required>
+                        <option value="">— pick one —</option>
+                        {% for cls in classes %}
+                        <option value="{{ cls.slug }}" {% if form.class_slug == cls.slug %}selected{% endif %}>
+                            {{ cls.name }} — {{ cls.description }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">PRIMARY GUILD (optional)</span>
+                    <select name="primary_guild_id">
+                        <option value="">— none —</option>
+                        {% for g in guilds %}
+                        <option value="{{ g.id }}" {% if form.primary_guild_id == g.id|string %}selected{% endif %}>
+                            {{ g.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <button type="submit" class="login-button">► CREATE</button>
+            </form>
+
+            <div class="login-note">
+                Your character starts with a welcome grant of XP, ready to claim quests.
+                <br><br>
+                <a href="/me/characters">‹ back to my characters</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "admin_layout.html" %}
+{% block admin_content %}
+
+<div class="panel panel-yellow">
+    <div class="panel-header">★ EDIT QUEST · {{ quest.id }}</div>
+    <div class="panel-body">
+
+        <div class="aqe-quest-title">{{ quest.title }}</div>
+
+        <form method="post" action="/admin/quests/{{ quest.id }}/edit" class="login-form aqe-form">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+
+            <label class="login-field">
+                <span class="login-label">CONTACT</span>
+                <input type="text" name="contact_text" value="{{ quest.contact_text or '' }}"
+                       placeholder="who to coordinate with — e.g. @yourhandle on Discord">
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">VERIFIER</span>
+                <input type="text" name="verifier_text" value="{{ quest.verifier_text or '' }}"
+                       placeholder="who signs off — e.g. any Facilities steward">
+            </label>
+
+            <label class="login-field" style="flex-direction:row; align-items:center; gap:0.75rem">
+                <input type="checkbox" name="requires_verification" value="true"
+                       {% if quest.requires_verification %}checked{% endif %}
+                       style="width:auto; margin:0">
+                <span class="login-label" style="margin:0">REQUIRES VERIFICATION before XP pays out</span>
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">AUTHORIZED VERIFIERS (wiki usernames, comma-separated)</span>
+                <input type="text" name="verifier_usernames" value="{{ verifier_usernames }}"
+                       placeholder="e.g. Nthmost, WikiUser — leave empty for creator only (or admin)">
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">INTERNAL NOTES</span>
+                <textarea name="internal_notes" rows="4">{{ quest.internal_notes or '' }}</textarea>
+            </label>
+
+            <div class="aqe-actions">
+                <button type="submit" class="login-button">► SAVE</button>
+                <a class="auth-link" href="/quests/{{ quest.id }}">CANCEL</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

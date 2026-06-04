@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Admin · Noisebridge Quest Board{% endblock %}
+{% block content %}
+
+<div class="title-bar admin-title">
+    <h1>★ ADMIN ★</h1>
+    <div class="sub">{{ current_user }}@nbquest</div>
+    <div class="title-auth">
+        <a class="auth-link" href="/">‹ FRONT</a>
+        <span class="admin-nav">
+            <a href="/admin/">DASH</a>
+            <a href="/admin/quests">QUESTS</a>
+            <a href="/admin/users">USERS</a>
+            <a href="/admin/templates">POOL</a>
+        </span>
+        <form method="post" action="/me/view-as" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">AS USER</button>
+        </form>
+    </div>
+</div>
+
+{% block admin_content %}{% endblock %}
+
+{% endblock %}

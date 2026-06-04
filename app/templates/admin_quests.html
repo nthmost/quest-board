@@ -1,0 +1,52 @@
+{% extends "admin_layout.html" %}
+{% block admin_content %}
+
+<div class="panel panel-orange">
+    <div class="panel-header">♦ QUESTS · {{ rows|length }} {% if filters.show_deleted %}(incl. deleted){% endif %}</div>
+    <div class="panel-body">
+
+        <form method="get" class="adm-filters">
+            <label>STATUS
+                <select name="status">
+                    <option value="">all</option>
+                    {% for s in ['open','claimed','done','verified'] %}
+                        <option value="{{ s }}" {% if filters.status==s %}selected{% endif %}>{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>
+                <input type="checkbox" name="show_deleted" value="1" {% if filters.show_deleted %}checked{% endif %}>
+                SHOW DELETED
+            </label>
+            <button type="submit" class="adm-button">APPLY</button>
+        </form>
+
+        {% if rows %}
+        <table class="adm-table">
+            <thead><tr>
+                <th>ID</th><th>TITLE</th><th>STATUS</th><th>XP</th>
+                <th>URG</th><th>PARTY</th><th>POSTED</th><th>DELETED</th><th></th>
+            </tr></thead>
+            <tbody>
+            {% for q in rows %}
+                <tr {% if q.deleted_at %}class="del"{% endif %}>
+                    <td class="num dim">{{ q.id }}</td>
+                    <td class="hi"><a href="/quests/{{ q.id }}">{{ q.title }}</a></td>
+                    <td>{{ q.status }}</td>
+                    <td class="num">{{ q.xp }}</td>
+                    <td>{{ q.urgency }}</td>
+                    <td>{{ q.party_min }}{% if q.party_max and q.party_max != q.party_min %}-{{ q.party_max }}{% endif %}</td>
+                    <td class="dim">{{ q.created_at.strftime('%m-%d %H:%M') }}</td>
+                    <td class="dim">{% if q.deleted_at %}{{ q.deleted_at.strftime('%m-%d') }}{% else %}—{% endif %}</td>
+                    <td><a class="auth-link" href="/admin/quests/{{ q.id }}/edit">EDIT</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="empty-board">※ NO QUESTS MATCH ※</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

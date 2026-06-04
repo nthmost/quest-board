@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Noisebridge Quest Board{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/nes.css?v={{ request.state.asset_v }}">
+</head>
+<body>
+    <div class="shell">
+        {% block content %}{% endblock %}
+        <div class="footer">
+            <a href="/api/v1/docs">api</a> · <a href="/api/v1/feed">feed</a> · <a href="https://github.com/nthmost/quest-board">source</a>
+        </div>
+    </div>
+</body>
+</html>

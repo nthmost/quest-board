@@ -1,0 +1,65 @@
+# Quest Board economy configuration.
+# Copied to /etc/questboard/economy.yaml on deploy.
+# Hot-reload: `sudo systemctl kill -s HUP questboard.service`
+
+xp:
+  creator_bonus_xp: 5
+  verifier_bonus_xp: 0
+  boost_distribution: equal_among_claimers
+  self_boost_policy: allowed_flagged
+  boost_refund_on_delete: deleter_neq_booster
+
+  posting_fee:
+    enabled: true
+    shape: flat                  # flat | proportional | floor_or_proportional
+    flat_amount: 3
+    proportional_rate: 0.10
+    floor_min: 1
+    destination: burn            # burn | treasury
+    refund_on_delete: never      # never | if_unclaimed | always
+    service_principal_exempt: true
+
+  llm_xp_suggestion:
+    enabled: true
+    threshold_quests: 20
+    few_shot_sample_size: 10
+
+  welcome_grant:
+    enabled: true
+    amount: 50
+    memo: "welcome to Noisebridge Quests"
+
+levels:
+  curve: dnd5e                   # flat | linear | exponential | dnd5e | custom
+  flat:        { cost: 50 }
+  linear:      { base: 10 }
+  exponential: { base: 10 }
+  dnd5e:       { scale: 0.333 }
+  custom:      { costs: [] }
+  max_level: 20
+
+quests:
+  max_depth: 2                   # 0..3. Hard ceiling: 3.
+
+reopen_policy: disallow
+
+leaderboard:
+  show_balances_publicly: true
+  decay: none
+
+admin:
+  # Wiki usernames granted access to /admin pages. Comparison is
+  # case-insensitive. Edit and SIGHUP to apply.
+  usernames:
+    - YourWikiUsername
+
+quest_creation:
+  # Always allowed to create quests regardless of gate, case-insensitive.
+  privileged_usernames:
+    - YourWikiUsername
+
+  # Ordinary users unlock quest creation by meeting ANY ONE of these.
+  # Set a value to 0 or omit to disable that condition.
+  gate:
+    min_quests_completed: 3   # quests fully paid out
+    min_level: 2              # active character level

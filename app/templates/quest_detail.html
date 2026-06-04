@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% block title %}{{ quest.title }} · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar title-bar-quest">
+    <div class="page-kind">♦ QUEST</div>
+    <h1>{{ quest.title }}</h1>
+    <div class="sub">
+        <span class="status-pill status-{{ quest.status }}">{{ quest.status|upper }}</span>
+        · {{ quest.xp }} XP
+        {% if quest.urgency == 'high' %} · <span class="urgent-tag">URGENT</span>{% endif %}
+    </div>
+    <div class="title-auth">
+        <a class="auth-link" href="/">‹ FRONT</a>
+        <a class="auth-link" href="/quests">ALL QUESTS</a>
+        {% if current_user %}
+            <span class="auth-user">{{ current_user }}{% if pretending %} (as user){% endif %}</span>
+            <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+            {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
+            {% if actually_admin %}
+            <form method="post" action="/me/view-as" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <button type="submit" class="auth-link">{% if pretending %}AS ADMIN{% else %}AS USER{% endif %}</button>
+            </form>
+            {% endif %}
+            <form method="post" action="/logout" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <button type="submit" class="auth-link">LOG OUT</button>
+            </form>
+        {% else %}
+            <a class="auth-link" href="/login">LOG IN ▸</a>
+        {% endif %}
+    </div>
+</div>
+
+{% if flash %}
+<div class="flash-banner">▼ {{ flash }}</div>
+{% endif %}
+
+{% if quest.parent %}
+<div class="parent-banner">
+    PART OF · <a href="/quests/{{ quest.parent.id }}">{{ quest.parent.title }}</a>
+    <span class="dim">({{ quest.parent.status }})</span>
+</div>
+{% endif %}
+
+
+<div class="cols-quest-detail">
+
+    {# ── LEFT (2/3): description + sub-quests + activity ── #}
+    <div class="qd-main">
+        <div class="panel panel-orange">
+            <div class="panel-header">♦ THE TASK</div>
+            <div class="panel-body">
+                <p class="qd-description">{{ quest.description }}</p>
+
+                {% if quest.skills %}
+                <div class="qd-skills">
+                    {% for s in quest.skills %}<span class="chip-mini">{{ s }}</span>{% endfor %}
+                </div>
+                {% endif %}
+
+                {% if is_admin and quest.internal_notes %}
+                <div class="qd-notes">
+                    <div class="qd-section-label">INTERNAL NOTES (ADMIN-ONLY)</div>
+                    <p>{{ quest.internal_notes }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if quest.children %}
+        <div class="panel panel-yellow">
+            <div class="panel-header">♣ SUB-QUESTS · {{ quest.children|length }}</div>
+            <div class="panel-body">
+                <ul class="qd-children">
+                    {% for c in quest.children %}
+                    <li>
+                        <a href="/quests/{{ c.id }}">
+                            <span class="qd-child-title">{{ c.title }}</span>
+                            <span class="qd-child-meta">
+                                <span class="status-pill status-{{ c.status }}">{{ c.status }}</span>
+                                <span class="xp-chip">{{ c.xp }} XP</span>
+                            </span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+
+        {# Activity below: claims + boosts, full width inside this column #}
+        <div class="panel panel-blue">
+            <div class="panel-header">⌬ CLAIMS · {{ quest.claims.active_count }} ACTIVE</div>
+            <div class="panel-body">
+                {% if quest.claims.active and quest.claims.active|length > 0 %}
+                <ul class="qd-list">
+                    {% for c in quest.claims.active %}
+                    <li>
+                        <span class="qd-li-name">{{ c.character_name }}</span>
+                        <span class="dim">claimed {{ c.claimed_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% elif current_user %}
+                <div class="empty-board">※ NO ACTIVE CLAIMS ※</div>
+                {% else %}
+                <div class="qd-redacted">
+                    {{ quest.claims.active_count }} active · log in to see who.
+                </div>
+                {% endif %}
+
+                {% if actions.can_claim or actions.can_release or (current_user and actions.no_character) %}
+                <div class="qd-claim-actions">
+                    {% if actions.can_claim %}
+                    <form method="post" action="/quests/{{ quest.id }}/claim">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                        <button type="submit" class="action-claim">► CLAIM AS {{ actions.character_name|upper }}</button>
+                    </form>
+                    {% elif actions.can_release %}
+                    <form method="post" action="/quests/{{ quest.id }}/done" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                        <button type="submit" class="action-done">★ MARK DONE</button>
+                    </form>
+                    <form method="post" action="/quests/{{ quest.id }}/release" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                        <button type="submit" class="action-release">◂ RELEASE</button>
+                    </form>
+                    <span class="qd-claim-note">{{ actions.character_name }} is on this.</span>
+                    {% elif actions.no_character %}
+                    <a class="action-claim" href="/me/characters/new">► CREATE A CHARACTER TO CLAIM</a>
+                    {% endif %}
+                </div>
+                {% elif not current_user %}
+                <div class="qd-claim-actions">
+                    <a class="action-claim" href="/login">► LOG IN TO CLAIM</a>
+                </div>
+                {% endif %}
+
+                {% if can_verify %}
+                <div class="qd-claim-actions">
+                    <form method="post" action="/quests/{{ quest.id }}/verify">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                        <button type="submit" class="action-done">✔ VERIFY &amp; RELEASE XP</button>
+                    </form>
+                    <span class="qd-claim-note">awaiting verifier sign-off</span>
+                </div>
+                {% elif quest.status == 'done' and not quest.paid_out_at %}
+                <div class="qd-verification-notice">⌛ AWAITING VERIFICATION · XP HELD</div>
+                {% endif %}
+
+                {% if quest.claims.released and quest.claims.released|length > 0 %}
+                <details class="qd-details">
+                    <summary>RELEASED ({{ quest.claims.released|length }})</summary>
+                    <ul class="qd-list">
+                        {% for r in quest.claims.released %}
+                        <li>
+                            <span class="qd-li-name">{{ r.character_name }}</span>
+                            <span class="dim">{{ r.claimed_at.strftime('%m-%d') }} → {{ r.released_at.strftime('%m-%d') }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </details>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if quest.boost_summary.boost_count > 0 %}
+        <div class="panel panel-green">
+            <div class="panel-header">♦ BOOSTS · +{{ quest.boost_summary.total_boost_pool }} XP</div>
+            <div class="panel-body">
+                <div class="qd-boost-summary">
+                    {{ quest.boost_summary.boost_count }} contribution(s) ·
+                    external <span class="num">{{ quest.boost_summary.external_boost_pool }}</span> ·
+                    self <span class="num">{{ quest.boost_summary.self_boost_amount }}</span>
+                </div>
+                {% if quest.boost_detail %}
+                <ul class="qd-list" style="margin-top: 0.7rem;">
+                    {% for b in quest.boost_detail %}
+                    <li class="{% if b.refunded %}refunded{% endif %}">
+                        <span class="qd-li-name">{{ b.booster_name }}</span>
+                        <span class="num">+{{ b.amount }}</span>
+                        {% if b.is_self_boost %}<span class="dim">self</span>{% endif %}
+                        {% if b.refunded %}<span class="dim">refunded</span>{% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    {# ── RIGHT (1/3): metadata ── #}
+    <div class="qd-side">
+        <div class="panel panel-yellow">
+            <div class="panel-header">▲ DETAILS</div>
+            <div class="panel-body">
+                <div class="kv-grid">
+                    <div class="k">XP</div>            <div class="v gold">{{ quest.xp }}</div>
+                    <div class="k">URGENCY</div>       <div class="v">{{ quest.urgency }}</div>
+                    <div class="k">PARTY</div>
+                    <div class="v">
+                        {{ quest.party_min }}{% if quest.party_max and quest.party_max != quest.party_min %}–{{ quest.party_max }}{% elif not quest.party_max %}+{% endif %}
+                    </div>
+
+                    {% if quest.guild %}
+                    <div class="k">GUILD</div>
+                    <div class="v" style="color: var(--nes-green)">{{ quest.guild.name }}</div>
+                    {% endif %}
+
+                    {% if quest.location %}
+                    <div class="k">LOCATION</div>
+                    <div class="v" style="color: var(--nes-blue)">{{ quest.location.name }}</div>
+                    {% endif %}
+
+                    {% if quest.due_date %}
+                    <div class="k">DUE</div>
+                    <div class="v">{{ quest.due_date.strftime('%Y-%m-%d') }}</div>
+                    {% endif %}
+
+                    {% if quest.posting_fee_charged is not none %}
+                    <div class="k">POSTING FEE</div>
+                    <div class="v">−{{ quest.posting_fee_charged }} XP</div>
+                    {% endif %}
+
+                    {% if quest.creator_bonus_xp is not none %}
+                    <div class="k">CREATOR BONUS</div>
+                    <div class="v gold">+{{ quest.creator_bonus_xp }} XP</div>
+                    {% endif %}
+                </div>
+
+                {% if quest.contact_text or quest.verifier_text %}
+                <div class="qd-coord-block">
+                    {% if quest.contact_text %}
+                    <div class="qd-coord-row">
+                        <div class="qd-coord-label">CONTACT</div>
+                        <div class="qd-coord-value">{{ quest.contact_text }}</div>
+                    </div>
+                    {% endif %}
+                    {% if quest.verifier_text %}
+                    <div class="qd-coord-row">
+                        <div class="qd-coord-label">SIGN-OFF</div>
+                        <div class="qd-coord-value">{{ quest.verifier_text }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if is_admin %}
+                <div class="qd-admin-actions">
+                    <a class="auth-link" href="/admin/quests/{{ quest.id }}/edit">► EDIT</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if quest.creator %}
+        <div class="panel panel-brown">
+            <div class="panel-header">★ POSTED BY</div>
+            <div class="panel-body">
+                <div class="qd-creator-name">{{ quest.creator.name }}</div>
+                <div class="qd-creator-kind">{{ quest.creator.kind }}</div>
+                {% if quest.creator.kind == 'character' and quest.creator.get('class') %}
+                <div class="dim" style="margin-top:0.4rem">{{ quest.creator['class'] }}</div>
+                {% endif %}
+                {% if quest.creator.get('wiki_username') and quest.creator.kind == 'character' %}
+                <div class="dim" style="margin-top:0.3rem">@{{ quest.creator.wiki_username }}</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="panel">
+            <div class="panel-header">⌚ TIMESTAMPS</div>
+            <div class="panel-body">
+                <div class="qd-timestamps">
+                    <div><span class="dim">created</span> {{ quest.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                    {% if quest.done_at %}
+                    <div><span class="dim">done</span> {{ quest.done_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                    {% endif %}
+                    {% if quest.verified_at %}
+                    <div><span class="dim">verified</span> {{ quest.verified_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                    {% endif %}
+                    {% if quest.paid_out_at %}
+                    <div><span class="dim">paid out</span> {{ quest.paid_out_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+@keyframes star-fly {
+    0%   { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); opacity: 0; }
+}
+.firework-star {
+    position: fixed;
+    pointer-events: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    z-index: 9999;
+    animation: star-fly 0.65s ease-out forwards;
+}
+</style>
+
+<script>
+(function () {
+    var doneForm = document.querySelector('form[action$="/done"]');
+    if (!doneForm) return;
+    doneForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var form = this;
+        var btn = form.querySelector('.action-done');
+        var r = btn.getBoundingClientRect();
+        var cx = r.left + r.width / 2;
+        var cy = r.top + r.height / 2;
+        var symbols = ['★', '✦', '✧', '♦', '✪'];
+        var colors  = ['#f0a000', '#ffe066', '#fff', '#f0a000', '#ffd700'];
+        var count = 14;
+        for (var i = 0; i < count; i++) {
+            var el = document.createElement('span');
+            el.className = 'firework-star';
+            el.textContent = symbols[i % symbols.length];
+            el.style.color = colors[i % colors.length];
+            var angle = (2 * Math.PI * i / count) + (Math.random() - 0.5) * 0.4;
+            var dist  = 55 + Math.random() * 75;
+            el.style.setProperty('--dx', (Math.cos(angle) * dist) + 'px');
+            el.style.setProperty('--dy', (Math.sin(angle) * dist) + 'px');
+            el.style.left = cx + 'px';
+            el.style.top  = cy + 'px';
+            document.body.appendChild(el);
+            el.addEventListener('animationend', function () { this.remove(); });
+        }
+        setTimeout(function () { form.submit(); }, 680);
+    });
+}());
+</script>
+
+{% endblock %}

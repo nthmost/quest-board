@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="title-bar">
+    <h1>♣ NOISEBRIDGE QUEST BOARD ♣</h1>
+    <div class="sub">SAN FRANCISCO HACKERSPACE — DEMO BUILD <span class="blink">▼</span></div>
+    <div class="title-auth">
+        <a class="auth-link" href="/quests">ALL QUESTS</a>
+    {% if current_user %}
+        <span class="auth-user">{{ current_user }}{% if pretending %} (as user){% endif %}</span>
+        <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+        {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
+        {% if actually_admin %}
+        <form method="post" action="/me/view-as" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">{% if pretending %}AS ADMIN{% else %}AS USER{% endif %}</button>
+        </form>
+        {% endif %}
+        <form method="post" action="/logout" style="display:inline">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+            <button type="submit" class="auth-link">LOG OUT</button>
+        </form>
+    {% else %}
+        <a class="auth-link" href="/login">LOG IN ▸</a>
+    {% endif %}
+    </div>
+</div>
+
+{# ── World state at top ── #}
+<div class="panel panel-brown">
+    <div class="panel-header">▲ WORLD STATE</div>
+    <div class="panel-body world-stats">
+        <div>
+            <div class="ws-label">ADVENTURERS</div>
+            <div class="ws-num gold">{{ stats.user_count }}</div>
+        </div>
+        <div>
+            <div class="ws-label">QUESTS POSTED</div>
+            <div class="ws-num gold">{{ stats.quest_count }}</div>
+        </div>
+        <div>
+            <div class="ws-label">XP MINTED</div>
+            <div class="ws-num green">{{ stats.total_xp_minted }}</div>
+        </div>
+        <div>
+            <div class="ws-label">CALIBRATION</div>
+            <div class="ws-num orange">{{ stats.calibration_status }}</div>
+        </div>
+    </div>
+</div>
+
+{# ── Character (left) + Open quests (right, 2-column inside) ── #}
+<div class="cols-char-quests">
+    {% if character %}
+    <div class="panel panel-yellow charsheet">
+        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-body">
+            <div class="name">{{ character.name }}</div>
+            <div class="class">{{ character.class_name }} · LV {{ character.level }}</div>
+
+            <div class="stats">
+                <div class="k">XP</div>            <div class="v gold">{{ character.xp }}</div>
+                <div class="k">TOTAL EARNED</div>  <div class="v">{{ character.total_xp }}</div>
+                <div class="k">NEXT LV</div>       <div class="v">{{ character.next_level_cost }}</div>
+                <div class="k">QUESTS DONE</div>   <div class="v green">{{ character.quests_done }}</div>
+                <div class="k">GUILD</div>         <div class="v">{{ character.guild }}</div>
+            </div>
+
+            <div class="bar">
+                <div class="bar-fill xp" style="width: {{ character.xp_percent }}%"></div>
+            </div>
+            <div class="bar-label">
+                <span>XP TO LV {{ character.level + 1 }}</span>
+                <span>{{ character.xp_percent }}%</span>
+            </div>
+
+            <div class="now">
+                <div class="verb">► {{ character.current_action }}</div>
+                <div style="margin-top: 0.4rem;">
+                    <span class="target">{{ character.current_target }}</span>
+                </div>
+                <div class="bar" style="margin-top: 0.6rem">
+                    <div class="bar-fill task" style="width: {{ character.task_percent }}%"></div>
+                </div>
+                <div class="bar-label">
+                    <span>{{ character.task_label }}</span>
+                    <span>{{ character.task_percent }}%</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem; text-align: right;">
+                <a href="/me/characters" class="auth-link">‹ ALL CHARACTERS</a>
+            </div>
+        </div>
+    </div>
+    {% elif current_user %}
+    <div class="panel panel-yellow charsheet">
+        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
+            <div style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
+                You don't have a character yet.<br>Adventure awaits.
+            </div>
+            <a href="/me/characters/new" class="login-button" style="margin-top: 1.2rem; display: inline-block;">► CREATE</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="panel panel-yellow charsheet">
+        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
+            <div style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
+                Log in with your Noisebridge wiki account<br>to create a character.
+            </div>
+            <a href="/login" class="login-button" style="margin-top: 1.2rem; display: inline-block;">► LOG IN</a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if recommended %}
+    <div class="panel panel-orange">
+        <div class="panel-header">♦ FOR YOU · {{ recommended|length }} QUESTS</div>
+        <div class="panel-body">
+            <ul class="quest-grid">
+                {% for q in recommended %}
+                <li>
+                    <a href="/quests/{{ q.id }}" class="qcard-link">
+                        <div class="qtitle">{{ q.title }}</div>
+                        <div class="qmeta">
+                            <span class="xp">{{ q.xp }} XP</span>
+                            {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
+                            {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
+                            {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}
+                            <span>P {{ q.party_min }}{% if q.party_max and q.party_max != q.party_min %}–{{ q.party_max }}{% endif %}</span>
+                        </div>
+                        {% if q.skills %}
+                        <div class="qmeta">
+                            {% for s in q.skills %}<span class="chip-mini">{{ s }}</span>{% endfor %}
+                        </div>
+                        {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div style="margin-top: 0.8rem; text-align: right;">
+                <a href="/quests?status=open" class="auth-link">► SEE ALL OPEN QUESTS →</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="panel panel-orange">
+        <div class="panel-header">♦ OPEN QUESTS · {{ quests|length }}</div>
+        <div class="panel-body">
+            {% if quests %}
+            <ul class="quest-grid">
+                {% for q in quests %}
+                <li>
+                    <a href="/quests/{{ q.id }}" class="qcard-link">
+                        <div class="qtitle">{{ q.title }}</div>
+                        <div class="qmeta">
+                            <span class="xp">{{ q.xp }} XP</span>
+                            {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
+                            {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
+                            {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}
+                            <span>P {{ q.party_min }}{% if q.party_max and q.party_max != q.party_min %}–{{ q.party_max }}{% endif %}</span>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="empty-board">※ THE BOARD IS EMPTY ※</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{# ── Activity feed (full-width below) ── #}
+<div class="panel panel-blue">
+    <div class="panel-header">⌬ ACTIVITY</div>
+    <div class="panel-body">
+        <ul class="feed">
+            {% for ev in feed %}
+            <li class="event-{{ ev.type }}">
+                <span class="ts">{{ ev.ts }}</span>
+                <span class="who">{{ ev.who }}</span>
+                <span class="verb">{{ ev.verb }}</span>
+                {% if ev.target %}<span class="target">{{ ev.target }}</span>{% endif %}
+                {% if ev.xp %}<span class="xp">+{{ ev.xp }} XP</span>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

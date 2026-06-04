@@ -1,0 +1,84 @@
+{% extends "admin_layout.html" %}
+{% block admin_content %}
+
+<div class="cols">
+    <div class="panel panel-yellow">
+        <div class="panel-header">▲ COUNTS</div>
+        <div class="panel-body">
+            <div class="kv-grid">
+                <div class="k">USERS</div>          <div class="v gold">{{ user_count }}</div>
+                <div class="k">QUESTS OPEN</div>    <div class="v">{{ quest_stats.open or 0 }}</div>
+                <div class="k">QUESTS CLAIMED</div> <div class="v">{{ quest_stats.claimed or 0 }}</div>
+                <div class="k">QUESTS DONE</div>    <div class="v green">{{ quest_stats.done or 0 }}</div>
+                <div class="k">VERIFIED</div>       <div class="v green">{{ quest_stats.verified or 0 }}</div>
+                <div class="k">DELETED</div>        <div class="v">{{ quest_stats.deleted or 0 }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-orange">
+        <div class="panel-header">♦ QUEST POOL ({{ pool_stats.total }})</div>
+        <div class="panel-body">
+            <div class="kv-grid">
+                {% for ch, n in pool_stats.by_channel.items() %}
+                <div class="k">{{ ch }}</div><div class="v">{{ n }}</div>
+                {% endfor %}
+            </div>
+            <div class="admin-subtle">
+                top skills:
+                {% for skill, n in pool_stats.by_skill_top %}
+                    <span class="chip">{{ skill }} · {{ n }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cols">
+    <div class="panel panel-blue">
+        <div class="panel-header">⌬ RECENT USERS</div>
+        <div class="panel-body">
+            {% if recent_users %}
+            <table class="adm-table">
+                <thead><tr><th>WIKI USER</th><th>JOINED</th><th>LAST SEEN</th></tr></thead>
+                <tbody>
+                {% for u in recent_users %}
+                    <tr>
+                        <td class="hi">{{ u.wiki_username }}</td>
+                        <td class="dim">{{ u.created_at.strftime('%Y-%m-%d') }}</td>
+                        <td class="dim">{{ u.last_seen_at.strftime('%Y-%m-%d %H:%M') if u.last_seen_at else '—' }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="empty-board">※ NO USERS YET ※</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="panel panel-green">
+        <div class="panel-header">♣ RECENT QUESTS</div>
+        <div class="panel-body">
+            {% if recent_quests %}
+            <table class="adm-table">
+                <thead><tr><th>TITLE</th><th>STATUS</th><th>XP</th><th>POSTED</th></tr></thead>
+                <tbody>
+                {% for q in recent_quests %}
+                    <tr>
+                        <td class="hi">{{ q.title }}</td>
+                        <td>{{ q.status }}</td>
+                        <td class="num">{{ q.xp }}</td>
+                        <td class="dim">{{ q.created_at.strftime('%m-%d %H:%M') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div class="empty-board">※ NO QUESTS YET ※</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

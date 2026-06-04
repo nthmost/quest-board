@@ -1,0 +1,63 @@
+# Controlled skill vocabulary for quest tagging.
+# Editing this file: add/remove freely. Re-run scripts/tag_skills.py
+# afterward to re-classify existing curated quests against the new list.
+#
+# Slugs are kebab-case, lowercase. They show up in:
+#   - quests.skills (TEXT[] column on each quest)
+#   - characters.class_skill_affinity (per-class weights, planned)
+#   - the live UI's quest filter chips
+
+categories:
+  physical:
+    - cleaning
+    - organizing
+    - lifting
+    - painting
+    - basic-tools
+    - hardware-repair
+    - plumbing
+
+  electronics:
+    - soldering
+    - electronics-debug
+    - breadboarding
+    - power-supply
+    - low-voltage
+    - microcontrollers
+
+  wood-metal:
+    - woodworking
+    - sawing
+    - sanding
+    - finishing
+    - metalworking
+    - welding
+
+  fabrication:
+    - 3d-printing
+    - laser-cutting
+    - vinyl-cutting
+    - cnc
+    - sewing
+    - screen-printing
+
+  software:
+    - python
+    - javascript
+    - web-frontend
+    - sysadmin
+    - networking
+    - mediawiki
+
+  communication:
+    - writing
+    - photography
+    - teaching
+    - event-hosting
+    - social-media
+
+  specialty:
+    - ceramics
+    - pedal-building
+    - music-tech
+    - bio-tinkering
