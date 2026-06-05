@@ -132,6 +132,32 @@ a:hover { color: var(--nes-white); }
 .panel-blue   { border-color: var(--nes-blue); }
 .panel-green  { border-color: var(--nes-green); }
 .panel-brown  { border-color: var(--nes-brown); }
+.panel-red    { border-color: var(--nes-red); }
+
+/* ── Error pages ── */
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+.error-actions .auth-link {
+    background: none;
+    border: 2px solid var(--nes-grey);
+    color: var(--nes-tan);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    padding: 0.6rem 0.9rem;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+}
+.error-actions .auth-link:hover {
+    color: var(--nes-yellow);
+    border-color: var(--nes-yellow);
+}
 
 .panel-header {
     background: var(--nes-grey-2);

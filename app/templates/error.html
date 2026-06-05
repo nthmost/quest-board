@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ heading }} · Noisebridge Quest Board{% endblock %}
+
+{% block content %}
+
+<div class="title-bar">
+    <h1>♣ {{ heading }} ♣</h1>
+    <div class="sub">ERROR CODE: {{ status_code }}</div>
+</div>
+
+<div class="login-shell">
+    <div class="panel panel-{{ panel_color | default('red') }}">
+        <div class="panel-header">★ {{ panel_header }} ★</div>
+        <div class="panel-body" style="text-align: center; padding: 2rem 1.25rem;">
+
+            <p style="margin: 0 0 1.5rem;">{{ flavor }}</p>
+
+            {% if detail %}
+            <p style="margin: 0 0 1.5rem; opacity: 0.7; font-size: 0.85rem;">{{ detail }}</p>
+            {% endif %}
+
+            <div class="error-actions">
+                {% for action in actions %}
+                <a class="auth-link" href="{{ action.href }}">{{ action.label }}</a>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

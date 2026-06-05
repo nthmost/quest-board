@@ -11,6 +11,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from app import __version__
 from app.config import reload_economy
 from app.csrf import CSRFMiddleware, get_or_create_token
+from app.errors import install_error_handlers
 from app.routes import admin, auth, me, meta, pages, quests, taxonomy
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
@@ -38,6 +39,7 @@ def create_app() -> FastAPI:
     app.add_middleware(CSRFMiddleware)
     _install_session_middleware(app)
     _mount_routers(app)
+    install_error_handlers(app)
     _install_sighup_handler()
     return app
 

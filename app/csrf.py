@@ -17,7 +17,9 @@ import secrets
 
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
-from starlette.responses import PlainTextResponse, Response
+from starlette.responses import Response
+
+from app.errors import render_error_response
 
 SESSION_KEY = "_csrf"
 FORM_FIELD = "csrf_token"
@@ -67,6 +69,8 @@ class CSRFMiddleware(BaseHTTPMiddleware):
         if not expected or not submitted or not secrets.compare_digest(
             expected, submitted
         ):
-            return PlainTextResponse("CSRF token missing or invalid", status_code=403)
+            return render_error_response(
+                request, 403, detail="CSRF token missing or invalid"
+            )
 
         return await call_next(request)
