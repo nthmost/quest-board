@@ -150,7 +150,8 @@ step.
 - **Reverse proxy:** zephyr's Apache vhost
   (`/etc/apache2/sites-available/nbprogressquest.nthmost.net.conf`)
   terminates HTTPS and proxies to `127.0.0.1:8080`. The legacy
-  `nbquest.nthmost.net` 301-redirects to `nbprogressquest`.
+  `nbquest.nthmost.net` 301-redirects to the production deployment at
+  `nbquests.nthmost.net`.
 - **TLS:** Let's Encrypt certs (auto-renew via certbot).
 - **Secrets:** `~/projects/nthmost-systems/.secrets/questboard-db.env`
   and `questboard-session.env`, mode 600, synced from the user's Mac.
