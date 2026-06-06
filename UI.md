@@ -2,7 +2,7 @@
 
 > **Orientation:** Front-end visual reference — palette, panel system,
 > component vocabulary, page-by-page layout. Snapshot of the live state at
-> <https://nbquest.nthmost.net/> as of 2026-05-09. Living document; update
+> <https://nbprogressquest.nthmost.net/> as of 2026-05-09. Living document; update
 > when the visual register or component vocabulary changes.
 > If you're brand new, start with [README.md](./README.md).
 

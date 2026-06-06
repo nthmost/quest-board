@@ -4,7 +4,7 @@ Last updated: 2026-05-09. Lives next to the code; update when shipping.
 
 ---
 
-## Live and working at <https://nbquest.nthmost.net/>
+## Live and working at <https://nbprogressquest.nthmost.net/>
 
 ### Public
 - **Front page (`/`)** — world stats, character sheet (real if logged-in &
@@ -59,7 +59,7 @@ Last updated: 2026-05-09. Lives next to the code; update when shipping.
 - `GET /guilds`, `/locations`
 - `GET /quests` (cursor-paginated), `GET /quests/{id}` (public-safe view)
 
-### Schema (Postgres on zephyr)
+### Schema (Postgres; both deploys run identical migrations 0001..0007)
 - `users`, `characters`, `character_classes` (7 player classes — Bard,
   Bio-Tinkerer, Custodian, Hacker, Mechanic, Scribe, Sysadmin),
   `npc_quest_givers` (table exists, no rows yet)
@@ -141,32 +141,31 @@ step.
 
 ## Operational state
 
+### Demo — `nbprogressquest.nthmost.net` on zephyr
+
 - **Service:** `questboard.service` on zephyr (Debian, Postgres 18,
   Python 3.13). Runs as user `nthmost` out of
-  `~/projects/nthmost-systems/quest-board` against the synced repo.
+  `~/projects/git/quest-board` against the public repo checkout.
   Listens on `127.0.0.1:8080`.
 - **Reverse proxy:** zephyr's Apache vhost
-  (`/etc/apache2/sites-available/nbquest.nthmost.net.conf`) proxies
-  HTTPS at `nbquest.nthmost.net` to `127.0.0.1:8080` (local; no
-  WireGuard hop).
-- **TLS:** Let's Encrypt cert managed by certbot.
+  (`/etc/apache2/sites-available/nbprogressquest.nthmost.net.conf`)
+  terminates HTTPS and proxies to `127.0.0.1:8080`. The legacy
+  `nbquest.nthmost.net` 301-redirects to `nbprogressquest`.
+- **TLS:** Let's Encrypt certs (auto-renew via certbot).
 - **Secrets:** `~/projects/nthmost-systems/.secrets/questboard-db.env`
-  and `questboard-session.env`, mode 600, synced to zephyr.
+  and `questboard-session.env`, mode 600, synced from the user's Mac.
 - **Backups:** not yet automated. Need to wire up `pg_dump` cron on
   zephyr.
 
-### Enki — quiesced 2026-05-09
+### Production — `nbquests.nthmost.net` on enki
 
-Demo originally lived on enki (Ubuntu 24.04, Postgres 16). On
-2026-05-09 the demo was migrated off enki to zephyr so the demo
-and the eventual real Noisebridge quest/task board (which will live
-on enki) stop sharing a database and a hostname. Enki state:
-
-- `questboard.service` stopped and disabled (unit file still present).
-- `/home/nthmost/projects/nthmost-systems/quest-board` and the local
-  Postgres `questboard` DB are intact, kept as a reference snapshot
-  while the enki-side spec gets figured out.
-- The future enki deployment is **not** a clone of the demo —
-  expect a separate database, a separate hostname (likely
-  `quests.noisebridge.net`), and likely a different schema/feature
-  set once the NB community decides what they want.
+- **Service:** `questboard.service` on enki (Debian, local Postgres).
+  Runs out of `~/projects/git/quest-board`. Binds `0.0.0.0:8080`;
+  reachable from zephyr over WireGuard at `10.100.0.4:8080`.
+- **Reverse proxy:** zephyr's Apache vhost
+  (`/etc/apache2/sites-available/nbquests.nthmost.net.conf`)
+  terminates HTTPS and proxies to `http://10.100.0.4:8080/` over WG.
+- **TLS:** same Let's Encrypt + certbot setup as the demo.
+- **Data:** fresh as of 2026-06-05 — no sample quests, no NPC
+  Quartermaster, no test users; only the reference taxonomy
+  (17 guilds, 22 locations, 7 character classes) seeded.

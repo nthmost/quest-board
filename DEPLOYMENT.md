@@ -7,7 +7,7 @@
 
 ## Two deployments — read this first
 
-As of 2026-05-09 the **demo** (`nbquest.nthmost.net`) and the future
+As of 2026-05-09 the **demo** (`nbprogressquest.nthmost.net`) and the future
 **real Noisebridge quest/task board** (planned for enki) are
 deliberately separate deployments with separate databases. Don't merge
 them.

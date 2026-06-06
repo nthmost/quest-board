@@ -1,7 +1,7 @@
 # Quest Board — Progress Quest Demo
 
 > **Orientation:** This document is the **delta on top of [SPEC.md](./SPEC.md)**
-> describing the Progress-Quest-style demo at <https://nbquest.nthmost.net/>.
+> describing the Progress-Quest-style demo at <https://nbprogressquest.nthmost.net/>.
 > SPEC.md is the long-term Noisebridge productivity-tool design; this is what
 > we're actually shipping first. For what's currently built, see
 > [STATUS.md](./STATUS.md). For visual reference, see [UI.md](./UI.md).
@@ -9,7 +9,7 @@
 
 
 **Status:** Design draft, 2026-05-08
-**Hostname:** `nbquest.nthmost.net` (note: singular `nbquest`, not `nbquests`)
+**Hostname:** `nbprogressquest.nthmost.net` (the production deployment lives at `nbquests.nthmost.net`)
 **Purpose:** Demonstrate the quest-board concept by simulating a month of Noisebridge guild activity in a single real-world day, in the style of Progress Quest. Visitors log in via the wiki, create up to 4 characters, and watch them auto-play.
 
 This document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still apply unless explicitly changed here.

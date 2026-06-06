@@ -3,7 +3,7 @@
 A Progress-Quest-style demo of a hackerspace task board, built so a future
 "real" version can be inherited from the same codebase without rewriting.
 
-**Live demo:** <https://nbquest.nthmost.net/>
+**Live demo:** <https://nbprogressquest.nthmost.net/>
 
 ---
 
@@ -21,7 +21,7 @@ handful of toggles distinguish them.
 | Auto-play | Characters claim/complete on a sim clock | No — humans drive every action |
 | Sim clock | 30× speedup, ~1 month per real day | Wall clock, no compression |
 | Verification step | Off | Configurable per quest |
-| URL | `nbquest.nthmost.net` | likely `quests.noisebridge.net` |
+| URL | `nbprogressquest.nthmost.net` | likely `quests.noisebridge.net` |
 
 The demo is the immediate deliverable. The real productivity tool is
 where this is headed once people see what the rhythm of a quest board
