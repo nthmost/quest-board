@@ -17,7 +17,7 @@ to span multiple makerspaces:
   are local (username + Argon2id password), created via `/register`, changed via the
   profile panel (`/me/password`). Admin bootstrap/reset: `python -m scripts.set_password <user>`.
 - **Spaces (makerspaces).** A `spaces` table models member sites (Noisebridge, Sequoia
-  Fabrica, OpenCircuit SF, Sudo Room). Users pick a **primary makerspace** on their
+  Fabrica, OpenCircuit SF, Omni Commons). Users pick a **primary makerspace** on their
   profile; quests can be scoped to a space (shown on cards + detail, filterable in browse).
 - **Hosting.** Served at `quests.actropolis.org` (Apache reverse-proxy → uvicorn :8080 on
   zephyr). Admin allow-list lives at `/home/nthmost/.questboard-economy.yaml` (outside the

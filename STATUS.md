@@ -12,7 +12,7 @@ Last updated: 2026-10-15. Lives next to the code; update when shipping.
   `/login`, self-serve `/me/password`. Wiki OAuth / password-proxy removed (`wiki_api.py`
   deleted). Admin bootstrap via `scripts/set_password.py`.
 - **Multi-space** (migration 0009): `spaces` table seeded with Noisebridge, Sequoia
-  Fabrica, OpenCircuit SF, Sudo Room. `users.primary_space_id` (profile picker on
+  Fabrica, OpenCircuit SF, Omni Commons. `users.primary_space_id` (profile picker on
   `/me/characters`) and `quests.space_id` (space select on create, shown on cards +
   detail, filterable in browse).
 - **Hosting:** live at `quests.actropolis.org` (Apache → uvicorn :8080 on zephyr); admin

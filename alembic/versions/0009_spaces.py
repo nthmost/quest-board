@@ -24,8 +24,8 @@ FOUNDING_SPACES = [
      "Intergenerational community makerspace in Potrero Hill.", 20),
     ("opencircuit-sf", "OpenCircuit SF", "Citywide, San Francisco", "http://opencircuitsf.com",
      "Hands-on electronics and fabrication workshops across the city.", 30),
-    ("sudo-room", "Sudo Room", "Oakland", "https://sudoroom.org",
-     "Community hackerspace at Omni Commons in Oakland.", 40),
+    ("omni-commons", "Omni Commons", "Oakland", "https://omnicommons.org",
+     "Collectively-run community center in Oakland (home of Sudo Room).", 40),
 ]
 
 
