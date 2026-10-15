@@ -1,4 +1,4 @@
-# Noisebridge Quest Board — API Spec (v1 draft)
+# Actropolis — API Spec (v1 draft)
 
 > **Orientation:** This document is the long-term productivity-tool design.
 > The Progress-Quest-style demo currently being built is a delta on top of
@@ -10,7 +10,7 @@
 **Status:** Draft, 2026-05-19 (adds donor bounties + claim reporting; see [DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md](./DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md) for rationale)
 **Host:** enki (NB), Ubuntu 24.04, 31 GB RAM, i5-14450HX, CPU-only Ollama
 **Stack:** FastAPI + SQLAlchemy + Alembic, PostgreSQL, local Ollama (qwen2.5:7b + llama3.2:3b)
-**Public hostname (interim):** `nbquests.nthmost.net` (advocate for `quests.noisebridge.net` later)
+**Public hostname (interim):** `quests.actropolis.org` (advocate for `quests.noisebridge.net` later)
 
 ---
 
@@ -22,7 +22,14 @@
 - **Donor bounties are real dollars, gifted to NB.** A donor pledges $X conditional on a quest being completed; on terminal payout, NB collects the gift. The bounty never flows to the doer (no wage, no contractor pay, no escrow). Volunteers remain volunteers; donors get a 501(c)(3) acknowledgment. The mechanic is a *conditional restricted gift*, not a market price.
 - **Time-and-notes reporting at claim is measurement, not competition.** Per-claimer self-reported minutes, done-state, free-text notes, and an optional photo are captured at claim completion. The data exists to be aggregated (operational-cost transparency, calibrated bounty pricing, grant-writing volunteer-hour totals). No speedrun bonuses, no minimum-time thresholds, no XP modifier tied to duration.
 - **Verification is social by default.** Public submissions (notes + photo + time + party) create the audit trail; software does not adjudicate "done" for most tasks. The `requires_verification` flag is reserved for genuinely high-stakes work.
-- **Wiki identity is in-person verified.** Noisebridge wiki accounts are issued only after an admin sits with the prospective member in person and verifies them. This single fact is **load-bearing** for the civic-hours certificate (§4): the personhood-to-account binding is established once at admin-mediated signup and inherited by every claim downstream. If wiki-account policy ever loosens to self-serve signup, the civic-hours story breaks and the certificate text must be updated. This dependency is documented here on purpose.
+- **⚠ SUPERSEDED (Oct 2026): identity is now independent + self-serve.** Actropolis no
+  longer authenticates against the Noisebridge wiki. Accounts are local (username +
+  Argon2id password), created via self-serve `/register`. **This breaks the in-person
+  verification chain described in the next bullet** — there is currently no personhood
+  guarantee behind an account. The civic-hours certificate (§4) therefore **cannot** be
+  issued as written until a verification step is re-added (admin approval of accounts, or
+  per-space in-person vouching). Treat the paragraph below as historical design intent.
+- **(Historical) Wiki identity is in-person verified.** Noisebridge wiki accounts are issued only after an admin sits with the prospective member in person and verifies them. This single fact is **load-bearing** for the civic-hours certificate (§4): the personhood-to-account binding is established once at admin-mediated signup and inherited by every claim downstream. If wiki-account policy ever loosens to self-serve signup, the civic-hours story breaks and the certificate text must be updated. This dependency is documented here on purpose. *(This is exactly what happened — see the superseded note above.)*
 - **Discord integration is deferred.** `users` table carries `discord_user_id` / `discord_username` columns so the data is captured opportunistically; no flows in v1.
 - **Public-read by default.** GETs return non-sensitive fields without auth so the BBS, Home Assistant @ NB, and ad-hoc scripts can consume freely.
 - **Wiki is canonical identity** via MediaWiki OAuth.

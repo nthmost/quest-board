@@ -1,7 +1,7 @@
 # Quest Board — Progress Quest Demo
 
 > **Orientation:** This document is the **delta on top of [SPEC.md](./SPEC.md)**
-> describing the Progress-Quest-style demo at <https://nbprogressquest.nthmost.net/>.
+> describing the Progress-Quest-style demo at <https://quests.actropolis.org/>.
 > SPEC.md is the long-term Noisebridge productivity-tool design; this is what
 > we're actually shipping first. For what's currently built, see
 > [STATUS.md](./STATUS.md). For visual reference, see [UI.md](./UI.md).
@@ -9,7 +9,7 @@
 
 
 **Status:** Design draft, 2026-05-08
-**Hostname:** `nbprogressquest.nthmost.net` (the production deployment lives at `nbquests.nthmost.net`)
+**Hostname:** `quests.actropolis.org` (the production deployment lives at `quests.actropolis.org`)
 **Purpose:** Demonstrate the quest-board concept by simulating a month of Noisebridge guild activity in a single real-world day, in the style of Progress Quest. Visitors log in via the wiki, create up to 4 characters, and watch them auto-play.
 
 This document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still apply unless explicitly changed here.
@@ -18,7 +18,7 @@ This document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still 
 
 ## 1. What the demo is
 
-A passive idle game. Player logs in via wiki SSO, creates a character (name + class + primary guild), and watches the character claim and complete quests automatically. The activity feed scrolls flavor text in the manner of Progress Quest. After enough sim time the character levels up. Players can create up to 4 characters per wiki account, and delete any of them.
+A passive idle game. Player registers or logs in (independent account), creates a character (name + class + primary guild), and watches the character claim and complete quests automatically. The activity feed scrolls flavor text in the manner of Progress Quest. After enough sim time the character levels up. Players can create up to 4 characters per account, and delete any of them.
 
 NPC quest-givers seed the world with quests. Quests are sourced from real Noisebridge Discord channels (#fabrication, #help-wanted, project-forum posts) and supplemented with LLM-generated weirdness for color. Real human posters and claimers are still possible but not required — the world keeps moving on its own.
 

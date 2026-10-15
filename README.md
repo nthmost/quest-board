@@ -1,9 +1,34 @@
-# Noisebridge Quest Board
+# Actropolis
 
-A Progress-Quest-style demo of a hackerspace task board, built so a future
-"real" version can be inherited from the same codebase without rewriting.
+A quest board for the Actropolis network of makerspaces — a Progress-Quest-style
+task board built so a future "real" version can be inherited from the same
+codebase without rewriting.
 
-**Live demo:** <https://nbprogressquest.nthmost.net/>
+**Live:** <https://quests.actropolis.org/>
+
+---
+
+## What changed (Oct 2026)
+
+Formerly the "Noisebridge Quest Board." Now rebranded **Actropolis** and generalized
+to span multiple makerspaces:
+
+- **Independent accounts.** Auth no longer proxies to the Noisebridge wiki. Accounts
+  are local (username + Argon2id password), created via `/register`, changed via the
+  profile panel (`/me/password`). Admin bootstrap/reset: `python -m scripts.set_password <user>`.
+- **Spaces (makerspaces).** A `spaces` table models member sites (Noisebridge, Sequoia
+  Fabrica, OpenCircuit SF, Sudo Room). Users pick a **primary makerspace** on their
+  profile; quests can be scoped to a space (shown on cards + detail, filterable in browse).
+- **Hosting.** Served at `quests.actropolis.org` (Apache reverse-proxy → uvicorn :8080 on
+  zephyr). Admin allow-list lives at `/home/nthmost/.questboard-economy.yaml` (outside the
+  repo, pointed to by an `ECONOMY_YAML_PATH` systemd drop-in).
+
+> **⚠ Civic-hours caveat.** SPEC §1 / §4 and the DESIGN_NOTES civic-hours certificate
+> depended on the fact that *wiki accounts were issued only after in-person admin
+> verification* — making `wiki_username` ≈ a verified human. **Independent self-serve
+> signup breaks that chain.** Before using Actropolis records for volunteer-hour /
+> civic-credit certification, re-establish a personhood-verification step (e.g. admin
+> approval of accounts, or per-space vouching). See SPEC.md §1.
 
 ---
 
@@ -16,12 +41,12 @@ handful of toggles distinguish them.
 | | **Demo (now)** | **Real (eventually)** |
 |---|---|---|
 | Audience | Anyone who wants to play | Noisebridge members |
-| Characters | Up to 4 per wiki account | 1 per wiki account (config flag) |
+| Characters | Up to 4 per account | 1 per account (config flag) |
 | NPC posters | Yes (system voice = "The Quartermaster") | None — humans post real asks |
 | Auto-play | Characters claim/complete on a sim clock | No — humans drive every action |
 | Sim clock | 30× speedup, ~1 month per real day | Wall clock, no compression |
 | Verification step | Off | Configurable per quest |
-| URL | `nbprogressquest.nthmost.net` | likely `quests.noisebridge.net` |
+| URL | `quests.actropolis.org` | likely `quests.noisebridge.net` |
 
 The demo is the immediate deliverable. The real productivity tool is
 where this is headed once people see what the rhythm of a quest board
@@ -74,8 +99,7 @@ export SESSION_SECRET="$(openssl rand -base64 48)"
 Then <http://localhost:8080/> for the front page,
 <http://localhost:8080/api/v1/docs> for the OpenAPI explorer.
 
-To poke as an admin locally, edit `economy.example.yaml` and add your
-local wiki username (case-insensitive) to `admin.usernames`, then
+To poke as an admin locally, edit `economy.example.yaml` and add your username (case-insensitive) to `admin.usernames`, then
 SIGHUP or restart.
 
 ---
@@ -94,15 +118,15 @@ quest-board/
 │
 ├── pyproject.toml                 # FastAPI + SQLAlchemy + Alembic + Jinja
 ├── alembic.ini
-├── alembic/versions/0001..0005    # full migration chain
+├── alembic/versions/0001..0009    # full migration chain
 ├── economy.example.yaml           # all economy knobs in one file
 │
 ├── app/
 │   ├── main.py                    # FastAPI factory, SIGHUP handler, asset_v
 │   ├── config.py                  # YAML loader
 │   ├── db.py                      # SQLAlchemy engine + session
-│   ├── auth.py                    # wiki login, admin gate, view-as-user toggle
-│   ├── wiki_api.py                # MediaWiki action=login client
+│   ├── auth.py                    # local login/register, admin gate, view-as toggle
+│   ├── local_auth.py              # Argon2id password hashing / validation
 │   ├── models/                    # one file per table
 │   ├── schemas/                   # Pydantic in/out
 │   ├── services/                  # business logic (tiny, pure-ish)

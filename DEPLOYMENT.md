@@ -7,7 +7,7 @@
 
 ## Two deployments — read this first
 
-As of 2026-05-09 the **demo** (`nbprogressquest.nthmost.net`) and the future
+As of 2026-05-09 the **demo** (`quests.actropolis.org`) and the future
 **real Noisebridge quest/task board** (planned for enki) are
 deliberately separate deployments with separate databases. Don't merge
 them.
@@ -44,7 +44,7 @@ Companion to [SPEC.md](./SPEC.md). The spec defines *what* the system does; this
 | Disk | 938 GB NVMe (~750 GB free) |
 | SSH | via the operator's ssh config (host alias) |
 
-Public hostname (interim): **`nbquests.nthmost.net`**. Migration to `quests.noisebridge.net` requires a callback re-registration with the wiki OAuth consumer (see §3 below).
+Public hostname: **`quests.actropolis.org`**. Auth is independent (local accounts) — no wiki OAuth callback to coordinate on hostname changes (see §3).
 
 ---
 
@@ -86,34 +86,34 @@ sudo chown root:questboard /etc/questboard && sudo chmod 750 /etc/questboard
 
 ---
 
-## 3. MediaWiki OAuth consumer registration
+## 3. Authentication (independent accounts)
 
-You have admin on the NB wiki. Steps:
+As of the Actropolis rebrand, auth is **fully independent** — no MediaWiki OAuth,
+no wiki password-proxy. Accounts are local: username + Argon2id password hash in
+the `users` table.
 
-1. **Install the OAuth extension** on the wiki if not already present (`mw:Extension:OAuth`). Add to `LocalSettings.php`:
-   ```php
-   wfLoadExtension( 'OAuth' );
-   $wgMWOAuthCentralWiki = false;  // single-wiki setup
-   ```
-2. **Register the consumer** at `Special:OAuthConsumerRegistration/propose`:
-   - Application name: `Noisebridge Quest Board`
-   - Description: `Quest board API integration — reads username for identity.`
-   - Callback URL: `https://nbquests.nthmost.net/api/v1/auth/wiki/callback`
-   - Allow consumer to specify a callback prefix: **No** (exact match).
-   - Applicable project: NB wiki only.
-   - Grants needed: `basic` (just username + user ID).
-3. **Self-approve** as wiki admin via `Special:OAuthManageConsumers`.
-4. Capture the **consumer key** and **consumer secret**. Place in `/home/questboard/.secrets/wiki-oauth.env`:
-   ```
-   WIKI_OAUTH_CONSUMER_KEY=...
-   WIKI_OAUTH_CONSUMER_SECRET=...
-   WIKI_OAUTH_AUTHORIZE_URL=https://wiki.noisebridge.net/wiki/Special:OAuth/authorize
-   WIKI_OAUTH_TOKEN_URL=https://wiki.noisebridge.net/w/index.php?title=Special:OAuth/token
-   WIKI_OAUTH_IDENTIFY_URL=https://wiki.noisebridge.net/w/index.php?title=Special:OAuth/identify
-   ```
-5. `chmod 600` and `chown questboard:questboard` the file.
+- **Users** self-register at `/register`, log in at `/login`, and change their
+  password from the profile panel (`POST /me/password`).
+- **Admins** are listed by username in the economy YAML (`admin.usernames`,
+  case-insensitive). To bootstrap or reset a password, run on the host with the
+  app env loaded:
+  ```bash
+  cd /home/nthmost/projects/git/quest-board
+  set -a; . /home/nthmost/projects/nthmost-systems/.secrets/questboard-db.env; set +a
+  .venv/bin/python -m scripts.set_password <username>          # prints a generated password
+  .venv/bin/python -m scripts.set_password <username> <pass>   # or set an explicit one
+  ```
+  The script creates the user if absent, else updates the hash in place.
+- **Admin allow-list config** lives *outside the repo* at
+  `/home/nthmost/.questboard-economy.yaml`, pointed to by a systemd drop-in
+  (`/etc/systemd/system/questboard.service.d/override.conf` →
+  `ECONOMY_YAML_PATH=...`). Keeping it out of the repo means a `git reset` on the
+  checkout can't revert the admin list. SIGHUP or restart `questboard` to apply.
 
-**Hostname migration note.** When we move to `quests.noisebridge.net`, the callback URL changes. Either re-register the consumer (preferred) or, if the OAuth extension allows, update the callback on the existing consumer record. Plan for ~24 hours of double-callback availability if possible.
+> **Civic-hours dependency broke here.** The volunteer-hours / civic-credit
+> certificate (SPEC §4) relied on wiki accounts being in-person verified. Local
+> self-serve signup removes that guarantee — re-add a personhood-verification
+> step (admin approval / per-space vouching) before certifying hours. See SPEC §1.
 
 ---
 
@@ -160,7 +160,7 @@ The app re-validates the config on SIGHUP and rejects invalid changes (logs the 
 
 ```ini
 [Unit]
-Description=Noisebridge Quest Board API
+Description=Actropolis API
 After=network.target postgresql.service ollama.service
 
 [Service]
@@ -169,7 +169,6 @@ User=questboard
 Group=questboard
 WorkingDirectory=/opt/questboard
 EnvironmentFile=/home/questboard/.secrets/db.env
-EnvironmentFile=/home/questboard/.secrets/wiki-oauth.env
 ExecStart=/opt/questboard/.venv/bin/uvicorn app.main:app \
     --host 127.0.0.1 --port 8080 --workers 2
 Restart=on-failure
@@ -198,17 +197,17 @@ sudo systemctl enable --now questboard.service
 ```nginx
 server {
     listen 80;
-    server_name nbquests.nthmost.net;
+    server_name quests.actropolis.org;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name nbquests.nthmost.net;
+    server_name quests.actropolis.org;
 
     # Cert managed by certbot:
-    ssl_certificate     /etc/letsencrypt/live/nbquests.nthmost.net/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/nbquests.nthmost.net/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/quests.actropolis.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/quests.actropolis.org/privkey.pem;
 
     # Cache the public badge endpoints aggressively (future v1.x).
     location ~ ^/api/v1/users/by-wiki/[^/]+/badge {
@@ -236,7 +235,7 @@ TLS:
 sudo a2dissite maxheadroom    # cleaning up the dead intake-era site
 sudo ln -s /etc/nginx/sites-available/questboard /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d nbquests.nthmost.net
+sudo certbot --nginx -d quests.actropolis.org
 ```
 
 (If `a2dissite` doesn't exist on this Ubuntu, just `sudo rm /etc/nginx/sites-enabled/maxheadroom`.)
@@ -285,7 +284,7 @@ find /var/backups/questboard -name 'questboard-*.sql.gz' -mtime +30 -delete
 
 - [ ] Install Postgres on enki
 - [ ] Install OAuth extension on NB wiki + register consumer (§3)
-- [ ] Add `nbquests.nthmost.net` A record at Gandi
+- [ ] Add `quests.actropolis.org` A record at Gandi
 - [ ] Disable / remove the old `maxheadroom` nginx site
 - [ ] Decide whether to also remove enki's `nginx` entirely if no other site needs it (probably not — keep it for the API)
 - [ ] Set up `questboard` user's SSH key on zephyr for backups

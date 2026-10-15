@@ -2,7 +2,7 @@
 
 > **Orientation:** Front-end visual reference — palette, panel system,
 > component vocabulary, page-by-page layout. Snapshot of the live state at
-> <https://nbprogressquest.nthmost.net/> as of 2026-05-09. Living document; update
+> <https://quests.actropolis.org/> as of 2026-05-09. Living document; update
 > when the visual register or component vocabulary changes.
 > If you're brand new, start with [README.md](./README.md).
 
@@ -112,7 +112,7 @@ Vertical flow:
 2. **Char sheet (1/3) | Open quests (2/3)** row. The character panel has three render branches:
    - Logged in + has a non-deleted character → real character sheet (see §6)
    - Logged in, no character → "Adventure awaits" + ► CREATE CTA
-   - Not logged in → "Log in with your Noisebridge wiki account" + ► LOG IN
+   - Not logged in → "Create an account or log in" + ► LOG IN
 3. **♦ OPEN QUESTS** (orange panel) is the sibling: 2-column responsive grid (`.quest-grid`), each card has a 21px VT323 title and a Press Start 2P meta strip (`XP / guild / urgency / party`).
 4. **⌬ ACTIVITY** (blue panel, full-width below) — `.feed` list. Each `<li>` has a 4px left-border color-coded by event type (`event-claim / event-done / event-level / event-post`), Press Start 2P timestamp chip, baseline-aligned VT323 body. XP badges are a separate Press Start 2P green chip.
 

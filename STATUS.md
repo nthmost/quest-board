@@ -1,10 +1,28 @@
 # Build Status
 
-Last updated: 2026-05-09. Lives next to the code; update when shipping.
+Last updated: 2026-10-15. Lives next to the code; update when shipping.
 
 ---
 
-## Live and working at <https://nbprogressquest.nthmost.net/>
+## Update — 2026-10-15 · Actropolis rebrand + multi-space + independent auth
+
+- **Rebranded** "Noisebridge Quest Board" → **Actropolis**; retro NES skin replaced
+  with the light spec-sheet aesthetic (`app/static/css/nes.css`, filename retained).
+- **Independent auth** (migration 0008): local username + Argon2id password; `/register`,
+  `/login`, self-serve `/me/password`. Wiki OAuth / password-proxy removed (`wiki_api.py`
+  deleted). Admin bootstrap via `scripts/set_password.py`.
+- **Multi-space** (migration 0009): `spaces` table seeded with Noisebridge, Sequoia
+  Fabrica, OpenCircuit SF, Sudo Room. `users.primary_space_id` (profile picker on
+  `/me/characters`) and `quests.space_id` (space select on create, shown on cards +
+  detail, filterable in browse).
+- **Hosting:** live at `quests.actropolis.org` (Apache → uvicorn :8080 on zephyr); admin
+  config moved out of the repo to `/home/nthmost/.questboard-economy.yaml`.
+- **Open item:** civic-hours certificate (SPEC §4) is blocked until a personhood-verification
+  step replaces the old in-person-wiki-signup guarantee. See SPEC §1 / README caveat.
+
+---
+
+## Live and working at <https://quests.actropolis.org/>
 
 ### Public
 - **Front page (`/`)** — world stats, character sheet (real if logged-in &
@@ -141,30 +159,30 @@ step.
 
 ## Operational state
 
-### Demo — `nbprogressquest.nthmost.net` on zephyr
+### Demo — `quests.actropolis.org` on zephyr
 
 - **Service:** `questboard.service` on zephyr (Debian, Postgres 18,
   Python 3.13). Runs as user `nthmost` out of
   `~/projects/git/quest-board` against the public repo checkout.
   Listens on `127.0.0.1:8080`.
 - **Reverse proxy:** zephyr's Apache vhost
-  (`/etc/apache2/sites-available/nbprogressquest.nthmost.net.conf`)
+  (`/etc/apache2/sites-available/quests.actropolis.org.conf`)
   terminates HTTPS and proxies to `127.0.0.1:8080`. The legacy
   `nbquest.nthmost.net` 301-redirects to the production deployment at
-  `nbquests.nthmost.net`.
+  `quests.actropolis.org`.
 - **TLS:** Let's Encrypt certs (auto-renew via certbot).
 - **Secrets:** `~/projects/nthmost-systems/.secrets/questboard-db.env`
   and `questboard-session.env`, mode 600, synced from the user's Mac.
 - **Backups:** not yet automated. Need to wire up `pg_dump` cron on
   zephyr.
 
-### Production — `nbquests.nthmost.net` on enki
+### Production — `quests.actropolis.org` on enki
 
 - **Service:** `questboard.service` on enki (Debian, local Postgres).
   Runs out of `~/projects/git/quest-board`. Binds `0.0.0.0:8080`;
   reachable from zephyr over WireGuard at `10.100.0.4:8080`.
 - **Reverse proxy:** zephyr's Apache vhost
-  (`/etc/apache2/sites-available/nbquests.nthmost.net.conf`)
+  (`/etc/apache2/sites-available/quests.actropolis.org.conf`)
   terminates HTTPS and proxies to `http://10.100.0.4:8080/` over WG.
 - **TLS:** same Let's Encrypt + certbot setup as the demo.
 - **Data:** fresh as of 2026-06-05 — no sample quests, no NPC
