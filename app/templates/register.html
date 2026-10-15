@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Create account · Actropolis{% endblock %}
+
+{% block content %}
+
+<div class="title-bar">
+    <h1>Create account</h1>
+    <div class="sub">ACTROPOLIS · QUEST BOARD</div>
+</div>
+
+<div class="login-shell">
+    <div class="panel panel-yellow">
+        <div class="panel-header">◈ NEW ADVENTURER</div>
+        <div class="panel-body">
+
+            {% if error %}
+            <div class="login-error">▼ {{ error }}</div>
+            {% endif %}
+
+            <form method="post" action="/register" class="login-form">
+            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <label class="login-field">
+                    <span class="login-label">USERNAME</span>
+                    <input type="text" name="username" value="{{ username or '' }}"
+                           autocomplete="username" autofocus required>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">PASSWORD</span>
+                    <input type="password" name="password" autocomplete="new-password"
+                           minlength="8" required>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">CONFIRM PASSWORD</span>
+                    <input type="password" name="password2" autocomplete="new-password"
+                           minlength="8" required>
+                </label>
+
+                <button type="submit" class="login-button">► CREATE ACCOUNT</button>
+            </form>
+
+            <div class="login-note">
+                Your Actropolis account is independent — no wiki or third party
+                involved. Passwords are hashed with Argon2 and never stored in
+                plaintext.
+                <br><br>
+                Already have one? <a href="/login">Log in</a>.
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

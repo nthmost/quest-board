@@ -3,14 +3,40 @@
 from datetime import UTC, datetime
 
 from fastapi import HTTPException, Request
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.config import load_economy
+from app.local_auth import hash_password
 from app.models import User
 
 SESSION_KEY = "wiki_user"
 PRETEND_KEY = "view_as_user"  # admin's "view as user" toggle
+
+
+def get_user_by_username(db: Session, username: str) -> User | None:
+    """Case-insensitive lookup by the stored username."""
+    return db.execute(
+        select(User).where(func.lower(User.wiki_username) == username.lower())
+    ).scalar_one_or_none()
+
+
+def username_taken(db: Session, username: str) -> bool:
+    return get_user_by_username(db, username) is not None
+
+
+def register_user(db: Session, username: str, password: str) -> User:
+    """Create a new account with a hashed password. Caller must have already
+    validated the inputs and confirmed the username is free."""
+    user = User(
+        wiki_username=username,
+        password_hash=hash_password(password),
+        last_seen_at=datetime.now(UTC),
+    )
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user
 
 
 def current_username(request: Request) -> str | None:

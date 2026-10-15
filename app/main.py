@@ -29,7 +29,7 @@ ASSET_VERSION = _compute_asset_version()
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="Noisebridge Quest Board",
+        title="Actropolis",
         version=__version__,
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",

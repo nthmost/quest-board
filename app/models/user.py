@@ -12,7 +12,12 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    # `wiki_username` is the stored identity column (name kept for schema
+    # stability); it now holds the independent Actropolis username.
     wiki_username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    # Argon2id hash for independent login. Null for legacy/system rows with
+    # no password set.
+    password_hash: Mapped[str | None] = mapped_column(String(255), nullable=True)
     wiki_user_id: Mapped[int | None] = mapped_column(BigInteger, unique=True, nullable=True)
     discord_user_id: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
     discord_username: Mapped[str | None] = mapped_column(String(255), nullable=True)
