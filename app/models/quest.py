@@ -52,6 +52,9 @@ class Quest(Base):
     location_id: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("locations.id"), nullable=True, index=True
     )
+    space_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("spaces.id"), nullable=True, index=True
+    )
     title: Mapped[str] = mapped_column(String(512), nullable=False)
     description: Mapped[str] = mapped_column(String, nullable=False)
     skills: Mapped[list[str]] = mapped_column(

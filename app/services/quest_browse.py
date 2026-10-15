@@ -10,7 +10,7 @@ from __future__ import annotations
 from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
-from app.models import Guild, Location, Quest, QuestClaim
+from app.models import Guild, Location, Quest, QuestClaim, Space
 
 VALID_STATUSES = {"open", "claimed", "done", "verified"}
 VALID_URGENCIES = {"low", "normal", "high"}
@@ -25,6 +25,7 @@ def browse(
     status: str | None = None,
     guild_slug: str | None = None,
     location_slug: str | None = None,
+    space_slug: str | None = None,
     skill: str = "",
     xp_min: int | None = None,
     xp_max: int | None = None,
@@ -36,7 +37,10 @@ def browse(
     """Return a page of quests + metadata. All filter values are optional."""
     page = max(1, page)
     page_size = max(1, min(page_size, 100))
-    base = _filtered_query(db, q, status, guild_slug, location_slug, skill, xp_min, xp_max, urgency)
+    base = _filtered_query(
+        db, q, status, guild_slug, location_slug, space_slug,
+        skill, xp_min, xp_max, urgency,
+    )
     total = _count(db, base)
     rows = _paginate(db, _ordered(base, sort), page, page_size)
     return {
@@ -50,6 +54,7 @@ def browse(
             "status": status or "",
             "guild_slug": guild_slug or "",
             "location_slug": location_slug or "",
+            "space_slug": space_slug or "",
             "skill": skill,
             "xp_min": xp_min,
             "xp_max": xp_max,
@@ -62,13 +67,20 @@ def browse(
 def _filtered_query(
     db: Session, q: str, status: str | None,
     guild_slug: str | None, location_slug: str | None,
+    space_slug: str | None = None,
     skill: str = "", xp_min: int | None = None, xp_max: int | None = None,
     urgency: str | None = None,
 ):
     stmt = (
-        select(Quest, Guild.slug.label("g_slug"), Location.slug.label("l_slug"))
+        select(
+            Quest,
+            Guild.slug.label("g_slug"),
+            Location.slug.label("l_slug"),
+            Space.name.label("space_name"),
+        )
         .outerjoin(Guild, Guild.id == Quest.guild_id)
         .outerjoin(Location, Location.id == Quest.location_id)
+        .outerjoin(Space, Space.id == Quest.space_id)
         .where(Quest.deleted_at.is_(None))
     )
     if q:
@@ -80,6 +92,8 @@ def _filtered_query(
         stmt = stmt.where(Guild.slug == guild_slug)
     if location_slug:
         stmt = stmt.where(Location.slug == location_slug)
+    if space_slug:
+        stmt = stmt.where(Space.slug == space_slug)
     if skill:
         stmt = stmt.where(func.array_position(Quest.skills, skill).isnot(None))
     if xp_min is not None:
@@ -116,7 +130,7 @@ def _paginate(db: Session, stmt, page: int, page_size: int) -> list:
 
 
 def _shape_row(db: Session, row) -> dict:
-    quest, guild_slug, location_slug = row
+    quest, guild_slug, location_slug, space_name = row
     return {
         "id": quest.id,
         "title": quest.title,
@@ -125,6 +139,7 @@ def _shape_row(db: Session, row) -> dict:
         "urgency": quest.urgency,
         "guild_slug": guild_slug,
         "location_slug": location_slug,
+        "space_name": space_name,
         "party_min": quest.party_min,
         "party_max": quest.party_max,
         "created_at": quest.created_at,
@@ -146,10 +161,15 @@ def _claim_count(db: Session, quest_id: int) -> int:
 
 
 def list_filter_options(db: Session) -> dict:
-    """Convenience: fetch all known guild + location slugs/names for dropdowns."""
+    """Convenience: fetch all known guild + location + space slugs/names for dropdowns."""
     guilds = list(db.execute(select(Guild).order_by(Guild.name)).scalars().all())
     locations = list(db.execute(select(Location).order_by(Location.name)).scalars().all())
-    return {"guilds": guilds, "locations": locations}
+    spaces = list(
+        db.execute(
+            select(Space).where(Space.is_active.is_(True)).order_by(Space.sort_order, Space.name)
+        ).scalars().all()
+    )
+    return {"guilds": guilds, "locations": locations, "spaces": spaces}
 
 
 def distinct_skills(db: Session) -> list[str]:

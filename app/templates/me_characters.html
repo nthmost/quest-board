@@ -22,6 +22,66 @@
     </div>
 </div>
 
+{% set flash_map = {
+    "space_saved": "Primary makerspace saved.",
+    "pw_changed": "Password changed.",
+    "pw_wrong_current": "Current password was incorrect.",
+    "pw_too_short": "New password must be at least 8 characters.",
+    "pw_mismatch": "New passwords did not match.",
+    "at_cap": "You're at the character cap."
+} %}
+{% if msg and flash_map.get(msg) %}
+<div class="flash-banner" style="border-color:var(--good);color:var(--good);background:#eef8f3">
+    ✓ {{ flash_map.get(msg) }}
+</div>
+{% endif %}
+
+<div class="panel" style="margin-bottom:18px">
+    <div class="panel-header">◈ PROFILE · {{ current_user }}</div>
+    <div class="panel-body">
+        <div class="cols">
+            <div>
+                <form method="post" action="/me/profile" class="login-form">
+                    <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                    <label class="login-field">
+                        <span class="login-label">PRIMARY MAKERSPACE</span>
+                        <select name="primary_space_id">
+                            <option value="">— none —</option>
+                            {% for s in spaces %}
+                            <option value="{{ s.id }}" {% if primary_space_id == s.id %}selected{% endif %}>
+                                {{ s.name }}{% if s.neighborhood %} · {{ s.neighborhood }}{% endif %}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <button type="submit" class="char-activate-btn" style="align-self:flex-start">SAVE SPACE</button>
+                </form>
+            </div>
+            <div>
+                <details>
+                    <summary class="login-label" style="cursor:pointer;margin-bottom:.6rem">CHANGE PASSWORD</summary>
+                    <form method="post" action="/me/password" class="login-form">
+                        <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                        <label class="login-field">
+                            <span class="login-label">CURRENT PASSWORD</span>
+                            <input type="password" name="current_password" autocomplete="current-password" required>
+                        </label>
+                        <label class="login-field">
+                            <span class="login-label">NEW PASSWORD</span>
+                            <input type="password" name="new_password" autocomplete="new-password" minlength="8" required>
+                        </label>
+                        <label class="login-field">
+                            <span class="login-label">CONFIRM NEW PASSWORD</span>
+                            <input type="password" name="new_password2" autocomplete="new-password" minlength="8" required>
+                        </label>
+                        <button type="submit" class="char-activate-btn" style="align-self:flex-start">UPDATE PASSWORD</button>
+                    </form>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="char-grid">
     {% for c in characters %}
     <div class="panel charsheet {% if c.is_active %}char-active{% else %}panel-yellow{% endif %}">

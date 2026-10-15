@@ -207,6 +207,11 @@
                         {{ quest.party_min }}{% if quest.party_max and quest.party_max != quest.party_min %}–{{ quest.party_max }}{% elif not quest.party_max %}+{% endif %}
                     </div>
 
+                    {% if quest.space %}
+                    <div class="k">MAKERSPACE</div>
+                    <div class="v">{{ quest.space.name }}</div>
+                    {% endif %}
+
                     {% if quest.guild %}
                     <div class="k">GUILD</div>
                     <div class="v" style="color: var(--nes-green)">{{ quest.guild.name }}</div>

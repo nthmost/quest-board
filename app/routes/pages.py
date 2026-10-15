@@ -16,8 +16,9 @@ from sqlalchemy.orm import Session
 from app.auth import current_username, effective_admin, is_admin, is_pretending_user
 from app.config import load_economy
 from app.db import get_db
-from app.models import Character, Guild, Location, Quest, QuestClaim, User, XpTransaction
+from app.models import Character, Guild, Location, Quest, QuestClaim, Space, User, XpTransaction
 from app.services import quest_actions
+from app.services import spaces as spaces_svc
 from app.services.levels import cost_to_next_level, xp_progress_pct
 from app.services.quest_browse import browse as browse_quests
 from app.services.quest_browse import distinct_skills, list_filter_options
@@ -73,6 +74,7 @@ def quests_browse(
     status: str = "",
     guild: str = "",
     location: str = "",
+    space: str = "",
     skill: str = "",
     xp_min: str = "",
     xp_max: str = "",
@@ -88,6 +90,7 @@ def quests_browse(
         status=status or None,
         guild_slug=guild or None,
         location_slug=location or None,
+        space_slug=space or None,
         skill=skill.strip(),
         xp_min=xp_min_int,
         xp_max=xp_max_int,
@@ -106,6 +109,7 @@ def quests_browse(
             "result": result,
             "guilds": options["guilds"],
             "locations": options["locations"],
+            "spaces": options["spaces"],
             "skills": distinct_skills(db),
             "current_user": username,
             "is_admin": effective_admin(request, username),
@@ -133,6 +137,7 @@ def quest_create_form(
         return RedirectResponse(f"/quests?flash={eligibility.reason}", status_code=303)
     options = list_filter_options(db)
     fee = _posting_fee()
+    default_space = user.primary_space_id if user and user.primary_space_id else ""
     return templates.TemplateResponse(
         request, "quest_create.html",
         {
@@ -143,7 +148,8 @@ def quest_create_form(
             "posting_fee": fee,
             "guilds": options["guilds"],
             "locations": options["locations"],
-            "form": {},
+            "spaces": spaces_svc.list_spaces(db),
+            "form": {"space_id": str(default_space) if default_space else ""},
             "flash": flash,
         },
     )
@@ -157,6 +163,7 @@ def quest_create_submit(
     description: str = Form(...),
     guild_id: str = Form(""),
     location_id: str = Form(""),
+    space_id: str = Form(""),
     urgency: str = Form("normal"),
     party_min: str = Form("1"),
     party_max: str = Form(""),
@@ -182,11 +189,14 @@ def quest_create_submit(
         except ValueError:
             pass
 
+    # Default the space to the creator's primary makerspace when unspecified.
+    resolved_space_id = _parse_int(space_id) or (user.primary_space_id if user else None)
     quest = Quest(
         title=title.strip(),
         description=description.strip(),
         guild_id=_parse_int(guild_id) or None,
         location_id=_parse_int(location_id) or None,
+        space_id=resolved_space_id,
         urgency=urgency if urgency in ("normal", "high") else "normal",
         party_min=max(1, _parse_int(party_min) or 1),
         party_max=_parse_int(party_max) or None,
@@ -482,9 +492,11 @@ def _open_quests(db: Session) -> list[dict]:
             Quest,
             Guild.slug.label("guild_slug"),
             Location.slug.label("location_slug"),
+            Space.name.label("space_name"),
         )
         .outerjoin(Guild, Guild.id == Quest.guild_id)
         .outerjoin(Location, Location.id == Quest.location_id)
+        .outerjoin(Space, Space.id == Quest.space_id)
         .where(Quest.deleted_at.is_(None), Quest.status == "open")
         .order_by(Quest.created_at.desc())
         .limit(20)
@@ -493,13 +505,14 @@ def _open_quests(db: Session) -> list[dict]:
 
 
 def _quest_row(row) -> dict:
-    quest, guild_slug, location_slug = row
+    quest, guild_slug, location_slug, space_name = row
     return {
         "id": quest.id,
         "title": quest.title,
         "xp": quest.xp,
         "guild_slug": guild_slug,
         "location_slug": location_slug,
+        "space_name": space_name,
         "urgency": quest.urgency,
         "party_min": quest.party_min,
         "party_max": quest.party_max,

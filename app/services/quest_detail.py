@@ -18,6 +18,7 @@ from app.models import (
     Quest,
     QuestBoost,
     QuestClaim,
+    Space,
     User,
 )
 from app.services.quest_aggregates import boost_summary
@@ -36,6 +37,7 @@ def _shape_detail(db: Session, quest: Quest, authed: bool) -> dict:
         **_base_fields(quest),
         "guild": _guild_block(db, quest.guild_id),
         "location": _location_block(db, quest.location_id),
+        "space": _space_block(db, quest.space_id),
         "creator": _creator_block(db, quest, authed),
         "claims": _claims_block(db, quest.id, authed),
         "boost_summary": boost_summary(db, quest),
@@ -100,6 +102,15 @@ def _guild_block(db: Session, guild_id: int | None) -> dict | None:
     if g is None:
         return None
     return {"slug": g.slug, "name": g.name, "description": g.description}
+
+
+def _space_block(db: Session, space_id: int | None) -> dict | None:
+    if space_id is None:
+        return None
+    s = db.get(Space, space_id)
+    if s is None:
+        return None
+    return {"slug": s.slug, "name": s.name, "neighborhood": s.neighborhood, "url": s.url}
 
 
 def _location_block(db: Session, location_id: int | None) -> dict | None:

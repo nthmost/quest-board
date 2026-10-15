@@ -64,6 +64,16 @@
                 </label>
             </div>
 
+            <label class="login-field">
+                <span class="login-label">MAKERSPACE</span>
+                <select name="space_id">
+                    <option value="">— none —</option>
+                    {% for s in spaces %}
+                    <option value="{{ s.id }}" {% if form.space_id == s.id|string %}selected{% endif %}>{{ s.name }}{% if s.neighborhood %} · {{ s.neighborhood }}{% endif %}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
             <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
                 <label class="login-field">
                     <span class="login-label">URGENCY</span>

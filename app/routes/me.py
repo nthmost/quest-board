@@ -17,8 +17,10 @@ from app.auth import (
     set_pretend_user,
 )
 from app.db import get_db
+from app.local_auth import hash_password, validate_password, verify_password
 from app.models import Guild, User
 from app.services import characters as characters_svc
+from app.services import spaces as spaces_svc
 
 TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
 templates = Jinja2Templates(directory=str(TEMPLATE_DIR))
@@ -31,6 +33,7 @@ def list_characters(
     request: Request,
     username: str = Depends(require_login),
     db: Session = Depends(get_db),
+    msg: str = "",
 ) -> HTMLResponse:
     user = _user_or_die(db, username)
     rows = characters_svc.list_for_user(db, user.id)
@@ -43,8 +46,52 @@ def list_characters(
             "max_chars": characters_svc.max_characters_per_user(),
             "actually_admin": is_admin(username),
             "pretending": is_pretending_user(request) and is_admin(username),
+            "spaces": spaces_svc.list_spaces(db),
+            "primary_space_id": user.primary_space_id,
+            "primary_space": spaces_svc.get_space(db, user.primary_space_id),
+            "msg": msg,
         },
     )
+
+
+@router.post("/profile")
+def update_profile(
+    request: Request,
+    username: str = Depends(require_login),
+    db: Session = Depends(get_db),
+    primary_space_id: str = Form(""),
+) -> RedirectResponse:
+    """Set the person's primary makerspace."""
+    user = _user_or_die(db, username)
+    if primary_space_id.strip():
+        space = spaces_svc.get_space(db, _safe_int(primary_space_id))
+        user.primary_space_id = space.id if space else None
+    else:
+        user.primary_space_id = None
+    db.commit()
+    return RedirectResponse("/me/characters?msg=space_saved", status_code=303)
+
+
+@router.post("/password")
+def change_password(
+    request: Request,
+    username: str = Depends(require_login),
+    db: Session = Depends(get_db),
+    current_password: str = Form(...),
+    new_password: str = Form(...),
+    new_password2: str = Form(""),
+) -> RedirectResponse:
+    """Self-serve password change: verify current, set new."""
+    user = _user_or_die(db, username)
+    if not verify_password(user.password_hash, current_password):
+        return RedirectResponse("/me/characters?msg=pw_wrong_current", status_code=303)
+    if validate_password(new_password):
+        return RedirectResponse("/me/characters?msg=pw_too_short", status_code=303)
+    if new_password2 and new_password != new_password2:
+        return RedirectResponse("/me/characters?msg=pw_mismatch", status_code=303)
+    user.password_hash = hash_password(new_password)
+    db.commit()
+    return RedirectResponse("/me/characters?msg=pw_changed", status_code=303)
 
 
 @router.get("/characters/new", response_class=HTMLResponse)
@@ -152,6 +199,13 @@ def _decorate_characters(db: Session, rows, active_id: int | None) -> list[dict]
 def _user_or_die(db: Session, username: str) -> User:
     user = db.execute(select(User).where(User.wiki_username == username)).scalar_one()
     return user
+
+
+def _safe_int(raw: str) -> int | None:
+    try:
+        return int(raw)
+    except (ValueError, TypeError):
+        return None
 
 
 def _re_render_with_error(

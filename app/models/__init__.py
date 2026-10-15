@@ -8,6 +8,7 @@ from app.models.npc_quest_giver import NpcQuestGiver
 from app.models.quest import Quest
 from app.models.quest_boost import QuestBoost
 from app.models.quest_claim import QuestClaim
+from app.models.space import Space
 from app.models.taxonomy import Guild, Location
 from app.models.user import User
 from app.models.xp_transaction import XpTransaction
@@ -23,6 +24,7 @@ __all__ = [
     "Quest",
     "QuestBoost",
     "QuestClaim",
+    "Space",
     "User",
     "XpTransaction",
 ]

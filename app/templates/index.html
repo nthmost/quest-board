@@ -126,6 +126,7 @@
                         <div class="qtitle">{{ q.title }}</div>
                         <div class="qmeta">
                             <span class="xp">{{ q.xp }} XP</span>
+                            {% if q.space_name %}<span class="space">◈ {{ q.space_name }}</span>{% endif %}
                             {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
                             {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
                             {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}
@@ -157,6 +158,7 @@
                         <div class="qtitle">{{ q.title }}</div>
                         <div class="qmeta">
                             <span class="xp">{{ q.xp }} XP</span>
+                            {% if q.space_name %}<span class="space">◈ {{ q.space_name }}</span>{% endif %}
                             {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
                             {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
                             {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}

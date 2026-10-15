@@ -129,6 +129,7 @@ a:hover{color:var(--pink-ink)}
 .quest-grid .qtitle{font-size:16px;font-weight:600;color:var(--ink);line-height:1.3}
 .quest-grid .qmeta{margin-top:auto;padding-top:.7rem;display:flex;flex-wrap:wrap;gap:.6rem .9rem;font-family:var(--mono);font-size:10px;color:var(--grey-text);letter-spacing:.06em;text-transform:uppercase}
 .quest-grid .qmeta .xp{color:var(--ink);font-weight:700}
+.quest-grid .qmeta .space{color:var(--ink);font-weight:700}
 .quest-grid .qmeta .guild{color:var(--pink-ink)}
 .quest-grid .qmeta .loc{color:var(--info)}
 .quest-grid .qmeta .urgent{color:var(--bad)}
@@ -171,6 +172,7 @@ a:hover{color:var(--pink-ink)}
 .quest-grid-wide .qtitle{font-size:17px;font-weight:600;color:var(--ink);line-height:1.3}
 .quest-grid-wide .qmeta{margin-top:auto;padding-top:.7rem;display:flex;flex-wrap:wrap;gap:.7rem;font-family:var(--mono);font-size:10px;color:var(--grey-text);letter-spacing:.06em;text-transform:uppercase;align-items:center}
 .quest-grid-wide .qmeta .xp{color:var(--ink);font-weight:700}
+.quest-grid-wide .qmeta .space{color:var(--ink);font-weight:700}
 .quest-grid-wide .qmeta .guild{color:var(--pink-ink)}
 .quest-grid-wide .qmeta .loc{color:var(--info)}
 .quest-grid-wide .qmeta .urgent{color:var(--bad)}

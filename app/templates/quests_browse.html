@@ -74,6 +74,16 @@
             </label>
 
             <label class="bf-field">
+                <span class="login-label">MAKERSPACE</span>
+                <select name="space">
+                    <option value="">all</option>
+                    {% for s in spaces %}
+                    <option value="{{ s.slug }}" {% if f.space_slug == s.slug %}selected{% endif %}>{{ s.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label class="bf-field">
                 <span class="login-label">SKILL</span>
                 <input type="text" name="skill" value="{{ f.skill or '' }}" placeholder="e.g. electronics" list="skill-list">
                 <datalist id="skill-list">
@@ -138,6 +148,7 @@
             <div class="qmeta">
                 <span class="status-pill status-{{ q.status }}">{{ q.status|upper }}</span>
                 <span class="xp">{{ q.xp }} XP</span>
+                {% if q.space_name %}<span class="space">◈ {{ q.space_name }}</span>{% endif %}
                 {% if q.guild_slug %}<span class="guild">{{ q.guild_slug }}</span>{% endif %}
                 {% if q.location_slug %}<span class="loc">@ {{ q.location_slug }}</span>{% endif %}
                 {% if q.urgency == 'high' %}<span class="urgent">URGENT</span>{% endif %}
@@ -161,7 +172,8 @@
 <div class="browse-pagination">
     {% if result.page > 1 %}
     <a class="auth-link" href="?{{ {'q': f.q, 'status': f.status, 'guild': f.guild_slug,
-                                     'location': f.location_slug, 'skill': f.skill or '',
+                                     'location': f.location_slug, 'space': f.space_slug,
+                                     'skill': f.skill or '',
                                      'xp_min': f.xp_min or '', 'xp_max': f.xp_max or '',
                                      'urgency': f.urgency or '',
                                      'sort': f.sort,
@@ -174,7 +186,8 @@
 
     {% if result.page < result.page_count %}
     <a class="auth-link" href="?{{ {'q': f.q, 'status': f.status, 'guild': f.guild_slug,
-                                     'location': f.location_slug, 'skill': f.skill or '',
+                                     'location': f.location_slug, 'space': f.space_slug,
+                                     'skill': f.skill or '',
                                      'xp_min': f.xp_min or '', 'xp_max': f.xp_max or '',
                                      'urgency': f.urgency or '',
                                      'sort': f.sort,

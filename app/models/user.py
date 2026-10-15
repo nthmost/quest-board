@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, String, func
+from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.models.base import Base
@@ -26,6 +26,10 @@ class User(Base):
     )
     active_character_id: Mapped[int | None] = mapped_column(
         BigInteger, ForeignKey("characters.id"), nullable=True
+    )
+    # The makerspace this person primarily belongs to (profile attribute).
+    primary_space_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("spaces.id"), nullable=True
     )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
