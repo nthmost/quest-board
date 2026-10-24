@@ -57,7 +57,7 @@ def login_submit(
     user.last_seen_at = datetime.now(UTC)
     db.commit()
     # Log in under the stored (canonical-cased) username.
-    login_user(request, user.wiki_username)
+    login_user(request, user.username)
     return RedirectResponse("/", status_code=303)
 
 
@@ -105,7 +105,7 @@ def register_submit(
     user = register_user(db, username, password, real_name=real_name)
     # One profile per account, named by the (freely-changeable) visible name.
     characters_svc.create_default_profile(db, user.id, visible_name)
-    login_user(request, user.wiki_username)
+    login_user(request, user.username)
     return RedirectResponse("/", status_code=303)
 
 

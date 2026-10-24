@@ -167,7 +167,7 @@ def _decorate_characters(db: Session, rows, active_id: int | None) -> list[dict]
 
 
 def _user_or_die(db: Session, username: str) -> User:
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one()
+    user = db.execute(select(User).where(User.username == username)).scalar_one()
     return user
 
 

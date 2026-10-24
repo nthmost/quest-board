@@ -169,7 +169,7 @@ def _character_creator(db: Session, char_id: int, authed: bool) -> dict | None:
     )
     out = {"kind": "character", "name": display, "id": char.id, "class": char.class_slug}
     if authed:
-        out["wiki_username"] = owner.wiki_username if owner else None
+        out["username"] = owner.username if owner else None
     return out
 
 
@@ -182,7 +182,7 @@ def _user_creator(db: Session, user_id: int, authed: bool) -> dict | None:
     u = db.execute(select(User).where(User.id == user_id)).scalar_one_or_none()
     if u is None:
         return None
-    return {"kind": "user", "name": u.wiki_username, "wiki_username": u.wiki_username}
+    return {"kind": "user", "name": u.username, "username": u.username}
 
 
 def _claims_block(db: Session, quest_id: int, authed: bool) -> dict:

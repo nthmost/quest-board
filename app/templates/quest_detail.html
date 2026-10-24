@@ -272,8 +272,8 @@
                 {% if quest.creator.kind == 'character' and quest.creator.get('class') %}
                 <div class="dim" style="margin-top:0.4rem">{{ quest.creator['class'] }}</div>
                 {% endif %}
-                {% if quest.creator.get('wiki_username') and quest.creator.kind == 'character' %}
-                <div class="dim" style="margin-top:0.3rem">@{{ quest.creator.wiki_username }}</div>
+                {% if quest.creator.get('username') and quest.creator.kind == 'character' %}
+                <div class="dim" style="margin-top:0.3rem">@{{ quest.creator.username }}</div>
                 {% endif %}
             </div>
         </div>

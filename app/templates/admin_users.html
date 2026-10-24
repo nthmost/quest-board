@@ -14,7 +14,7 @@
             {% for u in rows %}
                 <tr>
                     <td class="num dim">{{ u.id }}</td>
-                    <td class="hi">{{ u.wiki_username }}</td>
+                    <td class="hi">{{ u.username }}</td>
                     <td class="dim">{{ u.discord_username or '—' }}</td>
                     <td class="dim">{{ u.created_at.strftime('%Y-%m-%d') }}</td>
                     <td class="dim">{{ u.last_seen_at.strftime('%Y-%m-%d %H:%M') if u.last_seen_at else '—' }}</td>

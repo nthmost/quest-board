@@ -111,7 +111,7 @@ def _seed_users(db: Session) -> None:
     for username in ("alice", "bob", "charlie"):
         if _user_exists(db, username):
             continue
-        db.add(User(wiki_username=username))
+        db.add(User(username=username))
 
 
 def _seed_quests(db: Session) -> None:
@@ -177,7 +177,7 @@ def _exists(db: Session, model, slug: str) -> bool:
 
 def _user_exists(db: Session, username: str) -> bool:
     return (
-        db.execute(select(User).where(User.wiki_username == username)).scalar_one_or_none()
+        db.execute(select(User).where(User.username == username)).scalar_one_or_none()
         is not None
     )
 
@@ -191,7 +191,7 @@ def _location_id(db: Session, slug: str) -> int:
 
 
 def _user_id(db: Session, username: str) -> int:
-    return db.execute(select(User.id).where(User.wiki_username == username)).scalar_one()
+    return db.execute(select(User.id).where(User.username == username)).scalar_one()
 
 
 if __name__ == "__main__":

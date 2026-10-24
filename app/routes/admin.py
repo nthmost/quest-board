@@ -122,7 +122,7 @@ def _resolve_usernames(db: Session, raw: str) -> list[int]:
     if not names:
         return []
     rows = db.execute(
-        select(User.id).where(User.wiki_username.in_(names))
+        select(User.id).where(User.username.in_(names))
     ).all()
     return [r.id for r in rows]
 
@@ -131,9 +131,9 @@ def _ids_to_usernames(db: Session, ids: list[int]) -> list[str]:
     if not ids:
         return []
     rows = db.execute(
-        select(User.wiki_username).where(User.id.in_(ids))
+        select(User.username).where(User.id.in_(ids))
     ).all()
-    return [r.wiki_username for r in rows]
+    return [r.username for r in rows]
 
 
 def _quest_or_die(db: Session, quest_id: int) -> Quest:

@@ -40,7 +40,7 @@ def main(argv: list[str]) -> int:
         user = get_user_by_username(db, username)
         if user is None:
             user = User(
-                wiki_username=username,
+                username=username,
                 password_hash=hash_password(password),
                 last_seen_at=datetime.now(UTC),
             )

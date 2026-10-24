@@ -10,14 +10,14 @@ from app.config import load_economy
 from app.local_auth import hash_password
 from app.models import User
 
-SESSION_KEY = "wiki_user"
+SESSION_KEY = "user"
 PRETEND_KEY = "view_as_user"  # admin's "view as user" toggle
 
 
 def get_user_by_username(db: Session, username: str) -> User | None:
     """Case-insensitive lookup by the stored username."""
     return db.execute(
-        select(User).where(func.lower(User.wiki_username) == username.lower())
+        select(User).where(func.lower(User.username) == username.lower())
     ).scalar_one_or_none()
 
 
@@ -28,11 +28,11 @@ def username_taken(db: Session, username: str) -> bool:
 def register_user(
     db: Session, username: str, password: str, real_name: str | None = None
 ) -> User:
-    """Create a new account with a hashed password. `username` is the public
-    handle; `real_name` is private. Caller must have already validated the
-    inputs and confirmed the handle is free."""
+    """Create a new account with a hashed password. `username` is the login
+    credential; `real_name` is private. Caller must have already validated the
+    inputs and confirmed the username is free."""
     user = User(
-        wiki_username=username,
+        username=username,
         real_name=real_name,
         password_hash=hash_password(password),
         last_seen_at=datetime.now(UTC),
@@ -56,22 +56,6 @@ def login_user(request: Request, username: str) -> None:
 def logout_user(request: Request) -> None:
     """Drop auth from this session."""
     request.session.pop(SESSION_KEY, None)
-
-
-def upsert_user(db: Session, username: str) -> User:
-    """Create a `users` row on first login; bump last_seen_at on every login."""
-    user = db.execute(
-        select(User).where(User.wiki_username == username)
-    ).scalar_one_or_none()
-    if user is None:
-        user = User(wiki_username=username, last_seen_at=datetime.now(UTC))
-        db.add(user)
-        db.commit()
-        db.refresh(user)
-        return user
-    user.last_seen_at = datetime.now(UTC)
-    db.commit()
-    return user
 
 
 def require_login(request: Request) -> str:

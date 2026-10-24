@@ -277,7 +277,7 @@ def quest_done(
     username = current_username(request)
     if not username:
         return RedirectResponse("/login", status_code=303)
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one()
+    user = db.execute(select(User).where(User.username == username)).scalar_one()
     char = _active_character(db, user)
     if char is None:
         return RedirectResponse(
@@ -307,7 +307,7 @@ def quest_verify(
     username = current_username(request)
     if not username:
         return RedirectResponse("/login", status_code=303)
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one()
+    user = db.execute(select(User).where(User.username == username)).scalar_one()
     flash = ""
     try:
         quest_actions.verify(db, user.id, quest_id, is_admin=is_admin(username))
@@ -323,7 +323,7 @@ def _do_quest_action(
     username = current_username(request)
     if not username:
         return RedirectResponse("/login", status_code=303)
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one()
+    user = db.execute(select(User).where(User.username == username)).scalar_one()
     char = _active_character(db, user)
     if char is None:
         return RedirectResponse(
@@ -354,7 +354,7 @@ def _active_character(db: Session, user: User) -> Character | None:
 def _get_user(db: Session, username: str | None) -> User | None:
     if not username:
         return None
-    return db.execute(select(User).where(User.wiki_username == username)).scalar_one_or_none()
+    return db.execute(select(User).where(User.username == username)).scalar_one_or_none()
 
 
 def _posting_fee() -> int:
@@ -371,7 +371,7 @@ def _action_state(db: Session, quest: dict, username: str | None) -> dict:
     if not username:
         return out
     user = db.execute(
-        select(User).where(User.wiki_username == username)
+        select(User).where(User.username == username)
     ).scalar_one_or_none()
     if user is None:
         return out
@@ -402,7 +402,7 @@ def _can_verify_quest(db: Session, quest: dict, username: str | None) -> bool:
         return False
     if is_admin(username):
         return True
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one_or_none()
+    user = db.execute(select(User).where(User.username == username)).scalar_one_or_none()
     if user is None:
         return False
     verifier_ids = quest.get("verifier_user_ids") or []
@@ -422,7 +422,7 @@ def _parse_int(raw: str) -> int | None:
 
 def _featured_character(db: Session, username: str) -> dict | None:
     """Return the user's active character (or fallback) as a render-ready dict."""
-    user = db.execute(select(User).where(User.wiki_username == username)).scalar_one_or_none()
+    user = db.execute(select(User).where(User.username == username)).scalar_one_or_none()
     if user is None:
         return None
     char = _active_character_or_fallback(db, user)
@@ -527,7 +527,7 @@ def _real_feed(db: Session, limit: int = 30) -> list[dict]:
         select(
             Quest.id, Quest.title, Quest.created_at, Quest.creator_attribution,
             Character.name.label("char_name"),
-            User.wiki_username.label("user_name"),
+            User.username.label("user_name"),
         )
         .outerjoin(Character, Character.id == Quest.creator_character_id)
         .outerjoin(User, User.id == Quest.creator_user_id)

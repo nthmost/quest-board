@@ -12,10 +12,8 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    # The account's login username: the credential they sign in with, fixed,
-    # and never shown to others. (Physical column name is `wiki_username` for
-    # schema stability; the application treats it as the username.)
-    wiki_username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    # Login username: the credential they sign in with, fixed, never shown to others.
+    username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     # Real name: collected at signup (required there) but unenforced/unverified
     # and private by default. Nullable in the DB for system rows.
     real_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
@@ -24,10 +22,8 @@ class User(Base):
     show_real_name: Mapped[bool] = mapped_column(
         Boolean, nullable=False, default=False, server_default="false"
     )
-    # Argon2id hash for independent login. Null for legacy/system rows with
-    # no password set.
+    # Argon2id hash for login. Null for system rows with no password set.
     password_hash: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    wiki_user_id: Mapped[int | None] = mapped_column(BigInteger, unique=True, nullable=True)
     discord_user_id: Mapped[str | None] = mapped_column(String(64), unique=True, nullable=True)
     discord_username: Mapped[str | None] = mapped_column(String(255), nullable=True)
     is_system: Mapped[bool] = mapped_column(
