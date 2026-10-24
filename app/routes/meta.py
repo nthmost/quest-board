@@ -1,6 +1,7 @@
-"""Meta endpoints: /healthz, /version, /stats, /economy."""
+"""Meta endpoints: the API index, /healthz, /version, /stats, /economy."""
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
+from fastapi.responses import RedirectResponse
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -11,6 +12,34 @@ from app.models import Quest, User, XpTransaction
 from app.schemas.meta import EconomyOut, HealthOut, StatsOut, VersionOut
 
 router = APIRouter(tags=["meta"])
+
+# Human-readable directory of the public JSON API, keyed by "METHOD path".
+_API_ENDPOINTS = {
+    "GET /api/v1/healthz": "liveness check",
+    "GET /api/v1/version": "API version",
+    "GET /api/v1/stats": "world stats (quest counts, XP minted, calibration)",
+    "GET /api/v1/economy": "public-safe slice of the active economy config",
+    "GET /api/v1/guilds": "guild taxonomy",
+    "GET /api/v1/locations": "location taxonomy",
+    "GET /api/v1/quests": "list / browse quests",
+    "GET /api/v1/quests/{quest_id}": "quest detail",
+}
+
+
+@router.get("", include_in_schema=False)
+@router.get("/", include_in_schema=False)
+def api_index(request: Request):
+    """API base path. Redirect browsers to the docs; serve a JSON directory to
+    everyone else (curl, scripts) instead of a bare 404."""
+    if "text/html" in request.headers.get("accept", ""):
+        return RedirectResponse("/api/v1/docs")
+    return {
+        "name": request.app.title,
+        "version": __version__,
+        "docs": "/api/v1/docs",
+        "openapi": "/api/v1/openapi.json",
+        "endpoints": _API_ENDPOINTS,
+    }
 
 
 @router.get("/healthz", response_model=HealthOut)
