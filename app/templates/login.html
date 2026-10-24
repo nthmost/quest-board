@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Log in · Actropolis{% endblock %}
+{% block title %}Log in · {{ request.state.site_name }}{% endblock %}
 
 {% block content %}
 
 <div class="title-bar">
     <h1>Log in</h1>
-    <div class="sub">ACTROPOLIS · QUEST BOARD</div>
+    <div class="sub">{{ request.state.site_name | upper }} · QUEST BOARD</div>
 </div>
 
 <div class="login-shell">
@@ -33,7 +33,7 @@
             </form>
 
             <div class="login-note">
-                New to Actropolis? <a href="/register">Create an account</a> and
+                New to {{ request.state.site_name }}? <a href="/register">Create an account</a> and
                 start your first quest.
             </div>
         </div>

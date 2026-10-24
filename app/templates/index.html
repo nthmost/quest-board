@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="title-bar">
-    <h1>◈ ACTROPOLIS ◈</h1>
+    <h1>◈ {{ request.state.site_name | upper }} ◈</h1>
     <div class="sub">SAN FRANCISCO · HANDS-ON MASTERY NETWORK <span class="blink">▼</span></div>
     <div class="title-auth">
         <a class="auth-link" href="/quests">ALL QUESTS</a>
@@ -108,7 +108,7 @@
         <div class="panel-header">★ CHARACTER</div>
         <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
             <div style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
-                Create an Actropolis account<br>to start your first quest.
+                Create an account<br>to start your first quest.
             </div>
             <a href="/login" class="login-button" style="margin-top: 1.2rem; display: inline-block;">► LOG IN</a>
         </div>

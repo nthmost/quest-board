@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
 from app import __version__
-from app.config import reload_economy
+from app.config import get_site_name, reload_economy
 from app.csrf import CSRFMiddleware, get_or_create_token
 from app.errors import install_error_handlers
 from app.routes import admin, auth, me, meta, pages, quests, taxonomy
@@ -25,11 +25,12 @@ def _compute_asset_version() -> str:
 
 
 ASSET_VERSION = _compute_asset_version()
+SITE_NAME = get_site_name()
 
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="Actropolis",
+        title=SITE_NAME,
         version=__version__,
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",
@@ -49,6 +50,7 @@ def _install_template_globals(app: FastAPI) -> None:
     @app.middleware("http")
     async def _attach_globals(request: Request, call_next):
         request.state.asset_v = ASSET_VERSION
+        request.state.site_name = SITE_NAME
         request.state.csrf_token = get_or_create_token(request)
         return await call_next(request)
 

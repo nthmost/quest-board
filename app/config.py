@@ -19,6 +19,15 @@ def get_database_url() -> str:
     return url
 
 
+def get_site_name() -> str:
+    """Display/brand name. SITE_NAME env overrides; defaults to the demo brand.
+
+    Lets one codebase serve multiple branded instances (e.g. the Actropolis demo
+    and the Noisebridge Quest Board) from the same checkout — only the env differs.
+    """
+    return os.environ.get("SITE_NAME", "Actropolis")
+
+
 def get_economy_yaml_path() -> Path:
     """Resolve the YAML path: ECONOMY_YAML_PATH env wins, then default, then dev fallback."""
     explicit = os.environ.get("ECONOMY_YAML_PATH")
