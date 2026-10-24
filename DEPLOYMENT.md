@@ -5,18 +5,43 @@
 > it on the box*. For current operational state, see [STATUS.md](./STATUS.md).
 > If you're brand new, start with [README.md](./README.md).
 
-## Two deployments — read this first
+## Two instances — read this first
 
-As of 2026-05-09 the **demo** (`quests.actropolis.org`) and the future
-**real Noisebridge quest/task board** (planned for enki) are
-deliberately separate deployments with separate databases. Don't merge
-them.
+As of 2026-10-24 **zephyr runs two separate instances of this same code**,
+with separate databases, ports, session secrets, economy YAML, and brand.
+Don't merge them. The only code difference is configuration — branding is
+driven by the `SITE_NAME` env (default `Actropolis`); see `app/config.py`
+and `request.state.site_name` in templates.
 
-- **Demo — live now.** Runs on a Debian host (Postgres 18, Python
-  3.13). Service: `questboard.service`. Apache reverse-proxies the
-  public hostname to `127.0.0.1:8080`. This is the canonical demo of
-  the design.
-- **Enki — quiesced, reserved for future work.** The original
+| | Actropolis demo | Noisebridge Quest Board |
+|---|---|---|
+| Hostname | `quests.actropolis.org` (+ `nbquests.nthmost.net`) | `nbquest.nthmost.net` |
+| systemd | `questboard.service` | `questboard-nb.service` |
+| Port | `127.0.0.1:8080` | `127.0.0.1:8081` |
+| DB | `questboard` | `questboard_nb` |
+| `SITE_NAME` | unset → `Actropolis` | `Noisebridge Quest Board` |
+| Economy YAML | `/home/nthmost/.questboard-economy.yaml` | `/home/nthmost/.questboard-nb-economy.yaml` |
+| DB secrets | `.secrets/questboard-db.env` | `.secrets/questboard-nb-db.env` |
+| Session secret | `.secrets/questboard-session.env` | `.secrets/questboard-nb-session.env` |
+| Config intent | full demo (NPCs, 4 chars, sim) | "real board": 1 char/account, no NPC/sim seed |
+
+Both run from the **same checkout** (`/home/nthmost/projects/git/quest-board`)
+owned by `nthmost`. Jinja auto-reloads templates, so after a `git pull` that
+touches templates you **must restart both services** — otherwise a running
+process on old Python code renders new templates that reference globals it
+doesn't set (e.g. empty `<title>`). The NB instance seeds no NPCs and runs no
+sim clock simply because `seed.py`/`quest_bot.py` are never run against
+`questboard_nb`.
+
+> Host-layout note: both the `questboard` and `questboard_nb` roles/DBs live on
+> zephyr's Postgres 18. The sections below (service user `questboard`,
+> `/opt/questboard`, nginx) describe an older/enki-style single-instance layout
+> and are kept as a template for a future dedicated host; the **live** zephyr
+> setup is the table above.
+
+### Legacy note — enki
+
+- **Enki — quiesced.** The original
   demo deployment (Ubuntu 24.04, Postgres 16) has been stopped and
   disabled. DB and code are preserved on disk but no longer serve
   traffic. When the NB community settles on what the real task board
