@@ -20,10 +20,19 @@ and `request.state.site_name` in templates.
 | Port | `127.0.0.1:8080` | `127.0.0.1:8081` |
 | DB | `questboard` | `questboard_nb` |
 | `SITE_NAME` | unset → `Actropolis` | `Noisebridge Quest Board` |
+| `THEME` | unset → `spec` (nes.css, Inter) | `nes` (retro.css, Press Start 2P / VT323) |
 | Economy YAML | `/home/nthmost/.questboard-economy.yaml` | `/home/nthmost/.questboard-nb-economy.yaml` |
 | DB secrets | `.secrets/questboard-db.env` | `.secrets/questboard-nb-db.env` |
 | Session secret | `.secrets/questboard-session.env` | `.secrets/questboard-nb-session.env` |
 | Config intent | full demo (NPCs, 4 chars, sim) | "real board": 1 char/account, no NPC/sim seed |
+
+> **Per-instance env (secrets) live on styx, not zephyr.** The `.secrets/*.env`
+> files are rsynced *from styx* to the other hosts and the sync deletes extras —
+> so any `questboard-nb-*.env` created directly on zephyr gets wiped on the next
+> sync, and the service fails with "Failed to load environment files." Create
+> these files in `~/projects/nthmost-systems/.secrets/` **on styx**, then sync.
+> Branding/theme live in the systemd unit (`SITE_NAME`, `THEME`), which is not
+> synced, so those stay put.
 
 Both run from the **same checkout** (`/home/nthmost/projects/git/quest-board`)
 owned by `nthmost`. Jinja auto-reloads templates, so after a `git pull` that
