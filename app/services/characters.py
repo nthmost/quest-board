@@ -120,7 +120,10 @@ def _reassign_active_after_delete(db: Session, user_id: int, deleted_id: int) ->
 
 
 def max_characters_per_user() -> int:
-    return int(load_economy().get("demo", {}).get("max_characters_per_user", 4))
+    # One character per account is the product default — multi-character was a
+    # demo-era idea that was cut. Instances can still raise this via
+    # economy.yaml `demo.max_characters_per_user` if they ever want it back.
+    return int(load_economy().get("demo", {}).get("max_characters_per_user", 1))
 
 
 def _validate_name(name: str) -> None:

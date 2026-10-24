@@ -132,8 +132,7 @@
     <div class="panel-header">♦ NO CHARACTERS YET</div>
     <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
         <p style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
-            You can run up to {{ max_chars }} characters.<br>
-            Each is its own little adventure.
+            {% if max_chars == 1 %}Create your character to begin.{% else %}You can run up to {{ max_chars }} characters.<br>Each is its own little adventure.{% endif %}
         </p>
         <a href="/me/characters/new" class="login-button" style="margin-top: 1rem; display: inline-block;">► CREATE FIRST CHARACTER</a>
     </div>
