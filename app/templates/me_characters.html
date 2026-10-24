@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}My Characters · {{ request.state.site_name }}{% endblock %}
+{% block title %}Your profile · {{ request.state.site_name }}{% endblock %}
 
 {% block content %}
 
 <div class="title-bar">
-    <h1>♣ MY CHARACTERS ♣</h1>
-    <div class="sub">{{ current_user }} · {{ characters|length }} of {{ max_chars }}</div>
+    <h1>♣ YOUR PROFILE ♣</h1>
+    <div class="sub">{{ current_user }}</div>
     <div class="title-auth">
         <a class="auth-link" href="/">‹ FRONT</a>
         <a class="auth-link" href="/quests">ALL QUESTS</a>
@@ -23,12 +23,15 @@
 </div>
 
 {% set flash_map = {
-    "space_saved": "Primary makerspace saved.",
+    "profile_saved": "Profile saved.",
+    "handle_taken": "That handle is already taken.",
+    "handle_invalid": "That handle isn't valid.",
+    "real_name_required": "Real name is required.",
+    "class_invalid": "That class isn't valid.",
     "pw_changed": "Password changed.",
     "pw_wrong_current": "Current password was incorrect.",
     "pw_too_short": "New password must be at least 8 characters.",
-    "pw_mismatch": "New passwords did not match.",
-    "at_cap": "You're at the character cap."
+    "pw_mismatch": "New passwords did not match."
 } %}
 {% if msg and flash_map.get(msg) %}
 <div class="flash-banner" style="border-color:var(--good);color:var(--good);background:#eef8f3">
@@ -36,105 +39,98 @@
 </div>
 {% endif %}
 
+{% set me_char = (characters | selectattr('is_active') | first) or (characters | first) %}
+
 <div class="panel" style="margin-bottom:18px">
-    <div class="panel-header">◈ PROFILE · {{ current_user }}</div>
+    <div class="panel-header">◈ IDENTITY</div>
     <div class="panel-body">
-        <div class="cols">
-            <div>
-                <form method="post" action="/me/profile" class="login-form">
-                    <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
-                    <label class="login-field">
-                        <span class="login-label">PRIMARY MAKERSPACE</span>
-                        <select name="primary_space_id">
-                            <option value="">— none —</option>
-                            {% for s in spaces %}
-                            <option value="{{ s.id }}" {% if primary_space_id == s.id %}selected{% endif %}>
-                                {{ s.name }}{% if s.neighborhood %} · {{ s.neighborhood }}{% endif %}
-                            </option>
-                            {% endfor %}
-                        </select>
-                    </label>
-                    <button type="submit" class="char-activate-btn" style="align-self:flex-start">SAVE SPACE</button>
-                </form>
-            </div>
-            <div>
-                <details>
-                    <summary class="login-label" style="cursor:pointer;margin-bottom:.6rem">CHANGE PASSWORD</summary>
-                    <form method="post" action="/me/password" class="login-form">
-                        <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
-                        <label class="login-field">
-                            <span class="login-label">CURRENT PASSWORD</span>
-                            <input type="password" name="current_password" autocomplete="current-password" required>
-                        </label>
-                        <label class="login-field">
-                            <span class="login-label">NEW PASSWORD</span>
-                            <input type="password" name="new_password" autocomplete="new-password" minlength="8" required>
-                        </label>
-                        <label class="login-field">
-                            <span class="login-label">CONFIRM NEW PASSWORD</span>
-                            <input type="password" name="new_password2" autocomplete="new-password" minlength="8" required>
-                        </label>
-                        <button type="submit" class="char-activate-btn" style="align-self:flex-start">UPDATE PASSWORD</button>
-                    </form>
-                </details>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="char-grid">
-    {% for c in characters %}
-    <div class="panel charsheet {% if c.is_active %}char-active{% else %}panel-yellow{% endif %}">
-        <div class="panel-header">
-            {% if c.is_active %}♦ ACTIVE · {% else %}★ {% endif -%}
-            LV {{ c.level }} · {{ c.class_slug.upper() }}
-        </div>
-
-        <form method="post" action="/me/characters/{{ c.id }}/delete"
-              style="margin:0"
-              onsubmit="return confirm('Retire {{ c.name }}? This is permanent.');">
+        <form method="post" action="/me/profile" class="login-form">
             <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
-            <button type="submit" class="char-trash" title="Retire {{ c.name }}">☠</button>
+
+            <label class="login-field">
+                <span class="login-label">REAL NAME</span>
+                <input type="text" name="real_name" value="{{ real_name }}" autocomplete="name" required>
+                <span class="field-hint">Required, but private — no one sees it unless you turn on the toggle below.</span>
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">
+                    HANDLE
+                    <span class="hint-tip" tabindex="0" aria-label="This is the only name people see unless you show your real name.">?
+                        <span class="hint-bubble">This is the name everyone sees, and the name you log in with. People will only ever see the name you want them to.</span>
+                    </span>
+                </span>
+                <input type="text" name="handle" value="{{ current_user }}" autocomplete="username" required>
+                <span class="field-hint">Changing this also changes how you log in.</span>
+            </label>
+
+            <label class="login-field" style="flex-direction:row;align-items:center;gap:.6rem">
+                <input type="checkbox" name="show_real_name" value="on" style="width:auto"
+                       {% if show_real_name %}checked{% endif %}>
+                <span>Show my real name next to my handle (others will see “{{ current_user }} (your real name)”).</span>
+            </label>
+
+            {% if classes %}
+            <label class="login-field">
+                <span class="login-label">CLASS <span style="opacity:.6">(optional)</span></span>
+                <select name="class_slug">
+                    {% for cl in classes %}
+                    <option value="{{ cl.slug }}" {% if me_char and me_char.class_slug == cl.slug %}selected{% endif %}>{{ cl.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            {% endif %}
+
+            <label class="login-field">
+                <span class="login-label">PRIMARY MAKERSPACE</span>
+                <select name="primary_space_id">
+                    <option value="">— none —</option>
+                    {% for s in spaces %}
+                    <option value="{{ s.id }}" {% if primary_space_id == s.id %}selected{% endif %}>
+                        {{ s.name }}{% if s.neighborhood %} · {{ s.neighborhood }}{% endif %}
+                    </option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <button type="submit" class="char-activate-btn" style="align-self:flex-start">SAVE PROFILE</button>
         </form>
 
-        <div class="panel-body">
-            <div class="name">{{ c.name }}</div>
-            <div class="class">{{ c.class_slug }}{% if c.guild_name %} · {{ c.guild_name }}{% endif %}</div>
-
-            <div class="stats">
-                <div class="k">XP</div>           <div class="v gold">{{ c.xp_balance }}</div>
-                <div class="k">LEVEL</div>        <div class="v">{{ c.level }}</div>
-                <div class="k">CREATED</div>      <div class="v" style="font-size:9px">{{ c.created_at.strftime('%Y-%m-%d') }}</div>
-            </div>
-
-            {% if not c.is_active %}
-            <div class="char-actions">
-                <form method="post" action="/me/characters/{{ c.id }}/activate" style="display:inline">
-            <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
-                    <button type="submit" class="char-activate-btn">MAKE ACTIVE</button>
-                </form>
-            </div>
-            {% endif %}
-        </div>
+        <details style="margin-top:1rem">
+            <summary class="login-label" style="cursor:pointer;margin-bottom:.6rem">CHANGE PASSWORD</summary>
+            <form method="post" action="/me/password" class="login-form">
+                <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                <label class="login-field">
+                    <span class="login-label">CURRENT PASSWORD</span>
+                    <input type="password" name="current_password" autocomplete="current-password" required>
+                </label>
+                <label class="login-field">
+                    <span class="login-label">NEW PASSWORD</span>
+                    <input type="password" name="new_password" autocomplete="new-password" minlength="8" required>
+                </label>
+                <label class="login-field">
+                    <span class="login-label">CONFIRM NEW PASSWORD</span>
+                    <input type="password" name="new_password2" autocomplete="new-password" minlength="8" required>
+                </label>
+                <button type="submit" class="char-activate-btn" style="align-self:flex-start">UPDATE PASSWORD</button>
+            </form>
+        </details>
     </div>
-    {% endfor %}
-
-    {% if characters|length < max_chars %}
-    <a href="/me/characters/new" class="char-slot-empty">
-        <span class="plus">＋</span>
-        <span class="lbl">NEW CHARACTER</span>
-    </a>
-    {% endif %}
 </div>
 
-{% if not characters %}
-<div class="panel panel-orange" style="margin-top: 1rem;">
-    <div class="panel-header">♦ NO CHARACTERS YET</div>
-    <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
-        <p style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
-            {% if max_chars == 1 %}Create your character to begin.{% else %}You can run up to {{ max_chars }} characters.<br>Each is its own little adventure.{% endif %}
-        </p>
-        <a href="/me/characters/new" class="login-button" style="margin-top: 1rem; display: inline-block;">► CREATE FIRST CHARACTER</a>
+{% if me_char %}
+<div class="char-grid">
+    <div class="panel charsheet char-active">
+        <div class="panel-header">♦ LV {{ me_char.level }} · {{ me_char.class_slug.upper() }}</div>
+        <div class="panel-body">
+            <div class="name">{{ me_char.name }}</div>
+            <div class="class">{{ me_char.class_slug }}{% if me_char.guild_name %} · {{ me_char.guild_name }}{% endif %}</div>
+            <div class="stats">
+                <div class="k">XP</div>      <div class="v gold">{{ me_char.xp_balance }}</div>
+                <div class="k">LEVEL</div>   <div class="v">{{ me_char.level }}</div>
+                <div class="k">SINCE</div>   <div class="v" style="font-size:9px">{{ me_char.created_at.strftime('%Y-%m-%d') }}</div>
+            </div>
+        </div>
     </div>
 </div>
 {% endif %}

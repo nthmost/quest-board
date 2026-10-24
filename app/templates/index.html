@@ -8,7 +8,7 @@
         <a class="auth-link" href="/quests">ALL QUESTS</a>
     {% if current_user %}
         <span class="auth-user">{{ current_user }}{% if pretending %} (as user){% endif %}</span>
-        <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+        <a class="auth-link" href="/me/characters">PROFILE</a>
         {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
         {% if actually_admin %}
         <form method="post" action="/me/view-as" style="display:inline">
@@ -53,7 +53,7 @@
 <div class="cols-char-quests">
     {% if character %}
     <div class="panel panel-yellow charsheet">
-        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-header">★ YOU</div>
         <div class="panel-body">
             <div class="name">{{ character.name }}</div>
             <div class="class">{{ character.class_name }} · LV {{ character.level }}</div>
@@ -89,23 +89,23 @@
             </div>
 
             <div style="margin-top: 1rem; text-align: right;">
-                <a href="/me/characters" class="auth-link">‹ ALL CHARACTERS</a>
+                <a href="/me/characters" class="auth-link">‹ PROFILE</a>
             </div>
         </div>
     </div>
     {% elif current_user %}
     <div class="panel panel-yellow charsheet">
-        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-header">★ YOU</div>
         <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
             <div style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
-                You don't have a character yet.<br>Adventure awaits.
+                You don't have a profile yet.<br>Adventure awaits.
             </div>
-            <a href="/me/characters/new" class="login-button" style="margin-top: 1.2rem; display: inline-block;">► CREATE</a>
+            <a href="/me/characters" class="login-button" style="margin-top: 1.2rem; display: inline-block;">► SET UP PROFILE</a>
         </div>
     </div>
     {% else %}
     <div class="panel panel-yellow charsheet">
-        <div class="panel-header">★ CHARACTER</div>
+        <div class="panel-header">★ YOU</div>
         <div class="panel-body" style="text-align: center; padding: 2rem 1rem;">
             <div style="font-size: 19px; color: var(--nes-tan); line-height: 1.5;">
                 Create an account<br>to start your first quest.

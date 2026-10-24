@@ -25,11 +25,15 @@ def username_taken(db: Session, username: str) -> bool:
     return get_user_by_username(db, username) is not None
 
 
-def register_user(db: Session, username: str, password: str) -> User:
-    """Create a new account with a hashed password. Caller must have already
-    validated the inputs and confirmed the username is free."""
+def register_user(
+    db: Session, username: str, password: str, real_name: str | None = None
+) -> User:
+    """Create a new account with a hashed password. `username` is the public
+    handle; `real_name` is private. Caller must have already validated the
+    inputs and confirmed the handle is free."""
     user = User(
         wiki_username=username,
+        real_name=real_name,
         password_hash=hash_password(password),
         last_seen_at=datetime.now(UTC),
     )

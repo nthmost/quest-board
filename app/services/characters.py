@@ -60,6 +60,54 @@ def create_character(
     return character
 
 
+def create_default_profile(db: Session, user_id: int, handle: str) -> Character:
+    """Auto-create the single backing profile at signup.
+
+    Named by the person's handle; assigned a random class (optional flavor the
+    person can change later on their profile). Folds the old separate
+    'create a character' step into signup.
+    """
+    classes = list_classes(db)
+    if not classes:
+        raise CharacterError("No character classes are configured.")
+    class_slug = random.choice(classes).slug
+    return create_character(db, user_id, handle, class_slug, None)
+
+
+def get_active_character(db: Session, user_id: int) -> Character | None:
+    """The user's active (and, now, only) profile, or None for legacy rows."""
+    user = db.execute(select(User).where(User.id == user_id)).scalar_one()
+    if user.active_character_id is None:
+        return db.execute(
+            select(Character)
+            .where(Character.user_id == user_id, Character.deleted_at.is_(None))
+            .order_by(Character.created_at.asc())
+            .limit(1)
+        ).scalar_one_or_none()
+    return db.execute(
+        select(Character).where(Character.id == user.active_character_id)
+    ).scalar_one_or_none()
+
+
+def rename_active(db: Session, user_id: int, new_name: str) -> None:
+    """Rename the user's profile so its display name tracks their handle."""
+    new_name = (new_name or "").strip()
+    _validate_name(new_name)
+    char = get_active_character(db, user_id)
+    if char is not None:
+        char.name = new_name
+        db.commit()
+
+
+def set_class(db: Session, user_id: int, class_slug: str) -> None:
+    """Change the profile's (optional) class. Owner-scoped; validates existence."""
+    _validate_class(db, class_slug)
+    char = get_active_character(db, user_id)
+    if char is not None:
+        char.class_slug = class_slug
+        db.commit()
+
+
 def set_active(db: Session, user_id: int, character_id: int) -> None:
     """Mark a character as the user's active one. Owner-scoped."""
     char = db.execute(

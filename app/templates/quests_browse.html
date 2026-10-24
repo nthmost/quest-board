@@ -16,7 +16,7 @@
         <a class="auth-link" href="/">‹ FRONT</a>
         {% if current_user %}
             <span class="auth-user">{{ current_user }}{% if pretending %} (as user){% endif %}</span>
-            <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+            <a class="auth-link" href="/me/characters">PROFILE</a>
             {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
             {% if actually_admin %}
             <form method="post" action="/me/view-as" style="display:inline">

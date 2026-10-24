@@ -21,6 +21,7 @@ from app.models import (
     Space,
     User,
 )
+from app.services.display import format_display_name
 from app.services.quest_aggregates import boost_summary
 
 
@@ -160,9 +161,14 @@ def _character_creator(db: Session, char_id: int, authed: bool) -> dict | None:
     char = db.execute(select(Character).where(Character.id == char_id)).scalar_one_or_none()
     if char is None:
         return None
-    out = {"kind": "character", "name": char.name, "id": char.id, "class": char.class_slug}
+    owner = db.execute(select(User).where(User.id == char.user_id)).scalar_one_or_none()
+    display = format_display_name(
+        char.name,
+        owner.show_real_name if owner else False,
+        owner.real_name if owner else None,
+    )
+    out = {"kind": "character", "name": display, "id": char.id, "class": char.class_slug}
     if authed:
-        owner = db.execute(select(User).where(User.id == char.user_id)).scalar_one_or_none()
         out["wiki_username"] = owner.wiki_username if owner else None
     return out
 
@@ -182,8 +188,9 @@ def _user_creator(db: Session, user_id: int, authed: bool) -> dict | None:
 def _claims_block(db: Session, quest_id: int, authed: bool) -> dict:
     """Public: just an active count. Authed: full list with character names."""
     rows = db.execute(
-        select(QuestClaim, Character.name)
+        select(QuestClaim, Character.name, User.show_real_name, User.real_name)
         .join(Character, Character.id == QuestClaim.character_id)
+        .join(User, User.id == Character.user_id)
         .where(QuestClaim.quest_id == quest_id)
         .order_by(QuestClaim.claimed_at.asc())
     ).all()
@@ -192,33 +199,34 @@ def _claims_block(db: Session, quest_id: int, authed: bool) -> dict:
     if not authed:
         return summary
     summary["active"] = [
-        {"character_name": name, "claimed_at": claim.claimed_at}
-        for claim, name in active
+        {"character_name": format_display_name(name, show, real), "claimed_at": claim.claimed_at}
+        for claim, name, show, real in active
     ]
     summary["released"] = [
-        {"character_name": name, "claimed_at": claim.claimed_at,
+        {"character_name": format_display_name(name, show, real), "claimed_at": claim.claimed_at,
          "released_at": claim.released_at}
-        for claim, name in rows if claim.released_at is not None
+        for claim, name, show, real in rows if claim.released_at is not None
     ]
     return summary
 
 
 def _boost_detail_block(db: Session, quest_id: int) -> list[dict]:
     rows = db.execute(
-        select(QuestBoost, Character.name)
+        select(QuestBoost, Character.name, User.show_real_name, User.real_name)
         .join(Character, Character.id == QuestBoost.booster_character_id)
+        .join(User, User.id == Character.user_id)
         .where(QuestBoost.quest_id == quest_id)
         .order_by(QuestBoost.created_at.asc())
     ).all()
     return [
         {
-            "booster_name": name,
+            "booster_name": format_display_name(name, show, real),
             "amount": boost.amount,
             "is_self_boost": boost.is_self_boost,
             "refunded": boost.refunded_at is not None,
             "created_at": boost.created_at,
         }
-        for boost, name in rows
+        for boost, name, show, real in rows
     ]
 
 

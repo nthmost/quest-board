@@ -11,13 +11,24 @@ from sqlalchemy.orm import Session
 
 from app.auth import (
     current_username,
+    get_user_by_username,
     is_admin,
     is_pretending_user,
+    login_user,
     require_login,
     set_pretend_user,
+    username_taken,
 )
 from app.db import get_db
-from app.local_auth import hash_password, validate_password, verify_password
+from app.local_auth import (
+    hash_password,
+    normalize_real_name,
+    normalize_username,
+    validate_password,
+    validate_real_name,
+    validate_username,
+    verify_password,
+)
 from app.models import Guild, User
 from app.services import characters as characters_svc
 from app.services import spaces as spaces_svc
@@ -41,9 +52,12 @@ def list_characters(
         request, "me_characters.html",
         {
             "current_user": username,
+            "real_name": user.real_name or "",
+            "show_real_name": user.show_real_name,
             "characters": _decorate_characters(db, rows, user.active_character_id),
             "active_id": user.active_character_id,
             "max_chars": characters_svc.max_characters_per_user(),
+            "classes": characters_svc.list_classes(db),
             "actually_admin": is_admin(username),
             "pretending": is_pretending_user(request) and is_admin(username),
             "spaces": spaces_svc.list_spaces(db),
@@ -59,17 +73,58 @@ def update_profile(
     request: Request,
     username: str = Depends(require_login),
     db: Session = Depends(get_db),
+    real_name: str = Form(""),
+    handle: str = Form(""),
+    show_real_name: str = Form(""),
+    class_slug: str = Form(""),
     primary_space_id: str = Form(""),
 ) -> RedirectResponse:
-    """Set the person's primary makerspace."""
+    """Update identity: real name, handle, real-name visibility, class, space."""
     user = _user_or_die(db, username)
+
+    # Real name (required, unenforced).
+    real_name = normalize_real_name(real_name)
+    err = validate_real_name(real_name)
+    if err:
+        return RedirectResponse("/me/characters?msg=real_name_required", status_code=303)
+    user.real_name = real_name
+
+    # Real-name visibility toggle (checkbox → bool).
+    user.show_real_name = show_real_name.lower() in ("on", "true", "1", "yes")
+
+    # Handle rename: validate, ensure free, then sync login + profile + session.
+    new_handle = normalize_username(handle)
+    renamed_to: str | None = None
+    if new_handle and new_handle.lower() != user.wiki_username.lower():
+        if validate_username(new_handle):
+            return RedirectResponse("/me/characters?msg=handle_invalid", status_code=303)
+        taken_by = get_user_by_username(db, new_handle)
+        if taken_by is not None and taken_by.id != user.id:
+            return RedirectResponse("/me/characters?msg=handle_taken", status_code=303)
+        user.wiki_username = new_handle
+        renamed_to = new_handle
+
+    # Optional class flavor.
+    if class_slug.strip():
+        try:
+            characters_svc.set_class(db, user.id, class_slug.strip())
+        except characters_svc.CharacterError:
+            return RedirectResponse("/me/characters?msg=class_invalid", status_code=303)
+
+    # Primary makerspace.
     if primary_space_id.strip():
         space = spaces_svc.get_space(db, _safe_int(primary_space_id))
         user.primary_space_id = space.id if space else None
     else:
         user.primary_space_id = None
+
     db.commit()
-    return RedirectResponse("/me/characters?msg=space_saved", status_code=303)
+
+    # Keep the profile's display name tracking the handle, and refresh the session.
+    if renamed_to:
+        characters_svc.rename_active(db, user.id, renamed_to)
+        login_user(request, renamed_to)
+    return RedirectResponse("/me/characters?msg=profile_saved", status_code=303)
 
 
 @router.post("/password")

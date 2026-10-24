@@ -24,14 +24,29 @@ def normalize_username(username: str) -> str:
 
 
 def validate_username(username: str) -> str | None:
-    """Return an error string if invalid, else None."""
+    """Validate a handle. Return an error string if invalid, else None."""
     if not username:
-        return "Pick a username."
+        return "Pick a handle."
     if not USERNAME_RE.match(username):
         return (
-            "Usernames are 3–50 characters: letters, numbers, spaces, "
+            "Handles are 3–50 characters: letters, numbers, spaces, "
             "hyphens, or underscores (must start and end with a letter or number)."
         )
+    return None
+
+
+def normalize_real_name(real_name: str) -> str:
+    """Trim and collapse internal whitespace. Casing preserved; unenforced."""
+    return re.sub(r"\s+", " ", (real_name or "").strip())
+
+
+def validate_real_name(real_name: str) -> str | None:
+    """Real name is required at signup but unenforced/unverified. Just non-empty,
+    within a sane length."""
+    if not real_name:
+        return "Enter your real name."
+    if len(real_name) > 255:
+        return "Real name is too long (max 255 characters)."
     return None
 
 

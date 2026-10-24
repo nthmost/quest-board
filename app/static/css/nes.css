@@ -358,3 +358,15 @@ a:hover{color:var(--pink-ink)}
 ::-webkit-scrollbar-track{background:var(--grey-1)}
 ::-webkit-scrollbar-thumb{background:var(--grey-3);border-radius:6px;border:2px solid var(--grey-1)}
 ::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+/* Field hints + handle tooltip (real-name/handle identity model). */
+.field-hint { display:block; margin-top:4px; font-size:12px; color:var(--muted,#8a8f98); line-height:1.4; }
+.hint-tip { position:relative; display:inline-flex; align-items:center; justify-content:center;
+    width:15px; height:15px; margin-left:6px; border:1px solid currentColor; border-radius:50%;
+    font-size:10px; cursor:help; opacity:.7; vertical-align:middle; }
+.hint-tip .hint-bubble { visibility:hidden; opacity:0; position:absolute; bottom:135%; left:50%;
+    transform:translateX(-50%); width:230px; padding:8px 10px; z-index:20;
+    background:var(--panel,#1b1d22); color:var(--ink,#e8e8e8); border:1px solid var(--muted,#555);
+    border-radius:4px; font-size:12px; font-weight:400; line-height:1.45; text-transform:none;
+    letter-spacing:normal; transition:opacity .12s ease; pointer-events:none; }
+.hint-tip:hover .hint-bubble, .hint-tip:focus .hint-bubble { visibility:visible; opacity:1; }

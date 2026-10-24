@@ -20,9 +20,21 @@
             <form method="post" action="/register" class="login-form">
             <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
                 <label class="login-field">
-                    <span class="login-label">USERNAME</span>
-                    <input type="text" name="username" value="{{ username or '' }}"
-                           autocomplete="username" autofocus required>
+                    <span class="login-label">REAL NAME</span>
+                    <input type="text" name="real_name" value="{{ real_name or '' }}"
+                           autocomplete="name" autofocus required>
+                    <span class="field-hint">Required, but kept private — no one sees it unless you choose to show it.</span>
+                </label>
+
+                <label class="login-field">
+                    <span class="login-label">
+                        HANDLE
+                        <span class="hint-tip" tabindex="0" aria-label="This is the only name people will ever see unless you turn on showing your real name.">?
+                            <span class="hint-bubble">This is the name everyone sees. People will only ever see the name you want them to — your real name stays hidden unless you turn it on.</span>
+                        </span>
+                    </span>
+                    <input type="text" name="handle" value="{{ handle or '' }}"
+                           autocomplete="username" required>
                 </label>
 
                 <label class="login-field">
@@ -42,8 +54,8 @@
 
             <div class="login-note">
                 Your {{ request.state.site_name }} account is independent — no wiki or third party
-                involved. Passwords are hashed with Argon2 and never stored in
-                plaintext.
+                involved. You log in with your handle. Passwords are hashed with
+                Argon2 and never stored in plaintext.
                 <br><br>
                 Already have one? <a href="/login">Log in</a>.
             </div>
