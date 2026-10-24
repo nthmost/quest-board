@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
 from app import __version__
-from app.config import get_site_name, reload_economy
+from app.config import get_site_name, get_theme, reload_economy
 from app.csrf import CSRFMiddleware, get_or_create_token
 from app.errors import install_error_handlers
 from app.routes import admin, auth, me, meta, pages, quests, taxonomy
@@ -19,13 +19,15 @@ SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 14  # 14 days
 
 
 def _compute_asset_version() -> str:
-    """Use the latest CSS mtime so cache busts whenever we ship style changes."""
-    css = STATIC_DIR / "css" / "nes.css"
-    return str(int(css.stat().st_mtime)) if css.exists() else __version__
+    """Use the newest CSS mtime so cache busts whenever we ship any style change."""
+    css_dir = STATIC_DIR / "css"
+    mtimes = [p.stat().st_mtime for p in css_dir.glob("*.css")]
+    return str(int(max(mtimes))) if mtimes else __version__
 
 
 ASSET_VERSION = _compute_asset_version()
 SITE_NAME = get_site_name()
+THEME = get_theme()
 
 
 def create_app() -> FastAPI:
@@ -51,6 +53,7 @@ def _install_template_globals(app: FastAPI) -> None:
     async def _attach_globals(request: Request, call_next):
         request.state.asset_v = ASSET_VERSION
         request.state.site_name = SITE_NAME
+        request.state.theme = THEME
         request.state.csrf_token = get_or_create_token(request)
         return await call_next(request)
 

@@ -28,6 +28,15 @@ def get_site_name() -> str:
     return os.environ.get("SITE_NAME", "Actropolis")
 
 
+def get_theme() -> str:
+    """UI theme. THEME env selects the stylesheet; defaults to the Actropolis look.
+
+    "spec" → the Actropolis spec-sheet aesthetic (nes.css, Inter/Space Mono).
+    "nes"  → the original Noisebridge Quest Board NES theme (retro.css, 8-bit fonts).
+    """
+    return os.environ.get("THEME", "spec")
+
+
 def get_economy_yaml_path() -> Path:
     """Resolve the YAML path: ECONOMY_YAML_PATH env wins, then default, then dev fallback."""
     explicit = os.environ.get("ECONOMY_YAML_PATH")
