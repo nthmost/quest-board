@@ -11,22 +11,19 @@ from sqlalchemy.orm import Session
 
 from app.auth import (
     current_username,
-    get_user_by_username,
     is_admin,
     is_pretending_user,
-    login_user,
     require_login,
     set_pretend_user,
-    username_taken,
 )
 from app.db import get_db
 from app.local_auth import (
     hash_password,
     normalize_real_name,
-    normalize_username,
+    normalize_visible_name,
     validate_password,
     validate_real_name,
-    validate_username,
+    validate_visible_name,
     verify_password,
 )
 from app.models import Guild, User
@@ -74,35 +71,30 @@ def update_profile(
     username: str = Depends(require_login),
     db: Session = Depends(get_db),
     real_name: str = Form(""),
-    handle: str = Form(""),
+    visible_name: str = Form(""),
     show_real_name: str = Form(""),
     class_slug: str = Form(""),
     primary_space_id: str = Form(""),
 ) -> RedirectResponse:
-    """Update identity: real name, handle, real-name visibility, class, space."""
+    """Update identity: real name, visible name, real-name visibility, class, space.
+
+    The username (login) is fixed and not editable here.
+    """
     user = _user_or_die(db, username)
 
     # Real name (required, unenforced).
     real_name = normalize_real_name(real_name)
-    err = validate_real_name(real_name)
-    if err:
+    if validate_real_name(real_name):
         return RedirectResponse("/me/characters?msg=real_name_required", status_code=303)
     user.real_name = real_name
 
     # Real-name visibility toggle (checkbox → bool).
     user.show_real_name = show_real_name.lower() in ("on", "true", "1", "yes")
 
-    # Handle rename: validate, ensure free, then sync login + profile + session.
-    new_handle = normalize_username(handle)
-    renamed_to: str | None = None
-    if new_handle and new_handle.lower() != user.wiki_username.lower():
-        if validate_username(new_handle):
-            return RedirectResponse("/me/characters?msg=handle_invalid", status_code=303)
-        taken_by = get_user_by_username(db, new_handle)
-        if taken_by is not None and taken_by.id != user.id:
-            return RedirectResponse("/me/characters?msg=handle_taken", status_code=303)
-        user.wiki_username = new_handle
-        renamed_to = new_handle
+    # Visible name: freely changeable public display name (no login/session impact).
+    visible_name = normalize_visible_name(visible_name)
+    if validate_visible_name(visible_name):
+        return RedirectResponse("/me/characters?msg=visible_name_invalid", status_code=303)
 
     # Optional class flavor.
     if class_slug.strip():
@@ -119,11 +111,7 @@ def update_profile(
         user.primary_space_id = None
 
     db.commit()
-
-    # Keep the profile's display name tracking the handle, and refresh the session.
-    if renamed_to:
-        characters_svc.rename_active(db, user.id, renamed_to)
-        login_user(request, renamed_to)
+    characters_svc.rename_active(db, user.id, visible_name)
     return RedirectResponse("/me/characters?msg=profile_saved", status_code=303)
 
 

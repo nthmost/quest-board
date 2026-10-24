@@ -24,8 +24,7 @@
 
 {% set flash_map = {
     "profile_saved": "Profile saved.",
-    "handle_taken": "That handle is already taken.",
-    "handle_invalid": "That handle isn't valid.",
+    "visible_name_invalid": "That visible name isn't valid.",
     "real_name_required": "Real name is required.",
     "class_invalid": "That class isn't valid.",
     "pw_changed": "Password changed.",
@@ -48,26 +47,31 @@
             <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
 
             <label class="login-field">
+                <span class="login-label">USERNAME</span>
+                <input type="text" value="{{ current_user }}" autocomplete="off" disabled>
+                <span class="field-hint">What you log in with — fixed, and never shown to others.</span>
+            </label>
+
+            <label class="login-field">
+                <span class="login-label">
+                    VISIBLE NAME
+                    <span class="hint-tip" tabindex="0" aria-label="The name people see. Change it whenever you like.">?
+                        <span class="hint-bubble">The name everyone sees — change it whenever you like. People will only ever see the name you want them to.</span>
+                    </span>
+                </span>
+                <input type="text" name="visible_name" value="{{ me_char.name if me_char else '' }}" required>
+            </label>
+
+            <label class="login-field">
                 <span class="login-label">REAL NAME</span>
                 <input type="text" name="real_name" value="{{ real_name }}" autocomplete="name" required>
                 <span class="field-hint">Required, but private — no one sees it unless you turn on the toggle below.</span>
             </label>
 
-            <label class="login-field">
-                <span class="login-label">
-                    HANDLE
-                    <span class="hint-tip" tabindex="0" aria-label="This is the only name people see unless you show your real name.">?
-                        <span class="hint-bubble">This is the name everyone sees, and the name you log in with. People will only ever see the name you want them to.</span>
-                    </span>
-                </span>
-                <input type="text" name="handle" value="{{ current_user }}" autocomplete="username" required>
-                <span class="field-hint">Changing this also changes how you log in.</span>
-            </label>
-
             <label class="login-field" style="flex-direction:row;align-items:center;gap:.6rem">
                 <input type="checkbox" name="show_real_name" value="on" style="width:auto"
                        {% if show_real_name %}checked{% endif %}>
-                <span>Show my real name next to my handle (others will see “{{ current_user }} (your real name)”).</span>
+                <span>Show my real name next to my visible name (others will see “{{ me_char.name if me_char else 'your name' }} (your real name)”).</span>
             </label>
 
             {% if classes %}

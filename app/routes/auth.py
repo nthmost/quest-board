@@ -20,9 +20,11 @@ from app.db import get_db
 from app.local_auth import (
     normalize_real_name,
     normalize_username,
+    normalize_visible_name,
     validate_password,
     validate_real_name,
     validate_username,
+    validate_visible_name,
     verify_password,
 )
 from app.services import characters as characters_svc
@@ -44,14 +46,14 @@ def login_form(request: Request) -> HTMLResponse:
 @router.post("/login", response_class=HTMLResponse)
 def login_submit(
     request: Request,
-    handle: str = Form(...),
+    username: str = Form(...),
     password: str = Form(...),
     db: Session = Depends(get_db),
 ) -> HTMLResponse:
-    handle = normalize_username(handle)
-    user = get_user_by_username(db, handle)
+    username = normalize_username(username)
+    user = get_user_by_username(db, username)
     if user is None or not verify_password(user.password_hash, password):
-        return _render_login(request, error="Wrong handle or password.")
+        return _render_login(request, error="Wrong username or password.")
     user.last_seen_at = datetime.now(UTC)
     db.commit()
     # Log in under the stored (canonical-cased) username.
@@ -64,41 +66,45 @@ def login_submit(
 def register_form(request: Request) -> HTMLResponse:
     if current_username(request):
         return RedirectResponse("/", status_code=303)
-    return _render_register(request, error=None, handle="", real_name="")
+    return _render_register(request, error=None, username="", visible_name="", real_name="")
 
 
 @router.post("/register", response_class=HTMLResponse)
 def register_submit(
     request: Request,
+    username: str = Form(...),
+    visible_name: str = Form(...),
     real_name: str = Form(...),
-    handle: str = Form(...),
     password: str = Form(...),
     password2: str = Form(""),
     db: Session = Depends(get_db),
 ) -> HTMLResponse:
+    username = normalize_username(username)
+    visible_name = normalize_visible_name(visible_name)
     real_name = normalize_real_name(real_name)
-    handle = normalize_username(handle)
 
     def fail(msg: str) -> HTMLResponse:
-        return _render_register(request, error=msg, handle=handle, real_name=real_name)
+        return _render_register(
+            request, error=msg, username=username,
+            visible_name=visible_name, real_name=real_name,
+        )
 
-    err = validate_real_name(real_name)
-    if err:
-        return fail(err)
-    err = validate_username(handle)
-    if err:
-        return fail(err)
-    err = validate_password(password)
-    if err:
-        return fail(err)
+    for err in (
+        validate_username(username),
+        validate_visible_name(visible_name),
+        validate_real_name(real_name),
+        validate_password(password),
+    ):
+        if err:
+            return fail(err)
     if password2 and password != password2:
         return fail("Passwords don't match.")
-    if username_taken(db, handle):
-        return fail("That handle is taken.")
+    if username_taken(db, username):
+        return fail("That username is taken.")
 
-    user = register_user(db, handle, password, real_name=real_name)
-    # Fold profile creation into signup: one handle-named profile, random class.
-    characters_svc.create_default_profile(db, user.id, handle)
+    user = register_user(db, username, password, real_name=real_name)
+    # One profile per account, named by the (freely-changeable) visible name.
+    characters_svc.create_default_profile(db, user.id, visible_name)
     login_user(request, user.wiki_username)
     return RedirectResponse("/", status_code=303)
 
@@ -116,9 +122,13 @@ def _render_login(request: Request, error: str | None) -> HTMLResponse:
 
 
 def _render_register(
-    request: Request, error: str | None, handle: str, real_name: str
+    request: Request, error: str | None, username: str,
+    visible_name: str, real_name: str,
 ) -> HTMLResponse:
     return templates.TemplateResponse(
         request, "register.html",
-        {"error": error, "handle": handle, "real_name": real_name},
+        {
+            "error": error, "username": username,
+            "visible_name": visible_name, "real_name": real_name,
+        },
     )

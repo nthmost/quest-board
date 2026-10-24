@@ -24,14 +24,28 @@ def normalize_username(username: str) -> str:
 
 
 def validate_username(username: str) -> str | None:
-    """Validate a handle. Return an error string if invalid, else None."""
+    """Validate a login username. Return an error string if invalid, else None."""
     if not username:
-        return "Pick a handle."
+        return "Pick a username."
     if not USERNAME_RE.match(username):
         return (
-            "Handles are 3–50 characters: letters, numbers, spaces, "
+            "Usernames are 3–50 characters: letters, numbers, spaces, "
             "hyphens, or underscores (must start and end with a letter or number)."
         )
+    return None
+
+
+def normalize_visible_name(visible_name: str) -> str:
+    """Trim and collapse internal whitespace. Casing preserved."""
+    return re.sub(r"\s+", " ", (visible_name or "").strip())
+
+
+def validate_visible_name(visible_name: str) -> str | None:
+    """The public display name. Permissive — any non-empty text up to 64 chars."""
+    if not visible_name:
+        return "Pick a visible name."
+    if len(visible_name) > 64:
+        return "Visible name is too long (max 64 characters)."
     return None
 
 
