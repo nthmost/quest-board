@@ -108,63 +108,11 @@ def set_class(db: Session, user_id: int, class_slug: str) -> None:
         db.commit()
 
 
-def set_active(db: Session, user_id: int, character_id: int) -> None:
-    """Mark a character as the user's active one. Owner-scoped."""
-    char = db.execute(
-        select(Character).where(
-            Character.id == character_id,
-            Character.user_id == user_id,
-            Character.deleted_at.is_(None),
-        )
-    ).scalar_one_or_none()
-    if char is None:
-        raise CharacterError("Character not found.")
-    user = db.execute(select(User).where(User.id == user_id)).scalar_one()
-    user.active_character_id = char.id
-    db.commit()
-
-
 def _set_active_if_unset(db: Session, user_id: int, character_id: int) -> None:
-    """If this is the user's first character, mark it active automatically."""
+    """If this is the user's first profile, mark it active automatically."""
     user = db.execute(select(User).where(User.id == user_id)).scalar_one()
     if user.active_character_id is None:
         user.active_character_id = character_id
-
-
-def soft_delete(db: Session, user_id: int, character_id: int) -> Character:
-    """Mark a character deleted. Owner-scoped; raises if not owned by this user.
-
-    If the deleted character was active, transfer active to the oldest
-    remaining character or clear it if none remain.
-    """
-    character = db.execute(
-        select(Character).where(
-            Character.id == character_id,
-            Character.user_id == user_id,
-            Character.deleted_at.is_(None),
-        )
-    ).scalar_one_or_none()
-    if character is None:
-        raise CharacterError("Character not found.")
-    character.deleted_at = func.now()
-    db.flush()
-    _reassign_active_after_delete(db, user_id, character.id)
-    db.commit()
-    db.refresh(character)
-    return character
-
-
-def _reassign_active_after_delete(db: Session, user_id: int, deleted_id: int) -> None:
-    user = db.execute(select(User).where(User.id == user_id)).scalar_one()
-    if user.active_character_id != deleted_id:
-        return
-    fallback = db.execute(
-        select(Character.id)
-        .where(Character.user_id == user_id, Character.deleted_at.is_(None))
-        .order_by(Character.created_at.asc())
-        .limit(1)
-    ).scalar_one_or_none()
-    user.active_character_id = fallback
 
 
 def max_characters_per_user() -> int:

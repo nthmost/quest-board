@@ -12,15 +12,15 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    # `wiki_username` is the stored identity column (name kept for schema
-    # stability); it now holds the person's public **handle** — the name they
-    # log in with and the only name others see unless they opt in below.
+    # The account's login username: the credential they sign in with, fixed,
+    # and never shown to others. (Physical column name is `wiki_username` for
+    # schema stability; the application treats it as the username.)
     wiki_username: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     # Real name: collected at signup (required there) but unenforced/unverified
-    # and private by default. Nullable in the DB for legacy/system rows.
+    # and private by default. Nullable in the DB for system rows.
     real_name: Mapped[str | None] = mapped_column(String(255), nullable=True)
-    # When true, this person's real name is shown alongside their handle to
-    # everyone, as "handle (Real Name)". Off by default — pseudonymous.
+    # When true, the real name is shown alongside the visible name to everyone,
+    # as "Visible Name (Real Name)". Off by default — pseudonymous.
     show_real_name: Mapped[bool] = mapped_column(
         Boolean, nullable=False, default=False, server_default="false"
     )

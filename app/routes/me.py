@@ -1,6 +1,5 @@
-"""Self-service routes for the logged-in user: list / create / delete characters."""
+"""Self-service routes for the logged-in user: view and edit your profile."""
 
-import contextlib
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, Form, Request
@@ -10,7 +9,6 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.auth import (
-    current_username,
     is_admin,
     is_pretending_user,
     require_login,
@@ -52,8 +50,6 @@ def list_characters(
             "real_name": user.real_name or "",
             "show_real_name": user.show_real_name,
             "characters": _decorate_characters(db, rows, user.active_character_id),
-            "active_id": user.active_character_id,
-            "max_chars": characters_svc.max_characters_per_user(),
             "classes": characters_svc.list_classes(db),
             "actually_admin": is_admin(username),
             "pretending": is_pretending_user(request) and is_admin(username),
@@ -137,63 +133,6 @@ def change_password(
     return RedirectResponse("/me/characters?msg=pw_changed", status_code=303)
 
 
-@router.get("/characters/new", response_class=HTMLResponse)
-def new_character_form(
-    request: Request,
-    username: str = Depends(require_login),
-    db: Session = Depends(get_db),
-    error: str | None = None,
-) -> HTMLResponse:
-    user = _user_or_die(db, username)
-    cap = characters_svc.max_characters_per_user()
-    existing = characters_svc.list_for_user(db, user.id)
-    if len(existing) >= cap:
-        return RedirectResponse("/me/characters?msg=at_cap", status_code=303)
-    return templates.TemplateResponse(
-        request, "me_character_new.html",
-        {
-            "current_user": username,
-            "classes": characters_svc.list_classes(db),
-            "guilds": characters_svc.list_guilds(db),
-            "error": error,
-            "form": {"name": "", "class_slug": "", "primary_guild_id": ""},
-        },
-    )
-
-
-@router.post("/characters", response_class=HTMLResponse)
-def create_character(
-    request: Request,
-    username: str = Depends(require_login),
-    db: Session = Depends(get_db),
-    name: str = Form(...),
-    class_slug: str = Form(...),
-    primary_guild_id: str = Form(""),
-) -> HTMLResponse:
-    user = _user_or_die(db, username)
-    guild_id = int(primary_guild_id) if primary_guild_id else None
-    try:
-        characters_svc.create_character(db, user.id, name, class_slug, guild_id)
-    except characters_svc.CharacterError as e:
-        return _re_render_with_error(
-            request, username, db, str(e), name, class_slug, primary_guild_id,
-        )
-    return RedirectResponse("/me/characters", status_code=303)
-
-
-@router.post("/characters/{character_id}/delete")
-def delete_character(
-    character_id: int,
-    username: str = Depends(require_login),
-    db: Session = Depends(get_db),
-) -> RedirectResponse:
-    user = _user_or_die(db, username)
-    # Owner mismatch or already-deleted: treat the slot as freed silently.
-    with contextlib.suppress(characters_svc.CharacterError):
-        characters_svc.soft_delete(db, user.id, character_id)
-    return RedirectResponse("/me/characters", status_code=303)
-
-
 @router.post("/view-as")
 def toggle_view_as(
     request: Request,
@@ -204,18 +143,6 @@ def toggle_view_as(
         set_pretend_user(request, on=not is_pretending_user(request))
     target = request.headers.get("referer") or "/"
     return RedirectResponse(target, status_code=303)
-
-
-@router.post("/characters/{character_id}/activate")
-def activate_character(
-    character_id: int,
-    username: str = Depends(require_login),
-    db: Session = Depends(get_db),
-) -> RedirectResponse:
-    user = _user_or_die(db, username)
-    with contextlib.suppress(characters_svc.CharacterError):
-        characters_svc.set_active(db, user.id, character_id)
-    return RedirectResponse("/me/characters", status_code=303)
 
 
 def _decorate_characters(db: Session, rows, active_id: int | None) -> list[dict]:
@@ -249,23 +176,3 @@ def _safe_int(raw: str) -> int | None:
         return int(raw)
     except (ValueError, TypeError):
         return None
-
-
-def _re_render_with_error(
-    request: Request, username: str, db: Session, error: str,
-    name: str, class_slug: str, primary_guild_id: str,
-) -> HTMLResponse:
-    return templates.TemplateResponse(
-        request, "me_character_new.html",
-        {
-            "current_user": current_username(request),
-            "classes": characters_svc.list_classes(db),
-            "guilds": characters_svc.list_guilds(db),
-            "error": error,
-            "form": {
-                "name": name,
-                "class_slug": class_slug,
-                "primary_guild_id": primary_guild_id,
-            },
-        },
-    )

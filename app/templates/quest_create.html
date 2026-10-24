@@ -11,7 +11,7 @@
         <a class="auth-link" href="/">‹ FRONT</a>
         <a class="auth-link" href="/quests">ALL QUESTS</a>
         <span class="auth-user">{{ current_user }}</span>
-        <a class="auth-link" href="/me/characters">MY CHARACTERS</a>
+        <a class="auth-link" href="/me/characters">PROFILE</a>
         {% if is_admin %}<a class="auth-link" href="/admin/">ADMIN</a>{% endif %}
         <form method="post" action="/logout" style="display:inline">
             <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">

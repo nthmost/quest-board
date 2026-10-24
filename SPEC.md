@@ -16,23 +16,15 @@
 
 ## 1. Design principles
 
-- **Character is the primary actor.** Quests are claimed, completed, and boosted by characters, not users. The XP ledger writes to character_id. Users are pure identity (wiki_username + Discord linking metadata, no economy fields). The real version constrains each user to exactly one character; the demo allows up to 4. Same code path either way.
+- **Each account has one profile, and the profile is the actor.** Quests are claimed, completed, and boosted by an account's profile; the XP ledger writes to it. An account carries three names: a **username** (login credential, fixed), a **visible name** (public display, changeable anytime), and a **real name** (private, required at signup, shown to others only if the person opts in). One profile per account. The profile also carries optional flavor — an XP level and an optional class — that never gates anything.
 - **One core entity: `Quest`.** Sub-quests, tasks, errands are all just quests with a `parent_quest_id`. Maximum depth is YAML-configurable (`quests.max_depth`, default 2) with an absolute ceiling of 3. Depth-3 supports "maxi-quests" — e.g. a *Journeyman in Guild X* container holds quests, which themselves hold tasks.
 - **XP is a real economy.** Quests mint XP on completion; users can spend XP on (a) **levels** (vanity sink) and (b) **boosting** quests they want done. Inflation is tolerated — this is a social-credit system, not a closed currency.
 - **Donor bounties are real dollars, gifted to NB.** A donor pledges $X conditional on a quest being completed; on terminal payout, NB collects the gift. The bounty never flows to the doer (no wage, no contractor pay, no escrow). Volunteers remain volunteers; donors get a 501(c)(3) acknowledgment. The mechanic is a *conditional restricted gift*, not a market price.
 - **Time-and-notes reporting at claim is measurement, not competition.** Per-claimer self-reported minutes, done-state, free-text notes, and an optional photo are captured at claim completion. The data exists to be aggregated (operational-cost transparency, calibrated bounty pricing, grant-writing volunteer-hour totals). No speedrun bonuses, no minimum-time thresholds, no XP modifier tied to duration.
 - **Verification is social by default.** Public submissions (notes + photo + time + party) create the audit trail; software does not adjudicate "done" for most tasks. The `requires_verification` flag is reserved for genuinely high-stakes work.
-- **⚠ SUPERSEDED (Oct 2026): identity is now independent + self-serve.** Actropolis no
-  longer authenticates against the Noisebridge wiki. Accounts are local (username +
-  Argon2id password), created via self-serve `/register`. **This breaks the in-person
-  verification chain described in the next bullet** — there is currently no personhood
-  guarantee behind an account. The civic-hours certificate (§4) therefore **cannot** be
-  issued as written until a verification step is re-added (admin approval of accounts, or
-  per-space in-person vouching). Treat the paragraph below as historical design intent.
-- **(Historical) Wiki identity is in-person verified.** Noisebridge wiki accounts are issued only after an admin sits with the prospective member in person and verifies them. This single fact is **load-bearing** for the civic-hours certificate (§4): the personhood-to-account binding is established once at admin-mediated signup and inherited by every claim downstream. If wiki-account policy ever loosens to self-serve signup, the civic-hours story breaks and the certificate text must be updated. This dependency is documented here on purpose. *(This is exactly what happened — see the superseded note above.)*
-- **Discord integration is deferred.** `users` table carries `discord_user_id` / `discord_username` columns so the data is captured opportunistically; no flows in v1.
+- **Identity is independent and self-serve.** Accounts are created at `/register` with a username + Argon2id password — no third-party or external identity provider. Because signup is self-serve, an account carries no inherent personhood guarantee; any program that needs one (see the civic-hours certificate, §4) must add its own verification step, e.g. admin approval of accounts or per-space in-person vouching.
+- **Discord integration is deferred.** `users` carries `discord_user_id` / `discord_username` columns so the data is captured opportunistically; no flows in v1.
 - **Public-read by default.** GETs return non-sensitive fields without auth so the BBS, Home Assistant @ NB, and ad-hoc scripts can consume freely.
-- **Wiki is canonical identity** via MediaWiki OAuth.
 - **LLM assist is opt-in and preview-only** via `/quests/draft`.
 - **Economy rules live in YAML, not the database.** A single `economy.yaml` config file is the source of truth for tunable values; the API hot-reloads on SIGHUP. No "settings UI," no `system_config` table.
 
@@ -41,27 +33,28 @@
 ## 2. Data model
 
 ### `users`
-Sourced from MediaWiki OAuth on first login.
+Pure identity. The economy (XP, level) lives on the account's profile (see `characters`).
 
 | column | type | notes |
 |---|---|---|
 | id | bigserial PK | |
-| wiki_username | text unique not null | from OAuth |
-| wiki_user_id | bigint unique | MediaWiki internal id |
+| username | text unique not null | login credential, fixed; never shown to others |
+| password_hash | text nullable | Argon2id; null for system/service rows with no login |
+| real_name | text nullable | private; required at signup, unenforced/unverified |
+| show_real_name | bool not null default false | if true, the real name is shown alongside the visible name |
+| primary_space_id | int FK spaces(id) nullable | the makerspace this person primarily belongs to |
 | discord_user_id | text unique nullable | metadata only in v1 |
 | discord_username | text nullable | metadata only |
-| xp_balance | int not null default 0 | denormalized cache; ledger is canonical. CHECK ≥ 0 |
-| level | int not null default 1 | starts at 1; advances via explicit level-up spends |
-| is_system | bool not null default false | true for the singleton treasury user; excluded from leaderboards / public listings |
+| is_system | bool not null default false | true for the singleton treasury account; excluded from leaderboards / public listings |
 | created_at | timestamptz | |
 | last_seen_at | timestamptz | |
 
-A single seeded `is_system = true` user (`wiki_username = '__treasury__'`, no `wiki_user_id`) owns the treasury balance when posting fees are routed to it. All public-listing endpoints filter `is_system = false`.
+The **visible name** (public display name) and the economy fields (XP balance, level, optional class) live on the account's single profile row in `characters`, which is created at signup.
 
-`xp_balance` is recomputed on every `xp_transactions` insert in the same DB transaction.
+A single seeded `is_system = true` account (`username = '__treasury__'`) owns the treasury balance when posting fees are routed to it. All public-listing endpoints filter `is_system = false`.
 
 ### `guilds` / `locations` (enumerated, admin-curated)
-Same as before — see prior version. (Slugs, names, kind, etc.)
+Admin-curated enumerations, each with `slug`, `name`, and kind/metadata columns.
 
 ### `quests`
 
@@ -118,7 +111,7 @@ Per-donor pledges of real dollars conditional on quest completion. Charged on te
 | id | bigserial PK | |
 | quest_id | bigint FK quests(id) not null | |
 | donor_user_id | bigint FK users(id) nullable | nullable for fully anonymous |
-| donor_display_name | text nullable | for anonymous-but-credited donors; UI shows this instead of wiki_username |
+| donor_display_name | text nullable | for anonymous-but-credited donors; UI shows this instead of the account's visible name |
 | amount_cents | int not null CHECK > 0 | dollar pledge in cents |
 | memo | text nullable | donor's dedication / reason |
 | pledged_at | timestamptz not null default now() | |
@@ -203,7 +196,7 @@ The ledger. Every change to any user's `xp_balance` corresponds to exactly one r
 Indexes: `(user_id, created_at desc)`, `(quest_id)`, `(boost_id)`.
 
 ### `api_keys`
-Same as before — `name`, `key_hash` (argon2), `scopes[]`, `revoked_at`.
+Columns: `name`, `key_hash` (argon2), `scopes[]`, `revoked_at`.
 
 ---
 
@@ -290,14 +283,14 @@ Re-parenting via `PATCH /quests/{id}` is allowed only if (a) the quest has no ch
 
 Lowering `max_depth` in YAML does **not** retroactively prune existing quests. Quests that already exceed the new limit remain readable and completable, but you cannot create new children under them or re-parent them deeper. The startup check surfaces this on `GET /stats` (`economy_warnings: ["max_depth lowered; N quests exceed current limit"]`).
 
-### Welcome grant (on first login)
-When a new `users` row is created via MediaWiki OAuth callback, in the same DB transaction:
+### Welcome grant (on signup)
+When an account's profile is created at signup, in the same DB transaction:
 
 1. Read `xp.welcome_grant` from YAML.
-2. If `enabled: true`: insert `xp_transactions(user_id=new_user, amount=welcome_grant.amount, reason='welcome_grant', memo=welcome_grant.memo)` and set `xp_balance = welcome_grant.amount`.
-3. If `enabled: false`: user starts at 0 XP.
+2. If `enabled: true`: insert `xp_transactions(character_id=new_profile, amount=welcome_grant.amount, reason='welcome_grant', memo=welcome_grant.memo)` and set the profile's `xp_balance = welcome_grant.amount`.
+3. If `enabled: false`: the profile starts at 0 XP.
 
-**Idempotency:** enforced by a partial unique index `CREATE UNIQUE INDEX users_one_welcome_grant ON xp_transactions(user_id) WHERE reason = 'welcome_grant'`. A user who is somehow created twice (data repair, etc.) cannot receive a second welcome grant.
+**Idempotency:** enforced by a partial unique index on `xp_transactions(character_id) WHERE reason = 'welcome_grant'`. A profile cannot receive a second welcome grant.
 
 **Config-consistency check at startup / SIGHUP:** if `posting_fee.enabled = true` AND (`welcome_grant.enabled = false` OR `welcome_grant.amount < posting_fee.flat_amount`), log a warning to the application log and surface it on `GET /stats` as `economy_warnings: ["..."]`. Does not block startup — admins may have intentional reasons.
 
@@ -420,18 +413,17 @@ Step 0 (new), before the existing payout steps: collect all active `quest_bounti
 
 Noisebridge is establishing a program with the City of San Francisco whereby volunteer hours at NB can be applied toward parking-ticket debt and similar civic obligations. The Quest Board's per-claimer time data is the substrate; this subsection defines what NB issues to the City.
 
-**Trust model.** No in-system certifier role, no real-name binding, no ID-check at claim time. The full strength of the certification rests on the §1 principle that wiki accounts are issued only after in-person admin verification. Every claim is bound to a wiki_username, and every wiki_username was vouched for face-to-face at signup. The certificate states this explicitly so the City can audit the chain.
+**Trust model.** Accounts are self-serve, so the system provides no personhood guarantee on its own. A certificate is only as strong as the **verification step the program adds on top** — admin approval of the account, or in-person vouching at a space. The certificate records which verification applied (or states that none did) so the City can audit the chain. The account's **real name** (private field, §2) is the natural binding when a verified name is required; it is included only with the person's consent at generation time.
 
-**No new tables.** The certificate is generated from existing `quest_claims.time_spent_minutes` + `quests` join, scoped by user and date range.
+**No new tables.** The certificate is generated from existing `quest_claims.time_spent_minutes` + `quests` join, scoped by account and date range.
 
 **Certificate contents:**
 - NB letterhead, 501(c)(3) statement
-- Wiki username (the verified identity)
-- Optional display name supplied at generation time (not stored)
+- The account's real name (when consented) and/or visible name
 - Date range
 - Total hours
 - Per-quest breakdown (title, date, minutes)
-- The verbatim sentence: *"Wiki accounts at Noisebridge are issued only after in-person verification by a Noisebridge administrator. The hours below were reported by [wiki_username], an account so verified."*
+- A statement of how the account was verified (admin-approved / space-vouched / unverified)
 - Date of issue
 - A signature line for optional board countersignature (no system-side field; ink-on-paper if the City requests stronger proof)
 
@@ -456,9 +448,9 @@ No reopen path. Sub-quest `auto` rollup fires only on terminal-paid-out states.
 
 ---
 
-## 5. Auth (unchanged)
+## 5. Auth
 
-- **Humans:** MediaWiki OAuth → `/auth/wiki/login` → upsert into `users`, issue session token.
+- **Humans:** self-serve accounts. `POST /register` (username + visible name + real name + password) creates the account and its profile; `POST /login` (username + password) issues a signed-cookie session. Passwords are Argon2id. The username is the login credential and is fixed; the visible name is editable anytime.
 - **Service principals:** `api_keys` table, hashed argon2, scoped (`quests:read`, `quests:write`, `quests:verify`, `admin`). Bearer `sp_<key>`.
 - **Discord:** not in v1; columns exist on `users` for opportunistic capture.
 
@@ -474,19 +466,22 @@ No reopen path. Sub-quest `auto` rollup fires only on terminal-paid-out states.
 | creator_attribution (string) | ✅ | ✅ |
 | **boost summary**: total_boost_pool, external_boost_pool, self_boost_amount, boost_count | ✅ | ✅ |
 | **boost detail list**: per-booster amounts + identities | ❌ | ✅ |
-| creator_user_id, creator wiki_username | ❌ | ✅ |
+| creator_user_id, creator username | ❌ | ✅ |
 | creator_bonus_xp, verifier_bonus_xp, posting_fee_charged, posting_fee_destination | ❌ | ✅ |
 | claims (who/when) | ❌ (count only) | ✅ |
 | verifier_user_ids | ❌ | ✅ |
 | internal_notes | ❌ | ✅ creator + verifiers + admins |
 | **bounty summary**: total_bounty_cents, bounty_count | ✅ | ✅ |
-| **bounty detail list**: per-donor amounts, display_name, memo | ✅ when `donor_display_name` set OR donor opted public; else aggregate only | ✅ full detail (includes donor wiki_username) for admins; donors see their own |
+| **bounty detail list**: per-donor amounts, display_name, memo | ✅ when `donor_display_name` set OR donor opted public; else aggregate only | ✅ full detail (includes donor username) for admins; donors see their own |
 | stripe payment ids on `quest_bounties` | ❌ | ✅ admin only |
 | **claim completion data**: time_spent_minutes, done_state, claim_notes, reported_at | ✅ | ✅ |
 | claim attachments (photos) | ✅ | ✅ |
 
-Users:
-- `xp_balance`, `level` — public on `GET /users/{id}` if `leaderboard.show_balances_publicly = true`, else self/admin only.
+Accounts:
+- **visible name** — always public (it's the display name).
+- **real name** — shown publicly only when the account's `show_real_name = true`; otherwise self/admin only.
+- **username** — never shown to others; self/admin only.
+- **XP balance, level** (on the profile) — public on `GET /users/{id}` if `leaderboard.show_balances_publicly = true`, else self/admin only.
 - Transaction history — authed only; self or admin.
 
 ---
@@ -534,9 +529,9 @@ GET    /users/{id}
 GET    /users/{id}/xp            # self or admin
 GET    /users/{id}/hours/certificate  # admin scope; same params as /me variant
 
-GET    /auth/wiki/login
-GET    /auth/wiki/callback
-POST   /auth/logout
+POST   /register                 # username + visible name + real name + password
+POST   /login                    # username + password
+POST   /logout
 
 POST   /admin/xp/grant           # admin scope
 POST   /admin/xp/correct         # admin scope
@@ -588,16 +583,16 @@ Same shape as before. Returns `xp_suggested` only when `calibration_status == 'c
 
 ### Future goals (post-v1, design hooks)
 
-- **Wiki user-page badges.** Provide an endpoint set that MediaWiki templates / extensions can embed on a user's wiki page to render their quest-board status (level, XP, quest count, recent activity).
+- **Embeddable profile badges.** Provide an endpoint set that any external page (a personal site, a wiki user-page, etc.) can embed to render an account's quest-board status (level, XP, quest count, recent activity).
   - Anticipated shape:
-    - `GET /api/v1/users/by-wiki/{wiki_username}/badge.svg` — server-rendered SVG badge (XP / level / quests done). Cacheable. No JS required on the wiki side.
-    - `GET /api/v1/users/by-wiki/{wiki_username}/badge.json` — raw data for client-side or template-side rendering.
-    - `GET /api/v1/users/by-wiki/{wiki_username}/badge.html` — small inline HTML snippet for `{{#fetch:...}}`-style template patterns if the wiki has the right extension.
-  - Cache headers (`Cache-Control: public, max-age=300`) so the wiki isn't hammering the API on every page render.
-  - The API needs a canonical, public-stable URL pattern keyed on `wiki_username` — note it as a v1 design constraint so the URL space doesn't have to break later.
+    - `GET /api/v1/users/{username}/badge.svg` — server-rendered SVG badge (XP / level / quests done). Cacheable. No JS required on the embedding side.
+    - `GET /api/v1/users/{username}/badge.json` — raw data for client-side or template-side rendering.
+    - `GET /api/v1/users/{username}/badge.html` — small inline HTML snippet for template-include patterns.
+  - Cache headers (`Cache-Control: public, max-age=300`) so embedders don't hammer the API on every page render.
+  - Keyed on the public-stable `username` so the URL space doesn't have to break later.
 
 ---
 
 ## 10. Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full runbook: service user setup, MediaWiki OAuth consumer registration, Postgres, systemd unit, nginx + Let's Encrypt, backups, and pre-launch checklist.
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full runbook: service user setup, Postgres, systemd unit, reverse proxy + Let's Encrypt, backups, and the per-instance env (branding, theme, economy YAML).
