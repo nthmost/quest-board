@@ -84,17 +84,13 @@ Open `https://graph.actropolis.org/` in a browser — the graph should render
 
 ## Updating the graph later
 
-After editing any design doc's frontmatter:
+Don't hand-run scp. After any doc change, publish with one command:
 ```bash
-cd ~/projects/actropolis/quest-board
-.venv/bin/python -m scripts.build_docs_index
-scp docs/graph.html docs/index.json zephyr:/tmp/ && \
-  ssh zephyr 'sudo mv /tmp/graph.html /tmp/index.json /var/www/graph.actropolis.org/ && \
-    sudo chown www-data:www-data /var/www/graph.actropolis.org/*'
+scripts/publish_graph.sh    # regenerates, validates, deploys graph.html + overview.html + index.json
 ```
-(`graph.html` only changes when you edit the viewer; `index.json` changes every
-regen. The viewer fetches `index.json` with `cache: no-store`, so a browser
-refresh always shows the latest.)
+The viewers fetch `index.json` with `cache: no-store`, so a browser refresh
+always shows the latest. The sync contract (what triggers a publish, and the
+reverse direction) is [`GRAPH.md`](./GRAPH.md).
 
 ## Taking it down
 
