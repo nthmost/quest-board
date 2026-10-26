@@ -1,3 +1,14 @@
+---
+id: overview
+title: Actropolis — project overview
+type: reference
+status: shipped
+updated: 2026-10-26
+owners: [nthmost]
+tags: [overview, map]
+relates_to: [spec, demo, ui-reference, docs-convention]
+---
+
 # Actropolis
 
 A quest board for the Actropolis network of makerspaces — a Progress-Quest-style
@@ -41,7 +52,7 @@ handful of toggles distinguish them.
 | | **Demo (now)** | **Real (eventually)** |
 |---|---|---|
 | Audience | Anyone who wants to play | Noisebridge members |
-| Characters | Up to 4 per account | 1 per account (config flag) |
+| Profile | One per account | One per account |
 | NPC posters | Yes (system voice = "The Quartermaster") | None — humans post real asks |
 | Auto-play | Characters claim/complete on a sim clock | No — humans drive every action |
 | Sim clock | 30× speedup, ~1 month per real day | Wall clock, no compression |
@@ -95,7 +106,7 @@ export DATABASE_URL="postgresql+psycopg://localhost/questboard"
 export ECONOMY_YAML_PATH="$(pwd)/economy.example.yaml"
 export SESSION_SECRET="$(openssl rand -base64 48)"
 
-.venv/bin/alembic upgrade head        # migrations 0001..0005
+.venv/bin/alembic upgrade head        # migrations 0001..0011
 .venv/bin/python scripts/seed.py      # guilds, locations, 3 test users
 .venv/bin/python scripts/ingest_pool.py   # ~348 NB-flavored quests
 .venv/bin/uvicorn app.main:app --reload --port 8080
@@ -125,7 +136,7 @@ actropolis/                        # controller dir (not this repo)
     │
     ├── pyproject.toml             # FastAPI + SQLAlchemy + Alembic + Jinja
     ├── alembic.ini
-    ├── alembic/versions/0001..0009 # full migration chain
+    ├── alembic/versions/0001..0011 # full migration chain
     ├── economy.example.yaml       # all economy knobs in one file
     │
     ├── app/
@@ -184,9 +195,9 @@ ignored (Depends-in-defaults is the canonical FastAPI pattern).
 **Architecture commitments locked in:**
 
 - Character is the primary actor in *both* modes. Quests, claims, boosts,
-  and the XP ledger all attach to `character_id`. Users are pure wiki
-  identity. The real version constrains 1:1 via config; the demo allows
-  up to 4 characters per user.
+  and the XP ledger all attach to `character_id`. Users are pure local
+  identity (username + password). One profile per account in both modes —
+  the single profile row is created at signup.
 - `quartermaster` is reserved as the system voice (default attribution
   on quests with no concrete poster). Players can't pick it as a class.
 - `internal_notes` is admin-only; everything else is public-safe by
@@ -196,18 +207,26 @@ ignored (Depends-in-defaults is the canonical FastAPI pattern).
 
 **Recent decisions worth not relitigating:**
 
-- Wiki SSO is classic MediaWiki `action=login`, not OAuth (the NB wiki
-  has no OAuth extension installed). Same pattern as nbarchive.
+- Auth is fully local (username + Argon2id password); the wiki login
+  proxy was removed in the Actropolis rebrand (migration 0008). See the
+  civic-hours caveat above — self-serve signup broke the in-person
+  verification chain the old wiki accounts provided.
+- One profile per account in both modes; the earlier "up to 4 characters"
+  demo idea was dropped.
 - Quest pool was mined from NB Discord archives (`#help-wanted`,
   `#facilities`, `#fabrication-n-lasers`, etc.), curated through the
   LiteLLM router, and skill-tagged against `data/skill_vocab.yaml`. We
   don't run LLM gen at runtime — that was a one-shot data-prep step.
-- All economy values live in `economy.example.yaml` (deployed copy at
-  `/etc/questboard/economy.yaml` on enki). SIGHUP reloads.
+- All economy values live in `economy.example.yaml` (deployed copies on
+  zephyr at `/home/nthmost/.questboard-economy.yaml` and
+  `/home/nthmost/.questboard-nb-economy.yaml`, pointed to by an
+  `ECONOMY_YAML_PATH` systemd drop-in). SIGHUP reloads.
 
-**Where the live service runs:** enki (NB), behind zephyr's Apache
-which proxies over WireGuard. uvicorn on `0.0.0.0:8080`. systemd unit
-`questboard.service`. See DEPLOYMENT.md.
+**Where the live service runs:** two instances on **zephyr** behind its
+Apache (HTTPS) — the Actropolis demo (`questboard.service`, :8080) and the
+Noisebridge Quest Board (`questboard-nb.service`, :8081). **enki** holds
+quiesced cold storage. See the controller's DEPLOYMENT.md "Two instances"
+table.
 
 ---
 

@@ -1,3 +1,14 @@
+---
+id: spec
+title: Actropolis — API spec (long-term design)
+type: spec
+status: accepted
+updated: 2026-10-26
+owners: [nthmost]
+tags: [spec, design]
+relates_to: [demo]
+---
+
 # Actropolis — API Spec (v1 draft)
 
 > **Orientation:** This document is the long-term productivity-tool design.
@@ -9,8 +20,8 @@
 
 
 **Status:** Draft, 2026-05-19 (adds donor bounties + claim reporting; see [DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md](./DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md) for rationale)
-**Host:** enki (NB), Ubuntu 24.04, 31 GB RAM, i5-14450HX, CPU-only Ollama
-**Stack:** FastAPI + SQLAlchemy + Alembic, PostgreSQL, local Ollama (qwen2.5:7b + llama3.2:3b)
+**Host:** two instances on zephyr (Debian, Postgres 18); enki holds quiesced cold storage — see the controller's DEPLOYMENT.md "Two instances" table
+**Stack:** FastAPI + SQLAlchemy + Alembic, PostgreSQL, local Ollama (used only offline for data prep; no runtime LLM calls)
 **Public hostname (interim):** `quests.actropolis.org` (advocate for `quests.noisebridge.net` later)
 
 ---

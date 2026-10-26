@@ -1,3 +1,17 @@
+---
+id: note-donor-bounties
+title: Design notes — donor bounties + claim reporting
+type: note
+status: superseded
+created: 2026-05-19
+updated: 2026-10-26
+owners: [nthmost]
+tags: [economy, civic, rationale]
+superseded_by: [civic-hours-cert, spec]
+relates_to: [local-auth]
+reason: "retained rationale; donor-bounty economics merged into SPEC, and its civic-hours personhood premise was superseded by local-auth — forward design now lives in civic-hours-cert"
+---
+
 # Design Notes — Donor Bounties + Claim Reporting
 
 **Date:** 2026-05-19

@@ -1,3 +1,14 @@
+---
+id: demo
+title: Quest Board — Progress Quest demo (delta on spec)
+type: spec
+status: building
+updated: 2026-10-26
+owners: [nthmost]
+tags: [demo, design]
+relates_to: [spec]
+---
+
 # Quest Board — Progress Quest Demo
 
 > **Orientation:** This document is the **delta on top of [SPEC.md](./SPEC.md)**
@@ -9,9 +20,16 @@
 > If you're brand new, start with [README.md](./README.md).
 
 
-**Status:** Design draft, 2026-05-08
-**Hostname:** `quests.actropolis.org` (the production deployment lives at `quests.actropolis.org`)
-**Purpose:** Demonstrate the quest-board concept by simulating a month of Noisebridge guild activity in a single real-world day, in the style of Progress Quest. Visitors log in via the wiki, create up to 4 characters, and watch them auto-play.
+**Status:** Design draft, 2026-05-08 (identity model updated 2026-10-26)
+**Hostname:** `quests.actropolis.org`
+**Purpose:** Demonstrate the quest-board concept by simulating a month of Noisebridge guild activity in a single real-world day, in the style of Progress Quest. Visitors register a local account, which creates one profile, and watch it auto-play.
+
+> **Identity-model note (2026-10-26):** this doc was first written around a
+> multi-character demo with wiki login. Both were dropped. Accounts are now
+> local (username + Argon2id password; `/register` + `/login`) and there is
+> **one profile per account** in both the demo and the real tool. Passages
+> below have been updated; "character" and "profile" are now the same single
+> per-account row.
 
 This document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still apply unless explicitly changed here.
 
@@ -19,9 +37,9 @@ This document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still 
 
 ## 1. What the demo is
 
-A passive idle game. Player registers or logs in (independent account), creates a character (name + class + primary guild), and watches the character claim and complete quests automatically. The activity feed scrolls flavor text in the manner of Progress Quest. After enough sim time the character levels up. Players can create up to 4 characters per account, and delete any of them.
+A passive idle game. Player registers a local account (username + password); signup creates their single profile (visible name + class + optional primary guild), and watches that profile claim and complete quests automatically. The activity feed scrolls flavor text in the manner of Progress Quest. After enough sim time the profile levels up. One profile per account — no creating or deleting extra characters.
 
-NPC quest-givers seed the world with quests. Quests are sourced from real Noisebridge Discord channels (#fabrication, #help-wanted, project-forum posts) and supplemented with LLM-generated weirdness for color. Real human posters and claimers are still possible but not required — the world keeps moving on its own.
+NPC quest-givers seed the world with quests drawn from a fixed pool mined from real Noisebridge Discord channels (#fabrication, #help-wanted, project-forum posts) plus hand-curated templates. (An LLM was used once offline to clean the mined pool — see §5 — but no quests are generated at runtime.) Real human posters and claimers are still possible but not required — the world keeps moving on its own.
 
 The "real" implementation is the productivity tool described in SPEC.md. The demo is a stepping stone that happens to share most of its data model.
 
@@ -31,20 +49,19 @@ The "real" implementation is the productivity tool described in SPEC.md. The dem
 
 | Concern | Demo | Real (post-demo) |
 |---|---|---|
-| Character ↔ User | 1:N (max 4) | 1:1 (DB constraint) |
-| Character can be deleted | yes, freely | only by admin |
+| Profile ↔ User | 1:1 (one profile per account) | 1:1 (one profile per account) |
 | NPC quest-givers | yes, primary source | none, all quests human-posted |
 | Auto-play | yes, characters claim/complete on their own | no, humans drive everything |
 | Sim clock | tick-based, 30× speedup | wall-clock; one second is one second |
 | Posting fee | always charged per YAML; NPCs exempt | always charged per YAML |
-| Welcome grant | fires on **character** creation | fires on **character** creation (which == user creation under 1:1) |
+| Welcome grant | fires on **signup** (profile creation) | fires on **signup** (profile creation) |
 | Verification step | **disabled** — quests go open → claimed → done | configurable per quest |
 | LLM generation | none at runtime; used only for offline data prep | none at runtime |
 | World reset | admin button | not applicable |
 
-**Character is the primary actor in both modes.** Quests, claims, boosts, and the XP ledger all attach to character_id. Users are pure identity (wiki_username + discord linking metadata). The real version simply enforces unique(user_id) on `characters`; everything else is the same.
+**Character is the primary actor in both modes.** Quests, claims, boosts, and the XP ledger all attach to character_id. Users are pure local identity (username + password + optional discord linking metadata). Both modes keep one profile row per user; the distinction between demo and real is behavioral (NPCs, auto-play, sim clock), not the identity model.
 
-The schema accommodates both modes; demo-only behavior (NPCs, auto-play, sim clock, multi-character) is gated by an `economy.yaml` flag (`demo.enabled`).
+The schema accommodates both modes; demo-only behavior (NPCs, auto-play, sim clock) is gated by an `economy.yaml` flag (`demo.enabled`).
 
 ---
 
@@ -54,8 +71,8 @@ The schema accommodates both modes; demo-only behavior (NPCs, auto-play, sim clo
 | column | type | notes |
 |---|---|---|
 | id | bigserial PK | |
-| user_id | bigint FK users(id) not null | demo: 1..4 per user; real: unique |
-| name | text not null | display name; uniqueness scoped to user only |
+| user_id | bigint FK users(id) not null | one profile per user (both modes) |
+| name | text not null | visible name; uniqueness scoped to user only |
 | class_slug | text FK character_classes(slug) | `hacker`, `mechanic`, `bard`, etc. |
 | primary_guild_id | int FK guilds(id) nullable | character's chosen guild |
 | xp_balance | int not null default 0 | CHECK ≥ 0; **moves here from `users`** for the demo |
@@ -64,7 +81,7 @@ The schema accommodates both modes; demo-only behavior (NPCs, auto-play, sim clo
 | deleted_at | timestamptz nullable | soft-delete; XP transactions remain |
 | flavor_seed | int not null | RNG seed for personalized flavor text |
 
-Application-level CHECK: `count(active characters where user_id = X) <= demo.max_characters_per_user` (default 4).
+One profile per user: signup creates exactly one `characters` row (`create_default_profile`); there is no create-additional-character flow in either mode.
 
 ### `character_classes` (new, seeded)
 | column | type | notes |
@@ -250,10 +267,8 @@ Event payloads include rendered flavor text so the client doesn't need template 
 ## 8. New API endpoints (demo-specific)
 
 ```
-# Characters
-GET    /api/v1/me/characters          # list current user's characters
-POST   /api/v1/me/characters          # create (name, class_slug, primary_guild_slug)
-DELETE /api/v1/me/characters/{id}     # soft-delete (free a slot)
+# Profile (one per account)
+GET    /api/v1/me/profile             # current user's single profile
 GET    /api/v1/characters/{id}        # public summary (name, class, level, xp, recent activity)
 
 # Classes & NPCs (public)
@@ -269,10 +284,10 @@ POST   /api/v1/admin/sim/pause
 POST   /api/v1/admin/sim/resume
 POST   /api/v1/admin/sim/reset        # rewind sim_epoch and clear ephemeral state
 
-# Auth
-GET    /api/v1/auth/wiki/login
-GET    /api/v1/auth/wiki/callback
-POST   /api/v1/auth/logout
+# Auth (local accounts; implemented as page routes, not /api/v1)
+POST   /register                      # create account + single profile
+POST   /login                         # username + password
+POST   /logout
 ```
 
 The existing read endpoints (`/quests`, `/guilds`, `/locations`, `/stats`, `/economy`) keep working unchanged.
@@ -284,12 +299,12 @@ The existing read endpoints (`/quests`, `/guilds`, `/locations`, `/stats`, `/eco
 **Stack:** server-rendered Jinja + htmx + SSE, served from the same FastAPI process under `/`. Static assets under `/static`.
 
 **Pages:**
-- `/` — public landing. Activity feed (live SSE). "Log in via wiki" CTA. Maybe top-N leaderboard.
-- `/me` — your characters (cards), with create/delete buttons.
-- `/me/characters/new` — character creation: name, class picker, guild picker.
-- `/c/{character_id}` — character sheet: stats, current quest, recent events. Public.
-- `/leaderboard` — top characters by xp/level.
-- `/quests` — current open and recent quests, scrollable.
+- `/` — public landing. Activity feed (live SSE). "Create an account / log in" CTA. Maybe top-N leaderboard.
+- `/register`, `/login` — local account signup + login.
+- `/me/characters` ("YOUR PROFILE") — edit visible name, real name, class, primary space; change password. One profile, no create/delete.
+- `/c/{character_id}` — public profile sheet: stats, current quest, recent events.
+- `/leaderboard` — top profiles by xp/level.
+- `/quests` — current open and recent quests, scrollable; `/quests/new` to post (gated).
 
 **Aesthetic — *to be designed together***. Strong starting points from `dumps.nthmost.net`:
 
@@ -314,7 +329,6 @@ Open aesthetic decisions (we'll do a pass together):
 # Added to economy.yaml
 demo:
   enabled: true
-  max_characters_per_user: 4
   speedup: 30                    # sim_seconds per real_second
   tick_interval_sec: 1
   feed_replay_size: 50           # events served on SSE reconnect
@@ -328,8 +342,8 @@ demo:
     default_post_cadence_sec: 1800  # sim seconds; per-NPC overrides
 
   character:
-    p_claim_per_tick: 0.05       # probability a free character starts a claim each sim tick
-    welcome_grant_amount: 100    # XP credited on character creation
+    p_claim_per_tick: 0.05       # probability a free profile starts a claim each sim tick
+    welcome_grant_amount: 100    # XP credited on signup (profile creation)
     flavor_text_idle_chance: 0.02
 
   reset:
@@ -356,5 +370,5 @@ demo:
 2. **Class portraits.** Generate via image model or hand-pixel? Punt until aesthetic pass.
 3. **Reset cadence.** Weekly seems right for "a fresh world to log into" but might be too frequent if people want to grow attachment to a character. Could be admin-on-demand instead.
 4. **NPC count.** Start with 4–6 distinct NPC personas, one per major guild theme. Scale up if it feels sparse.
-5. **Wiki OAuth scopes.** `basic` (just username) is enough; confirm at consumer registration time.
+5. **Personhood verification.** Local self-serve signup removed the in-person wiki-verification guarantee the civic-hours certificate relied on. Decide on a replacement (admin approval of accounts, per-space vouching) before certifying hours — see SPEC §1 / README caveat.
 6. **Public access without login.** Should anonymous visitors see the activity feed and character sheets, or just a "log in to see the world" splash? Recommend **public read** to make sharing the demo easy.

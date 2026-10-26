@@ -1,9 +1,21 @@
+---
+id: ui-reference
+title: Quest Board — UI reference
+type: reference
+status: shipped
+updated: 2026-10-26
+owners: [nthmost]
+tags: [ui, reference]
+relates_to: [spec]
+---
+
 # Quest Board — UI Reference
 
 > **Orientation:** Front-end visual reference — palette, panel system,
 > component vocabulary, page-by-page layout. Snapshot of the live state at
-> <https://quests.actropolis.org/> as of 2026-05-09. Living document; update
-> when the visual register or component vocabulary changes.
+> <https://quests.actropolis.org/> (visual register as of 2026-05-09; pages,
+> auth, and routes reconciled to the shipped code 2026-10-26). Living document;
+> update when the visual register or component vocabulary changes.
 > If you're brand new, start with [README.md](./README.md).
 
 ## 1. Stack & file layout
@@ -19,8 +31,9 @@ app/
 │   ├── base.html               # html shell + asset_v cache buster + footer
 │   ├── index.html              # /
 │   ├── login.html              # /login
-│   ├── me_characters.html      # /me/characters
-│   ├── me_character_new.html   # /me/characters/new
+│   ├── register.html           # /register
+│   ├── me_characters.html      # /me/characters ("YOUR PROFILE")
+│   ├── quest_create.html       # /quests/new
 │   ├── admin_layout.html       # admin shell
 │   ├── admin_dashboard.html    # /admin/
 │   ├── admin_quests.html       # /admin/quests
@@ -77,7 +90,7 @@ Body has a subtle CRT-scanline background using `repeating-linear-gradient` (eve
 `.title-bar` (4px brown border, dim background, centered):
 - `h1` — page title in Press Start 2P 22px yellow with letter-spacing
 - `.sub` — Press Start 2P 9px tan caption underneath
-- `.title-auth` — right-aligned strip with login state. Renders **LOG IN ▸** when anonymous, or **`<username>` MY CHARACTERS ADMIN LOG OUT** when authenticated. `is_admin` flag controls the ADMIN link.
+- `.title-auth` — right-aligned strip with login state. Renders **LOG IN ▸** when anonymous, or **ALL QUESTS · PROFILE · ADMIN · AS USER · LOG OUT** when authenticated (PROFILE links to `/me/characters`; `is_admin` controls the ADMIN link and the AS USER view-as toggle).
 - `.blink` span animates a single character on/off every 1.2s.
 
 Admin pages use `.admin-title` for a denser variant: smaller h1, a centered nav strip with `DASH / QUESTS / USERS / POOL`.
@@ -109,34 +122,26 @@ Almost every visual unit is a `.panel`:
 Vertical flow:
 
 1. **▲ WORLD STATE** (full-width, brown) — four `world-stats` tiles: ADVENTURERS, QUESTS POSTED, XP MINTED, CALIBRATION. Caption + giant number per tile.
-2. **Char sheet (1/3) | Open quests (2/3)** row. The character panel has three render branches:
-   - Logged in + has a non-deleted character → real character sheet (see §6)
-   - Logged in, no character → "Adventure awaits" + ► CREATE CTA
-   - Not logged in → "Create an account or log in" + ► LOG IN
+2. **Char sheet (1/3) | Open quests (2/3)** row. The character panel has two render branches (every account has exactly one profile, created at signup):
+   - Logged in → real profile sheet (see §6)
+   - Not logged in → "Create an account to start your first quest" + ► LOG IN
 3. **♦ OPEN QUESTS** (orange panel) is the sibling: 2-column responsive grid (`.quest-grid`), each card has a 21px VT323 title and a Press Start 2P meta strip (`XP / guild / urgency / party`).
 4. **⌬ ACTIVITY** (blue panel, full-width below) — `.feed` list. Each `<li>` has a 4px left-border color-coded by event type (`event-claim / event-done / event-level / event-post`), Press Start 2P timestamp chip, baseline-aligned VT323 body. XP badges are a separate Press Start 2P green chip.
 
-### `/login`
+### `/login` and `/register`
 
-Single yellow panel inside `.login-shell`. Big VT323 inputs (22px) with grey borders that turn yellow on focus, a Press Start 2P yellow `► START` button, a tan-on-dashed-divider note explaining the forwarded-once password handling and pointing at `Special:RequestAccount`.
+Single yellow panel inside `.login-shell`. Big VT323 inputs (22px) with grey borders that turn yellow on focus, a Press Start 2P yellow submit button. `/login` takes username + password; a tan-on-dashed-divider note points new users at `/register`. `/register` collects username (login), visible name, real name, and password, and creates the account's single profile on submit.
 
-### `/me/characters`
+### `/me/characters` — "YOUR PROFILE"
 
-`.char-grid` — auto-fill `minmax(420px, 1fr)`, gap 1.4rem.
+One profile per account, so this is a single edit page (title `♣ YOUR PROFILE ♣`), not a card grid. Two stacked forms inside `.login-shell`-style panels:
 
-Each card:
-- `.panel.charsheet` with `.panel-yellow` (inactive) or `.char-active` (active)
-- Header reads `★ LV {N} · {CLASS}` on inactive, `♦ ACTIVE · LV {N} · {CLASS}` on active. Active panels have a green header background, green border, and a subtle green outer glow.
-- `.name` = VT323 18px yellow
-- `.class` = Press Start 2P 9px tan, includes guild name when present
-- `.stats` = 2-column grid (key right-aligned in tan PS2P 9px, value left-aligned in white VT323 22px)
-- **Skull-and-crossbones retire button (`☠`)** sits in the bottom-right corner. 38×38, tan border at rest, scales up + turns red on hover. Submits to `/me/characters/{id}/delete` via a confirmation dialog.
-- **`MAKE ACTIVE`** yellow button below stats appears only on inactive cards. Submits to `/me/characters/{id}/activate`.
-- An empty slot (`.char-slot-empty`) appears at the end of the grid until the user hits `demo.max_characters_per_user` (default 4). It's a dashed grey rectangle with `＋ NEW CHARACTER` that turns yellow on hover.
+- **Profile form** (`POST /me/profile`): `visible_name` (public display name, pre-filled from the profile), `real_name` (required, private by default), a `show_real_name` checkbox (shows the real name alongside the visible name when on), `class_slug` (select), and `primary_space_id` (makerspace select). Yellow `SAVE PROFILE` submit (reuses `.char-activate-btn`).
+- **Change-password** `<details>` disclosure (`POST /me/password`): current / new / confirm password fields, `UPDATE PASSWORD` submit.
 
-### `/me/characters/new`
+Status messages (saved, validation errors, password outcomes) render from a `msg` query param at the top.
 
-Same `.login-shell` layout as `/login`. Three fields: `name` (text), `class_slug` (select with each option's name + flavor tag), `primary_guild_id` (select, optional). Yellow `► CREATE` submit. On error, the panel re-renders with the values preserved and `.login-error` ▼-prefixed at the top.
+There is **no** create / activate / delete / retire flow — the profile is created at signup and is the account's only one. (`.char-active`, the `☠` skull, `MAKE ACTIVE`, and `.char-slot-empty` are legacy from the dropped multi-character design.)
 
 ### `/admin/{,quests,users,templates}`
 
@@ -182,10 +187,10 @@ Full-width below the char/quest row. Each event:
 
 ### Buttons
 
-- `.login-button` — yellow PS2P 12px on yellow background, slight scale on press. Used for primary form submits (login, create character).
+- `.login-button` — yellow PS2P 12px on yellow background, slight scale on press. Used for primary form submits (login, register).
 - `.adm-button` — yellow PS2P 9px, denser. Used in admin filters.
-- `.char-activate-btn` — yellow PS2P 9px, sized to fit cards. Inactive characters only.
-- `.char-trash` — 38×38 corner button, tan border, ☠ glyph. Bottom-right of every character card.
+- `.char-activate-btn` — yellow PS2P 9px. Now reused for the profile page's `SAVE PROFILE` / `UPDATE PASSWORD` submits.
+- `.char-trash` — 38×38 corner button, tan border, ☠ glyph. Legacy from the multi-character design; no longer rendered.
 - `.auth-link` — title-bar text link, PS2P 9px. Used for nav and logout.
 
 ### Empty states
@@ -197,9 +202,9 @@ Full-width below the char/quest row. Each event:
 ## 7. State, auth, navigation
 
 - **Sessions**: Starlette `SessionMiddleware` with a 14-day signed cookie. Secret in `~/projects/nthmost-systems/.secrets/questboard-session.env`.
-- **Login**: classic MediaWiki `action=login` against `https://www.noisebridge.net/api.php`. Username + password forwarded once, password discarded. Same pattern as `riseup-meetingnotes/web/auth.py`.
+- **Login**: local accounts — username + Argon2id password verified against `users.password_hash` (`app/local_auth.py`, `app/auth.py`). `/register` creates the account and its single profile. No wiki/MediaWiki involvement.
 - **Auth context**: every page that needs identity calls `current_username(request)` and `is_admin(username)` to decide title-bar variants and gated routes. `require_login` and `require_admin` are FastAPI deps used on `/me/...` and `/admin/...` respectively.
-- **Active character**: `users.active_character_id` (nullable FK). Set automatically on first character creation; reassigned to the next-oldest non-deleted character if the active one is retired; cleared if no characters remain. The front page reads from this column to pick the featured sheet.
+- **Active profile**: `users.active_character_id` (nullable FK) points at the account's single profile row, set at signup. The front page reads from this column to render the featured sheet.
 - **Cache busting**: `request.state.asset_v` injected via a tiny middleware in `app/main.py` and substituted into the CSS link in `base.html`. Any update to `app/static/css/nes.css` bumps the value at next service start.
 
 ---
@@ -221,12 +226,16 @@ Full-width below the char/quest row. Each event:
 | GET | `/` | landing |
 | GET | `/login` | login form |
 | POST | `/login` | submit credentials |
+| GET | `/register` | signup form |
+| POST | `/register` | create account + profile |
 | POST | `/logout` | drop session |
-| GET | `/me/characters` | character cards |
-| GET | `/me/characters/new` | new-character form |
-| POST | `/me/characters` | create |
-| POST | `/me/characters/{id}/activate` | mark active |
-| POST | `/me/characters/{id}/delete` | soft-delete |
+| GET | `/me/characters` | profile page ("YOUR PROFILE") |
+| POST | `/me/profile` | save profile (names, class, space) |
+| POST | `/me/password` | change password |
+| POST | `/me/view-as` | admin view-as toggle |
+| GET | `/quests/new` | post-a-quest form (gated) |
+| POST | `/quests/new` | create quest |
+| POST | `/quests/{id}/claim` · `/release` · `/done` | quest actions |
 | GET | `/admin/` | dashboard |
 | GET | `/admin/quests` | quests table |
 | GET | `/admin/users` | users table |
@@ -239,7 +248,7 @@ API routes (`/api/v1/*`) are documented in SPEC.md §7; this file is concerned o
 
 ## 10. Open visual TODOs (when the simulator lands)
 
-- **Activity feed → live SSE**. Replace the static `_mock_feed()` in `app/routes/pages.py` with `EventSource`-driven dispatch. Likely an htmx `sse-swap` pattern keyed by event type.
+- **Activity feed → live SSE**. The feed already renders real recent activity via `_real_feed()` in `app/routes/pages.py`; the remaining work is replacing the request-time render with `EventSource`-driven live dispatch (likely an htmx `sse-swap` pattern keyed by event type) once the simulator lands.
 - **Character sheet → live progress bars**. The `.bar-fill.task` width is currently 0%; once active claims have a `mature_at`, the front-page sheet updates the bar via SSE every tick.
 - **"NOW" block on the active character** should reflect the simulator's current verb/target/timer. Today it just says `RESTING` / `(no quest claimed)`.
 - **Per-character page** (`/c/{id}`) for public-facing character profiles. URL space is reserved; not yet built.

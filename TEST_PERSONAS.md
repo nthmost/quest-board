@@ -1,15 +1,32 @@
-# NoiseQuest Test Personas
+---
+id: test-personas
+title: Actropolis test personas
+type: note
+status: exploring
+updated: 2026-10-26
+owners: [nthmost]
+tags: [testing, personas]
+relates_to: [spec]
+---
+
+# Actropolis Test Personas
 
 Working list for scenario / user-journey testing. Personas are grouped by the axis they sit on; many real users combine multiple axes (e.g. "new member who wants civic hours" crosses A + B).
 
 Edit freely. Add, remove, merge, rename. Adjust the tier assignments at the bottom as priorities shift.
 
+> **Note (2026-10-26):** accounts are now local and self-serve (register →
+> one profile), not issued via in-person wiki verification. Personas phrased
+> around "wiki account" have been reworded to "account"; the personhood
+> guarantee the civic-hours certificate relied on no longer holds (see §G and
+> the README civic-hours caveat).
+
 ---
 
 ## A. Tenure axis — how long they've been at NB
 
-1. **First-time visitor** — walked in for the first time, no wiki account yet, doesn't know what NB is
-2. **New wiki member** — just got their account approved by an admin, hasn't done anything yet
+1. **First-time visitor** — walked in for the first time, no account yet, doesn't know what NB is
+2. **New member** — just self-registered an account, hasn't done anything yet
 3. **Active regular** — months in, knows the rhythms, has a few completed quests
 4. **Old guard** — years in, may be quest-board-skeptical, has strong opinions about how things should work
 5. **Returning lapsed** — was active, drifted away, coming back to find things changed
@@ -28,7 +45,7 @@ Edit freely. Add, remove, merge, rename. Adjust the tier assignments at the bott
 
 ## C. Role axis — institutional position
 
-15. **Associate (non-paying member)** — has wiki, no dues
+15. **Associate (non-paying member)** — has an account, no dues
 16. **Dues-paying member**
 17. **Guild lead** — moderates a Guild, approves Campaign progress
 18. **Board member** — countersigns civic-hours certs, sees aggregate financials
@@ -58,13 +75,17 @@ Edit freely. Add, remove, merge, rename. Adjust the tier assignments at the bott
 33. **Drive-by** — picks the easiest quests, never blocked tasks, optimizes XP/effort ratio
 34. **Disputant** — argues that other people's claims weren't really "done"
 35. **The 86'd-then-back** — has past trust history with NB, may be re-entering carefully
-36. **Credential-sharer** — gives wiki creds to a friend; claims show under one account
+36. **Credential-sharer** — gives account creds to a friend; claims show under one account
 37. **The implausible-hours person** — racks up suspicious hours, triggers human review
 38. **Bounty-and-claim collusion** — donor pledges a quest, friend claims it; NB gets the money but the social audit looks weird
 
-## G. Identity-edge axis — where the wiki-verified personhood model gets stressed
+## G. Identity-edge axis — where the personhood model gets stressed
 
-39. **Person whose wiki name doesn't match their preferred name** — esp. for civic-hours certs
+> The old model leaned on wiki accounts being in-person verified. Self-serve
+> signup removed that guarantee, so these personas now also probe *how* (or
+> whether) personhood gets re-established before civic-hours certification.
+
+39. **Person whose login/real name doesn't match their preferred name** — the visible-name vs real-name split partly addresses this; esp. relevant for civic-hours certs
 40. **Person who was verified once but now uses a different identity** — name changes, transitions, etc.
 41. **Anonymous donor** — pledges money but doesn't want their name attached anywhere
 42. **Anonymous-but-credited donor** — wants memorial/dedication credit, no real name
@@ -88,7 +109,7 @@ Rough rule of thumb: **stake × volume**, with **risk surface** as a tiebreaker 
 ## Starter tier cut (gut feel, pre-discussion)
 
 ### Tier 1 — must work, day 1
-- #2 New wiki member
+- #2 New member
 - #3 Active regular
 - #7 Do-ocrat/steward
 - #11 Hours-for-tickets seeker
@@ -121,7 +142,7 @@ Rough rule of thumb: **stake × volume**, with **risk surface** as a tiebreaker 
 - #42 Anonymous-but-credited donor
 
 ### Probably out of scope for testing
-- #1 First-time visitor (pre-wiki account; not yet a user of the system)
+- #1 First-time visitor (pre-account; not yet a user of the system)
 - #26 Discord-only person (doesn't actually touch the Quest Board)
 
 ---
