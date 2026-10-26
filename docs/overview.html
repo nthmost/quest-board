@@ -37,6 +37,19 @@
   .item .reason{color:#cbd5e1;font-size:13.5px;margin-top:2px}
   .item .edges{font-size:12px;color:var(--dim);font-family:var(--mono);margin-top:3px}
   .item .edges b{color:#9fb4c9;font-weight:400}
+  .item .src{font-size:12px;font-family:var(--mono);margin-left:auto}
+  .item .src a{color:var(--accent);text-decoration:none}
+  .item .src a:hover{text-decoration:underline}
+  .item details{margin-top:5px}
+  .item summary{cursor:pointer;color:var(--accent);font-size:12.5px;user-select:none}
+  .item .bodywrap{margin-top:8px;padding:9px 12px;background:var(--panel);border-radius:6px;
+    font-size:13px;line-height:1.55;color:#cbd5e1}
+  .item .bodywrap h1,.item .bodywrap h2,.item .bodywrap h3{font-size:12px;text-transform:uppercase;
+    letter-spacing:.5px;color:var(--dim);margin:11px 0 4px}
+  .item .bodywrap p{margin:6px 0}
+  .item .bodywrap ul,.item .bodywrap ol{margin:6px 0;padding-left:18px}
+  .item .bodywrap code{font-family:var(--mono);font-size:12px;background:#0f1419;padding:1px 4px;border-radius:3px}
+  .item .bodywrap a{color:var(--accent)}
   .hidden{display:none}
   #empty{color:var(--dim);font-style:italic;margin-top:30px}
 </style>
@@ -51,6 +64,7 @@
 </header>
 <main id="main"></main>
 
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script>
 const STATUS_COLOR = {
   shipped:"#22c55e", accepted:"#3b82f6", building:"#14b8a6", proposed:"#a855f7",
@@ -95,7 +109,7 @@ async function main() {
 function renderItem(n, edges, showStatus) {
   const d = document.createElement("div");
   d.className = "item";
-  d.dataset.hay = `${n.title} ${n.id} ${n.status} ${n.reason||""}`.toLowerCase();
+  d.dataset.hay = `${n.title} ${n.id} ${n.status} ${n.reason||""} ${n.body||""}`.toLowerCase();
   const row = el("div","","row");
   row.appendChild(el("span", n.title, "title"));
   row.appendChild(el("span", n.id, "id"));
@@ -105,8 +119,20 @@ function renderItem(n, edges, showStatus) {
     c.style.borderColor = STATUS_COLOR[n.status] || "#475569";
     row.appendChild(c);
   }
+  const src = n.source || {};
+  if (src.url) {
+    const s = el("span","","src");
+    s.innerHTML = `<a href="${src.url}" target="_blank" rel="noopener">↗ ${esc(src.label)}</a>`;
+    row.appendChild(s);
+  }
   d.appendChild(row);
-  if (n.reason) d.appendChild(el("div", n.reason, "reason"));
+  if (n.reason) { const r = el("div","","reason"); r.innerHTML = mdInline(n.reason); d.appendChild(r); }
+  if (n.body) {
+    const det = document.createElement("details");
+    det.appendChild(el("summary", "full description"));
+    const w = el("div","","bodywrap"); w.innerHTML = md(n.body);
+    det.appendChild(w); d.appendChild(det);
+  }
   if (edges && edges.length) {
     const e = el("div","","edges");
     e.innerHTML = "↳ " + edges.map(x=>`<b>${esc(x)}</b>`).join("; ");
@@ -114,6 +140,9 @@ function renderItem(n, edges, showStatus) {
   }
   return d;
 }
+
+function md(s){ return window.marked ? marked.parse(s) : esc(s); }
+function mdInline(s){ return window.marked ? marked.parseInline(s) : esc(s); }
 
 function wireFilter() {
   const input = document.getElementById("filter");

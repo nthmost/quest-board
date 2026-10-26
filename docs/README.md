@@ -30,7 +30,11 @@ contract; the body is for humans/LLMs. Relationships between docs are **typed
 edges** declared in frontmatter. `scripts/build_docs_index.py` walks every
 doc's frontmatter and emits [`index.json`](./index.json) — a `{nodes, edges}`
 graph that an LLM can read without opening every file, and that a viewer
-(Cytoscape / D3, or Obsidian via wikilinks) can draw.
+(Cytoscape / D3, or Obsidian via wikilinks) can draw. Each node also carries a
+`body` (an inline preview of the doc's prose) and a `source` link (the
+originating document on GitHub, with a section anchor inferred from the `reason`
+— e.g. `SPEC §3` → `#3-economy-yaml`), so both views can lead from a node into
+its full description and the document it came from.
 
 Four things do the work: `type`, `status`, edges, and the generated index.
 

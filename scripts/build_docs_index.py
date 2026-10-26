@@ -11,6 +11,7 @@ schema. Run from the repo root:
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -20,6 +21,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_DIR = REPO_ROOT / "docs"
 OUTPUT = DOCS_DIR / "index.json"
 OVERVIEW = DOCS_DIR / "OVERVIEW.md"
+
+# Public repo, for "read in the source document" links out of the graph/text views.
+REPO_BLOB = "https://github.com/nthmost/quest-board/blob/main/"
+# Chars of a doc's body kept inline in the index as a preview (full text via the link).
+BODY_CAP = 1400
 
 # Order + headings for the textual OVERVIEW.md, grouped by node type.
 TYPE_SECTIONS = (
@@ -75,32 +81,86 @@ def find_markdown() -> list[Path]:
     return sorted(seen)
 
 
-def read_frontmatter(path: Path) -> dict | None:
-    """Parse the leading `---` YAML block, or None if the file has none."""
+def read_doc(path: Path) -> tuple[dict | None, str]:
+    """Return (frontmatter dict | None, body markdown after the fence)."""
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---\n"):
-        return None
+        return None, ""
     end = text.find("\n---", 4)
     if end == -1:
-        return None
-    data = yaml.safe_load(text[4:end])
-    return data if isinstance(data, dict) else None
+        return None, ""
+    fm = yaml.safe_load(text[4:end])
+    rest = text[end + 4:]
+    body = rest.split("\n", 1)[1] if "\n" in rest else ""
+    return (fm if isinstance(fm, dict) else None), body.strip()
 
 
-def to_node(path: Path, fm: dict) -> dict:
-    """Project frontmatter into a graph node."""
+def to_node(path: Path, fm: dict, body: str = "") -> dict:
+    """Project frontmatter + body into a graph node."""
+    rel = path.relative_to(REPO_ROOT).as_posix()
     return {
         "id": fm.get("id") or path.stem,
         "title": fm.get("title") or path.stem,
         "type": fm.get("type", "note"),
         "status": fm.get("status", "unknown"),
-        "path": path.relative_to(REPO_ROOT).as_posix(),
+        "path": rel,
         "tags": fm.get("tags") or [],
         "owners": fm.get("owners") or [],
         "updated": str(fm.get("updated", "")),
         "reason": fm.get("reason", ""),
-        "source": "doc",
+        "origin": "doc",
+        "body": _cap(body),
+        "source": _source_link(fm.get("source"), rel, fm.get("reason", ""), infer=False),
     }
+
+
+def _cap(body: str) -> str:
+    """Trim a long body to a preview; the full text lives behind the source link."""
+    if len(body) <= BODY_CAP:
+        return body
+    return body[:BODY_CAP].rstrip() + "\n\n… *(truncated — open the source document for the full text)*"
+
+
+def _source_link(explicit: str | None, own_path: str, reason: str, infer: bool) -> dict:
+    """Resolve the 'source document' for a node: a GitHub blob URL (+ optional anchor)."""
+    spec = explicit or (_infer_source(reason) if infer else None) or own_path
+    doc_path, _, anchor = spec.partition("#")
+    url = REPO_BLOB + doc_path + (f"#{anchor}" if anchor else "")
+    return {"label": doc_path.split("/")[-1], "url": url, "anchor": anchor}
+
+
+def _infer_source(reason: str) -> str | None:
+    """Guess a source doc + section anchor from a reason like 'SPEC §3: ...'."""
+    doc = "SPEC" if "SPEC" in reason else ("DEMO" if "DEMO" in reason else None)
+    if not doc:
+        return None
+    section = re.search(r"§\s*(\d+)", reason)
+    slugs = _section_slugs(f"{doc}.md")
+    if section and section.group(1) in slugs:
+        return f"{doc}.md#{slugs[section.group(1)]}"
+    return f"{doc}.md"
+
+
+_SLUG_CACHE: dict = {}
+
+
+def _section_slugs(doc: str) -> dict:
+    """Map numbered-section → GitHub heading anchor for a doc (cached)."""
+    if doc not in _SLUG_CACHE:
+        path, mapping = REPO_ROOT / doc, {}
+        if path.exists():
+            for line in path.read_text(encoding="utf-8").splitlines():
+                match = re.match(r"^#{2,3}\s+(\d+)\.\s", line)
+                if match:
+                    mapping[match.group(1)] = _slug(line.lstrip("#").strip())
+        _SLUG_CACHE[doc] = mapping
+    return _SLUG_CACHE[doc]
+
+
+def _slug(text: str) -> str:
+    """GitHub-style heading slug."""
+    s = re.sub(r"[^a-z0-9 \-]", "", text.lower())
+    return re.sub(r"\s+", "-", s).strip("-")
 
 
 def to_edges(node_id: str, fm: dict) -> list[dict]:
@@ -153,7 +213,8 @@ def registry_nodes(path: Path, node_type: str, default_status: str) -> tuple[lis
             "type": row.get("type") or node_type,
             "status": row.get("status") or default_status,
             "path": rel, "tags": [], "owners": [], "updated": "",
-            "reason": row.get("reason", ""), "source": "registry",
+            "reason": row.get("reason", ""), "origin": "registry", "body": "",
+            "source": _source_link(row.get("source"), rel, row.get("reason", ""), infer=True),
         })
         for field in TABLE_EDGE_FIELDS:
             for target in _split_ids(row.get(field)):
@@ -172,10 +233,10 @@ def build() -> dict:
     """Assemble the graph: frontmatter-file nodes (authoritative) + registry rows."""
     nodes, edges, ids, dupes = [], [], set(), []
     for path in find_markdown():
-        fm = read_frontmatter(path)
+        fm, body = read_doc(path)
         if fm is None:
             continue
-        node = to_node(path, fm)
+        node = to_node(path, fm, body)
         nodes.append(node)
         ids.add(node["id"])
         edges.extend(to_edges(node["id"], fm))
@@ -255,6 +316,9 @@ def _overview_line(node: dict, out: dict, inline_status: bool) -> str:
         parts.append(f" · _{node['status']}_")
     if node.get("reason"):
         parts.append(f" — {node['reason']}")
+    src = node.get("source") or {}
+    if src.get("url"):
+        parts.append(f"  · [{src['label']}]({src['url']})")
     if out.get(node["id"]):
         parts.append(f"  ↳ {'; '.join(out[node['id']])}")
     return "".join(parts)

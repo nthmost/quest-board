@@ -15,7 +15,13 @@
       "owners": [],
       "updated": "",
       "reason": "`/admin/*`, allow-list in economy YAML, SIGHUP reload",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "admin-sim-reset",
@@ -27,7 +33,13 @@
       "owners": [],
       "updated": "",
       "reason": "preserves taxonomy + NPC defs + seed pool",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "backlog",
@@ -44,7 +56,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Ideas backlog\n\nEvery idea we've written about that isn't yet a shipped feature or a committed\ndecision \u2014 raw maybes, designed-but-unbuilt SPEC mechanics, and explicit\nout-of-scope-for-v1 items. Each row is a graph node (`type: idea`); promote one\nto `docs/proposals/<id>.md` (same `id`) when it's worth a full RFC. Keep\n`deferred`/`rejected` rows here with a reason so they don't return as \"new.\"\n\nSource tags in `reason`: SPEC = `SPEC.md`, DEMO = `DEMO.md`. The textual map in\n`docs/OVERVIEW.md` lists these grouped by status.\n\n| id | title | status | reason | relates_to |\n|---|---|---|---|---|\n| boosts-ui | Spend XP to boost a quest | proposed | `quest_boosts` table exists; no UI to spend XP on a boost yet | |\n| level-up-ui | Spend XP to level up | proposed | mechanic spec'd; no UI yet | xp-ledger |\n| leaderboard | `/leaderboard` top profiles by XP/level | proposed | URL reserved; needs sort + small podium component | |\n| per-profile-page | Public `/c/{id}` profile sheet | proposed | URL reserved; stats + current quest + recent events | |\n| discord-linking | Link a Discord account to a profile | deferred | `users` carries discord columns; no `/link` slash-command flow | |\n| admin-sim-reset | Admin endpoint to wipe simulation state | idea | preserves taxonomy + NPC defs + seed pool | simulator |\n| live-sse-feed | Live `/api/v1/feed/stream` | idea | folded into the simulator; split\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "backups-automation",
@@ -56,7 +74,13 @@
       "owners": [],
       "updated": "",
       "reason": "not yet wired; needs cron for both `questboard` + `questboard_nb`",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "boosts-ui",
@@ -68,7 +92,13 @@
       "owners": [],
       "updated": "",
       "reason": "`quest_boosts` table exists; no UI to spend XP on a boost yet",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "bounty-acknowledgment",
@@ -80,7 +110,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79: schema supports; generator deferred",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "bounty-expiry-sweep",
@@ -92,7 +128,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79: manual admin endpoint in v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "bounty-matching",
@@ -104,7 +146,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79: \"match the first $100 on quests tagged X\"",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "civic-hours-cert",
@@ -123,7 +171,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "self-serve local signup removed the in-person personhood guarantee the certificate relied on",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Civic-hours certificate\n\n## Status\n**Deferred** \u2014 blocked on\n[`personhood-verification`](./personhood-verification.md). Do not ship\ncertification until that resolves.\n\n## Summary\nLet a contributor generate a printable certificate attesting the volunteer hours\nthey logged via the quest board \u2014 usable for court-ordered community service,\nresume/volunteer records, or hours-for-tickets programs. Original design and\nrationale: SPEC \u00a74 and\n[`note-donor-bounties`](../../DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md).\n\n## Why it's deferred (not rejected)\nThe original design deliberately stored **no** real-name binding and ran **no**\npromotion/approval workflow, because it leaned entirely on one external fact:\nwiki accounts were issued only after in-person admin verification, so every\nclaim was implicitly by a vouched-for human. The move to\n[`local-auth`](../decisions/0001-local-auth.md) **removed that fact.** Every\nassumption in the certificate design that depended on it is now unsupported.\n\nThe idea is still good \u2014 makerspaces genuinely want this. It is parked until a\npersonhood signal exists to rebuild the chain on.\n\n## To revive\n1. Land a [`personhood-verification`](./personhood-verification.md) approach.\n2. Re-derive the certificate's trust language from that signal (not from wiki\n   account policy).\n3. Re-check the Sybil and credential-sharing mitigations against\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "civic-hours-cert.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/proposals/civic-hours-cert.md",
+        "anchor": ""
+      }
     },
     {
       "id": "claim-reporting",
@@ -135,7 +189,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a74: per-claimer minutes, done_state, notes, photo at `/done`",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#4-economy-mechanics",
+        "anchor": "4-economy-mechanics"
+      }
     },
     {
       "id": "clone-quest",
@@ -147,7 +207,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC: `POST /quests/{id}/clone`; no reopen once paid out",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md",
+        "anchor": ""
+      }
     },
     {
       "id": "demo",
@@ -164,7 +230,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Quest Board \u2014 Progress Quest Demo\n\n> **Orientation:** This document is the **delta on top of [SPEC.md](./SPEC.md)**\n> describing the Progress-Quest-style demo at <https://quests.actropolis.org/>.\n> SPEC.md is the long-term Noisebridge productivity-tool design; this is what\n> we're actually shipping first. For what's currently built, see `STATUS.md`\n> (in the Actropolis controller dir, one level up). For visual reference, see\n> [UI.md](./UI.md).\n> If you're brand new, start with [README.md](./README.md).\n\n\n**Status:** Design draft, 2026-05-08 (identity model updated 2026-10-26)\n**Hostname:** `quests.actropolis.org`\n**Purpose:** Demonstrate the quest-board concept by simulating a month of Noisebridge guild activity in a single real-world day, in the style of Progress Quest. Visitors register a local account, which creates one profile, and watch it auto-play.\n\n> **Identity-model note (2026-10-26):** this doc was first written around a\n> multi-character demo with wiki login. Both were dropped. Accounts are now\n> local (username + Argon2id password; `/register` + `/login`) and there is\n> **one profile per account** in both the demo and the real tool. Passages\n> below have been updated; \"character\" and \"profile\" are now the same single\n> per-account row.\n\nThis document is a delta on top of [SPEC.md](./SPEC.md). Rules in SPEC.md still apply unless explicitly changed here.\n\n---\n\n## 1\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "DEMO.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/DEMO.md",
+        "anchor": ""
+      }
     },
     {
       "id": "discord-data-pipeline",
@@ -176,7 +248,13 @@
       "owners": [],
       "updated": "",
       "reason": "one-shot offline prep producing 348 skill-tagged seeds",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "discord-linking",
@@ -188,7 +266,13 @@
       "owners": [],
       "updated": "",
       "reason": "`users` carries discord columns; no `/link` slash-command flow",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "docs-convention",
@@ -206,7 +290,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Design-docs information architecture\n\nHow design knowledge is organized in this repo so that **what's true now**,\n**what we've committed to build**, and **what we might (or decided not to) do**\neach have a distinct home \u2014 readable by humans and LLMs, and renderable as a\ngraph by an external app.\n\nThis exists because prose drifts. An idea that gets dropped leaves no trace\nexcept an old assertion it now contradicts (see the multi-character and\ncivic-hours churn in the git history). The fix: **status is a first-class\nfield, and rejected/deferred ideas are kept, not deleted.**\n\n---\n\n## The model: every doc is a typed node in a graph\n\nOne Markdown file = one **node**. Its YAML frontmatter is the machine-readable\ncontract; the body is for humans/LLMs. Relationships between docs are **typed\nedges** declared in frontmatter. `scripts/build_docs_index.py` walks every\ndoc's frontmatter and emits [`index.json`](./index.json) \u2014 a `{nodes, edges}`\ngraph that an LLM can read without opening every file, and that a viewer\n(Cytoscape / D3, or Obsidian via wikilinks) can draw. Each node also carries a\n`body` (an inline preview of the doc's prose) and a `source` link (the\noriginating document on GitHub, with a section anchor inferred from the `reason`\n\u2014 e.g. `SPEC \u00a73` \u2192 `#3-economy-yaml`), so both views can lead from a node into\nits full description and the document it came from.\n\nFour things do\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "README.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/README.md",
+        "anchor": ""
+      }
     },
     {
       "id": "donor-bounties",
@@ -218,7 +308,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a74: conditional restricted gift to NB, never paid to doers; not built",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#4-economy-mechanics",
+        "anchor": "4-economy-mechanics"
+      }
     },
     {
       "id": "economy-yaml",
@@ -230,7 +326,13 @@
       "owners": [],
       "updated": "",
       "reason": "single `economy.yaml` source of truth; no settings UI or table",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "feature-graph",
@@ -242,7 +344,13 @@
       "owners": [],
       "updated": "",
       "reason": "this graph; `graph.html` + `index.json` live at graph.actropolis.org",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "features",
@@ -259,7 +367,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Shipped features registry\n\nImplemented capabilities, as lightweight graph nodes. The table's first column\n`id` keys each node; `scripts/build_docs_index.py` ingests these rows as\n`type: feature` nodes. Anything with real design tension gets promoted to a\n`decisions/` or `proposals/` file (which then wins the id); this table is the\nhome for the \"it's built, here it is\" facts that would otherwise only live in\nprose in SPEC/UI/STATUS.\n\n| id | title | status | reason | relates_to |\n|---|---|---|---|---|\n| front-page | Front page (world stats, featured profile, open quests, live-ish feed) | shipped | `/` with `_real_feed` (real recent activity, not a mock) | |\n| quest-browse | Quest browse \u2014 search, filter, sort, paginate | shipped | `/quests`; ~348 ingested quests in the pool | |\n| quest-detail | Quest detail page | shipped | `/quests/{id}` \u2014 task panel, claims, boosts, sidebar | |\n| quest-claim-flow | Claim / release / done / verify state machine | shipped | party_min/max, terminal-status + double-claim guards | |\n| quest-creation | Human quest posting + eligibility gate | shipped | `/quests/new`; gate = admin / allowlist / `min_quests_completed` | |\n| multi-space | Multiple makerspaces (spaces, primary space, quest scoping) | shipped | migration 0009; Noisebridge, Sequoia Fabrica, OpenCircuit SF, Omni Commons | |\n| identity-names | Username / visible-name / real-name identity s\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "flavor-text",
@@ -271,7 +385,13 @@
       "owners": [],
       "updated": "",
       "reason": "DEMO \u00a74/\u00a76: class flavor kits, idle \"pauses to refactor a comment\"",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "DEMO.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/DEMO.md#4-character-classes",
+        "anchor": "4-character-classes"
+      }
     },
     {
       "id": "front-page",
@@ -283,7 +403,13 @@
       "owners": [],
       "updated": "",
       "reason": "`/` with `_real_feed` (real recent activity, not a mock)",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "fulltext-search",
@@ -295,7 +421,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79 out of scope for v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "graph-basic-auth",
@@ -307,7 +439,13 @@
       "owners": [],
       "updated": "",
       "reason": "privacy upgrade if the unadvertised hostname isn't enough",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "identity-names",
@@ -319,7 +457,13 @@
       "owners": [],
       "updated": "",
       "reason": "login vs public display vs private real name + `show_real_name`",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "leaderboard",
@@ -331,7 +475,13 @@
       "owners": [],
       "updated": "",
       "reason": "URL reserved; needs sort + small podium component",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "level-curves",
@@ -343,7 +493,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a73: curve config + D&D 5e table",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#3-economy-yaml",
+        "anchor": "3-economy-yaml"
+      }
     },
     {
       "id": "level-up-ui",
@@ -355,7 +511,13 @@
       "owners": [],
       "updated": "",
       "reason": "mechanic spec'd; no UI yet",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "live-sse-feed",
@@ -367,7 +529,13 @@
       "owners": [],
       "updated": "",
       "reason": "folded into the simulator; split out if it ships earlier",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "llm-xp-suggestion",
@@ -379,7 +547,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a78: calibration-gated, opt-in preview only (not runtime gen)",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#8-llm-assist-questsdraft",
+        "anchor": "8-llm-assist-questsdraft"
+      }
     },
     {
       "id": "local-auth",
@@ -397,7 +571,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Local accounts instead of wiki SSO\n\n## Status\nShipped \u2014 migration `0008_password_hash`, `app/local_auth.py`, `app/auth.py`,\nroutes `/register` `/login` `/logout` `/me/password`.\n\n## Context\nThe Noisebridge Quest Board originally authenticated by proxying credentials to\nthe Noisebridge MediaWiki (`action=login` against `noisebridge.net/api.php`,\nsame pattern as nbarchive). The Actropolis rebrand generalized the product\nacross multiple makerspaces, where \"the NB wiki\" is not a shared identity\nprovider.\n\n## Decision\nAccounts are **local**: a username + an Argon2id password hash stored in\n`users.password_hash`. Self-serve `/register` and `/login`; password change at\n`/me/password`; admin bootstrap/reset via `scripts.set_password`. The wiki login\nproxy and `wiki_api.py` were removed.\n\n## Rejected alternatives\n- **Keep wiki SSO.** Ties every makerspace to NB's wiki; wrong for a multi-space\n  product.\n- **MediaWiki OAuth.** The NB wiki has no OAuth extension installed, and it\n  carries the same single-provider coupling.\n\n## Consequences\n- Signup is self-serve, which **broke the in-person personhood guarantee** that\n  wiki accounts used to provide. That guarantee underpinned the civic-hours\n  certificate \u2014 see [`civic-hours-cert`](../proposals/civic-hours-cert.md) and\n  [`personhood-verification`](../proposals/personhood-verification.md).\n- `users.wiki_username` was renamed to `usern\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "0001-local-auth.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/decisions/0001-local-auth.md",
+        "anchor": ""
+      }
     },
     {
       "id": "multi-space",
@@ -409,7 +589,13 @@
       "owners": [],
       "updated": "",
       "reason": "migration 0009; Noisebridge, Sequoia Fabrica, OpenCircuit SF, Omni Commons",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "multi-space-vouching",
@@ -421,7 +607,13 @@
       "owners": [],
       "updated": "",
       "reason": "candidate mechanism under personhood-verification",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "no-runtime-llm-gen",
@@ -439,7 +631,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# No runtime LLM quest generation\n\n## Status\nAccepted (2026-05-09). Reflected in the shipped quest pool: 348 seeds ingested\nonce, none generated live.\n\n## Context\nAn early demo idea had NPC quest-givers call Ollama at runtime to generate fresh\nquests for color. That couples the request path to a local model's latency and\noutput quality, and makes the live world non-deterministic and hard to review.\n\n## Decision\n**No LLM calls at runtime.** The LLM is used only **offline, once**, during data\nprep \u2014 `curate_discord.py` cleans mined Discord messages and `tag_skills.py`\nassigns skills. The live `quests` table is seeded from that fixed, human-review-\nable pool (`data/quest_templates/discord_tagged.yaml`). NPCs, when the simulator\nlands, draw from the seed pool plus hand-curated templates.\n\n## Consequences\n- The data pipeline (`mine \u2192 curate \u2192 tag \u2192 ingest`) is repeatable but not part\n  of the runtime.\n- Any future \"fresh quests\" feature is a separate proposal, not an implicit\n  runtime behavior.",
+      "source": {
+        "label": "0003-no-runtime-llm-generation.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/decisions/0003-no-runtime-llm-generation.md",
+        "anchor": ""
+      }
     },
     {
       "id": "note-donor-bounties",
@@ -457,7 +655,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "retained rationale; donor-bounty economics merged into SPEC, and its civic-hours personhood premise was superseded by local-auth \u2014 forward design now lives in civic-hours-cert",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Design Notes \u2014 Donor Bounties + Claim Reporting\n\n**Date:** 2026-05-19\n**Status:** Merged into SPEC.md 2026-05-19 (data model, mechanics, API surface, civic-hours certificate). This doc retained as the rationale / why-we-did-what record.\n**Origin:** Discord thread \u2014 Project Forum \u203a *NoiseQuest: Task Gamification + Catalogue System* \u2014 economics sub-discussion, 2026-05-19 ~17:51\u201319:13 UTC. Daniel (Web) proposed a donation-bounty mechanic; this doc captures the design that emerged from talking it through. The civic-hours layer (\u00a78) was added later the same day after surfacing the in-progress SF City parking-ticket conversation.\n\n---\n\n## 1. What this adds to v1\n\nTwo new layers on top of the existing quest model:\n\n1. **Donor bounties** \u2014 real-dollar gifts to NB, conditional on a quest being completed. The volunteer is never paid; the bounty goes to NB.\n2. **Claim reporting** \u2014 per-claimer self-reported time, notes, photo, and done-state at claim-completion time.\n\nNeither requires a redesign of the existing schema. Both attach cleanly to existing tables.\n\n---\n\n## 2. Donor bounties \u2014 the model\n\n### What it is\n\nA donor pledges $X to Noisebridge **conditional** on quest Y being completed. When a party claims and marks the quest done, NB collects the gift. The volunteer receives XP (existing mechanic), recognition, and the legible fact that their labor unlocked a real-dollar donation \u2014\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md",
+        "anchor": ""
+      }
     },
     {
       "id": "notifications",
@@ -469,7 +673,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79 out of scope for v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "npc-quest-givers",
@@ -481,7 +691,13 @@
       "owners": [],
       "updated": "",
       "reason": "DEMO: `npc_quest_givers` schema exists, no rows; simulator populates",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "DEMO.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/DEMO.md",
+        "anchor": ""
+      }
     },
     {
       "id": "one-profile-per-account",
@@ -499,7 +715,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# One profile per account (both modes)\n\n## Status\nShipped \u2014 `create_default_profile` runs at signup; there is no\n`/me/characters/new`, `/activate`, or `/delete` flow. `/me/characters` is the\nsingle \"YOUR PROFILE\" editor.\n\n## Context\nThe original demo design (see DEMO.md history) let a player create **up to 4\ncharacters** per account and watch them auto-play, with the \"real\" tool\nconstraining this to 1:1 via config. Carrying two identity cardinalities doubled\nthe surface area of every character-scoped feature (claims, XP ledger, active\nselection, UI).\n\n## Decision\n**One profile per account, in both the demo and the real tool.** The profile is\na single `characters` row created at signup and pointed to by\n`users.active_character_id`. Identity splits into three names on the account:\n`username` (login, fixed), a freely-changeable **visible name**, and a private\n`real_name` + `show_real_name` toggle (migrations `0010`, `0011`).\n\n## Rejected alternatives\n- **Up to 4 characters in the demo (multi-character).** Dropped \u2014 the extra\n  cardinality wasn't worth the complexity, and a single profile still delivers\n  the Progress-Quest auto-play feel.\n\n## Consequences\n- \"Character\" and \"profile\" are now the same single per-account row; docs use\n  \"profile.\"\n- The multi-character UI affordances (`MAKE ACTIVE`, the `\u2620` retire button,\n  empty slots, `demo.max_characters_per_user`) are retired.\n-\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "0002-one-profile-per-account.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/decisions/0002-one-profile-per-account.md",
+        "anchor": ""
+      }
     },
     {
       "id": "overview",
@@ -516,7 +738,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Actropolis\n\nA quest board for the Actropolis network of makerspaces \u2014 a Progress-Quest-style\ntask board built so a future \"real\" version can be inherited from the same\ncodebase without rewriting.\n\n**Live:** <https://quests.actropolis.org/>\n\n---\n\n## What changed (Oct 2026)\n\nFormerly the \"Noisebridge Quest Board.\" Now rebranded **Actropolis** and generalized\nto span multiple makerspaces:\n\n- **Independent accounts.** Auth no longer proxies to the Noisebridge wiki. Accounts\n  are local (username + Argon2id password), created via `/register`, changed via the\n  profile panel (`/me/password`). Admin bootstrap/reset: `python -m scripts.set_password <user>`.\n- **Spaces (makerspaces).** A `spaces` table models member sites (Noisebridge, Sequoia\n  Fabrica, OpenCircuit SF, Omni Commons). Users pick a **primary makerspace** on their\n  profile; quests can be scoped to a space (shown on cards + detail, filterable in browse).\n- **Hosting.** Served at `quests.actropolis.org` (Apache reverse-proxy \u2192 uvicorn :8080 on\n  zephyr). Admin allow-list lives at `/home/nthmost/.questboard-economy.yaml` (outside the\n  repo, pointed to by an `ECONOMY_YAML_PATH` systemd drop-in).\n\n> **\u26a0 Civic-hours caveat.** SPEC \u00a71 / \u00a74 and the DESIGN_NOTES civic-hours certificate\n> depended on the fact that *wiki accounts were issued only after in-person admin\n> verification* \u2014 making `wiki_username` \u2248 a verified human.\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "README.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/README.md",
+        "anchor": ""
+      }
     },
     {
       "id": "pdf-certificate",
@@ -528,7 +756,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a74: html works today; pdf deferrable past v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#4-economy-mechanics",
+        "anchor": "4-economy-mechanics"
+      }
     },
     {
       "id": "per-profile-page",
@@ -540,7 +774,13 @@
       "owners": [],
       "updated": "",
       "reason": "URL reserved; stats + current quest + recent events",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "personhood-verification",
@@ -558,7 +798,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Personhood verification for local accounts\n\n## Status\nExploring. This is the **blocker** for anything that certifies a real human's\ncontribution \u2014 most directly the civic-hours certificate.\n\n## Context\nWhen auth proxied to the NB wiki, a `username` was effectively 1:1 with a\nvouched-for human, because wiki accounts were issued only after in-person admin\nverification. The move to [`local-auth`](../decisions/0001-local-auth.md) made\nsignup self-serve and **removed that guarantee**. Nothing in the system now\nattests that an account is a distinct real person.\n\n## The question\nHow do we re-establish a \"this account is a verified human\" signal strong enough\nto back civic-hours / volunteer-credit certification, without storing PII at\nrest?\n\n## Candidate approaches (unscored)\n- **Admin approval of accounts** \u2014 a lightweight re-creation of the old gate; an\n  admin marks an account verified. Centralizes work on admins.\n- **Per-space vouching** \u2014 an existing verified member of a makerspace vouches\n  for a new account in that space. Scales better; needs a vouch model and\n  abuse handling.\n- **Tiered trust** \u2014 unverified accounts can play; only verified accounts can\n  generate a certifiable record. Decouples \"play\" from \"certify.\"\n\n## Downstream\nResolving this unblocks [`civic-hours-cert`](./civic-hours-cert.md).",
+      "source": {
+        "label": "personhood-verification.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/proposals/personhood-verification.md",
+        "anchor": ""
+      }
     },
     {
       "id": "posting-fee-economy",
@@ -570,7 +816,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a74: flat/proportional shapes, treasury routing, refund policies",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#4-economy-mechanics",
+        "anchor": "4-economy-mechanics"
+      }
     },
     {
       "id": "public-api",
@@ -582,7 +834,13 @@
       "owners": [],
       "updated": "",
       "reason": "healthz/version/economy/stats/guilds/locations/quests",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "quest-attachments",
@@ -594,7 +852,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a72 `quest_attachments`; claim photos in v1, quest refs later",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#2-data-model",
+        "anchor": "2-data-model"
+      }
     },
     {
       "id": "quest-browse",
@@ -606,7 +870,13 @@
       "owners": [],
       "updated": "",
       "reason": "`/quests`; ~348 ingested quests in the pool",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "quest-claim-flow",
@@ -618,7 +888,13 @@
       "owners": [],
       "updated": "",
       "reason": "party_min/max, terminal-status + double-claim guards",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "quest-creation",
@@ -630,7 +906,13 @@
       "owners": [],
       "updated": "",
       "reason": "`/quests/new`; gate = admin / allowlist / `min_quests_completed`",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "quest-detail",
@@ -642,7 +924,13 @@
       "owners": [],
       "updated": "",
       "reason": "`/quests/{id}` \u2014 task panel, claims, boosts, sidebar",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "quest-templates",
@@ -654,7 +942,13 @@
       "owners": [],
       "updated": "",
       "reason": "DEMO \u00a73 generator; SPEC \u00a79 lists as out of scope for v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#3-economy-yaml",
+        "anchor": "3-economy-yaml"
+      }
     },
     {
       "id": "quest-verification",
@@ -666,7 +960,13 @@
       "owners": [],
       "updated": "",
       "reason": "schema column stays; disabled for the demo by decision",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "BACKLOG.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/ideas/BACKLOG.md",
+        "anchor": ""
+      }
     },
     {
       "id": "rate-limits",
@@ -678,7 +978,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79 out of scope for v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "reputation-badges",
@@ -690,7 +996,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79 out of scope for v1 (distinct from embeddable badges)",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "service-principal-api",
@@ -702,7 +1014,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a75: `api_keys`, scopes, `sp_` tokens",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#5-auth",
+        "anchor": "5-auth"
+      }
     },
     {
       "id": "simulator",
@@ -720,7 +1038,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Progress-Quest simulator\n\n## Status\nAccepted, **not yet built** \u2014 the largest remaining slice of the demo. Design\nlives in DEMO.md \u00a76; this node tracks it as a unit of work.\n\n## Summary\nAn async tick loop (one real second per tick, 30\u00d7 sim speedup) that advances\n`sim_state`, fires NPC quest posts, runs profile auto-claim/auto-complete to\nmaturity, writes append-only `simulation_events`, and drives a live SSE feed at\n`/api/v1/feed/stream`.\n\n## What it unblocks (currently stubbed because the sim doesn't run)\n- Live SSE activity feed (the front page renders real recent activity today via\n  `_real_feed`, but not a live stream).\n- The active profile's \"current task\" panel (always `RESTING` today).\n- NPC quest-giver rows (`npc_quest_givers` table exists, no rows).\n- An admin reset endpoint to wipe simulation state.\n\n## Open questions\n- Reset cadence (weekly vs admin-on-demand).\n- NPC count / personas per guild.\n- Whether to run the sim at all on the Noisebridge (\"real board\") instance \u2014 per\n  config it should not seed NPCs or run a sim clock.",
+      "source": {
+        "label": "simulator.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/proposals/simulator.md",
+        "anchor": ""
+      }
     },
     {
       "id": "spec",
@@ -737,7 +1061,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Actropolis \u2014 API Spec (v1 draft)\n\n> **Orientation:** This document is the long-term productivity-tool design.\n> The Progress-Quest-style demo currently being built is a delta on top of\n> this spec \u2014 see [DEMO.md](./DEMO.md). For what's actually built right now,\n> see `STATUS.md` (in the Actropolis controller dir, one level up). For visual\n> reference, see [UI.md](./UI.md).\n> If you're brand new, start with [README.md](./README.md).\n\n\n**Status:** Draft, 2026-05-19 (adds donor bounties + claim reporting; see [DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md](./DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md) for rationale)\n**Host:** two instances on zephyr (Debian, Postgres 18); enki holds quiesced cold storage \u2014 see the controller's DEPLOYMENT.md \"Two instances\" table\n**Stack:** FastAPI + SQLAlchemy + Alembic, PostgreSQL, local Ollama (used only offline for data prep; no runtime LLM calls)\n**Public hostname (interim):** `quests.actropolis.org` (advocate for `quests.noisebridge.net` later)\n\n---\n\n## 1. Design principles\n\n- **Each account has one profile, and the profile is the actor.** Quests are claimed, completed, and boosted by an account's profile; the XP ledger writes to it. An account carries three names: a **username** (login credential, fixed), a **visible name** (public display, changeable anytime), and a **real name** (private, required at si\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md",
+        "anchor": ""
+      }
     },
     {
       "id": "sub-quests",
@@ -749,7 +1079,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a71/\u00a74: `parent_quest_id`, `max_depth` (ceiling 3), manual/auto rollup",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#1-design-principles",
+        "anchor": "1-design-principles"
+      }
     },
     {
       "id": "taxonomy",
@@ -761,7 +1097,13 @@
       "owners": [],
       "updated": "",
       "reason": "seeded: 17 guilds, 22 locations, 7 character classes",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "test-personas",
@@ -778,7 +1120,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Actropolis Test Personas\n\nWorking list for scenario / user-journey testing. Personas are grouped by the axis they sit on; many real users combine multiple axes (e.g. \"new member who wants civic hours\" crosses A + B).\n\nEdit freely. Add, remove, merge, rename. Adjust the tier assignments at the bottom as priorities shift.\n\n> **Note (2026-10-26):** accounts are now local and self-serve (register \u2192\n> one profile), not issued via in-person wiki verification. Personas phrased\n> around \"wiki account\" have been reworded to \"account\"; the personhood\n> guarantee the civic-hours certificate relied on no longer holds (see \u00a7G and\n> the README civic-hours caveat).\n\n---\n\n## A. Tenure axis \u2014 how long they've been at NB\n\n1. **First-time visitor** \u2014 walked in for the first time, no account yet, doesn't know what NB is\n2. **New member** \u2014 just self-registered an account, hasn't done anything yet\n3. **Active regular** \u2014 months in, knows the rhythms, has a few completed quests\n4. **Old guard** \u2014 years in, may be quest-board-skeptical, has strong opinions about how things should work\n5. **Returning lapsed** \u2014 was active, drifted away, coming back to find things changed\n\n## B. Motivation axis \u2014 why they're touching the quest board\n\n6. **Builder/maker** \u2014 here for projects, sees chores as background noise; quests are barely on their radar\n7. **Do-ocrat/steward** \u2014 already does the chores; quest boar\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "TEST_PERSONAS.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/TEST_PERSONAS.md",
+        "anchor": ""
+      }
     },
     {
       "id": "treasury-account",
@@ -790,7 +1138,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a72: singleton `__treasury__` is_system account",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#2-data-model",
+        "anchor": "2-data-model"
+      }
     },
     {
       "id": "two-instance-hosting",
@@ -802,7 +1156,13 @@
       "owners": [],
       "updated": "",
       "reason": "`SITE_NAME`/`THEME`; questboard :8080 + questboard-nb :8081",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "ui-reference",
@@ -819,7 +1179,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Quest Board \u2014 UI Reference\n\n> **Orientation:** Front-end visual reference \u2014 palette, panel system,\n> component vocabulary, page-by-page layout. Snapshot of the live state at\n> <https://quests.actropolis.org/> (visual register as of 2026-05-09; pages,\n> auth, and routes reconciled to the shipped code 2026-10-26). Living document;\n> update when the visual register or component vocabulary changes.\n> If you're brand new, start with [README.md](./README.md).\n\n## 1. Stack & file layout\n\n- **Server-rendered Jinja2 templates**, no SPA. FastAPI returns full pages.\n- **htmx + SSE** anticipated for live-update surfaces (activity feed, character sheet) once the simulator lands. Not used yet.\n- **Static CSS only** at `app/static/css/nes.css`. No JS framework, no preprocessor.\n- Cache-buster: every page link to the CSS includes `?v=<mtime>`, computed once at app startup from the file's mtime. Browsers re-fetch automatically when the CSS changes \u2014 no hard-reload needed.\n\n```\napp/\n\u251c\u2500\u2500 templates/\n\u2502   \u251c\u2500\u2500 base.html               # html shell + asset_v cache buster + footer\n\u2502   \u251c\u2500\u2500 index.html              # /\n\u2502   \u251c\u2500\u2500 login.html              # /login\n\u2502   \u251c\u2500\u2500 register.html           # /register\n\u2502   \u251c\u2500\u2500 me_characters.html      # /me/characters (\"YOUR PROFILE\")\n\u2502   \u251c\u2500\u2500 quest_create.html       # /quests/new\n\u2502   \u251c\u2500\u2500 admin_layout.html       # admin shell\n\u2502   \u251c\u2500\u2500 admin_dashboard.html    # /admin/\n\u2502   \u251c\n\n\u2026 *(truncated \u2014 open the source document for the full text)*",
+      "source": {
+        "label": "UI.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/UI.md",
+        "anchor": ""
+      }
     },
     {
       "id": "user-page-badges",
@@ -837,7 +1203,13 @@
       ],
       "updated": "2026-10-26",
       "reason": "",
-      "source": "doc"
+      "origin": "doc",
+      "body": "# Embeddable user-page badges\n\n## Status\nProposed, not built. SPEC \u00a7ext mentions it; this node tracks the decision.\n\n## Summary\nAn endpoint set any external page (a personal site, a makerspace wiki user-page)\ncan embed to render an account's quest-board status \u2014 level, XP, quest count,\nrecent activity \u2014 as SVG / JSON / HTML.\n\n## Open question \u2014 path naming\nThe original sketch used `/api/v1/users/by-wiki/{username}/badge.{svg,json,html}`.\nNow that accounts are local rather than wiki-derived\n([`local-auth`](../decisions/0001-local-auth.md)), the `by-wiki` segment is\nmisleading. Proposed rename: `/api/v1/users/by-username/{username}/badge.*`.\nDecide before implementing, since it's a public URL contract.\n\n## Notes\n- Cache aggressively at the reverse proxy (the DEPLOYMENT template already sketches\n  a `proxy_cache_valid` block for the badge path).\n- Server-rendered SVG with a cached variant is the \"badge fetcher\" persona's need.",
+      "source": {
+        "label": "user-page-badges.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/proposals/user-page-badges.md",
+        "anchor": ""
+      }
     },
     {
       "id": "verifier-role",
@@ -849,7 +1221,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC: `verifier_bonus_xp`, `POST /verify`, `requires_verification`",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md",
+        "anchor": ""
+      }
     },
     {
       "id": "view-as-user",
@@ -861,7 +1239,13 @@
       "owners": [],
       "updated": "",
       "reason": "preview the public UI from an admin account",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     },
     {
       "id": "world-reset",
@@ -873,7 +1257,13 @@
       "owners": [],
       "updated": "",
       "reason": "DEMO: weekly or on-demand fresh world; preserves class seeds",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "DEMO.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/DEMO.md",
+        "anchor": ""
+      }
     },
     {
       "id": "xp-decay",
@@ -885,7 +1275,13 @@
       "owners": [],
       "updated": "",
       "reason": "SPEC \u00a79 out of scope for v1",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "SPEC.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/SPEC.md#9-out-of-scope-for-v1",
+        "anchor": "9-out-of-scope-for-v1"
+      }
     },
     {
       "id": "xp-ledger",
@@ -897,7 +1293,13 @@
       "owners": [],
       "updated": "",
       "reason": "`xp_transactions`, `total_xp_earned`; welcome grant at signup",
-      "source": "registry"
+      "origin": "registry",
+      "body": "",
+      "source": {
+        "label": "FEATURES.md",
+        "url": "https://github.com/nthmost/quest-board/blob/main/docs/features/FEATURES.md",
+        "anchor": ""
+      }
     }
   ],
   "edges": [
