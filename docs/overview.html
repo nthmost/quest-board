@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Actropolis — design map (text)</title>
+<style>
+  :root {
+    --bg:#0f1419; --panel:#161c24; --line:#2a3340; --ink:#e6edf3; --dim:#8a97a6;
+    --accent:#6ea8fe; --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:15px;line-height:1.5}
+  header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);
+    padding:14px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;z-index:10}
+  header h1{font-size:16px;margin:0;font-weight:700}
+  header .meta{font-size:12px;color:var(--dim)}
+  header a{color:var(--accent);text-decoration:none;font-size:13px;border:1px solid var(--line);
+    padding:4px 10px;border-radius:6px}
+  header a:hover{border-color:var(--accent)}
+  #filter{margin-left:auto;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    font-size:13px;padding:6px 10px;border-radius:6px;width:240px;font-family:var(--mono)}
+  main{max-width:900px;margin:0 auto;padding:10px 22px 60px}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink);
+    margin:30px 0 4px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  h3{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--dim);
+    margin:18px 0 6px;font-weight:600}
+  .item{padding:7px 0 7px 12px;border-left:2px solid var(--line);margin:3px 0}
+  .item .row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .item .title{font-weight:600}
+  .item .id{font-family:var(--mono);font-size:12px;color:var(--dim)}
+  .chip{font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:1px 7px;
+    border-radius:9px;border:1px solid var(--line);white-space:nowrap}
+  .item .reason{color:#cbd5e1;font-size:13.5px;margin-top:2px}
+  .item .edges{font-size:12px;color:var(--dim);font-family:var(--mono);margin-top:3px}
+  .item .edges b{color:#9fb4c9;font-weight:400}
+  .hidden{display:none}
+  #empty{color:var(--dim);font-style:italic;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Actropolis · design map</h1>
+  <span class="meta" id="counts"></span>
+  <a href="./graph.html">◈ graph view</a>
+  <input id="filter" placeholder="filter: text / status / id…" autocomplete="off">
+</header>
+<main id="main"></main>
+
+<script>
+const STATUS_COLOR = {
+  shipped:"#22c55e", accepted:"#3b82f6", building:"#14b8a6", proposed:"#a855f7",
+  exploring:"#f59e0b", idea:"#94a3b8", deferred:"#f97316", rejected:"#b91c1c",
+  superseded:"#475569", unknown:"#cbd5e1",
+};
+const STATUS_ORDER = ["shipped","accepted","building","proposed","exploring",
+  "idea","deferred","rejected","superseded","unknown"];
+const TYPE_SECTIONS = [
+  ["feature","Shipped features"],["decision","Decisions"],["proposal","Proposals"],
+  ["idea","Ideas"],["spec","Specs"],["reference","Reference docs"],
+  ["note","Notes"],["status","Status docs"],["runbook","Runbooks"],
+];
+
+async function main() {
+  const data = await (await fetch("./index.json",{cache:"no-store"})).json();
+  document.getElementById("counts").textContent =
+    `${data.node_count} nodes · ${data.edge_count} edges`;
+
+  const out = {};
+  for (const e of data.edges) (out[e.from] ||= []).push(`${e.rel} ${e.to}`);
+  const byType = {};
+  for (const n of data.nodes) (byType[n.type] ||= []).push(n);
+
+  const main = document.getElementById("main");
+  for (const [type, heading] of TYPE_SECTIONS) {
+    const items = (byType[type] || []).sort((a,b) =>
+      rank(a.status)-rank(b.status) || a.id.localeCompare(b.id));
+    if (!items.length) continue;
+    const h2 = el("h2", `${heading} (${items.length})`); main.appendChild(h2);
+    const statuses = STATUS_ORDER.filter(s => items.some(n => n.status===s));
+    const sub = statuses.length > 1;
+    for (const status of statuses) {
+      const group = items.filter(n => n.status===status);
+      if (sub) main.appendChild(el("h3", `${status} (${group.length})`));
+      for (const n of group) main.appendChild(renderItem(n, out[n.id], !sub));
+    }
+  }
+  wireFilter();
+}
+
+function renderItem(n, edges, showStatus) {
+  const d = document.createElement("div");
+  d.className = "item";
+  d.dataset.hay = `${n.title} ${n.id} ${n.status} ${n.reason||""}`.toLowerCase();
+  const row = el("div","","row");
+  row.appendChild(el("span", n.title, "title"));
+  row.appendChild(el("span", n.id, "id"));
+  if (showStatus) {
+    const c = el("span", n.status, "chip");
+    c.style.color = STATUS_COLOR[n.status] || "#cbd5e1";
+    c.style.borderColor = STATUS_COLOR[n.status] || "#475569";
+    row.appendChild(c);
+  }
+  d.appendChild(row);
+  if (n.reason) d.appendChild(el("div", n.reason, "reason"));
+  if (edges && edges.length) {
+    const e = el("div","","edges");
+    e.innerHTML = "↳ " + edges.map(x=>`<b>${esc(x)}</b>`).join("; ");
+    d.appendChild(e);
+  }
+  return d;
+}
+
+function wireFilter() {
+  const input = document.getElementById("filter");
+  const empty = el("div","No matches.","" ); empty.id="empty"; empty.classList.add("hidden");
+  document.getElementById("main").appendChild(empty);
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll(".item").forEach(it => {
+      const hit = !q || it.dataset.hay.includes(q);
+      it.classList.toggle("hidden", !hit);
+      if (hit) shown++;
+    });
+    document.querySelectorAll("h2,h3").forEach(h => {}); // headings stay; cheap + clear
+    empty.classList.toggle("hidden", shown>0);
+  });
+}
+
+const rank = s => { const i = STATUS_ORDER.indexOf(s); return i<0?99:i; };
+function el(tag, text, cls) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text) e.textContent = text;
+  return e;
+}
+function esc(s){return String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+main();
+</script>
+</body>
+</html>

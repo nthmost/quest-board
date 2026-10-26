@@ -1,0 +1,1225 @@
+{
+  "generated_by": "scripts/build_docs_index.py",
+  "node_count": 67,
+  "edge_count": 64,
+  "dangling_edges": [],
+  "duplicate_ids": [],
+  "nodes": [
+    {
+      "id": "admin-console",
+      "title": "Admin console (dashboard, quests, users, templates)",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`/admin/*`, allow-list in economy YAML, SIGHUP reload",
+      "source": "registry"
+    },
+    {
+      "id": "admin-sim-reset",
+      "title": "Admin endpoint to wipe simulation state",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "preserves taxonomy + NPC defs + seed pool",
+      "source": "registry"
+    },
+    {
+      "id": "backlog",
+      "title": "Ideas backlog",
+      "type": "idea",
+      "status": "exploring",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [
+        "backlog",
+        "ideas"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "backups-automation",
+      "title": "Automated `pg_dump` backups on zephyr",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "not yet wired; needs cron for both `questboard` + `questboard_nb`",
+      "source": "registry"
+    },
+    {
+      "id": "boosts-ui",
+      "title": "Spend XP to boost a quest",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`quest_boosts` table exists; no UI to spend XP on a boost yet",
+      "source": "registry"
+    },
+    {
+      "id": "bounty-acknowledgment",
+      "title": "501(c)(3) year-end donor letters",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79: schema supports; generator deferred",
+      "source": "registry"
+    },
+    {
+      "id": "bounty-expiry-sweep",
+      "title": "Background bounty-expiry sweep job",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79: manual admin endpoint in v1",
+      "source": "registry"
+    },
+    {
+      "id": "bounty-matching",
+      "title": "Bounty matching pledges",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79: \"match the first $100 on quests tagged X\"",
+      "source": "registry"
+    },
+    {
+      "id": "civic-hours-cert",
+      "title": "Civic-hours certificate",
+      "type": "proposal",
+      "status": "deferred",
+      "path": "docs/proposals/civic-hours-cert.md",
+      "tags": [
+        "identity",
+        "economy",
+        "verification",
+        "civic"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "self-serve local signup removed the in-person personhood guarantee the certificate relied on",
+      "source": "doc"
+    },
+    {
+      "id": "claim-reporting",
+      "title": "Claim completion reporting (time/notes/photo/state)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a74: per-claimer minutes, done_state, notes, photo at `/done`",
+      "source": "registry"
+    },
+    {
+      "id": "clone-quest",
+      "title": "Clone quest (reopen replacement)",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC: `POST /quests/{id}/clone`; no reopen once paid out",
+      "source": "registry"
+    },
+    {
+      "id": "demo",
+      "title": "Quest Board \u2014 Progress Quest demo (delta on spec)",
+      "type": "spec",
+      "status": "building",
+      "path": "DEMO.md",
+      "tags": [
+        "demo",
+        "design"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "discord-data-pipeline",
+      "title": "Discord mining \u2192 curate \u2192 tag \u2192 ingest",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "one-shot offline prep producing 348 skill-tagged seeds",
+      "source": "registry"
+    },
+    {
+      "id": "discord-linking",
+      "title": "Link a Discord account to a profile",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`users` carries discord columns; no `/link` slash-command flow",
+      "source": "registry"
+    },
+    {
+      "id": "docs-convention",
+      "title": "Design-docs information architecture",
+      "type": "reference",
+      "status": "shipped",
+      "path": "docs/README.md",
+      "tags": [
+        "meta",
+        "docs",
+        "architecture"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "donor-bounties",
+      "title": "Donor $ bounties (pledge/collect/withdraw, Stripe)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a74: conditional restricted gift to NB, never paid to doers; not built",
+      "source": "registry"
+    },
+    {
+      "id": "economy-yaml",
+      "title": "Economy config in YAML with SIGHUP hot-reload",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "single `economy.yaml` source of truth; no settings UI or table",
+      "source": "registry"
+    },
+    {
+      "id": "feature-graph",
+      "title": "Design-docs feature graph (viewer + index + published site)",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "this graph; `graph.html` + `index.json` live at graph.actropolis.org",
+      "source": "registry"
+    },
+    {
+      "id": "features",
+      "title": "Shipped features registry",
+      "type": "reference",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [
+        "features",
+        "registry"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "flavor-text",
+      "title": "Per-class flavor text + idle events",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "DEMO \u00a74/\u00a76: class flavor kits, idle \"pauses to refactor a comment\"",
+      "source": "registry"
+    },
+    {
+      "id": "front-page",
+      "title": "Front page (world stats, featured profile, open quests, live-ish feed)",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`/` with `_real_feed` (real recent activity, not a mock)",
+      "source": "registry"
+    },
+    {
+      "id": "fulltext-search",
+      "title": "Full-text search (vs ILIKE)",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79 out of scope for v1",
+      "source": "registry"
+    },
+    {
+      "id": "graph-basic-auth",
+      "title": "HTTP Basic Auth on the feature graph",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "privacy upgrade if the unadvertised hostname isn't enough",
+      "source": "registry"
+    },
+    {
+      "id": "identity-names",
+      "title": "Username / visible-name / real-name identity split",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "login vs public display vs private real name + `show_real_name`",
+      "source": "registry"
+    },
+    {
+      "id": "leaderboard",
+      "title": "`/leaderboard` top profiles by XP/level",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "URL reserved; needs sort + small podium component",
+      "source": "registry"
+    },
+    {
+      "id": "level-curves",
+      "title": "Configurable level curves (flat/linear/exp/dnd5e/custom)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a73: curve config + D&D 5e table",
+      "source": "registry"
+    },
+    {
+      "id": "level-up-ui",
+      "title": "Spend XP to level up",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "mechanic spec'd; no UI yet",
+      "source": "registry"
+    },
+    {
+      "id": "live-sse-feed",
+      "title": "Live `/api/v1/feed/stream`",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "folded into the simulator; split out if it ships earlier",
+      "source": "registry"
+    },
+    {
+      "id": "llm-xp-suggestion",
+      "title": "LLM XP suggestion at draft (`/quests/draft`)",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a78: calibration-gated, opt-in preview only (not runtime gen)",
+      "source": "registry"
+    },
+    {
+      "id": "local-auth",
+      "title": "Local accounts instead of wiki SSO",
+      "type": "decision",
+      "status": "shipped",
+      "path": "docs/decisions/0001-local-auth.md",
+      "tags": [
+        "identity",
+        "auth",
+        "security"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "multi-space",
+      "title": "Multiple makerspaces (spaces, primary space, quest scoping)",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "migration 0009; Noisebridge, Sequoia Fabrica, OpenCircuit SF, Omni Commons",
+      "source": "registry"
+    },
+    {
+      "id": "multi-space-vouching",
+      "title": "Per-space member vouching",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "candidate mechanism under personhood-verification",
+      "source": "registry"
+    },
+    {
+      "id": "no-runtime-llm-gen",
+      "title": "No runtime LLM quest generation",
+      "type": "decision",
+      "status": "accepted",
+      "path": "docs/decisions/0003-no-runtime-llm-generation.md",
+      "tags": [
+        "quests",
+        "llm",
+        "data-pipeline"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "note-donor-bounties",
+      "title": "Design notes \u2014 donor bounties + claim reporting",
+      "type": "note",
+      "status": "superseded",
+      "path": "DESIGN_NOTES_2026-05-19_donor_bounties_and_claim_reporting.md",
+      "tags": [
+        "economy",
+        "civic",
+        "rationale"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "retained rationale; donor-bounty economics merged into SPEC, and its civic-hours personhood premise was superseded by local-auth \u2014 forward design now lives in civic-hours-cert",
+      "source": "doc"
+    },
+    {
+      "id": "notifications",
+      "title": "Notifications / webhooks",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79 out of scope for v1",
+      "source": "registry"
+    },
+    {
+      "id": "npc-quest-givers",
+      "title": "NPC quest-givers seeding",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "DEMO: `npc_quest_givers` schema exists, no rows; simulator populates",
+      "source": "registry"
+    },
+    {
+      "id": "one-profile-per-account",
+      "title": "One profile per account (both modes)",
+      "type": "decision",
+      "status": "shipped",
+      "path": "docs/decisions/0002-one-profile-per-account.md",
+      "tags": [
+        "identity",
+        "characters",
+        "demo"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "overview",
+      "title": "Actropolis \u2014 project overview",
+      "type": "reference",
+      "status": "shipped",
+      "path": "README.md",
+      "tags": [
+        "overview",
+        "map"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "pdf-certificate",
+      "title": "PDF civic-hours certificate renderer",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a74: html works today; pdf deferrable past v1",
+      "source": "registry"
+    },
+    {
+      "id": "per-profile-page",
+      "title": "Public `/c/{id}` profile sheet",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "URL reserved; stats + current quest + recent events",
+      "source": "registry"
+    },
+    {
+      "id": "personhood-verification",
+      "title": "Personhood verification for local accounts",
+      "type": "proposal",
+      "status": "exploring",
+      "path": "docs/proposals/personhood-verification.md",
+      "tags": [
+        "identity",
+        "trust",
+        "verification"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "posting-fee-economy",
+      "title": "Posting-fee economy (burn vs treasury, refunds)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a74: flat/proportional shapes, treasury routing, refund policies",
+      "source": "registry"
+    },
+    {
+      "id": "public-api",
+      "title": "Public read API `/api/v1`",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "healthz/version/economy/stats/guilds/locations/quests",
+      "source": "registry"
+    },
+    {
+      "id": "quest-attachments",
+      "title": "Photo / media attachments",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a72 `quest_attachments`; claim photos in v1, quest refs later",
+      "source": "registry"
+    },
+    {
+      "id": "quest-browse",
+      "title": "Quest browse \u2014 search, filter, sort, paginate",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`/quests`; ~348 ingested quests in the pool",
+      "source": "registry"
+    },
+    {
+      "id": "quest-claim-flow",
+      "title": "Claim / release / done / verify state machine",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "party_min/max, terminal-status + double-claim guards",
+      "source": "registry"
+    },
+    {
+      "id": "quest-creation",
+      "title": "Human quest posting + eligibility gate",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`/quests/new`; gate = admin / allowlist / `min_quests_completed`",
+      "source": "registry"
+    },
+    {
+      "id": "quest-detail",
+      "title": "Quest detail page",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`/quests/{id}` \u2014 task panel, claims, boosts, sidebar",
+      "source": "registry"
+    },
+    {
+      "id": "quest-templates",
+      "title": "Slot-filling quest templates",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "DEMO \u00a73 generator; SPEC \u00a79 lists as out of scope for v1",
+      "source": "registry"
+    },
+    {
+      "id": "quest-verification",
+      "title": "Re-enable per-quest verification step",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "schema column stays; disabled for the demo by decision",
+      "source": "registry"
+    },
+    {
+      "id": "rate-limits",
+      "title": "API rate limiting",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79 out of scope for v1",
+      "source": "registry"
+    },
+    {
+      "id": "reputation-badges",
+      "title": "Reputation / badges / level names",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79 out of scope for v1 (distinct from embeddable badges)",
+      "source": "registry"
+    },
+    {
+      "id": "service-principal-api",
+      "title": "API keys / service principals (scoped bearer)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a75: `api_keys`, scopes, `sp_` tokens",
+      "source": "registry"
+    },
+    {
+      "id": "simulator",
+      "title": "Progress-Quest simulator (tick loop + SSE feed)",
+      "type": "proposal",
+      "status": "accepted",
+      "path": "docs/proposals/simulator.md",
+      "tags": [
+        "demo",
+        "simulator",
+        "sse"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "spec",
+      "title": "Actropolis \u2014 API spec (long-term design)",
+      "type": "spec",
+      "status": "accepted",
+      "path": "SPEC.md",
+      "tags": [
+        "spec",
+        "design"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "sub-quests",
+      "title": "Nested quests (parent/child, depth, rollup)",
+      "type": "idea",
+      "status": "proposed",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a71/\u00a74: `parent_quest_id`, `max_depth` (ceiling 3), manual/auto rollup",
+      "source": "registry"
+    },
+    {
+      "id": "taxonomy",
+      "title": "Reference taxonomy",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "seeded: 17 guilds, 22 locations, 7 character classes",
+      "source": "registry"
+    },
+    {
+      "id": "test-personas",
+      "title": "Actropolis test personas",
+      "type": "note",
+      "status": "exploring",
+      "path": "TEST_PERSONAS.md",
+      "tags": [
+        "testing",
+        "personas"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "treasury-account",
+      "title": "System treasury account for fees",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a72: singleton `__treasury__` is_system account",
+      "source": "registry"
+    },
+    {
+      "id": "two-instance-hosting",
+      "title": "One codebase, two branded instances on zephyr",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`SITE_NAME`/`THEME`; questboard :8080 + questboard-nb :8081",
+      "source": "registry"
+    },
+    {
+      "id": "ui-reference",
+      "title": "Quest Board \u2014 UI reference",
+      "type": "reference",
+      "status": "shipped",
+      "path": "UI.md",
+      "tags": [
+        "ui",
+        "reference"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "user-page-badges",
+      "title": "Embeddable user-page badges",
+      "type": "proposal",
+      "status": "proposed",
+      "path": "docs/proposals/user-page-badges.md",
+      "tags": [
+        "api",
+        "embed",
+        "profile"
+      ],
+      "owners": [
+        "nthmost"
+      ],
+      "updated": "2026-10-26",
+      "reason": "",
+      "source": "doc"
+    },
+    {
+      "id": "verifier-role",
+      "title": "Verifier bonus + verify transition",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC: `verifier_bonus_xp`, `POST /verify`, `requires_verification`",
+      "source": "registry"
+    },
+    {
+      "id": "view-as-user",
+      "title": "Admin \"view as user\" toggle",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "preview the public UI from an admin account",
+      "source": "registry"
+    },
+    {
+      "id": "world-reset",
+      "title": "Periodic / admin world reset",
+      "type": "idea",
+      "status": "idea",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "DEMO: weekly or on-demand fresh world; preserves class seeds",
+      "source": "registry"
+    },
+    {
+      "id": "xp-decay",
+      "title": "XP decay / seasonal resets",
+      "type": "idea",
+      "status": "deferred",
+      "path": "docs/ideas/BACKLOG.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "SPEC \u00a79 out of scope for v1",
+      "source": "registry"
+    },
+    {
+      "id": "xp-ledger",
+      "title": "XP ledger + levels on the profile",
+      "type": "feature",
+      "status": "shipped",
+      "path": "docs/features/FEATURES.md",
+      "tags": [],
+      "owners": [],
+      "updated": "",
+      "reason": "`xp_transactions`, `total_xp_earned`; welcome grant at signup",
+      "source": "registry"
+    }
+  ],
+  "edges": [
+    {
+      "from": "demo",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "note-donor-bounties",
+      "to": "civic-hours-cert",
+      "rel": "superseded_by"
+    },
+    {
+      "from": "note-donor-bounties",
+      "to": "spec",
+      "rel": "superseded_by"
+    },
+    {
+      "from": "note-donor-bounties",
+      "to": "local-auth",
+      "rel": "relates_to"
+    },
+    {
+      "from": "overview",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "overview",
+      "to": "demo",
+      "rel": "relates_to"
+    },
+    {
+      "from": "overview",
+      "to": "ui-reference",
+      "rel": "relates_to"
+    },
+    {
+      "from": "overview",
+      "to": "docs-convention",
+      "rel": "relates_to"
+    },
+    {
+      "from": "spec",
+      "to": "demo",
+      "rel": "relates_to"
+    },
+    {
+      "from": "test-personas",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "ui-reference",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "local-auth",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "local-auth",
+      "to": "civic-hours-cert",
+      "rel": "relates_to"
+    },
+    {
+      "from": "one-profile-per-account",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "one-profile-per-account",
+      "to": "demo",
+      "rel": "relates_to"
+    },
+    {
+      "from": "no-runtime-llm-gen",
+      "to": "demo",
+      "rel": "relates_to"
+    },
+    {
+      "from": "civic-hours-cert",
+      "to": "personhood-verification",
+      "rel": "depends_on"
+    },
+    {
+      "from": "civic-hours-cert",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "civic-hours-cert",
+      "to": "local-auth",
+      "rel": "relates_to"
+    },
+    {
+      "from": "civic-hours-cert",
+      "to": "note-donor-bounties",
+      "rel": "relates_to"
+    },
+    {
+      "from": "personhood-verification",
+      "to": "civic-hours-cert",
+      "rel": "blocks"
+    },
+    {
+      "from": "personhood-verification",
+      "to": "local-auth",
+      "rel": "relates_to"
+    },
+    {
+      "from": "simulator",
+      "to": "no-runtime-llm-gen",
+      "rel": "depends_on"
+    },
+    {
+      "from": "simulator",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "simulator",
+      "to": "demo",
+      "rel": "realizes"
+    },
+    {
+      "from": "user-page-badges",
+      "to": "spec",
+      "rel": "relates_to"
+    },
+    {
+      "from": "identity-names",
+      "to": "one-profile-per-account",
+      "rel": "relates_to"
+    },
+    {
+      "from": "economy-yaml",
+      "to": "admin-console",
+      "rel": "relates_to"
+    },
+    {
+      "from": "discord-data-pipeline",
+      "to": "no-runtime-llm-gen",
+      "rel": "relates_to"
+    },
+    {
+      "from": "feature-graph",
+      "to": "docs-convention",
+      "rel": "relates_to"
+    },
+    {
+      "from": "level-up-ui",
+      "to": "xp-ledger",
+      "rel": "relates_to"
+    },
+    {
+      "from": "admin-sim-reset",
+      "to": "simulator",
+      "rel": "relates_to"
+    },
+    {
+      "from": "live-sse-feed",
+      "to": "simulator",
+      "rel": "relates_to"
+    },
+    {
+      "from": "multi-space-vouching",
+      "to": "personhood-verification",
+      "rel": "relates_to"
+    },
+    {
+      "from": "multi-space-vouching",
+      "to": "multi-space",
+      "rel": "relates_to"
+    },
+    {
+      "from": "graph-basic-auth",
+      "to": "feature-graph",
+      "rel": "relates_to"
+    },
+    {
+      "from": "backups-automation",
+      "to": "two-instance-hosting",
+      "rel": "relates_to"
+    },
+    {
+      "from": "sub-quests",
+      "to": "quest-detail",
+      "rel": "relates_to"
+    },
+    {
+      "from": "donor-bounties",
+      "to": "note-donor-bounties",
+      "rel": "relates_to"
+    },
+    {
+      "from": "donor-bounties",
+      "to": "quest-detail",
+      "rel": "relates_to"
+    },
+    {
+      "from": "posting-fee-economy",
+      "to": "quest-creation",
+      "rel": "relates_to"
+    },
+    {
+      "from": "posting-fee-economy",
+      "to": "treasury-account",
+      "rel": "relates_to"
+    },
+    {
+      "from": "claim-reporting",
+      "to": "quest-claim-flow",
+      "rel": "relates_to"
+    },
+    {
+      "from": "claim-reporting",
+      "to": "civic-hours-cert",
+      "rel": "relates_to"
+    },
+    {
+      "from": "quest-attachments",
+      "to": "claim-reporting",
+      "rel": "relates_to"
+    },
+    {
+      "from": "level-curves",
+      "to": "level-up-ui",
+      "rel": "relates_to"
+    },
+    {
+      "from": "service-principal-api",
+      "to": "public-api",
+      "rel": "relates_to"
+    },
+    {
+      "from": "llm-xp-suggestion",
+      "to": "no-runtime-llm-gen",
+      "rel": "relates_to"
+    },
+    {
+      "from": "verifier-role",
+      "to": "quest-verification",
+      "rel": "relates_to"
+    },
+    {
+      "from": "treasury-account",
+      "to": "posting-fee-economy",
+      "rel": "relates_to"
+    },
+    {
+      "from": "clone-quest",
+      "to": "quest-claim-flow",
+      "rel": "relates_to"
+    },
+    {
+      "from": "pdf-certificate",
+      "to": "civic-hours-cert",
+      "rel": "relates_to"
+    },
+    {
+      "from": "quest-verification",
+      "to": "quest-claim-flow",
+      "rel": "relates_to"
+    },
+    {
+      "from": "npc-quest-givers",
+      "to": "simulator",
+      "rel": "relates_to"
+    },
+    {
+      "from": "flavor-text",
+      "to": "simulator",
+      "rel": "relates_to"
+    },
+    {
+      "from": "world-reset",
+      "to": "simulator",
+      "rel": "relates_to"
+    },
+    {
+      "from": "world-reset",
+      "to": "admin-sim-reset",
+      "rel": "relates_to"
+    },
+    {
+      "from": "quest-templates",
+      "to": "discord-data-pipeline",
+      "rel": "relates_to"
+    },
+    {
+      "from": "fulltext-search",
+      "to": "quest-browse",
+      "rel": "relates_to"
+    },
+    {
+      "from": "rate-limits",
+      "to": "public-api",
+      "rel": "relates_to"
+    },
+    {
+      "from": "reputation-badges",
+      "to": "user-page-badges",
+      "rel": "relates_to"
+    },
+    {
+      "from": "bounty-matching",
+      "to": "donor-bounties",
+      "rel": "relates_to"
+    },
+    {
+      "from": "bounty-acknowledgment",
+      "to": "donor-bounties",
+      "rel": "relates_to"
+    },
+    {
+      "from": "bounty-expiry-sweep",
+      "to": "donor-bounties",
+      "rel": "relates_to"
+    }
+  ]
+}

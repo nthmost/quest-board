@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Actropolis — feature graph</title>
+<style>
+  :root {
+    --bg: #0f1419; --panel: #161c24; --line: #2a3340; --ink: #e6edf3;
+    --dim: #8a97a6; --accent: #6ea8fe;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  #app { display: grid; grid-template-columns: 1fr 320px; grid-template-rows: auto 1fr;
+    grid-template-areas: "head head" "graph side"; height: 100%; }
+  header { grid-area: head; padding: 12px 18px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; gap: 16px; }
+  header h1 { font-size: 15px; margin: 0; letter-spacing: .3px; font-weight: 700; }
+  header .meta { font-size: 12px; color: var(--dim); }
+  header a { color: var(--accent); text-decoration: none; font-size: 13px;
+    border: 1px solid var(--line); padding: 3px 9px; border-radius: 6px; }
+  header a:hover { border-color: var(--accent); }
+  #cy { grid-area: graph; width: 100%; height: 100%; }
+  aside { grid-area: side; border-left: 1px solid var(--line); padding: 14px 16px;
+    overflow-y: auto; font-size: 13px; }
+  aside h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .8px;
+    color: var(--dim); margin: 18px 0 8px; }
+  aside h2:first-child { margin-top: 0; }
+  .legend-row { display: flex; align-items: center; gap: 8px; padding: 3px 0;
+    cursor: pointer; user-select: none; }
+  .legend-row.off { opacity: .35; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+  .legend-row .lbl { font-size: 12px; }
+  .legend-row .ct { margin-left: auto; font-size: 11px; color: var(--dim); }
+  #detail .empty { color: var(--dim); font-style: italic; }
+  #detail .title { font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+  #detail .pill { display: inline-block; font-size: 10px; text-transform: uppercase;
+    letter-spacing: .6px; padding: 2px 7px; border-radius: 10px; margin-right: 6px;
+    border: 1px solid var(--line); }
+  #detail dl { margin: 10px 0 0; display: grid; grid-template-columns: 78px 1fr;
+    gap: 4px 10px; }
+  #detail dt { color: var(--dim); font-size: 11px; text-transform: uppercase;
+    letter-spacing: .5px; }
+  #detail dd { margin: 0; word-break: break-word; }
+  #detail .reason { margin-top: 10px; padding: 8px 10px; background: var(--panel);
+    border-left: 3px solid var(--accent); border-radius: 4px; font-size: 12.5px;
+    color: #cbd5e1; }
+  .edge-key { font-size: 11px; color: var(--dim); line-height: 1.7; }
+  .edge-key b { color: var(--ink); font-weight: 600; }
+  code { font-family: "Space Mono", ui-monospace, monospace; font-size: 11.5px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Actropolis · feature graph</h1>
+    <span class="meta" id="counts"></span>
+    <a href="./overview.html">≣ text view</a>
+  </header>
+  <div id="cy"></div>
+  <aside>
+    <div id="detail"><div class="empty">Click a node for details.</div></div>
+    <h2>Status — click to filter</h2>
+    <div id="legend"></div>
+    <h2>Edges</h2>
+    <div class="edge-key">
+      <b style="color:#f97316">depends_on</b> / <b style="color:#ef4444">blocks</b> — ordering<br>
+      <b style="color:#22c55e">realizes</b> — implements a spec<br>
+      <b style="color:#ef4444">superseded_by</b> — replaced (dashed)<br>
+      <b style="color:#64748b">relates_to</b> — soft link
+    </div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.min.js"></script>
+<script>
+const STATUS_COLOR = {
+  shipped: "#22c55e", accepted: "#3b82f6", building: "#14b8a6",
+  proposed: "#a855f7", exploring: "#f59e0b", idea: "#94a3b8",
+  deferred: "#f97316", rejected: "#b91c1c", superseded: "#475569",
+  unknown: "#cbd5e1",
+};
+const TYPE_SHAPE = {
+  decision: "diamond", proposal: "round-rectangle", idea: "ellipse",
+  feature: "round-tag", spec: "rectangle", reference: "rectangle",
+  note: "hexagon", status: "rectangle", runbook: "rectangle",
+};
+const EDGE_STYLE = {
+  depends_on: { color: "#f97316", dash: [] },
+  blocks:     { color: "#ef4444", dash: [] },
+  realizes:   { color: "#22c55e", dash: [] },
+  supersedes: { color: "#ef4444", dash: [6, 4] },
+  superseded_by: { color: "#ef4444", dash: [6, 4] },
+  relates_to: { color: "#64748b", dash: [2, 4] },
+};
+
+async function main() {
+  const data = await (await fetch("./index.json", { cache: "no-store" })).json();
+  const ids = new Set(data.nodes.map(n => n.id));
+  document.getElementById("counts").textContent =
+    `${data.node_count} nodes · ${data.edge_count} edges`;
+
+  const elements = [];
+  for (const n of data.nodes) elements.push({ data: { ...n } });
+  for (const e of data.edges) {
+    if (!ids.has(e.from) || !ids.has(e.to)) continue;
+    elements.push({ data: { id: `${e.from}|${e.rel}|${e.to}`, source: e.from,
+      target: e.to, rel: e.rel } });
+  }
+
+  const cy = cytoscape({
+    container: document.getElementById("cy"),
+    elements,
+    layout: { name: "dagre", rankDir: "TB", nodeSep: 45, rankSep: 70, edgeSep: 12 },
+    style: [
+      { selector: "node", style: {
+        "label": "data(id)", "color": "#e6edf3", "font-size": 11,
+        "font-family": "Inter, sans-serif", "text-valign": "bottom",
+        "text-margin-y": 5, "width": 20, "height": 20,
+        "background-color": ele => STATUS_COLOR[ele.data("status")] || STATUS_COLOR.unknown,
+        "shape": ele => TYPE_SHAPE[ele.data("type")] || "ellipse",
+        "border-width": 1.5, "border-color": "#0f1419",
+      }},
+      { selector: "node:selected", style: {
+        "border-width": 3, "border-color": "#6ea8fe", "width": 26, "height": 26 }},
+      { selector: "node.dim", style: { "opacity": 0.12 } },
+      { selector: "edge", style: {
+        "width": 1.6, "curve-style": "bezier", "target-arrow-shape": "triangle",
+        "arrow-scale": 0.9,
+        "line-color": ele => (EDGE_STYLE[ele.data("rel")] || {}).color || "#64748b",
+        "target-arrow-color": ele => (EDGE_STYLE[ele.data("rel")] || {}).color || "#64748b",
+        "line-dash-pattern": ele => (EDGE_STYLE[ele.data("rel")] || {}).dash || [],
+        "line-style": ele => ((EDGE_STYLE[ele.data("rel")] || {}).dash || []).length ? "dashed" : "solid",
+      }},
+      { selector: "edge.dim", style: { "opacity": 0.06 } },
+    ],
+  });
+
+  cy.on("tap", "node", evt => showDetail(evt.target.data()));
+  cy.on("tap", evt => { if (evt.target === cy) clearDetail(); });
+  buildLegend(cy, data.nodes);
+}
+
+function showDetail(d) {
+  const row = (k, v) => v && v.length ? `<dt>${k}</dt><dd>${esc(v)}</dd>` : "";
+  const list = v => Array.isArray(v) ? v.join(", ") : v;
+  document.getElementById("detail").innerHTML = `
+    <p class="title">${esc(d.title || d.id)}</p>
+    <div>
+      <span class="pill" style="border-color:${STATUS_COLOR[d.status] || "#475569"};
+        color:${STATUS_COLOR[d.status] || "#cbd5e1"}">${esc(d.status)}</span>
+      <span class="pill">${esc(d.type)}</span>
+    </div>
+    ${d.reason ? `<div class="reason">${esc(d.reason)}</div>` : ""}
+    <dl>
+      ${row("id", d.id)}
+      ${row("tags", list(d.tags))}
+      ${row("owners", list(d.owners))}
+      ${row("updated", d.updated)}
+      ${d.path ? `<dt>path</dt><dd><code>${esc(d.path)}</code></dd>` : ""}
+    </dl>`;
+}
+
+function clearDetail() {
+  document.getElementById("detail").innerHTML =
+    '<div class="empty">Click a node for details.</div>';
+}
+
+function buildLegend(cy, nodes) {
+  const counts = {};
+  for (const n of nodes) counts[n.status] = (counts[n.status] || 0) + 1;
+  const off = new Set();
+  const el = document.getElementById("legend");
+  el.innerHTML = "";
+  for (const status of Object.keys(STATUS_COLOR)) {
+    if (!counts[status]) continue;
+    const row = document.createElement("div");
+    row.className = "legend-row";
+    row.innerHTML = `<span class="swatch" style="background:${STATUS_COLOR[status]}"></span>
+      <span class="lbl">${status}</span><span class="ct">${counts[status]}</span>`;
+    row.onclick = () => {
+      off.has(status) ? off.delete(status) : off.add(status);
+      row.classList.toggle("off");
+      applyFilter(cy, off);
+    };
+    el.appendChild(row);
+  }
+}
+
+function applyFilter(cy, off) {
+  cy.batch(() => {
+    cy.nodes().forEach(n => n.toggleClass("dim", off.has(n.data("status"))));
+    cy.edges().forEach(e =>
+      e.toggleClass("dim", e.source().hasClass("dim") || e.target().hasClass("dim")));
+  });
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+main();
+</script>
+</body>
+</html>
