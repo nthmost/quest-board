@@ -3,8 +3,9 @@
 > **Orientation:** This document is the **delta on top of [SPEC.md](./SPEC.md)**
 > describing the Progress-Quest-style demo at <https://quests.actropolis.org/>.
 > SPEC.md is the long-term Noisebridge productivity-tool design; this is what
-> we're actually shipping first. For what's currently built, see
-> [STATUS.md](./STATUS.md). For visual reference, see [UI.md](./UI.md).
+> we're actually shipping first. For what's currently built, see `STATUS.md`
+> (in the Actropolis controller dir, one level up). For visual reference, see
+> [UI.md](./UI.md).
 > If you're brand new, start with [README.md](./README.md).
 
 

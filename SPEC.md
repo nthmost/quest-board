@@ -3,7 +3,8 @@
 > **Orientation:** This document is the long-term productivity-tool design.
 > The Progress-Quest-style demo currently being built is a delta on top of
 > this spec — see [DEMO.md](./DEMO.md). For what's actually built right now,
-> see [STATUS.md](./STATUS.md). For visual reference, see [UI.md](./UI.md).
+> see `STATUS.md` (in the Actropolis controller dir, one level up). For visual
+> reference, see [UI.md](./UI.md).
 > If you're brand new, start with [README.md](./README.md).
 
 
@@ -595,4 +596,4 @@ Same shape as before. Returns `xp_suggested` only when `calibration_status == 'c
 
 ## 10. Deployment
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full runbook: service user setup, Postgres, systemd unit, reverse proxy + Let's Encrypt, backups, and the per-instance env (branding, theme, economy YAML).
+See `DEPLOYMENT.md` (in the Actropolis controller dir, one level up) for the full runbook: service user setup, Postgres, systemd unit, reverse proxy + Let's Encrypt, backups, and the per-instance env (branding, theme, economy YAML).

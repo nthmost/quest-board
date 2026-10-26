@@ -56,10 +56,15 @@ could feel like.
 
 ## Where to look for what
 
+This repo holds the **product/design docs**. The **ops/deployment docs**
+(`STATUS.md`, `DEPLOYMENT.md`, `ANSIBLE_future.md`) live one level up in the
+**Actropolis controller** directory that coordinates this repo's two deployments
+(the Actropolis demo and the Noisebridge Quest Board).
+
 Read these in order:
 
-1. **[STATUS.md](./STATUS.md)** — what's actually built and live right now,
-   what's stubbed, what's next. Always reflects the head of `main`.
+1. **STATUS.md** *(in the Actropolis controller dir, one level up)* — what's
+   actually built and live right now, what's stubbed, what's next.
 2. **[SPEC.md](./SPEC.md)** — the long-term productivity tool design.
    Defines the data model, economy mechanics, API surface, state machine.
    The demo is built on top of this spec.
@@ -68,10 +73,10 @@ Read these in order:
    modifications, and what reverts when `demo.enabled = false`.
 4. **[UI.md](./UI.md)** — visual register, palette, panel system,
    page-by-page reference, component vocabulary, anti-patterns observed.
-5. **[DEPLOYMENT.md](./DEPLOYMENT.md)** — ops runbook for the live
-   service: hosts, secrets, Apache vhost, systemd, backups.
-6. **[ANSIBLE_future.md](./ANSIBLE_future.md)** — non-binding sketch of
-   how this would scale to a multi-host fleet (Pis around the space).
+5. **DEPLOYMENT.md** *(in the Actropolis controller dir, one level up)* — ops
+   runbook for the live service: hosts, secrets, Apache vhost, systemd, backups.
+6. **ANSIBLE_future.md** *(in the Actropolis controller dir, one level up)* —
+   non-binding sketch of how this would scale to a multi-host fleet.
 
 ---
 
@@ -107,45 +112,47 @@ SIGHUP or restart.
 ## Repo layout
 
 ```
-quest-board/
-├── README.md                      # ← you are here
+actropolis/                        # controller dir (not this repo)
+├── README.md                      # controller overview
 ├── STATUS.md                      # current build state
-├── SPEC.md                        # the "real" productivity tool
-├── DEMO.md                        # Progress Quest demo, delta on SPEC
-├── UI.md                          # visual reference
 ├── DEPLOYMENT.md                  # ops runbook
 ├── ANSIBLE_future.md              # multi-host future sketch
-│
-├── pyproject.toml                 # FastAPI + SQLAlchemy + Alembic + Jinja
-├── alembic.ini
-├── alembic/versions/0001..0009    # full migration chain
-├── economy.example.yaml           # all economy knobs in one file
-│
-├── app/
-│   ├── main.py                    # FastAPI factory, SIGHUP handler, asset_v
-│   ├── config.py                  # YAML loader
-│   ├── db.py                      # SQLAlchemy engine + session
-│   ├── auth.py                    # local login/register, admin gate, view-as toggle
-│   ├── local_auth.py              # Argon2id password hashing / validation
-│   ├── models/                    # one file per table
-│   ├── schemas/                   # Pydantic in/out
-│   ├── services/                  # business logic (tiny, pure-ish)
-│   ├── routes/                    # pages.py, me.py, admin.py, api routers
-│   ├── templates/                 # Jinja
-│   └── static/css/nes.css         # all styles
-│
-├── data/
-│   ├── skill_vocab.yaml           # 32-slug controlled vocabulary
-│   └── quest_templates/
-│       ├── discord_mined.yaml     # raw mined Discord candidates (~600)
-│       └── discord_tagged.yaml    # 348 LLM-curated + skill-tagged seeds
-│
-└── scripts/
-    ├── seed.py                    # guilds, locations, sample users + quests
-    ├── mine_discord.py            # walk archives, surface task-shaped messages
-    ├── curate_discord.py          # LLM pass: is_task / clean title / xp
-    ├── tag_skills.py              # LLM pass: pick 1-3 skills from vocab
-    └── ingest_pool.py             # YAML → live quests table
+└── quest-board/                   # ← this repo
+    ├── README.md                  # ← you are here
+    ├── SPEC.md                    # the "real" productivity tool
+    ├── DEMO.md                    # Progress Quest demo, delta on SPEC
+    ├── UI.md                      # visual reference
+    │
+    ├── pyproject.toml             # FastAPI + SQLAlchemy + Alembic + Jinja
+    ├── alembic.ini
+    ├── alembic/versions/0001..0009 # full migration chain
+    ├── economy.example.yaml       # all economy knobs in one file
+    │
+    ├── app/
+    │   ├── main.py                # FastAPI factory, SIGHUP handler, asset_v
+    │   ├── config.py              # YAML loader
+    │   ├── db.py                  # SQLAlchemy engine + session
+    │   ├── auth.py                # local login/register, admin gate, view-as toggle
+    │   ├── local_auth.py          # Argon2id password hashing / validation
+    │   ├── models/                # one file per table
+    │   ├── schemas/               # Pydantic in/out
+    │   ├── services/              # business logic (tiny, pure-ish)
+    │   ├── routes/                # pages.py, me.py, admin.py, api routers
+    │   ├── templates/             # Jinja
+    │   └── static/css/nes.css     # all styles
+    │
+    ├── data/
+    │   ├── skill_vocab.yaml       # 32-slug controlled vocabulary
+    │   └── quest_templates/
+    │       ├── discord_mined.yaml  # raw mined Discord candidates (~600)
+    │       └── discord_tagged.yaml # 348 LLM-curated + skill-tagged seeds
+    │
+    └── scripts/
+        ├── seed.py                # guilds, locations, sample users + quests
+        ├── mine_discord.py        # walk archives, surface task-shaped messages
+        ├── curate_discord.py      # LLM pass: is_task / clean title / xp
+        ├── tag_skills.py          # LLM pass: pick 1-3 skills from vocab
+        └── ingest_pool.py         # YAML → live quests table
 ```
 
 ---
